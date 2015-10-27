@@ -1,0 +1,6 @@
+*.o
+mreader
+._*
+*.dat
+.*.swp
+.*.swo
