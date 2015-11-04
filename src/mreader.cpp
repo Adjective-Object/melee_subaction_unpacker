@@ -49,12 +49,12 @@ int main(int argc, char** argv) {
 
     char * filename = argv[1];
     printf("%s\n", filename);
-    dol_header * datfile = (dol_header *) makeOperatingFile(filename);
+    dat_header * datfile = (dat_header *) makeOperatingFile(filename);
     cout << "made temp file '._" << filename << ".tmp'" << endl;
     cout << "mmap origin: " << datfile << endl;
 
-    dolfile_init(datfile);
-    print_dolfile_index(datfile);
+    DatFile * dat = new DatFile(datfile);
+    dat->print();
 
     return 0;
 }

@@ -1,20 +1,23 @@
-all: mreader
-
 program = mreader
-srcs = src/mreader.cpp src/dolfs.cpp
+srcs = src/mreader.cpp src/dolfs.cpp src/helpers.cpp
 objs = $(srcs:.cpp=.o)
 
 LDFLAGS = 
 LIBS =
 CCFLAGS = -g -Wall --std=c++11
 
+all: $(program)
+
 $(program): $(objs)
-	g++ $(LDFLAGS) $(objs) $(LIBS) -o mreader
+	g++ $(LDFLAGS) $(objs) $(LIBS) -o $(program)
 
 clean:
 	rm -f $(objs) $(program)
 
-%.o : %.cpp
-	g++ $(CCFLAGS) -c $*.cpp -o $@
+src/$(program).o: src/$(program).cpp
+	g++ $(CCFLAGS) -c $< -o $@
+
+%.o : %.cpp %.h
+	g++ $(CCFLAGS) -c $< -o $@
 
 
