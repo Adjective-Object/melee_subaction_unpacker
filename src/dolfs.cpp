@@ -1,5 +1,6 @@
 #include "dolfs.h"
 #include "macros.h"
+#include "event_mapper.h"
 #include <iostream>
 #include <iomanip>
 #include <map>
@@ -13,7 +14,8 @@ DatFile::DatFile(dat_header * header) : header(header) {
     // Fix the endianness on the header itself
     fix_endianness(header, sizeof(dat_header), sizeof(uint32_t)); 
     
-    // Use the header to get references to the rest of the header
+    // Use the header to get references to the rest of the sections
+    // of the file
     this->dataSection = (char *)(header + 1);
     this->offsetTable = (uint32_t *)
         (dataSection + header->dataSectionSize);
@@ -76,10 +78,14 @@ FtData::FtData(const DatFile * datfile, ftdata_header * ftheader) {
             (ftdata_attribute_table *) 
                 (datfile->dataSection + ftheader->attributesStart));
 
-    this->subactions = new FtDataSubactionTable(
-            datfile, 
-            (ftdata_subaction_header *) 
-                (datfile->dataSection + ftheader->subactionsStart));
+    ftdata_subaction_header * headers = 
+        (ftdata_subaction_header *) 
+            (datfile->dataSection + ftheader->subactionsStart);
+
+    this->subactions = vector<FtDataSubaction *>(NUM_SUBACTIONS);
+    for(unsigned int i=0; i<NUM_SUBACTIONS; i++) {
+       subactions[i] = new FtDataSubaction(datfile, i, &(headers[i]));
+    }
 }
 
 void FtData::print(int indent /*= 0*/) {
@@ -91,7 +97,9 @@ void FtData::print(int indent /*= 0*/) {
 
     // print subactions
     cout << ind << "[subactions]" << endl;
-    this->subactions->print(indent + 1);
+    for (size_t i=0; i<NUM_SUBACTIONS; i++) {
+        this->subactions[i]->print(indent + 1);
+    }
 }
 
 
@@ -205,23 +213,49 @@ void FtDataAttributes::print(int indent /*=0*/) {
     cout << ind << "weight dep. throw speed flags =     " << attributes->weight_dependent_throw_speed_flags << endl;
 }
 
-FtDataSubactionTable::FtDataSubactionTable(const DatFile * datfile,
-        ftdata_subaction_header * subaction_headers) {
+FtDataSubaction::FtDataSubaction(const DatFile * datfile,
+        unsigned int index,
+        ftdata_subaction_header * subheader) {
     this->datfile = datfile;
-    this->subactions = subaction_headers;
-    fix_endianness(subaction_headers, 
-            sizeof(ftdata_subaction_header) * NUM_SUBACTIONS, 4);
+    this->header = subheader;
+    fix_endianness(subheader, sizeof(subaction_header), 4);
+    this->index = index;
+    
+    uint32_t stringOffset = this->header->stringOffset ;
+    this->name = (stringOffset == 0) 
+        ? "<no name>" 
+        : datfile->dataSection + stringOffset;
+
+    this->events = this->datfile->dataSection + 
+        (this->header->eventsOffset);
 }
 
-void FtDataSubactionTable::print(int indent /*=0*/) {
-    string ind(indent * INDENT_SIZE, ' ');
+void FtDataSubaction::print(int indent /*=0*/) {
+    ios::fmtflags f( cout.flags() ); 
 
-    for(size_t i=0; i<NUM_SUBACTIONS; i++) {
-        char * name = this->datfile->dataSection +
-            (this->subactions[i].stringOffset);
-        cout << ind << left << setw(3) << i << ": " << name << endl;
+    unsigned char * event = (unsigned char *) this->events;
+    if (*event == SUBACTION_TERMINATOR) {
+        return;
     }
 
+    string ind = string(indent * INDENT_SIZE, ' ');
+    cout << ind << left << setw(3) << index << ": " << name << endl;
+    ind = string ((indent + 1) * INDENT_SIZE, ' ');
+    cout << ind << "event offset: " 
+        << hex << this->header->eventsOffset << endl;
+    
+    char s[256];
+    while(*event != SUBACTION_TERMINATOR) {
+        unsigned int length = evt_lengths[(EVENT_ID) *event];
+        if (length == 0) {
+            cout << ind ;
+            printf("%02x UNRECOGNIZED\n", (unsigned) *event);
+            break;
+        }
+        cout << ind << evt_to_str(s,  event) << endl; 
+        event += length;
+    }
+    cout.flags( f );
 }
 
 AnonymousData::AnonymousData(void * data): data(data){}

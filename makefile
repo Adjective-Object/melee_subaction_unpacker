@@ -1,5 +1,5 @@
 program = mreader
-srcs = src/mreader.cpp src/dolfs.cpp src/helpers.cpp
+srcs = src/mreader.cpp src/dolfs.cpp src/helpers.cpp src/event_mapper.cpp
 objs = $(srcs:.cpp=.o)
 
 LDFLAGS = 

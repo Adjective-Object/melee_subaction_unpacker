@@ -192,10 +192,11 @@ typedef struct ftdata_attribute_table {
 
 typedef struct ftdata_subaction_header {
    uint32_t stringOffset; // offset to the null terminated subaction name
-   uint32_t unknown0x04;
+   uint32_t animationOffset;
    uint32_t unknown0x08;
    uint32_t eventsOffset; // offset to the null terminated subaction body
-   uint32_t unknown0x10;
+   uint16_t positionalFlags; // related to changing position
+   uint16_t characterID;
    uint32_t unknown0x14;
 } __attribute__((packed)) subaction_header;
 
@@ -210,21 +211,25 @@ public:
 };
 
 #define NUM_SUBACTIONS 0x126
-class FtDataSubactionTable : public DataProxy {
+class FtDataSubaction : public DataProxy {
     const DatFile * datfile;
-    ftdata_subaction_header * subactions;
+    ftdata_subaction_header * header;
+    const char * name;
+    char * events;
+    unsigned int index;
 public:
-    FtDataSubactionTable(const DatFile * datheader, subaction_header * header);
-    void print(int indent = 0);
+    FtDataSubaction(const DatFile * datheader,
+            unsigned int index,
+            subaction_header * header);
+    void print(int indent);
 };
-
 
 
 class FtData : public DataProxy {
     const DatFile * datfile;
     ftdata_header * ftheader;
     FtDataAttributes * attributes;
-    FtDataSubactionTable * subactions;
+    vector<FtDataSubaction *> subactions;
 public:
     FtData(const DatFile * datheader, ftdata_header * header);
     void print(int indent = 0);
