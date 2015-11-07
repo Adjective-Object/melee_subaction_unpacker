@@ -9,6 +9,7 @@
 
 #include "macros.h"
 #include "dolfs.h"
+#include "config.h"
 
 using namespace std;
 
@@ -47,7 +48,8 @@ int main(int argc, char** argv) {
         "host endianness matches gamecube datfile endianness",
         "host endianness does not match gamecube datfile endianness") << endl;
 
-    char * filename = argv[1];
+    char * filename = parseConf(argc, argv);
+    
     printf("%s\n", filename);
     dat_header * datfile = (dat_header *) makeOperatingFile(filename);
     cout << "made temp file '._" << filename << ".tmp'" << endl;

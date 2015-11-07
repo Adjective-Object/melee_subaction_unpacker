@@ -3,8 +3,24 @@
 #include <cstring>
 
 #include "helpers.h"
+#include "config.h"
+#include <iostream>
+#include <iomanip>
 
 using namespace std;
+
+
+void cout_hex(int indent, unsigned char*c, size_t rowsize, size_t rows) {
+    string ind = string(indent * INDENT_SIZE, ' ');
+    for (unsigned int i=0; i<rows; i++) {
+        cout << ind;
+        for (unsigned int j=0; j<rowsize; j++) {
+            cout << hex << setfill('0') << setw(2) 
+                << +c[i*rowsize + j] << " ";
+        }
+    cout << endl;
+    }
+}
 
 void print_hex(char * c, size_t ct){
     for(size_t i=0; i<ct; i++) {

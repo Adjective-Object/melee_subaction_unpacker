@@ -7,6 +7,7 @@
 #include <cstring>
 
 #include "helpers.h"
+#include "config.h"
 
 using namespace std;
 
@@ -58,6 +59,19 @@ void DatFile::print(int indent) {
     unsigned int root_ct = header->rootCountA + header->rootCountB;
     cout << ind << "total root count: " << root_ct << endl;
 
+    ios::fmtflags f( cout.flags() ); 
+
+    cout << ind << "relocation table offset: " 
+         << hex << (char *) offsetTable - (char *) header << endl;
+
+    cout << ind << "rootList offset: " 
+         << hex << (char *) rootList - (char *) header << endl;
+
+    cout << ind << "string table offset: " 
+         << hex << (char *) stringTable - (char *) header << endl;
+
+    cout.flags(f);
+
     map<string, DataProxy *>::iterator iter;
     for (iter = children.begin(); iter != children.end(); ++iter) {
         cout << ind << iter->first << endl;
@@ -79,27 +93,83 @@ FtData::FtData(const DatFile * datfile, ftdata_header * ftheader) {
                 (datfile->dataSection + ftheader->attributesStart));
 
     ftdata_subaction_header * headers = 
-        (ftdata_subaction_header *) 
+        (subaction_header *) 
             (datfile->dataSection + ftheader->subactionsStart);
 
     this->subactions = vector<FtDataSubaction *>(NUM_SUBACTIONS);
     for(unsigned int i=0; i<NUM_SUBACTIONS; i++) {
        subactions[i] = new FtDataSubaction(datfile, i, &(headers[i]));
     }
+
+
+
+    if (SPECIAL_SUBACTION_OFFSET != 0) {
+        ftdata_subaction_header * special_headers = 
+            (ftdata_subaction_header *) 
+            (datfile->dataSection + SPECIAL_SUBACTION_OFFSET);
+
+        this->specialactions = vector<FtDataSubaction *>
+            (SPECIAL_SUBACTION_COUNT);
+        for(unsigned int i=0; i<SPECIAL_SUBACTION_COUNT; i++) {
+            specialactions[i] = new FtDataSubaction(
+                datfile, i, &(special_headers[i]));
+        }
+    } else {
+        this->specialactions = vector<FtDataSubaction *>(0);
+    }
+
+
 }
 
 void FtData::print(int indent /*= 0*/) {
     string ind(indent * INDENT_SIZE, ' ');
+    ios::fmtflags f( cout.flags() ); 
+
+    cout << ind << "offset: " << hex 
+        << (intptr_t)(((char *)this->ftheader) - 
+            ((char *)this->datfile->dataSection)) << endl;
+
+    cout << ind << "[unknown 0x08]: 0x" << this->ftheader->unknown0x08 << endl;
+    cout_hex(indent + 1, (unsigned char *) 
+            this->datfile->dataSection + 
+                this->ftheader->unknown0x08, 12, 8);
+
+    cout << ind << "[unknown 0x10]: 0x" << this->ftheader->unknown0x10 << endl;
+    cout_hex(indent + 1, (unsigned char *) 
+            this->datfile->dataSection + 
+                this->ftheader->unknown0x10, 12, 8);
+
+    cout << ind << "[unknown 0x18]:" << endl;
+    cout_hex(indent + 1, (unsigned char *) 
+            &(this->ftheader->unknown0x18), 18, 1);
+
+    cout.flags(f);
+
 
     // print attribute table
-    cout << ind << "[attribute_table]" << endl;
+    cout << ind << "[attribute_table]: 0x"
+         << hex << this->ftheader->attributesStart + 20 << endl;
     this->attributes->print(indent + 1);
 
     // print subactions
-    cout << ind << "[subactions]" << endl;
+    cout << ind << "[subactions] "<< endl;
     for (size_t i=0; i<NUM_SUBACTIONS; i++) {
         this->subactions[i]->print(indent + 1);
     }
+
+     // print subactions
+    cout << ind << "[special actions] "<< endl;
+    if (this->specialactions.size() > 0) {
+        for (size_t i=0; i<this->specialactions.size(); i++) {
+            this->specialactions[i]->print(indent + 1);
+        }
+    } else {
+        cout << ind << RED
+             << "special actions offset not given, " 
+             << "and there is no known way" << endl << ind
+             << "to find it from headers." << RESET << endl;
+    }
+
 }
 
 
@@ -223,39 +293,33 @@ FtDataSubaction::FtDataSubaction(const DatFile * datfile,
     
     uint32_t stringOffset = this->header->stringOffset ;
     this->name = (stringOffset == 0) 
-        ? "<no name>" 
+        ? (char*)"<no name>" 
         : datfile->dataSection + stringOffset;
 
     this->events = this->datfile->dataSection + 
         (this->header->eventsOffset);
 }
 
-void FtDataSubaction::print(int indent /*=0*/) {
+void FtDataSubaction::print(int indent /*=0*/) { 
+    string ind = string(indent * INDENT_SIZE, ' ');
     ios::fmtflags f( cout.flags() ); 
 
-    unsigned char * event = (unsigned char *) this->events;
-    if (*event == SUBACTION_TERMINATOR) {
-        return;
-    }
+    cout << ind
+         << MAGENTA
+         << this->index << " "
+         << hex << "(0x"
+         << (char *) this->header - (char *) this->datfile->header 
+         << "): "
+         << RESET
+         << this->name
+         << endl;
+   
+    print_action(
+            indent + 1,
+            this->datfile,
+            this->header->eventsOffset);
 
-    string ind = string(indent * INDENT_SIZE, ' ');
-    cout << ind << left << setw(3) << index << ": " << name << endl;
-    ind = string ((indent + 1) * INDENT_SIZE, ' ');
-    cout << ind << "event offset: " 
-        << hex << this->header->eventsOffset << endl;
-    
-    char s[256];
-    while(*event != SUBACTION_TERMINATOR) {
-        unsigned int length = evt_lengths[(EVENT_ID) *event];
-        if (length == 0) {
-            cout << ind ;
-            printf("%02x UNRECOGNIZED\n", (unsigned) *event);
-            break;
-        }
-        cout << ind << evt_to_str(s,  event) << endl; 
-        event += length;
-    }
-    cout.flags( f );
+    cout.flags(f);
 }
 
 AnonymousData::AnonymousData(void * data): data(data){}

@@ -1,5 +1,6 @@
 program = mreader
-srcs = src/mreader.cpp src/dolfs.cpp src/helpers.cpp src/event_mapper.cpp
+srcs = src/mreader.cpp src/dolfs.cpp src/helpers.cpp src/event_mapper.cpp \
+	   src/config.cpp
 objs = $(srcs:.cpp=.o)
 
 LDFLAGS = 
@@ -20,4 +21,11 @@ src/$(program).o: src/$(program).cpp
 %.o : %.cpp %.h
 	g++ $(CCFLAGS) -c $< -o $@
 
+.PHONY: Sk Fe
+
+Sk: $(program)
+	./$(program) PlSk.dat -s 8fc8 -c 24
+
+Fe: $(program)
+	./$(program) PlFe.dat -s 9bb4 -c 2D
 

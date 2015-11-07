@@ -6,8 +6,6 @@
 
 using namespace std;
 
-#define INDENT_SIZE 2
-
 typedef struct dat_header {
     uint32_t fileSize; // size of main data block
     uint32_t dataSectionSize;
@@ -197,9 +195,8 @@ typedef struct ftdata_subaction_header {
    uint32_t eventsOffset; // offset to the null terminated subaction body
    uint16_t positionalFlags; // related to changing position
    uint16_t characterID;
-   uint32_t unknown0x14;
+   uint32_t unknown0x14; // likely a null terminator
 } __attribute__((packed)) subaction_header;
-
 
 class FtDataAttributes : public DataProxy {
     const DatFile * datfile;
@@ -214,7 +211,7 @@ public:
 class FtDataSubaction : public DataProxy {
     const DatFile * datfile;
     ftdata_subaction_header * header;
-    const char * name;
+    char * name;
     char * events;
     unsigned int index;
 public:
@@ -226,10 +223,12 @@ public:
 
 
 class FtData : public DataProxy {
+    friend FtDataSubaction;
     const DatFile * datfile;
     ftdata_header * ftheader;
     FtDataAttributes * attributes;
     vector<FtDataSubaction *> subactions;
+    vector<FtDataSubaction *> specialactions;
 public:
     FtData(const DatFile * datheader, ftdata_header * header);
     void print(int indent = 0);
