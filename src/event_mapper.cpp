@@ -20,16 +20,14 @@ map<EVENT_ID, event_descriptor> evts{
     {SUBROUTINE, {0x8, "subroutine"}},
     {AUTOCANCEL, {0x4, "autocancel"}},
     {ALLOW_INTERRUPT, {0x4, "iasa"}},
-    {START_SMASH_CHARGE, {0x08, "smash_charge"}},
+    {START_SMASH_CHARGE, {0x08, "smashchrg"}},
 
     {HITBOX, {0x14, "hitbox"}},
-    {TERMINATE_ALL_COLLISSION, {0x4, "endall_coll"}},
+    {TERMINATE_ALL_COLLISSION, {0x4, "endcolls"}},
     {BODY_STATE, {0x4, "bodystate"}},
     {THROW, {0x10, "throw"}},
-    {REVERSE_DIRECTION, {0x4, "reverse_dir"}},
+    {REVERSE_DIRECTION, {0x4, "reverse"}},
     {UNKNOWN_FALLSPEED_MOD, {0x8, "fallmod?"}},
-    {AIRSTOP, {0x8, "airstop?"}},
-
 
     {GENERATE_ARTICLE, {0x4, "gen_article"}},
     {SELF_DAMAGE, {0x4, "selfhp"}},
@@ -45,9 +43,11 @@ map<EVENT_ID, event_descriptor> evts{
     // related to actionability? appears in a lot of 
     // effect-target / hit animation states
     // could also be related to character rotation
-    {UNKNOWN_A2, {0x4, "unknown"}},
+    // ADDENDUM: appears in wait and win animations
+    // on timers a bunch -- texture swapping?
+    {UNKNOWN_A2, {0x4, "texswap?"}},
     {UNKNOWN_D0, {0x4, "unknown"}},
-    {UNKNOWN_D8, {0x10, "unknown"}},
+    {UNKNOWN_D8, {0x10,"unknown"}},
     {UNKNOWN_DC, {0xC, "unknown"}},
     {UNKNOWN_20, {0x4, "unknown"}},
     {UNKNOWN_B4, {0xC, "unknown"}},
@@ -60,7 +60,30 @@ map<EVENT_ID, event_descriptor> evts{
     {UNKNOWN_A0, {0x4, "shootitem2?"}},
     {UNKNOWN_8C, {0x4, "screwatk?"}},
 
-    {UNKNOWN_94, {0x4, "unknown"}},
+    {UNKNOWN_94, {0x4,  "unknown"}},
+    {UNKNOWN_03, {0x10, "unknown"}},
+    {UNKNOWN_C4, {0x4,  "unknown"}},
+    {UNKNOWN_2D, {0x14, "bonegfx?"}},
+    {UNKNOWN_23, {0x8,  "unknown"}},
+    {UNKNOWN_64, {0x4,  "unknown"}},
+    {UNKNOWN_C5, {0x4,  "unknown"}},
+    {UNKNOWN_29, {0x4,  "unknown"}},
+    {UNKNOWN_6C, {0x4,  "unknown"}},
+    {UNKNOWN_74, {0x4,  "unknown"}},
+    {UNKNOWN_B5, {0x4,  "unknown"}},
+
+    {UNKNOWN_78, {0x4,  "unknown"}},
+    {UNKNOWN_77, {0x4,  "unknown"}},
+    {UNKNOWN_0D, {0xC,  "unknown"}},
+    {UNKNOWN_30, {0x4,  "unknown"}},
+    {UNKNOWN_31, {0x4,  "unknown"}},
+    {UNKNOWN_99, {0x18, "unknown"}},
+
+    // conflicts with itaru's definition of airstop (0x8 long)
+    // but without it, PlyEmblem's SpecialLw falls into 
+    // SpecialLwHit
+    {AIRSTOP, {0x4, "airstop?"}},
+
 
 };
 

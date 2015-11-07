@@ -114,7 +114,36 @@ enum EVENT_ID {
                        // at offsets 0x14 and 0x20,
                        // it is likely a 4 long instruction that
                        // takes a single parameter
+    
+    UNKNOWN_03 = 0x03, // somehow related to heavy walk
 
+    UNKNOWN_64 = 0x64, // based on consecutive DownBoundU and DownWaitU
+                       // subactions
+
+    UNKNOWN_C5 = 0xC5, // usually called as C5 FF FF FF
+
+    UNKNOWN_0D = 0x0D, // from PlySeak Swing4
+
+    // Things past this point are more or less shots in the dark
+    UNKNOWN_29 = 0x29, // appears in all of PlFE's aereal attacks
+
+    UNKNOWN_C4 = 0xC4, // appears in all of PlFE's aereal attacks
+
+    UNKNOWN_2D = 0x2D, // appears paired with hitboxes, with many
+                       // of the same arguments
+                       // This probably means that it's a bone-tied
+                       // graphic effect
+
+    UNKNOWN_23 = 0x23, // appears in Attack12 in PlSk. NO IDEA
+    UNKNOWN_6C = 0x6C, // called as 6C 00 00 00
+    UNKNOWN_74 = 0x74, // called as 6C 00 00 00
+    UNKNOWN_B5 = 0xB5, // called as 6C 00 00 00
+
+    UNKNOWN_78 = 0x78, // either 0x4 or 0x10
+    UNKNOWN_77 = 0x77,
+    UNKNOWN_30 = 0x30,
+    UNKNOWN_31 = 0x31,
+    UNKNOWN_99 = 0x99,
 
 };
 
