@@ -145,6 +145,9 @@ enum EVENT_ID {
     UNKNOWN_31 = 0x31,
     UNKNOWN_99 = 0x99,
 
+    UNKNOWN_A4 = 0xA4, // Guess based on PlZd
+    UNKNOWN_C8 = 0xC8, // Guess based on PlZd (Dash)
+
 };
 
 typedef struct event_descriptor {

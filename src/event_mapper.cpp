@@ -78,6 +78,9 @@ map<EVENT_ID, event_descriptor> evts{
     {UNKNOWN_30, {0x4,  "unknown"}},
     {UNKNOWN_31, {0x4,  "unknown"}},
     {UNKNOWN_99, {0x18, "unknown"}},
+    
+    {UNKNOWN_A4, {0x4, "unknown"}},
+    {UNKNOWN_C8, {0x4, "unknown"}},
 
     // conflicts with itaru's definition of airstop (0x8 long)
     // but without it, PlyEmblem's SpecialLw falls into 

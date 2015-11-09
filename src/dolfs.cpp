@@ -288,7 +288,7 @@ FtDataSubaction::FtDataSubaction(const DatFile * datfile,
         ftdata_subaction_header * subheader) {
     this->datfile = datfile;
     this->header = subheader;
-    fix_endianness(subheader, sizeof(subaction_header), 4);
+    fix_endianness(subheader, 16, 4);
     this->index = index;
     
     uint32_t stringOffset = this->header->stringOffset ;
@@ -313,6 +313,25 @@ void FtDataSubaction::print(int indent /*=0*/) {
          << RESET
          << this->name
          << endl;
+
+    /*
+    cout << hex << MAGENTA;
+    cout << ind << "  stroff: " << hex << 
+        this->header->stringOffset << endl;
+    cout << ind << "  animoff: " <<
+        this->header->animationOffset << endl;
+    cout << ind << "  unknown 0x8: " << 
+        this->header->unknown0x08 << endl;
+    cout << ind << "  eventsoff:" << 
+        this->header->eventsOffset << endl;
+    cout << ind << "  positionalFlags: " << 
+        this->header->positionalFlags << endl;
+    cout << ind << "  charID: " << 
+        this->header->characterID << endl;
+    cout << ind << "  unknown0x14: " << 
+        this->header->unknown0x14 << endl;
+    cout << RESET;
+    */
    
     print_action(
             indent + 1,
