@@ -1,0 +1,3183 @@
+host endianness does not match gamecube datfile endianness
+special subaction offset:9170
+special subaction count:27
+datfiles/PlPc.dat
+making temp file ./._..tmp
+mmap origin: 0x7f38db90a000
+addr of root list: 0x7f38db944a50
+root count A: 1
+root count B: 0
+total root count: 1
+relocation table offset: 38e20
+rootList offset: 3aa50
+string table offset: 3aa58
+ftDataPichu
+    offset: 9600
+    [unknown 0x08]: 0x0
+        00 00 00 04 00 00 75 68 00 00 00 02 
+        00 00 75 b8 11 2c 10 23 29 00 00 00 
+        50 6c 79 50 69 63 68 75 35 4b 5f 53 
+        68 61 72 65 5f 41 43 54 49 4f 4e 5f 
+        57 61 6c 6c 44 61 6d 61 67 65 5f 66 
+        69 67 61 74 72 65 65 00 50 6c 79 50 
+        69 63 68 75 35 4b 5f 53 68 61 72 65 
+        5f 41 43 54 49 4f 4e 5f 44 61 6d 61 
+    [unknown 0x10]: 0x6d04
+        00 00 00 00 06 00 00 00 00 00 00 00 
+        00 00 06 00 06 00 06 00 00 00 00 00 
+        00 00 06 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 06 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 
+    [unknown 0x18]:
+        84 6f 00 00 b4 26 00 00 bc 26 00 00 a0 6f 00 00 00 00 
+    [attribute_table]: 0x3448
+        [attribute_table]
+        walk_initial_velocity =             0.15
+        walk_acceleration =                 0.1
+        walk_maximum_velocity =             1.24
+        walk_animation_speed =              0.108
+        walk_mid_point =                    0.25
+        fast_walk_min =                     0.367
+        friction =                          0.1
+        dash_initial_velocity =             1.8
+        stopturn_initial_velocity =         0.08
+        run_initial_velocity =              0.02
+        run_max_velocity =                  1.72
+        run_animation_scaling =             0.467
+        run_acceleration =                  30
+        unknown0x34 =                       3
+        jump_startup_lag =                  3
+        jump_h_initial_velocity =           0.8
+        jump_v_initial_velocity =           2.6
+        ground_air_jump_momentum_mult =     0.8
+        jump_h_max_velocity =               1.8
+        shorthop_v_initial_velocity =       1.7
+        air_jump_multiplier =               1
+        unknown0x54 =                       0.8
+        number_of_jumps =                   2
+        gravity =                           0.11
+        terminal_velocity =                 1.9
+        aerial_mobility =                   0.03
+        aerial_stopping_mobility =          0.02
+        max_aerial_h_velocity =             0.85
+        air friction =                      0.01
+        fast_fall_terminal_velocity =       2.5
+        unknown0x78 =                       3
+        jab_2_window =                      24
+        jab_3_window =                      0
+        turn_duration =                     4
+        weight =                            55
+        model_scaling =                     0.5
+        shield_size =                       24.3
+        shield_break_initial_velocity =     3.5
+        rapid_jab_window =                  0
+        unknown0x9C =                       16
+        unknown0xA0 =                       0
+        unknown0xA4 =                       1.4013e-45
+        ledgejump_horizontal_velocity =     1
+        ledgejump_vertical_velocity =       2.6
+        item_throw_velocity =               0.9
+        unknown0xB4 =                       0.9
+        unknown0xB8 =                       0.2
+        unknown0xBC =                       1.6
+        unknown0xC0 =                       0
+        unknown0xC4 =                       6
+        unknown0xC8 =                       0
+        unknown0xCC =                       0
+        unknown0xD0 =                       9
+        unknown0xD4 =                       0
+        unknown0xD8 =                       6
+        unknown0xDC =                       1.76
+        kirby_star_dmg =                    9
+        normal_landing_lag =                2
+        n_air_landing_lag =                 12
+        f_air_landing_lag =                 15
+        b_air_landing_lag =                 18
+        d_air_landing_lag =                 18
+        u_air_landing_lag =                 26
+        victory_screen_scaling =            17
+        unknown0x1000 =                     0.5
+        walljump_h_velocity =               1.3
+        walljump_v_velocity =               2.6
+        unknown0x10C =                      0.8
+        unknown0x110 =                      0.6
+        unknown0x114 =                      0.3
+        unknown0x118 =                      -0.3
+        unknown0x11C =                      1.1
+        unknown0x120 =                      -0.3
+        unknown0x124 =                      -0.3
+        unknown0x128 =                      1.1
+        unknown0x12C =                      1.3
+        unknown0x130 =                      0
+        unknown0x134 =                      -0.2
+        unknown0x138 =                      1.1
+        unknown0x13C =                      1.3
+        unknown0x140 =                      3.35
+        unknown0x144 =                      1.1
+        unknown0x148 =                      0.5
+        bubble ratio =                      7
+        unknown0x150 =                      -1
+        unknown0x154 =                      -9.5
+        unknown0x158 =                      2.3
+        unknown0x15C =                      1
+        ice_traction =                      1
+        unknown0x164 =                      1
+        unknown0x168 =                      1
+        camera_target_zoom_bone =           f
+        unknown0x170 =                      0
+        unknown0x174 =                      0
+        unknown0x178 =                      0
+        special jump action =               0
+        weight dep. throw speed flags =     d000000
+    [subactions] 
+        [35m0 (0x75e8): [0mPlyPichu5K_Share_ACTION_WallDamage_figatree
+            [32moffset: [0m0x3ce4
+            [34m|shootitem2? a0 [0m04 00 03 
+            [34m|shootitem2? a0 [0m00 00 03 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x3cec
+        [35m1 (0x7600): [0mPlyPichu5K_Share_ACTION_DamageFall_figatree
+            [32moffset: [0m0x3ce4
+            [34m|shootitem2? a0 [0m04 00 03 
+            [34m|shootitem2? a0 [0m00 00 03 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x3cec
+        [35m2 (0x7618): [0mPlyPichu5K_Share_ACTION_Wait1_figatree
+            [32moffset: [0m0x3cf0
+            [34m|timer_async 08 [0m00 00 14 
+            [34m| subroutine 14 [0m00 00 00 00 00 33 e8 
+                [32moffset: [0m0x33e8
+                [34m|   texswap? a2 [0m00 08 01 
+                [34m| timer_sync 04 [0m00 00 01 
+                [34m|   texswap? a2 [0m00 08 02 
+                [34m| timer_sync 04 [0m00 00 02 
+                [34m|   texswap? a2 [0m00 08 01 
+                [34m| timer_sync 04 [0m00 00 01 
+                [34m|   texswap? a2 [0m00 08 00 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x3404
+            [34m|timer_async 08 [0m00 00 28 
+            [34m| subroutine 14 [0m00 00 00 00 00 33 e8 
+                [32moffset: [0m0x33e8
+                [34m|   texswap? a2 [0m00 08 01 
+                [34m| timer_sync 04 [0m00 00 01 
+                [34m|   texswap? a2 [0m00 08 02 
+                [34m| timer_sync 04 [0m00 00 02 
+                [34m|   texswap? a2 [0m00 08 01 
+                [34m| timer_sync 04 [0m00 00 01 
+                [34m|   texswap? a2 [0m00 08 00 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x3404
+            [34m|timer_async 08 [0m00 00 5a 
+            [34m| subroutine 14 [0m00 00 00 00 00 33 c8 
+                [32moffset: [0m0x33c8
+                [34m|   texswap? a2 [0m00 08 01 
+                [34m| timer_sync 04 [0m00 00 02 
+                [34m|   texswap? a2 [0m00 08 02 
+                [34m| timer_sync 04 [0m00 00 04 
+                [34m|   texswap? a2 [0m00 08 01 
+                [34m| timer_sync 04 [0m00 00 01 
+                [34m|   texswap? a2 [0m00 08 00 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x33e4
+            [34m|timer_async 08 [0m00 00 9b 
+            [34m| subroutine 14 [0m00 00 00 00 00 33 e8 
+                [32moffset: [0m0x33e8
+                [34m|   texswap? a2 [0m00 08 01 
+                [34m| timer_sync 04 [0m00 00 01 
+                [34m|   texswap? a2 [0m00 08 02 
+                [34m| timer_sync 04 [0m00 00 02 
+                [34m|   texswap? a2 [0m00 08 01 
+                [34m| timer_sync 04 [0m00 00 01 
+                [34m|   texswap? a2 [0m00 08 00 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x3404
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x3d20
+        [35m3 (0x7630): [0mPlyPichu5K_Share_ACTION_Wait2_figatree
+            [32moffset: [0m0x3d24
+            [34m|timer_async 08 [0m00 00 14 
+            [34m| subroutine 14 [0m00 00 00 00 00 33 e8 
+                [32moffset: [0m0x33e8
+                [34m|   texswap? a2 [0m00 08 01 
+                [34m| timer_sync 04 [0m00 00 01 
+                [34m|   texswap? a2 [0m00 08 02 
+                [34m| timer_sync 04 [0m00 00 02 
+                [34m|   texswap? a2 [0m00 08 01 
+                [34m| timer_sync 04 [0m00 00 01 
+                [34m|   texswap? a2 [0m00 08 00 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x3404
+            [34m|timer_async 08 [0m00 00 28 
+            [34m| subroutine 14 [0m00 00 00 00 00 33 e8 
+                [32moffset: [0m0x33e8
+                [34m|   texswap? a2 [0m00 08 01 
+                [34m| timer_sync 04 [0m00 00 01 
+                [34m|   texswap? a2 [0m00 08 02 
+                [34m| timer_sync 04 [0m00 00 02 
+                [34m|   texswap? a2 [0m00 08 01 
+                [34m| timer_sync 04 [0m00 00 01 
+                [34m|   texswap? a2 [0m00 08 00 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x3404
+            [34m|timer_async 08 [0m00 00 5a 
+            [34m| subroutine 14 [0m00 00 00 00 00 33 c8 
+                [32moffset: [0m0x33c8
+                [34m|   texswap? a2 [0m00 08 01 
+                [34m| timer_sync 04 [0m00 00 02 
+                [34m|   texswap? a2 [0m00 08 02 
+                [34m| timer_sync 04 [0m00 00 04 
+                [34m|   texswap? a2 [0m00 08 01 
+                [34m| timer_sync 04 [0m00 00 01 
+                [34m|   texswap? a2 [0m00 08 00 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x33e4
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x3d48
+        [35m4 (0x7648): [0mPlyPichu5K_Share_ACTION_Wait3_figatree
+            [32moffset: [0m0x3d4c
+            [34m|timer_async 08 [0m00 00 14 
+            [34m| subroutine 14 [0m00 00 00 00 00 33 e8 
+                [32moffset: [0m0x33e8
+                [34m|   texswap? a2 [0m00 08 01 
+                [34m| timer_sync 04 [0m00 00 01 
+                [34m|   texswap? a2 [0m00 08 02 
+                [34m| timer_sync 04 [0m00 00 02 
+                [34m|   texswap? a2 [0m00 08 01 
+                [34m| timer_sync 04 [0m00 00 01 
+                [34m|   texswap? a2 [0m00 08 00 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x3404
+            [34m|timer_async 08 [0m00 00 28 
+            [34m| subroutine 14 [0m00 00 00 00 00 33 e8 
+                [32moffset: [0m0x33e8
+                [34m|   texswap? a2 [0m00 08 01 
+                [34m| timer_sync 04 [0m00 00 01 
+                [34m|   texswap? a2 [0m00 08 02 
+                [34m| timer_sync 04 [0m00 00 02 
+                [34m|   texswap? a2 [0m00 08 01 
+                [34m| timer_sync 04 [0m00 00 01 
+                [34m|   texswap? a2 [0m00 08 00 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x3404
+            [34m|timer_async 08 [0m00 00 5a 
+            [34m| subroutine 14 [0m00 00 00 00 00 33 c8 
+                [32moffset: [0m0x33c8
+                [34m|   texswap? a2 [0m00 08 01 
+                [34m| timer_sync 04 [0m00 00 02 
+                [34m|   texswap? a2 [0m00 08 02 
+                [34m| timer_sync 04 [0m00 00 04 
+                [34m|   texswap? a2 [0m00 08 01 
+                [34m| timer_sync 04 [0m00 00 01 
+                [34m|   texswap? a2 [0m00 08 00 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x33e4
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x3d70
+        [35m5 (0x7660): [0m<no name>
+        [35m6 (0x7678): [0mPlyPichu5K_Share_ACTION_Wait1_figatree
+            [32moffset: [0m0x3d78
+            [34m|       goto 1c [0m00 00 00 00 00 3c f0 
+                [32moffset: [0m0x3cf0
+                [34m|timer_async 08 [0m00 00 14 
+                [34m| subroutine 14 [0m00 00 00 00 00 33 e8 
+                    [32moffset: [0m0x33e8
+                    [34m|   texswap? a2 [0m00 08 01 
+                    [34m| timer_sync 04 [0m00 00 01 
+                    [34m|   texswap? a2 [0m00 08 02 
+                    [34m| timer_sync 04 [0m00 00 02 
+                    [34m|   texswap? a2 [0m00 08 01 
+                    [34m| timer_sync 04 [0m00 00 01 
+                    [34m|   texswap? a2 [0m00 08 00 
+                    [34m|     return 18 [0m00 00 00 
+                    [32mendoff: [0m0x3404
+                [34m|timer_async 08 [0m00 00 28 
+                [34m| subroutine 14 [0m00 00 00 00 00 33 e8 
+                    [32moffset: [0m0x33e8
+                    [34m|   texswap? a2 [0m00 08 01 
+                    [34m| timer_sync 04 [0m00 00 01 
+                    [34m|   texswap? a2 [0m00 08 02 
+                    [34m| timer_sync 04 [0m00 00 02 
+                    [34m|   texswap? a2 [0m00 08 01 
+                    [34m| timer_sync 04 [0m00 00 01 
+                    [34m|   texswap? a2 [0m00 08 00 
+                    [34m|     return 18 [0m00 00 00 
+                    [32mendoff: [0m0x3404
+                [34m|timer_async 08 [0m00 00 5a 
+                [34m| subroutine 14 [0m00 00 00 00 00 33 c8 
+                    [32moffset: [0m0x33c8
+                    [34m|   texswap? a2 [0m00 08 01 
+                    [34m| timer_sync 04 [0m00 00 02 
+                    [34m|   texswap? a2 [0m00 08 02 
+                    [34m| timer_sync 04 [0m00 00 04 
+                    [34m|   texswap? a2 [0m00 08 01 
+                    [34m| timer_sync 04 [0m00 00 01 
+                    [34m|   texswap? a2 [0m00 08 00 
+                    [34m|     return 18 [0m00 00 00 
+                    [32mendoff: [0m0x33e4
+                [34m|timer_async 08 [0m00 00 9b 
+                [34m| subroutine 14 [0m00 00 00 00 00 33 e8 
+                    [32moffset: [0m0x33e8
+                    [34m|   texswap? a2 [0m00 08 01 
+                    [34m| timer_sync 04 [0m00 00 01 
+                    [34m|   texswap? a2 [0m00 08 02 
+                    [34m| timer_sync 04 [0m00 00 02 
+                    [34m|   texswap? a2 [0m00 08 01 
+                    [34m| timer_sync 04 [0m00 00 01 
+                    [34m|   texswap? a2 [0m00 08 00 
+                    [34m|     return 18 [0m00 00 00 
+                    [32mendoff: [0m0x3404
+                [34m|        end 00 [0m00 00 00 
+                [32mendoff: [0m0x3d20
+            [32mendoff: [0m0x3d78
+        [35m7 (0x7690): [0mPlyPichu5K_Share_ACTION_WalkSlow_figatree
+            [32moffset: [0m0x3d80
+            [34m|timer_async 08 [0m00 00 01 
+            [34m|    unknown d8 [0m00 00 00 00 00 01 d3 00 00 5a 40 08 00 00 15 
+            [34m|    unknown d8 [0m02 00 00 00 00 01 d3 00 00 5a 40 20 00 00 00 
+            [34m|       goto 1c [0m00 00 00 00 00 3d 80 
+            [31m[RECURSION NOT ALLOWED [0m0x3d80[31m][0m
+            [32mendoff: [0m0x3da4
+        [35m8 (0x76a8): [0mPlyPichu5K_Share_ACTION_WalkMiddle_figatree
+            [32moffset: [0m0x3dac
+            [34m|timer_async 08 [0m00 00 01 
+            [34m|    unknown d8 [0m00 00 00 00 00 01 d3 00 00 6e 40 ac 02 60 00 
+            [34m|timer_async 08 [0m00 00 16 
+            [34m|    unknown d8 [0m02 00 00 00 00 01 d3 00 00 6e 40 ac 02 60 00 
+            [34m|    unknown 20 [0m00 00 00 
+            [34m|       goto 1c [0m00 00 00 00 00 3d ac 
+            [31m[RECURSION NOT ALLOWED [0m0x3dac[31m][0m
+            [32mendoff: [0m0x3dd8
+        [35m9 (0x76c0): [0mPlyPichu5K_Share_ACTION_WalkFast_figatree
+            [32moffset: [0m0x3de0
+            [34m|timer_async 08 [0m00 00 08 
+            [34m|    unknown d8 [0m00 00 00 00 00 01 d3 00 00 6e 40 ac 02 60 00 
+            [34m|timer_async 08 [0m00 00 14 
+            [34m|    unknown d8 [0m02 00 00 00 00 01 d3 00 00 6e 40 ac 02 60 00 
+            [34m|    unknown 20 [0m00 00 00 
+            [34m|       goto 1c [0m00 00 00 00 00 3d e0 
+            [31m[RECURSION NOT ALLOWED [0m0x3de0[31m][0m
+            [32mendoff: [0m0x3e0c
+        [35ma (0x76d8): [0mPlyPichu5K_Share_ACTION_Turn_figatree
+            [32moffset: [0m0x3e14
+            [34m|timer_async 08 [0m00 00 05 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x3e18
+        [35mb (0x76f0): [0mPlyPichu5K_Share_ACTION_TurnRun_figatree
+            [32moffset: [0m0x3e1c
+            [34m|timer_async 08 [0m00 00 09 
+            [34m|    graphic 28 [0m00 00 00 04 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|timer_async 08 [0m00 00 12 
+            [34m|    graphic 28 [0m00 00 00 04 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|   airstop? 4d [0m00 00 01 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x3e50
+        [35mc (0x7708): [0mPlyPichu5K_Share_ACTION_Dash_figatree
+            [32moffset: [0m0x3e54
+            [34m|timer_async 08 [0m00 00 00 
+            [34m|gen_article ac [0m02 80 00 
+            [34m|        sfx 44 [0m00 00 00 00 00 00 00 00 00 7f 40 
+            [34m| autocancel 4c [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 04 
+            [34m|    graphic 28 [0m00 00 00 03 ff 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|timer_async 08 [0m00 00 0e 
+            [34m| autocancel 4c [0m00 00 01 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x3e8c
+        [35md (0x7720): [0mPlyPichu5K_Share_ACTION_Run_figatree
+            [32moffset: [0m0x3e90
+            [34m|timer_async 08 [0m00 00 03 
+            [34m|    unknown d8 [0m02 00 00 00 00 01 d3 00 00 5a 40 08 00 00 06 
+            [34m|    unknown d8 [0m02 00 00 00 00 01 d3 00 00 5a 40 ac 02 a0 00 
+            [34m|timer_async 08 [0m00 00 0a 
+            [34m|    graphic 28 [0m00 00 00 03 fe 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|    unknown 20 [0m00 00 00 
+            [34m|       goto 1c [0m00 00 00 00 00 3e 90 
+            [31m[RECURSION NOT ALLOWED [0m0x3e90[31m][0m
+            [32mendoff: [0m0x3ed0
+        [35me (0x7738): [0mPlyPichu5K_Share_ACTION_RunBrake_figatree
+            [32moffset: [0m0x3ed8
+            [34m|timer_async 08 [0m00 00 00 
+            [34m|        sfx 44 [0m00 00 00 00 00 00 05 00 00 7f 40 
+            [34m|    graphic 28 [0m00 00 00 04 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m| autocancel 4c [0m00 00 01 
+            [34m|timer_async 08 [0m00 00 0b 
+            [34m|   airstop? 4d [0m00 00 01 
+            [34m|timer_async 08 [0m00 00 0e 
+            [34m| autocancel 4c [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x3f10
+        [35mf (0x7750): [0mPlyPichu5K_Share_ACTION_Landing_figatree
+        [35m10 (0x7768): [0mPlyPichu5K_Share_ACTION_JumpF_figatree
+            [32moffset: [0m0x3f18
+            [34m|        sfx 44 [0m00 00 00 00 00 00 4a 00 00 7f 40 
+            [34m|timer_async 08 [0m00 00 02 
+            [34m|    graphic 28 [0m00 00 00 04 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x3f3c
+        [35m11 (0x7780): [0mPlyPichu5K_Share_ACTION_JumpB_figatree
+            [32moffset: [0m0x3f18
+            [34m|        sfx 44 [0m00 00 00 00 00 00 4a 00 00 7f 40 
+            [34m|timer_async 08 [0m00 00 02 
+            [34m|    graphic 28 [0m00 00 00 04 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x3f3c
+        [35m12 (0x7798): [0mPlyPichu5K_Share_ACTION_JumpAerialF_figatree
+            [32moffset: [0m0x3f40
+            [34m|        sfx 44 [0m00 00 00 00 00 00 4a 00 00 7f 40 
+            [34m|    graphic 28 [0m00 00 00 04 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x3f60
+        [35m13 (0x77b0): [0mPlyPichu5K_Share_ACTION_JumpAerialB_figatree
+            [32moffset: [0m0x3f40
+            [34m|        sfx 44 [0m00 00 00 00 00 00 4a 00 00 7f 40 
+            [34m|    graphic 28 [0m00 00 00 04 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x3f60
+        [35m14 (0x77c8): [0mPlyPichu5K_Share_ACTION_Fall_figatree
+        [35m15 (0x77e0): [0mPlyPichu5K_Share_ACTION_FallF_figatree
+        [35m16 (0x77f8): [0mPlyPichu5K_Share_ACTION_FallB_figatree
+        [35m17 (0x7810): [0mPlyPichu5K_Share_ACTION_FallAerial_figatree
+        [35m18 (0x7828): [0mPlyPichu5K_Share_ACTION_FallAerialF_figatree
+        [35m19 (0x7840): [0mPlyPichu5K_Share_ACTION_FallAerialB_figatree
+        [35m1a (0x7858): [0mPlyPichu5K_Share_ACTION_FallSpecial_figatree
+            [32moffset: [0m0x3f6c
+            [34m| bodyaura_1 b8 [0m18 00 00 00 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x3f74
+        [35m1b (0x7870): [0mPlyPichu5K_Share_ACTION_FallSpecialF_figatree
+            [32moffset: [0m0x3f6c
+            [34m| bodyaura_1 b8 [0m18 00 00 00 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x3f74
+        [35m1c (0x7888): [0mPlyPichu5K_Share_ACTION_FallSpecialB_figatree
+            [32moffset: [0m0x3f6c
+            [34m| bodyaura_1 b8 [0m18 00 00 00 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x3f74
+        [35m1d (0x78a0): [0mPlyPichu5K_Share_ACTION_DamageFall_figatree
+        [35m1e (0x78b8): [0mPlyPichu5K_Share_ACTION_Squat_figatree
+            [32moffset: [0m0x3f78
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x3f7c
+        [35m1f (0x78d0): [0mPlyPichu5K_Share_ACTION_SquatWait_figatree
+            [32moffset: [0m0x3f80
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|   texswap? a2 [0m00 08 02 
+            [34m| timer_sync 04 [0m00 00 14 
+            [34m|    graphic 28 [0m00 00 00 01 a0 00 00 00 00 02 bc 0c 80 00 00 00 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x3fa0
+        [35m20 (0x78e8): [0m<no name>
+            [32moffset: [0m0x3fa4
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x3fa8
+        [35m21 (0x7900): [0mPlyPichu5K_Share_ACTION_SquatWaitItem_figatree
+            [32moffset: [0m0x3fac
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x3fb0
+        [35m22 (0x7918): [0mPlyPichu5K_Share_ACTION_SquatRv_figatree
+            [32moffset: [0m0x3fb4
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|timer_async 08 [0m00 00 02 
+            [34m|    unknown d0 [0m00 00 03 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x3fc0
+        [35m23 (0x7930): [0mPlyPichu5K_Share_ACTION_Landing_figatree
+            [32moffset: [0m0x3fc4
+            [34m|    unknown dc [0m00 04 07 00 00 00 46 00 00 7f 40 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x3fd0
+        [35m24 (0x7948): [0mPlyPichu5K_Share_ACTION_Landing_figatree
+            [32moffset: [0m0x3fd4
+            [34m|    unknown dc [0m00 04 07 00 00 00 46 00 00 7f 40 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x3fe0
+        [35m25 (0x7960): [0mPlyPichu5K_Share_ACTION_GuardOn_figatree
+        [35m26 (0x7978): [0mPlyPichu5K_Share_ACTION_Guard_figatree
+        [35m27 (0x7990): [0mPlyPichu5K_Share_ACTION_GuardOff_figatree
+        [35m28 (0x79a8): [0mPlyPichu5K_Share_ACTION_GuardDamage_figatree
+        [35m29 (0x79c0): [0mPlyPichu5K_Share_ACTION_EscapeN_figatree
+            [32moffset: [0m0x3ff4
+            [34m|        sfx 44 [0m00 00 00 00 00 00 02 00 00 7f 40 
+            [34m|timer_async 08 [0m00 00 02 
+            [34m|  bodystate 68 [0m00 00 02 
+            [34m|    graphic 28 [0m00 00 00 04 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|timer_async 08 [0m00 00 10 
+            [34m|  bodystate 68 [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 14 
+            [34m|       iasa 5c [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x402c
+        [35m2a (0x79d8): [0mPlyPichu5K_Share_ACTION_EscapeF_figatree
+            [32moffset: [0m0x4030
+            [34m|        sfx 44 [0m00 00 00 00 00 00 01 00 00 7f 40 
+            [34m|    graphic 28 [0m00 00 00 03 f3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|timer_async 08 [0m00 00 04 
+            [34m|    graphic 28 [0m00 00 00 03 ff 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|  bodystate 68 [0m00 00 02 
+            [34m|timer_async 08 [0m00 00 14 
+            [34m|  bodystate 68 [0m00 00 00 
+            [34m|    reverse 50 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4078
+        [35m2b (0x79f0): [0mPlyPichu5K_Share_ACTION_EscapeB_figatree
+            [32moffset: [0m0x407c
+            [34m|        sfx 44 [0m00 00 00 00 00 00 01 00 00 7f 40 
+            [34m|    graphic 28 [0m00 00 00 03 f3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|timer_async 08 [0m00 00 04 
+            [34m|    graphic 28 [0m00 00 00 03 ff 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|  bodystate 68 [0m00 00 02 
+            [34m|timer_async 08 [0m00 00 14 
+            [34m|  bodystate 68 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x40c0
+        [35m2c (0x7a08): [0mPlyPichu5K_Share_ACTION_EscapeAir_figatree
+            [32moffset: [0m0x40c4
+            [34m|timer_async 08 [0m00 00 04 
+            [34m|  bodystate 68 [0m00 00 02 
+            [34m|timer_async 08 [0m00 00 1e 
+            [34m|  bodystate 68 [0m00 00 00 
+            [34m| autocancel 4c [0m00 00 01 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x40d8
+        [35m2d (0x7a20): [0mPlyPichu5K_Share_ACTION_Rebound_figatree
+        [35m2e (0x7a38): [0mPlyPichu5K_Share_ACTION_Attack11_figatree
+            [32moffset: [0m0x40e0
+            [34m|timer_async 08 [0m00 00 02 
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|     hitbox 2c [0m00 78 02 04 53 00 00 04 b0 00 7f 00 0c 80 13 03 80 00 07 
+            [34m|     hitbox 2c [0m80 20 02 02 a9 00 00 00 00 00 00 00 0c 80 12 03 80 00 07 
+            [34m|        sfx 44 [0m04 00 00 00 00 00 a0 00 00 7f 40 
+            [34m|gen_article ac [0m01 e0 00 
+            [34m|timer_async 08 [0m00 00 03 
+            [34m|    unknown 74 [0m00 00 01 
+            [34m| timer_sync 04 [0m00 00 01 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 05 
+            [34m|    unknown 74 [0m00 00 00 
+            [34m|    unknown d0 [0m00 00 03 
+            [34m|timer_async 08 [0m00 00 16 
+            [34m|       iasa 5c [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4144
+        [35m2f (0x7a50): [0m<no name>
+        [35m30 (0x7a68): [0m<no name>
+        [35m31 (0x7a80): [0m<no name>
+        [35m32 (0x7a98): [0m<no name>
+        [35m33 (0x7ab0): [0m<no name>
+        [35m34 (0x7ac8): [0mPlyPichu5K_Share_ACTION_AttackDash_figatree
+            [32moffset: [0m0x415c
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|timer_async 08 [0m00 00 05 
+            [34m|     hitbox 2c [0m00 78 08 04 7e 00 00 04 b0 00 7f b4 91 80 13 14 00 01 07 
+            [34m|     hitbox 2c [0m80 20 08 02 fe 00 00 00 aa 00 00 b4 91 80 13 14 00 01 07 
+            [34m|    graphic 28 [0m00 00 00 03 fd 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|        sfx 44 [0m04 00 00 00 00 00 a5 00 00 7f 40 
+            [34m|gen_article ac [0m02 00 00 
+            [34m|timer_async 08 [0m00 00 11 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|    graphic 28 [0m00 00 00 03 ff 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|gen_article ac [0m01 80 00 
+            [34m|        sfx 44 [0m00 00 00 00 00 00 0b 00 00 7f 40 
+            [34m|timer_async 08 [0m00 00 28 
+            [34m|    unknown d0 [0m00 00 03 
+            [34m|timer_async 08 [0m00 00 32 
+            [34m|       iasa 5c [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x41ec
+        [35m35 (0x7ae0): [0mPlyPichu5K_Share_ACTION_AttackS3Hi_figatree
+            [32moffset: [0m0x41f0
+            [34m|timer_async 08 [0m00 00 05 
+            [34m|     hitbox 2c [0m01 48 09 04 a8 00 00 00 00 00 00 b4 99 00 13 05 00 00 8b 
+            [34m|     hitbox 2c [0m81 18 09 04 a8 00 00 00 00 00 00 b4 99 00 13 05 00 00 8b 
+            [34m|   bonegfx? 2d [0m00 20 09 02 fe 00 00 00 00 00 00 b4 99 00 13 05 00 00 8b 
+            [34m|        sfx 44 [0m04 00 00 00 00 00 a5 00 00 7f 40 
+            [34m|gen_article ac [0m02 00 00 
+            [34m| timer_sync 04 [0m00 00 0a 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 1e 
+            [34m|       iasa 5c [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4250
+        [35m36 (0x7af8): [0m<no name>
+        [35m37 (0x7b10): [0mPlyPichu5K_Share_ACTION_AttackS3S_figatree
+            [32moffset: [0m0x4258
+            [34m|timer_async 08 [0m00 00 05 
+            [34m|     hitbox 2c [0m01 48 08 04 a8 00 00 00 00 00 00 b4 99 00 13 05 00 00 8b 
+            [34m|     hitbox 2c [0m81 18 08 04 a8 00 00 00 00 00 00 b4 99 00 13 05 00 00 8b 
+            [34m|   bonegfx? 2d [0m00 20 08 02 fe 00 00 00 00 00 00 b4 99 00 13 05 00 00 8b 
+            [34m|        sfx 44 [0m04 00 00 00 00 00 a5 00 00 7f 40 
+            [34m|gen_article ac [0m02 00 00 
+            [34m| timer_sync 04 [0m00 00 0a 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 1e 
+            [34m|       iasa 5c [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x42b8
+        [35m38 (0x7b28): [0m<no name>
+        [35m39 (0x7b40): [0mPlyPichu5K_Share_ACTION_AttackS3Lw_figatree
+            [32moffset: [0m0x42c0
+            [34m|timer_async 08 [0m00 00 05 
+            [34m|     hitbox 2c [0m01 48 07 04 a8 00 00 00 00 00 00 b4 99 00 13 05 00 00 8b 
+            [34m|     hitbox 2c [0m81 18 07 04 a8 00 00 00 00 00 00 b4 99 00 13 05 00 00 8b 
+            [34m|   bonegfx? 2d [0m00 20 07 02 fe 00 00 00 00 00 00 b4 99 00 13 05 00 00 8b 
+            [34m|        sfx 44 [0m04 00 00 00 00 00 a5 00 00 7f 40 
+            [34m|gen_article ac [0m02 00 00 
+            [34m| timer_sync 04 [0m00 00 0a 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 1e 
+            [34m|       iasa 5c [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4320
+        [35m3a (0x7b58): [0mPlyPichu5K_Share_ACTION_AttackHi3_figatree
+            [32moffset: [0m0x4324
+            [34m|timer_async 08 [0m00 00 07 
+            [34m|     hitbox 2c [0m01 58 06 01 f4 00 00 00 00 00 00 2f 9e 00 13 0a 00 00 8b 
+            [34m|     hitbox 2c [0m81 58 06 02 bc 01 2c 01 90 ff 06 2f 9e 00 13 0c 80 00 8b 
+            [34m|   bonegfx? 2d [0m01 58 06 03 84 05 dc 03 20 fd 12 2f 9e 00 13 0c 80 00 8b 
+            [34m|        sfx 44 [0m04 00 00 00 00 00 a0 00 00 7f 40 
+            [34m|gen_article ac [0m02 00 00 
+            [34m| timer_sync 04 [0m00 00 08 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 18 
+            [34m|       iasa 5c [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4384
+        [35m3b (0x7b70): [0mPlyPichu5K_Share_ACTION_AttackLw3_figatree
+            [32moffset: [0m0x4388
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|timer_async 08 [0m00 00 07 
+            [34m|    graphic 28 [0m00 00 00 04 24 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|     hitbox 2c [0m01 58 07 01 f4 00 00 00 00 00 00 11 99 00 13 06 00 00 8b 
+            [34m|     hitbox 2c [0m81 58 07 03 20 01 f4 02 bc ff 38 11 99 00 13 06 00 00 8b 
+            [34m|   bonegfx? 2d [0m01 58 07 03 e8 03 e8 05 fd fe 01 11 99 00 13 06 00 00 8b 
+            [34m|        sfx 44 [0m04 00 00 00 00 00 a5 00 00 7f 40 
+            [34m|gen_article ac [0m02 00 00 
+            [34m| timer_sync 04 [0m00 00 03 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 13 
+            [34m|       iasa 5c [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4400
+        [35m3c (0x7b88): [0m<no name>
+        [35m3d (0x7ba0): [0m<no name>
+        [35m3e (0x7bb8): [0mPlyPichu5K_Share_ACTION_AttackS4_figatree
+            [32moffset: [0m0x440c
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|timer_async 08 [0m00 00 01 
+            [34m| bodyaura_2 b9 [0m04 00 00 28 01 00 00 
+            [34m| timer_sync 04 [0mc4 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4420
+        [35m3f (0x7bd0): [0m<no name>
+        [35m40 (0x7be8): [0m<no name>
+        [35m41 (0x7c00): [0m<no name>
+        [35m42 (0x7c18): [0mPlyPichu5K_Share_ACTION_AttackHi4_figatree
+            [32moffset: [0m0x457c
+            [34m|    graphic 28 [0m00 00 00 03 ff 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|  smash_sfx 48 [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 08 
+            [34m|  smashchrg e0 [0m3c 01 5e 77 00 00 00 
+            [34m|    graphic 28 [0m00 00 00 03 f3 00 00 00 00 07 08 08 98 00 00 00 00 00 00 
+            [34m|timer_async 08 [0m00 00 09 
+            [34m|     hitbox 2c [0m00 78 10 05 78 00 00 04 b0 00 7f 2f 9a 40 13 19 00 01 0b 
+            [34m|     hitbox 2c [0m80 20 10 03 20 00 00 00 00 00 00 2f 9a 40 13 14 00 01 0b 
+            [34m|        sfx 44 [0m04 00 00 00 00 00 a4 00 00 7f 40 
+            [34m|gen_article ac [0m02 20 00 
+            [34m| timer_sync 04 [0m00 00 03 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 11 
+            [34m|    graphic 28 [0m00 00 00 03 fa 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|gen_article ac [0m01 60 00 
+            [34m|        sfx 44 [0m00 00 00 00 00 00 46 00 00 7f 40 
+            [34m|timer_async 08 [0m00 00 29 
+            [34m|       iasa 5c [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4628
+        [35m43 (0x7c30): [0mPlyPichu5K_Share_ACTION_AttackLw4_figatree
+            [32moffset: [0m0x462c
+            [34m|  smash_sfx 48 [0m00 00 00 
+            [34m|        sfx 44 [0m04 00 00 00 00 00 a4 00 00 7f 40 
+            [34m|timer_async 08 [0m00 00 05 
+            [34m|  smashchrg e0 [0m3c 01 5e 77 00 00 00 
+            [34m|timer_async 08 [0m00 00 06 
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|timer_async 08 [0m00 00 07 
+            [34m|  bodystate 68 [0m00 00 02 
+            [34m|    graphic 28 [0m00 00 00 04 23 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|     hitbox 2c [0m00 00 0d 03 84 00 00 04 b0 0c e4 50 11 80 13 0f 00 01 07 
+            [34m|     hitbox 2c [0m80 00 0d 03 84 00 00 04 4c 00 00 50 11 80 13 0f 00 01 07 
+            [34m|   bonegfx? 2d [0m00 00 0d 03 84 00 00 04 b0 f3 1c 50 11 80 13 0f 00 01 07 
+            [34m|    graphic 28 [0m00 00 00 03 f3 00 00 00 00 02 58 00 00 04 00 00 00 08 00 
+            [34m|gen_article ac [0m01 80 00 
+            [34m| timer_sync 04 [0m00 00 04 
+            [34m|  bodystate 68 [0m00 00 00 
+            [34m| timer_sync 04 [0m00 00 03 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|    graphic 28 [0m00 00 00 03 fa 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|timer_async 08 [0m00 00 33 
+            [34m|       iasa 5c [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 35 
+            [34m|    unknown d0 [0m00 00 03 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x46f4
+        [35m44 (0x7c48): [0mPlyPichu5K_Share_ACTION_AttackAirN_figatree
+            [32moffset: [0m0x46f8
+            [34m|timer_async 08 [0m00 00 03 
+            [34m| autocancel 4c [0m00 00 01 
+            [34m|     hitbox 2c [0m01 38 0c 03 fe 00 55 00 00 00 00 b4 99 00 13 09 00 01 0b 
+            [34m|     hitbox 2c [0m81 08 0c 03 fe 00 55 00 00 00 00 b4 99 00 13 09 00 01 0b 
+            [34m|   bonegfx? 2d [0m00 78 0c 04 b0 00 00 00 00 00 00 b4 99 00 13 09 00 01 0b 
+            [34m|        sfx 44 [0m04 00 00 00 00 00 9a 00 00 7f 40 
+            [34m|gen_article ac [0m00 20 1a 
+            [34m| timer_sync 04 [0m00 00 08 
+            [34m|     hitbox 2c [0m01 38 09 03 fe 00 55 00 00 00 00 b4 99 00 13 00 00 00 8b 
+            [34m|     hitbox 2c [0m81 08 09 03 fe 00 55 00 00 00 00 b4 99 00 13 00 00 00 8b 
+            [34m|   bonegfx? 2d [0m00 78 09 04 b0 00 00 00 00 00 00 b4 99 00 13 00 00 00 8b 
+            [34m| timer_sync 04 [0m00 00 12 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 23 
+            [34m| autocancel 4c [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 28 
+            [34m|       iasa 5c [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x47a4
+        [35m45 (0x7c60): [0mPlyPichu5K_Share_ACTION_AttackAirF_figatree
+            [32moffset: [0m0x47a8
+            [34m| bodyaura_2 b9 [0m04 00 00 08 00 00 0a 
+            [34m| autocancel 4c [0m00 00 01 
+            [34m|gen_article ac [0m00 20 12 
+            [34m|    setloop 0c [0m00 00 04 
+            [34m|        sfx 44 [0m04 00 00 00 00 00 97 00 00 7f 40 
+            [34m|     selfhp cc [0m00 00 01 
+            [34m|     hitbox 2c [0m00 78 02 06 7d 00 00 02 29 00 7f b4 99 03 d3 00 08 00 9f 
+            [34m|     hitbox 2c [0m80 20 02 05 a8 00 00 00 00 00 00 b4 99 03 d3 00 08 00 9f 
+            [34m| timer_sync 04 [0m00 00 03 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m| timer_sync 04 [0m00 00 01 
+            [34m|   execloop 10 [0m00 00 00 
+            [34m| timer_sync 04 [0m00 00 08 
+            [34m| autocancel 4c [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 28 
+            [34m|       iasa 5c [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4814
+        [35m46 (0x7c78): [0mPlyPichu5K_Share_ACTION_AttackAirB_figatree
+            [32moffset: [0m0x4818
+            [34m|timer_async 08 [0m00 00 04 
+            [34m|        sfx 44 [0m04 00 00 00 00 00 99 00 00 7f 40 
+            [34m|gen_article ac [0m00 20 1e 
+            [34m| autocancel 4c [0m00 00 01 
+            [34m|     hitbox 2c [0m00 78 09 03 84 00 00 00 00 00 00 b4 99 00 13 0a 00 01 0b 
+            [34m|     hitbox 2c [0m80 20 09 03 84 00 00 00 00 00 00 b4 99 00 13 0a 00 01 0b 
+            [34m|   bonegfx? 2d [0m00 80 09 03 84 00 00 fe 0c 00 00 b4 99 00 13 0a 00 01 0b 
+            [34m| timer_sync 04 [0m00 00 04 
+            [34m|     hitbox 2c [0m00 78 09 03 84 00 00 00 00 00 00 b4 99 00 13 0a 00 01 0b 
+            [34m|     hitbox 2c [0m80 20 09 03 84 00 00 00 00 00 00 b4 99 00 13 0a 00 01 0b 
+            [34m|   bonegfx? 2d [0m00 80 09 03 84 00 00 fe 0c 00 00 b4 99 00 13 0a 00 01 0b 
+            [34m|timer_async 08 [0m00 00 26 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m| timer_sync 04 [0m00 00 0c 
+            [34m| autocancel 4c [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 3c 
+            [34m|       iasa 5c [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x48c4
+        [35m47 (0x7c90): [0mPlyPichu5K_Share_ACTION_AttackAirHi_figatree
+            [32moffset: [0m0x48c8
+            [34m|timer_async 08 [0m00 00 04 
+            [34m| autocancel 4c [0m00 00 01 
+            [34m|        sfx 44 [0m04 00 00 00 00 00 9f 00 00 7f 40 
+            [34m|gen_article ac [0m02 20 00 
+            [34m|     hitbox 2c [0m01 58 04 03 e8 00 00 00 00 00 00 28 0f 00 13 32 00 00 0b 
+            [34m|     hitbox 2c [0m81 58 04 02 bc 01 f4 02 bc ff 38 28 0f 00 13 32 00 00 0b 
+            [34m|   bonegfx? 2d [0m01 58 04 03 84 03 e8 05 fd fe 01 28 0f 00 13 32 00 00 0b 
+            [34m| timer_sync 04 [0m00 00 02 
+            [34m|     hitbox 2c [0m01 58 04 03 e8 00 00 00 00 00 00 28 0f 00 13 32 00 00 0b 
+            [34m|     hitbox 2c [0m81 58 04 02 bc 01 f4 02 bc ff 38 28 0f 00 13 32 00 00 0b 
+            [34m|   bonegfx? 2d [0m01 58 04 03 84 03 e8 05 fd fe 01 28 0f 00 13 32 00 00 0b 
+            [34m| timer_sync 04 [0m00 00 02 
+            [34m|     hitbox 2c [0m01 58 04 03 e8 00 00 00 00 00 00 28 0f 00 13 32 00 00 0b 
+            [34m|     hitbox 2c [0m81 58 04 02 bc 01 f4 02 bc ff 38 28 0f 00 13 32 00 00 0b 
+            [34m|   bonegfx? 2d [0m01 58 04 03 84 03 e8 05 fd fe 01 28 0f 00 13 32 00 00 0b 
+            [34m| timer_sync 04 [0m00 00 02 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 12 
+            [34m| autocancel 4c [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 1c 
+            [34m|       iasa 5c [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x49b4
+        [35m48 (0x7ca8): [0mPlyPichu5K_Share_ACTION_AttackAirLw_figatree
+            [32moffset: [0m0x49b8
+            [34m| bodyaura_2 b9 [0m04 00 00 4c 00 00 01 
+            [34m|timer_async 08 [0m00 00 0e 
+            [34m|        sfx 44 [0m04 00 00 00 00 00 99 00 00 7f 40 
+            [34m|gen_article ac [0m02 20 00 
+            [34m|     selfhp cc [0m00 00 01 
+            [34m|     hitbox 2c [0m00 78 0c 05 7d 00 00 02 29 00 7f b4 99 00 13 0a 08 01 1f 
+            [34m|     hitbox 2c [0m80 20 0c 04 a8 00 00 00 00 00 00 b4 99 00 13 0a 08 01 1f 
+            [34m| timer_sync 04 [0m00 00 0d 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m| timer_sync 04 [0m00 00 0c 
+            [34m| autocancel 4c [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 30 
+            [34m|       iasa 5c [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4a18
+        [35m49 (0x7cc0): [0mPlyPichu5K_Share_ACTION_LandingAirN_figatree
+            [32moffset: [0m0x4a1c
+            [34m|    unknown dc [0m00 04 07 00 00 00 46 00 00 7f 40 
+            [34m|    graphic 28 [0m00 00 00 04 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4a3c
+        [35m4a (0x7cd8): [0mPlyPichu5K_Share_ACTION_LandingAirF_figatree
+            [32moffset: [0m0x4a40
+            [34m|    unknown dc [0m00 04 07 00 00 00 46 00 00 7f 40 
+            [34m|    graphic 28 [0m00 00 00 04 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4a60
+        [35m4b (0x7cf0): [0mPlyPichu5K_Share_ACTION_LandingAirB_figatree
+            [32moffset: [0m0x4a64
+            [34m|    unknown dc [0m00 04 07 00 00 00 46 00 00 7f 40 
+            [34m|    graphic 28 [0m00 00 00 04 23 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4a84
+        [35m4c (0x7d08): [0mPlyPichu5K_Share_ACTION_LandingAirHi_figatree
+            [32moffset: [0m0x4a88
+            [34m|    unknown dc [0m00 04 07 00 00 00 46 00 00 7f 40 
+            [34m|    graphic 28 [0m00 00 00 04 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4aa8
+        [35m4d (0x7d20): [0mPlyPichu5K_Share_ACTION_LandingAirLw_figatree
+            [32moffset: [0m0x4aac
+            [34m|gen_article ac [0m01 60 00 
+            [34m|    unknown dc [0m00 04 07 00 00 00 0f 00 00 7f 40 
+            [34m|    graphic 28 [0m00 00 00 04 06 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|    graphic 28 [0m00 00 00 05 13 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|     hitbox 2c [0m00 78 04 05 fd 00 00 02 29 00 7f b4 99 03 d3 00 08 01 1f 
+            [34m|     hitbox 2c [0m80 20 04 04 fe 00 00 00 00 00 00 b4 99 03 d3 00 08 01 1f 
+            [34m|     selfhp cc [0m00 00 01 
+            [34m| timer_sync 04 [0m00 00 02 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4b18
+        [35m4e (0x7d38): [0mPlyPichu5K_Share_ACTION_LightGet_figatree
+            [32moffset: [0m0x4b1c
+            [34m|timer_async 08 [0m00 00 02 
+            [34m|    reverse 50 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4b24
+        [35m4f (0x7d50): [0mPlyPichu5K_Share_ACTION_LightThrowF_figatree
+            [32moffset: [0m0x4b28
+            [34m|timer_async 08 [0m00 00 0c 
+            [34m|    graphic 28 [0m00 00 00 03 f8 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|    reverse 50 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4b44
+        [35m50 (0x7d68): [0mPlyPichu5K_Share_ACTION_LightThrowB_figatree
+            [32moffset: [0m0x4b48
+            [34m|timer_async 08 [0m00 00 04 
+            [34m|    reverse 50 [0m00 00 01 
+            [34m|timer_async 08 [0m00 00 09 
+            [34m|    graphic 28 [0m00 00 00 03 f8 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|    reverse 50 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4b6c
+        [35m51 (0x7d80): [0mPlyPichu5K_Share_ACTION_LightThrowHi_figatree
+            [32moffset: [0m0x4b70
+            [34m|timer_async 08 [0m00 00 0c 
+            [34m|    graphic 28 [0m00 00 00 03 fb 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|    reverse 50 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4b8c
+        [35m52 (0x7d98): [0mPlyPichu5K_Share_ACTION_LightThrowLw_figatree
+            [32moffset: [0m0x4b90
+            [34m|timer_async 08 [0m00 00 0e 
+            [34m|    graphic 28 [0m00 00 00 03 fb 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|    reverse 50 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4bac
+        [35m53 (0x7db0): [0mPlyPichu5K_Share_ACTION_LightThrowDash_figatree
+            [32moffset: [0m0x4bb0
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|timer_async 08 [0m00 00 03 
+            [34m|    graphic 28 [0m00 00 00 03 f7 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|    reverse 50 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4bd0
+        [35m54 (0x7dc8): [0mPlyPichu5K_Share_ACTION_LightThrowDrop_figatree
+            [32moffset: [0m0x4bd4
+            [34m|timer_async 08 [0m00 00 09 
+            [34m|    reverse 50 [0m00 00 00 
+            [34m| autocancel 4c [0m46 40 64 
+            [34m|   airstop? 4d [0m40 00 64 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4be4
+        [35m55 (0x7de0): [0mPlyPichu5K_Share_ACTION_LightThrowAirF_figatree
+            [32moffset: [0m0x4be8
+            [34m|timer_async 08 [0m00 00 0c 
+            [34m|    graphic 28 [0m00 00 00 03 f7 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|    reverse 50 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4c04
+        [35m56 (0x7df8): [0mPlyPichu5K_Share_ACTION_LightThrowAirB_figatree
+            [32moffset: [0m0x4c08
+            [34m|timer_async 08 [0m00 00 08 
+            [34m|    reverse 50 [0m00 00 01 
+            [34m|timer_async 08 [0m00 00 0c 
+            [34m|    graphic 28 [0m00 00 00 03 f7 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|    reverse 50 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4c2c
+        [35m57 (0x7e10): [0mPlyPichu5K_Share_ACTION_LightThrowAirHi_figatree
+            [32moffset: [0m0x4c30
+            [34m|timer_async 08 [0m00 00 0c 
+            [34m|    graphic 28 [0m00 00 00 03 fa 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|    reverse 50 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4c4c
+        [35m58 (0x7e28): [0mPlyPichu5K_Share_ACTION_LightThrowAirLw_figatree
+            [32moffset: [0m0x4c50
+            [34m|timer_async 08 [0m00 00 08 
+            [34m|    graphic 28 [0m00 00 00 03 fa 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|    reverse 50 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4c6c
+        [35m59 (0x7e40): [0mPlyPichu5K_Share_ACTION_HeavyGet_figatree
+            [32moffset: [0m0x4c70
+            [34m|timer_async 08 [0m00 00 04 
+            [34m|    graphic 28 [0m44 00 00 04 22 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|    reverse 50 [0m00 00 00 
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4c90
+        [35m5a (0x7e58): [0mPlyPichu5K_Share_ACTION_HeavyWalk1_figatree
+            [32moffset: [0m0x4c94
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|gen_article ac [0m00 20 12 
+            [34m|timer_async 08 [0m00 00 08 
+            [34m|    unknown d8 [0m00 00 00 00 00 01 d3 00 00 5a 40 28 00 00 00 
+            [34m|    unknown 03 [0mfe 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|timer_async 08 [0m00 00 10 
+            [34m|    unknown d8 [0m02 00 00 00 00 01 d3 00 00 5a 40 28 00 00 00 
+            [34m|    unknown 03 [0mfe 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4ce4
+        [35m5b (0x7e70): [0mPlyPichu5K_Share_ACTION_HeavyWalk2_figatree
+            [32moffset: [0m0x4ce8
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|gen_article ac [0m00 20 12 
+            [34m|timer_async 08 [0m00 00 07 
+            [34m|    unknown d8 [0m00 00 00 00 00 01 d3 00 00 5a 40 28 00 00 00 
+            [34m|    unknown 03 [0mfe 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|timer_async 08 [0m00 00 10 
+            [34m|    unknown d8 [0m02 00 00 00 00 01 d3 00 00 5a 40 28 00 00 00 
+            [34m|    unknown 03 [0mfe 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4d38
+        [35m5c (0x7e88): [0mPlyPichu5K_Share_ACTION_HeavyThrowF_figatree
+            [32moffset: [0m0x4d3c
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|timer_async 08 [0m00 00 14 
+            [34m|    graphic 28 [0m00 00 00 03 ff 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|    reverse 50 [0m00 00 00 
+            [34m|    graphic 28 [0m00 00 00 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4d70
+        [35m5d (0x7ea0): [0mPlyPichu5K_Share_ACTION_HeavyThrowB_figatree
+            [32moffset: [0m0x4d74
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|timer_async 08 [0m00 00 17 
+            [34m|    reverse 50 [0m00 00 01 
+            [34m|timer_async 08 [0m00 00 16 
+            [34m|    reverse 50 [0m00 00 00 
+            [34m|    graphic 28 [0m00 00 00 03 ff 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4d9c
+        [35m5e (0x7eb8): [0mPlyPichu5K_Share_ACTION_HeavyThrowHi_figatree
+            [32moffset: [0m0x4da0
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|timer_async 08 [0m00 00 0f 
+            [34m|    graphic 28 [0m00 00 00 04 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|    reverse 50 [0m00 00 00 
+            [34m|    graphic 28 [0m00 00 00 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4dd4
+        [35m5f (0x7ed0): [0mPlyPichu5K_Share_ACTION_HeavyThrowLw_figatree
+            [32moffset: [0m0x4dd8
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|timer_async 08 [0m00 00 0e 
+            [34m|    graphic 28 [0m00 00 00 04 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|    reverse 50 [0m00 00 00 
+            [34m|    graphic 28 [0m00 00 00 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4e0c
+        [35m60 (0x7ee8): [0mPlyPichu5K_Share_ACTION_LightThrowF_figatree
+            [32moffset: [0m0x4e10
+            [34m|timer_async 08 [0m00 00 0c 
+            [34m|    graphic 28 [0m00 00 00 03 f9 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|  smash_sfx 48 [0m00 00 00 
+            [34m|    reverse 50 [0m00 00 00 
+            [34m|    graphic 28 [0m44 00 00 03 f3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4e44
+        [35m61 (0x7f00): [0mPlyPichu5K_Share_ACTION_LightThrowB_figatree
+            [32moffset: [0m0x4e48
+            [34m|timer_async 08 [0m00 00 04 
+            [34m|    reverse 50 [0m00 00 01 
+            [34m|timer_async 08 [0m00 00 09 
+            [34m|    graphic 28 [0m00 00 00 03 f9 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|  smash_sfx 48 [0m00 00 00 
+            [34m|    reverse 50 [0m00 00 00 
+            [34m|    graphic 28 [0m44 00 00 03 f3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4e84
+        [35m62 (0x7f18): [0mPlyPichu5K_Share_ACTION_LightThrowHi_figatree
+            [32moffset: [0m0x4e88
+            [34m|timer_async 08 [0m00 00 0c 
+            [34m|    graphic 28 [0m00 00 00 03 fc 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|  smash_sfx 48 [0m00 00 00 
+            [34m|    reverse 50 [0m00 00 00 
+            [34m|    graphic 28 [0m44 00 00 03 f3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|    graphic 28 [0m00 00 00 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4ed0
+        [35m63 (0x7f30): [0mPlyPichu5K_Share_ACTION_LightThrowLw_figatree
+            [32moffset: [0m0x4ed4
+            [34m|timer_async 08 [0m00 00 0e 
+            [34m|    graphic 28 [0m00 00 00 03 fc 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|  smash_sfx 48 [0m00 00 00 
+            [34m|    reverse 50 [0m00 00 00 
+            [34m|    graphic 28 [0m44 00 00 03 f3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|    graphic 28 [0m00 00 00 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4f1c
+        [35m64 (0x7f48): [0mPlyPichu5K_Share_ACTION_LightThrowAirF_figatree
+            [32moffset: [0m0x4f20
+            [34m|timer_async 08 [0m00 00 0c 
+            [34m|    graphic 28 [0m00 00 00 03 f8 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|  smash_sfx 48 [0m00 00 00 
+            [34m|    reverse 50 [0m00 00 00 
+            [34m|    graphic 28 [0m44 00 00 03 f3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4f54
+        [35m65 (0x7f60): [0mPlyPichu5K_Share_ACTION_LightThrowAirB_figatree
+            [32moffset: [0m0x4f58
+            [34m|timer_async 08 [0m00 00 08 
+            [34m|    reverse 50 [0m00 00 01 
+            [34m|timer_async 08 [0m00 00 0c 
+            [34m|    graphic 28 [0m00 00 00 03 f8 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|  smash_sfx 48 [0m00 00 00 
+            [34m|    reverse 50 [0m00 00 00 
+            [34m|    graphic 28 [0m44 00 00 03 f3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4f94
+        [35m66 (0x7f78): [0mPlyPichu5K_Share_ACTION_LightThrowAirHi_figatree
+            [32moffset: [0m0x4f98
+            [34m|timer_async 08 [0m00 00 0c 
+            [34m|    graphic 28 [0m00 00 00 03 fb 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|  smash_sfx 48 [0m00 00 00 
+            [34m|    reverse 50 [0m00 00 00 
+            [34m|    graphic 28 [0m44 00 00 03 f3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x4fcc
+        [35m67 (0x7f90): [0mPlyPichu5K_Share_ACTION_LightThrowAirLw_figatree
+            [32moffset: [0m0x4fd0
+            [34m|timer_async 08 [0m00 00 08 
+            [34m|    graphic 28 [0m00 00 00 03 fb 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|  smash_sfx 48 [0m00 00 00 
+            [34m|    reverse 50 [0m00 00 00 
+            [34m|    graphic 28 [0m44 00 00 03 f3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5004
+        [35m68 (0x7fa8): [0mPlyPichu5K_Share_ACTION_HeavyThrowF_figatree
+            [32moffset: [0m0x5008
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|timer_async 08 [0m00 00 14 
+            [34m|    graphic 28 [0m00 00 00 03 fd 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|  smash_sfx 48 [0m00 00 00 
+            [34m|    reverse 50 [0m00 00 00 
+            [34m|    graphic 28 [0m44 00 00 03 f3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|    graphic 28 [0m00 00 00 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5054
+        [35m69 (0x7fc0): [0mPlyPichu5K_Share_ACTION_HeavyThrowB_figatree
+            [32moffset: [0m0x5058
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|timer_async 08 [0m00 00 14 
+            [34m|    reverse 50 [0m00 00 01 
+            [34m|timer_async 08 [0m00 00 17 
+            [34m|  smash_sfx 48 [0m00 00 00 
+            [34m|    reverse 50 [0m00 00 00 
+            [34m|    graphic 28 [0m44 00 00 03 f3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|    graphic 28 [0m00 00 00 03 fd 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5098
+        [35m6a (0x7fd8): [0mPlyPichu5K_Share_ACTION_HeavyThrowHi_figatree
+            [32moffset: [0m0x509c
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|timer_async 08 [0m00 00 0f 
+            [34m|  smash_sfx 48 [0m00 00 00 
+            [34m|    graphic 28 [0m00 00 00 04 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|    reverse 50 [0m00 00 00 
+            [34m|    graphic 28 [0m44 00 00 03 f3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|    graphic 28 [0m00 00 00 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x50e8
+        [35m6b (0x7ff0): [0mPlyPichu5K_Share_ACTION_HeavyThrowLw_figatree
+            [32moffset: [0m0x50ec
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|timer_async 08 [0m00 00 0e 
+            [34m|    graphic 28 [0m00 00 00 04 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|  smash_sfx 48 [0m00 00 00 
+            [34m|    reverse 50 [0m00 00 00 
+            [34m|    graphic 28 [0m44 00 00 03 f3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|    graphic 28 [0m00 00 00 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5138
+        [35m6c (0x8008): [0mPlyPichu5K_Share_ACTION_Swing1_figatree
+            [32moffset: [0m0x6020
+            [34m|    unknown c6 [0m00 00 00 d0 00 00 04 
+            [34m|    unknown b4 [0m00 80 b4 08 00 00 02 b4 00 81 90 
+            [34m|timer_async 08 [0m00 00 03 
+            [34m|   bonegfx? 2d [0m80 38 07 03 20 00 00 00 00 00 00 b4 99 00 17 05 0c 08 8f 
+            [34m| subroutine 14 [0m00 00 00 00 00 27 4c 
+                [32moffset: [0m0x274c
+                [34m|     hitbox 2c [0m00 88 07 04 fe 00 00 0d 50 00 00 b4 99 00 14 05 0c 08 8f 
+                [34m|     hitbox 2c [0m80 88 07 04 fe 00 00 06 a8 00 00 b4 99 00 17 05 0c 08 8f 
+                [34m|   bonegfx? 2d [0m00 88 07 03 54 00 00 00 00 00 00 b4 99 00 17 05 0c 08 8f 
+                [34m|    graphic 28 [0m44 00 00 03 f3 00 00 00 00 07 08 00 00 04 00 04 00 04 00 
+                [34m|    graphic 28 [0m00 00 00 03 fe 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                [34m|        sfx 44 [0m00 00 00 00 00 00 ed 00 00 7f 40 
+                [34m|gen_article ac [0m01 80 00 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x27c0
+            [34m| timer_sync 04 [0m00 00 03 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 08 
+            [34m|timer_async 08 [0m00 00 14 
+            [34m|    unknown b5 [0m05 01 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x6068
+        [35m6d (0x8020): [0mPlyPichu5K_Share_ACTION_Swing3_figatree
+            [32moffset: [0m0x606c
+            [34m|    unknown c6 [0m00 00 00 d0 00 00 04 
+            [34m|timer_async 08 [0m00 00 06 
+            [34m|    unknown b4 [0m00 c1 90 08 00 00 08 d0 00 00 04 
+            [34m|   bonegfx? 2d [0m80 38 0b 03 20 00 00 00 00 00 00 b4 99 00 17 07 8c 11 0f 
+            [34m| subroutine 14 [0m00 00 00 00 00 27 c4 
+                [32moffset: [0m0x27c4
+                [34m|     hitbox 2c [0m00 88 0b 04 fe 00 00 0d 50 00 00 b4 99 00 14 07 8c 11 0f 
+                [34m|     hitbox 2c [0m80 88 0b 04 fe 00 00 06 a8 00 00 b4 99 00 17 07 8c 11 0f 
+                [34m|   bonegfx? 2d [0m00 88 0b 03 54 00 00 00 00 00 00 b4 99 00 17 07 8c 11 0f 
+                [34m|    graphic 28 [0m44 00 00 03 f3 00 00 00 00 07 08 00 00 04 00 04 00 04 00 
+                [34m|    graphic 28 [0m00 00 00 03 ff 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                [34m|        sfx 44 [0m00 00 00 00 00 00 ec 00 00 7f 40 
+                [34m|gen_article ac [0m01 80 00 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x2838
+            [34m|timer_async 08 [0m00 00 0a 
+            [34m|    unknown b4 [0m00 41 90 08 00 00 0b 40 00 00 00 
+            [34m|    unknown b4 [0m00 80 c8 08 00 00 14 b5 0f 01 00 
+            [34m|timer_async 08 [0m00 00 26 
+            [34m|    unknown d0 [0m00 00 03 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x60c4
+        [35m6e (0x8038): [0mPlyPichu5K_Share_ACTION_Swing4_figatree
+            [32moffset: [0m0x60c8
+            [34m|    unknown c6 [0m00 00 00 d0 00 00 04 
+            [34m|  smash_sfx 48 [0m00 00 00 
+            [34m|gen_article ac [0m00 40 10 
+            [34m|timer_async 08 [0m00 00 0f 
+            [34m|  smashchrg e0 [0m3c 01 5e 77 00 00 00 
+            [34m|timer_async 08 [0m00 00 11 
+            [34m|    unknown b4 [0m01 01 90 08 00 00 14 2d 80 38 0a 
+            [34m|    unknown 03 [0m20 00 00 00 00 00 00 b4 99 00 17 0e 0c 19 0f 
+            [34m| subroutine 14 [0m00 00 00 00 00 28 3c 
+                [32moffset: [0m0x283c
+                [34m|     hitbox 2c [0m00 88 0f 04 fe 00 00 0d 50 00 00 b4 99 00 14 0e 0c 19 0f 
+                [34m|     hitbox 2c [0m80 88 0f 04 fe 00 00 06 a8 00 00 b4 99 00 17 0e 0c 19 0f 
+                [34m|   bonegfx? 2d [0m00 88 0f 03 54 00 00 00 00 00 00 b4 99 00 17 0e 0c 19 0f 
+                [34m|    graphic 28 [0m44 00 00 03 f3 00 00 00 00 07 08 00 00 04 00 04 00 04 00 
+                [34m|    graphic 28 [0m00 00 00 03 fd 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                [34m|        sfx 44 [0m00 00 00 00 00 00 eb 00 00 7f 40 
+                [34m|gen_article ac [0m01 a0 00 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x28b0
+            [34m|    graphic 28 [0m00 00 00 04 23 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m| timer_sync 04 [0m00 00 05 
+            [34m|     hitbox 2c [0m00 88 05 04 fe 00 00 0d 50 00 00 b4 99 00 17 0e 0c 19 0f 
+            [34m|     hitbox 2c [0m80 88 05 04 fe 00 00 06 a8 00 00 b4 99 00 17 0e 0c 19 0f 
+            [34m|   bonegfx? 2d [0m00 88 05 03 54 00 00 00 00 00 00 b4 99 00 17 0e 0c 19 0f 
+            [34m|   bonegfx? 2d [0m80 38 05 03 20 00 00 00 00 00 00 b4 99 00 17 0e 0c 10 8f 
+            [34m|timer_async 08 [0m00 00 1f 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|    unknown b4 [0m00 81 2c 08 00 00 23 b5 05 01 00 
+            [34m|    unknown d0 [0m00 00 03 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x618c
+        [35m6f (0x8050): [0mPlyPichu5K_Share_ACTION_SwingDash_figatree
+            [32moffset: [0m0x6190
+            [34m|    unknown c6 [0m00 00 00 d0 00 00 04 
+            [34m|gen_article ac [0m01 a0 00 
+            [34m|    unknown b4 [0m00 80 80 08 00 00 02 08 00 00 06 
+            [34m|    unknown b4 [0m00 81 90 2d 80 38 0a 03 20 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x61b4
+        [35m70 (0x8068): [0mPlyPichu5K_Share_ACTION_Swing1_figatree
+            [32moffset: [0m0x620c
+            [34m|timer_async 08 [0m00 00 03 
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|   bonegfx? 2d [0m80 38 06 02 bc 00 00 00 00 00 00 b4 99 00 17 02 80 08 17 
+            [34m| subroutine 14 [0m00 00 00 00 00 29 dc 
+                [32moffset: [0m0x29dc
+                [34m|     hitbox 2c [0m00 88 07 04 7e 00 00 06 a8 00 00 b4 99 00 17 02 80 08 17 
+                [34m|     hitbox 2c [0m80 88 07 04 7e 00 00 03 54 00 00 b4 99 00 17 02 80 08 17 
+                [34m|   bonegfx? 2d [0m00 88 07 03 54 00 00 00 00 00 00 b4 99 00 17 02 80 08 17 
+                [34m|    graphic 28 [0m00 00 00 03 fe 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                [34m|gen_article ac [0m01 60 00 
+                [34m|        sfx 44 [0m04 00 00 00 00 00 a0 00 00 7f 40 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x2a3c
+            [34m| timer_sync 04 [0m00 00 03 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 12 
+            [34m|    unknown d0 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x6240
+        [35m71 (0x8080): [0mPlyPichu5K_Share_ACTION_Swing3_figatree
+            [32moffset: [0m0x6244
+            [34m|timer_async 08 [0m00 00 08 
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|   bonegfx? 2d [0m80 38 0a 02 bc 00 00 00 00 00 00 b4 99 00 17 04 00 10 97 
+            [34m| subroutine 14 [0m00 00 00 00 00 2a 40 
+                [32moffset: [0m0x2a40
+                [34m|     hitbox 2c [0m00 88 0c 04 7e 00 00 06 a8 00 00 b4 99 00 17 04 00 10 97 
+                [34m|     hitbox 2c [0m80 88 0c 04 7e 00 00 03 54 00 00 b4 99 00 17 04 00 10 97 
+                [34m|   bonegfx? 2d [0m00 88 0c 03 54 00 00 00 00 00 00 b4 99 00 17 04 00 10 97 
+                [34m|    graphic 28 [0m00 00 00 03 ff 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                [34m|gen_article ac [0m01 80 00 
+                [34m|        sfx 44 [0m04 00 00 00 00 00 9f 00 00 7f 40 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x2aa0
+            [34m| timer_sync 04 [0m00 00 03 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 26 
+            [34m|    unknown d0 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x6278
+        [35m72 (0x8098): [0mPlyPichu5K_Share_ACTION_Swing4_figatree
+            [32moffset: [0m0x627c
+            [34m| bodyaura_2 b9 [0mb4 00 28 ac 00 20 14 
+            [34m|  smash_sfx 48 [0m00 00 00 
+            [34m| subroutine 14 [0m00 00 00 00 00 29 b8 
+                [32moffset: [0m0x29b8
+                [34m|    setloop 0c [0m00 00 04 
+                [34m| timer_sync 04 [0m00 00 03 
+                [34m|    graphic 28 [0m00 00 00 03 ff 00 00 00 00 00 00 00 00 08 00 00 00 05 00 
+                [34m|   execloop 10 [0m00 00 00 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x29d8
+            [34m|timer_async 08 [0m00 00 0d 
+            [34m| subroutine 14 [0m00 00 00 00 00 29 40 
+                [32moffset: [0m0x2940
+                [34m|    graphic 28 [0m44 00 00 03 f3 00 00 00 00 01 f4 00 00 01 00 00 00 01 00 
+                [34m| timer_sync 04 [0m00 00 01 
+                [34m|    graphic 28 [0m44 00 00 03 f3 00 00 00 00 03 e8 00 00 01 00 00 00 01 00 
+                [34m| timer_sync 04 [0m00 00 01 
+                [34m|    graphic 28 [0m44 00 00 03 f3 00 00 00 00 06 40 00 00 01 00 00 00 01 00 
+                [34m| timer_sync 04 [0m00 00 01 
+                [34m|    graphic 28 [0m44 00 00 03 f3 00 00 00 00 08 98 00 00 01 00 00 00 01 00 
+                [34m| timer_sync 04 [0m00 00 01 
+                [34m|    graphic 28 [0m44 00 00 03 f3 00 00 00 00 0a f0 00 00 01 00 00 00 01 00 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x29b4
+            [34m|timer_async 08 [0m00 00 14 
+            [34m|   bonegfx? 2d [0m80 38 08 02 bc 00 00 00 00 00 00 b4 99 00 17 96 00 10 97 
+            [34m| subroutine 14 [0m00 00 00 00 00 2a a4 
+                [32moffset: [0m0x2aa4
+                [34m|     hitbox 2c [0m00 88 14 03 20 00 00 00 00 00 00 11 1a 40 17 61 83 dd 17 
+                [34m|     hitbox 2c [0m80 88 14 03 84 00 00 02 58 00 00 11 1a 40 17 64 03 dd 17 
+                [34m|   bonegfx? 2d [0m00 88 14 03 e8 00 00 04 b0 00 00 11 1a 40 17 66 83 dd 17 
+                [34m|    graphic 28 [0m44 00 00 03 f3 00 00 00 00 07 08 00 00 00 00 00 00 00 00 
+                [34m|    graphic 28 [0m00 00 00 05 13 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                [34m|    graphic 28 [0m00 00 00 03 fd 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                [34m|    graphic 28 [0m00 00 00 04 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                [34m|gen_article ac [0m01 a0 00 
+                [34m|        sfx 44 [0m00 00 00 00 00 00 73 00 00 7f 40 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x2b40
+            [34m|    graphic 28 [0m00 00 00 04 23 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m| timer_sync 04 [0m00 00 05 
+            [34m|     hitbox 2c [0m00 88 0a 03 e8 00 00 04 b0 00 00 11 02 80 17 4b 03 dd 17 
+            [34m|     hitbox 2c [0m80 88 0a 03 84 00 00 02 58 00 00 11 02 80 17 4b 03 dd 17 
+            [34m|   bonegfx? 2d [0m00 88 0a 03 20 00 00 00 00 00 00 11 02 80 17 4b 03 dd 17 
+            [34m|   bonegfx? 2d [0m80 38 08 03 20 00 00 00 00 00 00 b4 82 80 17 4b 00 10 97 
+            [34m|timer_async 08 [0m00 00 1f 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 32 
+            [34m|    unknown d0 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x6334
+        [35m73 (0x80b0): [0mPlyPichu5K_Share_ACTION_SwingDash_figatree
+            [32moffset: [0m0x6338
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|timer_async 08 [0m00 00 06 
+            [34m|   bonegfx? 2d [0m80 38 0a 02 bc 00 00 00 00 00 00 b4 99 00 17 04 00 10 97 
+            [34m| subroutine 14 [0m00 00 00 00 00 2b 44 
+                [32moffset: [0m0x2b44
+                [34m|     hitbox 2c [0m00 88 10 03 54 00 00 00 00 00 00 b4 91 80 17 11 80 00 17 
+                [34m|     hitbox 2c [0m80 88 0e 04 7e 00 00 02 fe 00 00 b4 91 80 17 11 80 00 17 
+                [34m|   bonegfx? 2d [0m00 88 0c 04 7e 00 00 05 fd 00 00 b4 91 80 17 11 80 00 17 
+                [34m|gen_article ac [0m01 80 00 
+                [34m|    graphic 28 [0m00 00 00 03 fd 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                [34m|        sfx 44 [0m04 00 00 00 00 00 9f 00 00 7f 40 
+                [34m| timer_sync 04 [0m00 00 04 
+                [34m|    unknown 30 [0m00 00 0a 
+                [34m|    unknown 30 [0m80 00 08 
+                [34m|    unknown 31 [0m00 00 06 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x2bb4
+            [34m|timer_async 08 [0m00 00 10 
+            [34m|    graphic 28 [0m00 00 00 03 ff 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|gen_article ac [0m01 80 00 
+            [34m|        sfx 44 [0m00 00 00 00 00 00 0b 00 00 7f 40 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 28 
+            [34m|    unknown d0 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x6390
+        [35m74 (0x80c8): [0mPlyPichu5K_Share_ACTION_Swing1_figatree
+            [32moffset: [0m0x6394
+            [34m|timer_async 08 [0m00 00 02 
+            [34m|    unknown a8 [0m00 00 00 08 00 00 03 
+            [34m|   bonegfx? 2d [0m80 38 06 03 20 00 00 00 00 00 00 1e 19 00 17 02 8c 08 8b 
+            [34m| subroutine 14 [0m00 00 00 00 00 2b b8 
+                [32moffset: [0m0x2bb8
+                [34m|     hitbox 2c [0m00 88 06 05 dc 00 00 08 98 00 00 1e 19 00 15 02 8c 08 8b 
+                [34m|     hitbox 2c [0m80 88 06 04 b0 00 00 05 78 00 00 1e 19 00 17 02 8c 08 8b 
+                [34m|   bonegfx? 2d [0m00 88 06 02 58 00 00 00 00 00 00 1e 19 00 17 02 8c 08 8b 
+                [34m|    graphic 28 [0m44 00 00 03 f1 00 00 00 00 07 08 00 00 00 00 00 00 00 00 
+                [34m|    graphic 28 [0m44 00 00 03 f3 00 00 00 00 07 08 00 00 03 00 03 00 03 00 
+                [34m|    graphic 28 [0m00 00 00 03 fe 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                [34m|gen_article ac [0m01 80 00 
+                [34m|        sfx 44 [0m04 00 00 00 00 00 a0 00 00 7f 40 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x2c40
+            [34m| timer_sync 04 [0m00 00 03 
+            [34m|    unknown a8 [0m00 c0 00 40 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x63c8
+        [35m75 (0x80e0): [0mPlyPichu5K_Share_ACTION_Swing3_figatree
+            [32moffset: [0m0x63cc
+            [34m|timer_async 08 [0m00 00 05 
+            [34m|    unknown a8 [0m00 20 00 08 00 00 07 
+            [34m|   bonegfx? 2d [0m80 38 0d 03 20 00 00 00 00 00 00 1e 19 00 17 05 0c 11 0b 
+            [34m| subroutine 14 [0m00 00 00 00 00 2c 44 
+                [32moffset: [0m0x2c44
+                [34m|     hitbox 2c [0m00 88 0d 05 dc 00 00 08 98 00 00 1e 19 00 15 05 0c 11 0b 
+                [34m|     hitbox 2c [0m80 88 0d 04 b0 00 00 05 78 00 00 1e 19 00 17 05 0c 11 0b 
+                [34m|   bonegfx? 2d [0m00 88 0d 02 58 00 00 00 00 00 00 1e 19 00 17 05 0c 11 0b 
+                [34m|    graphic 28 [0m44 00 00 03 ef 00 00 00 00 07 08 00 00 00 00 00 00 00 00 
+                [34m|    graphic 28 [0m44 00 00 03 f3 00 00 00 00 07 08 00 00 03 00 03 00 03 00 
+                [34m|    graphic 28 [0m00 00 00 03 ff 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                [34m|gen_article ac [0m01 80 00 
+                [34m|        sfx 44 [0m04 00 00 00 00 00 9f 00 00 7f 40 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x2ccc
+            [34m| timer_sync 04 [0m00 00 03 
+            [34m|    unknown a8 [0m00 c0 00 40 00 00 00 
+            [34m|timer_async 08 [0m00 00 24 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x6404
+        [35m76 (0x80f8): [0mPlyPichu5K_Share_ACTION_Swing4_figatree
+            [32moffset: [0m0x6408
+            [34m|  smash_sfx 48 [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 0f 
+            [34m|  smashchrg e0 [0m3c 01 5e 77 00 00 00 
+            [34m|timer_async 08 [0m00 00 11 
+            [34m|    unknown a8 [0m00 40 04 08 00 00 14 
+            [34m|   bonegfx? 2d [0m80 38 12 03 20 00 00 00 00 00 00 1e 19 00 17 0c 0c 19 0b 
+            [34m| subroutine 14 [0m00 00 00 00 00 2c d0 
+                [32moffset: [0m0x2cd0
+                [34m|     hitbox 2c [0m00 88 12 05 dc 00 00 08 98 00 00 1e 19 00 15 0c 0c 19 0b 
+                [34m|     hitbox 2c [0m80 88 12 04 b0 00 00 05 78 00 00 1e 19 00 17 0c 0c 19 0b 
+                [34m|   bonegfx? 2d [0m00 88 12 02 58 00 00 00 00 00 00 1e 19 00 17 0c 0c 19 0b 
+                [34m|    graphic 28 [0m44 00 00 03 ef 00 00 00 00 07 08 00 00 00 00 00 00 00 00 
+                [34m|    graphic 28 [0m44 00 00 03 f3 00 00 00 00 07 08 00 00 03 00 03 00 03 00 
+                [34m|    graphic 28 [0m00 00 00 03 fd 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                [34m|gen_article ac [0m01 a0 00 
+                [34m|        sfx 44 [0m04 00 00 00 00 00 9e 00 00 7f 40 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x2d58
+            [34m|    graphic 28 [0m00 00 00 04 23 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m| timer_sync 04 [0m00 00 05 
+            [34m|     hitbox 2c [0m00 88 09 05 dc 00 00 08 98 00 00 1e 02 80 15 06 0c 19 0b 
+            [34m|     hitbox 2c [0m80 88 09 04 b0 00 00 05 78 00 00 1e 02 80 17 06 0c 19 0b 
+            [34m|   bonegfx? 2d [0m00 88 09 02 58 00 00 00 00 00 00 1e 02 80 17 06 0c 19 0b 
+            [34m|   bonegfx? 2d [0m80 38 08 03 20 00 00 00 00 00 00 1e 02 80 17 06 0c 19 0b 
+            [34m|timer_async 08 [0m00 00 1f 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|    unknown a8 [0m00 c0 00 00 00 00 00 
+            [34m|timer_async 08 [0m00 00 02 
+            [34m|    unknown a8 [0m00 60 00 08 00 00 04 
+            [34m|   bonegfx? 2d [0m80 38 0b 03 20 00 00 00 00 00 00 1e 19 00 17 04 0c 01 0b 
+            [34m| subroutine 14 [0m00 00 00 00 00 2d 5c 
+                [32moffset: [0m0x2d5c
+                [34m|     hitbox 2c [0m00 88 0b 05 dc 00 00 08 98 00 00 1e 11 80 17 11 8c 01 0b 
+                [34m|     hitbox 2c [0m80 88 0b 04 b0 00 00 05 78 00 00 1e 11 80 17 11 8c 01 0b 
+                [34m|   bonegfx? 2d [0m00 88 0b 02 58 00 00 00 00 00 00 1e 11 80 17 11 8c 01 0b 
+                [34m|    graphic 28 [0m44 00 00 03 ef 00 00 00 00 07 08 00 00 00 00 00 00 00 00 
+                [34m|    graphic 28 [0m44 00 00 03 f3 00 00 00 00 07 08 00 00 03 00 03 00 03 00 
+                [34m|    graphic 28 [0m00 00 00 03 fd 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                [34m|gen_article ac [0m01 80 00 
+                [34m|        sfx 44 [0m04 00 00 00 00 00 9f 00 00 7f 40 
+                [34m| timer_sync 04 [0m00 00 04 
+                [34m|    unknown 30 [0m00 00 0a 
+                [34m|    unknown 30 [0m80 00 08 
+                [34m|    unknown 31 [0m00 00 06 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x2df4
+            [34m| timer_sync 04 [0m00 00 16 
+            [34m|    unknown a8 [0m00 c0 00 40 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x64ec
+        [35m77 (0x8110): [0mPlyPichu5K_Share_ACTION_SwingDash_figatree
+            [32moffset: [0m0x64b8
+            [34m|timer_async 08 [0m00 00 02 
+            [34m|    unknown a8 [0m00 60 00 08 00 00 04 
+            [34m|   bonegfx? 2d [0m80 38 0b 03 20 00 00 00 00 00 00 1e 19 00 17 04 0c 01 0b 
+            [34m| subroutine 14 [0m00 00 00 00 00 2d 5c 
+                [32moffset: [0m0x2d5c
+                [34m|     hitbox 2c [0m00 88 0b 05 dc 00 00 08 98 00 00 1e 11 80 17 11 8c 01 0b 
+                [34m|     hitbox 2c [0m80 88 0b 04 b0 00 00 05 78 00 00 1e 11 80 17 11 8c 01 0b 
+                [34m|   bonegfx? 2d [0m00 88 0b 02 58 00 00 00 00 00 00 1e 11 80 17 11 8c 01 0b 
+                [34m|    graphic 28 [0m44 00 00 03 ef 00 00 00 00 07 08 00 00 00 00 00 00 00 00 
+                [34m|    graphic 28 [0m44 00 00 03 f3 00 00 00 00 07 08 00 00 03 00 03 00 03 00 
+                [34m|    graphic 28 [0m00 00 00 03 fd 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                [34m|gen_article ac [0m01 80 00 
+                [34m|        sfx 44 [0m04 00 00 00 00 00 9f 00 00 7f 40 
+                [34m| timer_sync 04 [0m00 00 04 
+                [34m|    unknown 30 [0m00 00 0a 
+                [34m|    unknown 30 [0m80 00 08 
+                [34m|    unknown 31 [0m00 00 06 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x2df4
+            [34m| timer_sync 04 [0m00 00 16 
+            [34m|    unknown a8 [0m00 c0 00 40 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x64ec
+        [35m78 (0x8128): [0mPlyPichu5K_Share_ACTION_Swing1_figatree
+            [32moffset: [0m0x64f0
+            [34m| autocancel 4c [0m00 00 01 
+            [34m|timer_async 08 [0m00 00 04 
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|     hitbox 2c [0m00 00 02 03 e8 00 00 05 dc 17 70 57 19 00 d7 00 00 29 1b 
+            [34m|     hitbox 2c [0m80 00 02 03 20 00 00 05 dc 0f a0 57 19 00 d7 00 00 29 1b 
+            [34m|   bonegfx? 2d [0m00 00 02 02 58 00 00 05 dc 07 d0 57 19 01 37 00 00 29 1b 
+            [34m| timer_sync 04 [0m00 00 06 
+            [34m| autocancel 4c [0m00 00 02 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 12 
+            [34m|    unknown d0 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x654c
+        [35m79 (0x8140): [0mPlyPichu5K_Share_ACTION_Swing3_figatree
+            [32moffset: [0m0x6550
+            [34m| autocancel 4c [0m00 00 01 
+            [34m|timer_async 08 [0m00 00 08 
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|   bonegfx? 2d [0m80 38 07 03 20 00 00 00 00 00 00 50 19 07 97 00 00 51 1b 
+            [34m| subroutine 14 [0m00 00 00 00 00 2e c4 
+                [32moffset: [0m0x2ec4
+                [34m|     hitbox 2c [0m00 88 06 05 78 00 00 08 98 00 00 50 19 07 97 00 00 51 1b 
+                [34m|     hitbox 2c [0m80 88 06 04 b0 00 00 03 b6 00 00 50 19 07 97 00 00 51 1b 
+                [34m|   bonegfx? 2d [0m00 88 06 03 84 00 00 00 00 00 00 50 19 07 97 00 00 51 1b 
+                [34m|    graphic 28 [0m00 00 00 03 ff 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                [34m|gen_article ac [0m01 80 00 
+                [34m|        sfx 44 [0m04 00 00 00 00 00 a4 00 00 7f 40 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x2f24
+            [34m| timer_sync 04 [0m00 00 04 
+            [34m| autocancel 4c [0m00 00 02 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 26 
+            [34m|    unknown d0 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x658c
+        [35m7a (0x8158): [0mPlyPichu5K_Share_ACTION_Swing4_figatree
+            [32moffset: [0m0x6590
+            [34m| autocancel 4c [0m00 00 01 
+            [34m|timer_async 08 [0m00 00 0f 
+            [34m|  smashchrg e0 [0m3c 01 5e 77 00 00 00 
+            [34m|timer_async 08 [0m00 00 14 
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|   bonegfx? 2d [0m80 38 0c 03 20 00 00 00 00 00 00 3c 19 11 97 00 01 91 1b 
+            [34m| subroutine 14 [0m00 00 00 00 00 2f 28 
+                [32moffset: [0m0x2f28
+                [34m|     hitbox 2c [0m00 88 0a 05 78 00 00 08 98 00 00 3c 19 11 97 00 01 91 1b 
+                [34m|     hitbox 2c [0m80 88 0a 04 b0 00 00 03 b6 00 00 3c 19 11 97 00 01 91 1b 
+                [34m|   bonegfx? 2d [0m00 88 0a 03 84 00 00 00 00 00 00 3c 19 11 97 00 01 91 1b 
+                [34m|    graphic 28 [0m44 00 00 03 f3 00 00 00 00 07 08 00 00 03 00 03 00 03 00 
+                [34m|    graphic 28 [0m00 00 00 03 fd 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                [34m|gen_article ac [0m01 80 00 
+                [34m|        sfx 44 [0m04 00 00 00 00 00 a4 00 00 7f 40 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x2f9c
+            [34m|    graphic 28 [0m00 00 00 04 23 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m| timer_sync 04 [0m00 00 05 
+            [34m|     hitbox 2c [0m00 88 06 05 dc 00 00 09 c4 00 00 3c 02 88 d7 00 01 91 1b 
+            [34m|     hitbox 2c [0m80 88 06 04 b0 00 00 04 4c 00 00 3c 02 88 d7 00 01 91 1b 
+            [34m|   bonegfx? 2d [0m00 88 06 03 84 00 00 00 00 00 00 3c 02 88 d7 00 01 91 1b 
+            [34m|   bonegfx? 2d [0m80 38 04 03 20 00 00 00 00 00 00 3c 02 88 d7 00 01 91 1b 
+            [34m|timer_async 08 [0m00 00 1f 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m| autocancel 4c [0m00 00 02 
+            [34m|timer_async 08 [0m00 00 32 
+            [34m|    unknown d0 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x6640
+        [35m7b (0x8170): [0mPlyPichu5K_Share_ACTION_SwingDash_figatree
+            [32moffset: [0m0x6644
+            [34m| autocancel 4c [0m00 00 01 
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|timer_async 08 [0m00 00 06 
+            [34m|   bonegfx? 2d [0m80 38 06 03 20 00 00 00 00 00 00 3c 19 0a 17 00 00 a1 1b 
+            [34m| subroutine 14 [0m00 00 00 00 00 2f a0 
+                [32moffset: [0m0x2fa0
+                [34m|   bonegfx? 2d [0m00 88 08 05 dc 00 00 08 34 00 00 3c 11 8a 17 11 80 a1 1b 
+                [34m|     hitbox 2c [0m80 88 07 04 b0 00 00 03 b6 00 00 3c 11 8a 17 11 80 a1 1b 
+                [34m|     hitbox 2c [0m00 88 06 03 84 00 00 00 00 00 00 3c 11 8a 17 11 80 a1 1b 
+                [34m|    graphic 28 [0m00 00 00 03 fd 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                [34m|        sfx 44 [0m04 00 00 00 00 00 a4 00 00 7f 40 
+                [34m| timer_sync 04 [0m00 00 04 
+                [34m|    unknown 30 [0m00 00 05 
+                [34m|    unknown 30 [0m80 00 05 
+                [34m|    unknown 31 [0m00 00 04 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x300c
+            [34m|timer_async 08 [0m00 00 10 
+            [34m|    graphic 28 [0m00 00 00 03 ff 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|gen_article ac [0m01 80 00 
+            [34m|        sfx 44 [0m00 00 00 00 00 00 0b 00 00 7f 40 
+            [34m| autocancel 4c [0m00 00 02 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 28 
+            [34m|    unknown d0 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x66a4
+        [35m7c (0x8188): [0mPlyPichu5K_Share_ACTION_Swing1_figatree
+            [32moffset: [0m0x66a8
+            [34m| bodyaura_2 b9 [0mb0 00 06 08 00 00 03 
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|   bonegfx? 2d [0m80 38 0a 03 20 00 00 00 00 00 00 b4 99 00 17 02 80 08 87 
+            [34m| subroutine 14 [0m00 00 00 00 00 30 10 
+                [32moffset: [0m0x3010
+                [34m|     hitbox 2c [0m00 88 0a 04 b0 00 00 07 3a 00 00 b4 99 00 17 02 80 08 87 
+                [34m|     hitbox 2c [0m80 88 0a 01 f4 00 00 03 20 00 00 b4 99 00 17 02 80 08 87 
+                [34m|   bonegfx? 2d [0m00 88 0a 01 f4 00 00 00 00 00 00 b4 99 00 17 02 80 08 87 
+                [34m|    graphic 28 [0m44 00 00 03 ef 00 00 00 00 07 08 00 00 00 00 00 00 00 00 
+                [34m|    graphic 28 [0m44 00 00 03 f3 00 00 00 00 07 08 00 00 04 00 04 00 04 00 
+                [34m|    graphic 28 [0m00 00 00 03 fe 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                [34m|gen_article ac [0m01 60 00 
+                [34m| autocancel 4c [0m00 00 e9 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x3090
+            [34m| timer_sync 04 [0m00 00 03 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 12 
+            [34m|    unknown d0 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x66e0
+        [35m7d (0x81a0): [0mPlyPichu5K_Share_ACTION_Swing3_figatree
+            [32moffset: [0m0x66e4
+            [34m| bodyaura_2 b9 [0mb0 00 0d 08 00 00 08 
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|   bonegfx? 2d [0m80 38 0f 03 20 00 00 00 00 00 00 b4 99 00 17 04 00 11 07 
+            [34m| subroutine 14 [0m00 00 00 00 00 30 94 
+                [32moffset: [0m0x3094
+                [34m|     hitbox 2c [0m00 88 0d 04 b0 00 00 07 3a 00 00 b4 99 00 17 04 00 11 07 
+                [34m|     hitbox 2c [0m80 88 0d 01 f4 00 00 03 20 00 00 b4 99 00 17 04 00 11 07 
+                [34m|   bonegfx? 2d [0m00 88 0d 01 f4 00 00 00 00 00 00 b4 99 00 17 04 00 11 07 
+                [34m|    graphic 28 [0m44 00 00 03 ef 00 00 00 00 07 08 00 00 00 00 00 00 00 00 
+                [34m|    graphic 28 [0m44 00 00 03 f3 00 00 00 00 07 08 00 00 04 00 04 00 04 00 
+                [34m|    graphic 28 [0m00 00 00 03 ff 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                [34m| autocancel 4c [0m00 00 e8 
+                [34m|gen_article ac [0m01 80 00 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x3114
+            [34m|timer_async 08 [0m00 00 09 
+            [34m|shootitem1? 60 [0m00 00 00 
+            [34m|   airstop? 4d [0m00 00 00 
+            [34m| timer_sync 04 [0m00 00 04 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 26 
+            [34m|    unknown d0 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x6728
+        [35m7e (0x81b8): [0mPlyPichu5K_Share_ACTION_Swing4_figatree
+            [32moffset: [0m0x672c
+            [34m| bodyaura_2 b9 [0mb0 00 1c 48 00 00 00 
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|timer_async 08 [0m00 00 0f 
+            [34m|  smashchrg e0 [0m3c 01 5e 77 00 00 00 
+            [34m|timer_async 08 [0m00 00 14 
+            [34m|   bonegfx? 2d [0m80 38 16 03 20 00 00 00 00 00 00 b4 99 00 17 06 00 19 07 
+            [34m| subroutine 14 [0m00 00 00 00 00 31 18 
+                [32moffset: [0m0x3118
+                [34m|     hitbox 2c [0m00 88 12 04 b0 00 00 07 3a 00 00 b4 99 00 17 06 00 19 07 
+                [34m|     hitbox 2c [0m80 88 12 01 f4 00 00 03 20 00 00 b4 99 00 17 06 00 19 07 
+                [34m|   bonegfx? 2d [0m00 88 12 01 f4 00 00 00 00 00 00 b4 99 00 17 06 00 19 07 
+                [34m|    graphic 28 [0m44 00 00 03 ef 00 00 00 00 07 08 00 00 00 00 00 00 00 00 
+                [34m|    graphic 28 [0m44 00 00 03 f3 00 00 00 00 07 08 00 00 04 00 04 00 04 00 
+                [34m|    graphic 28 [0m00 00 00 03 fd 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                [34m|gen_article ac [0m01 a0 00 
+                [34m| autocancel 4c [0m00 00 e7 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x3198
+            [34m|    graphic 28 [0m00 00 00 04 23 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|timer_async 08 [0m00 00 15 
+            [34m|shootitem1? 60 [0m00 00 00 
+            [34m|   airstop? 4d [0m00 00 01 
+            [34m| timer_sync 04 [0m00 00 04 
+            [34m|     hitbox 2c [0m00 88 0a 04 b0 00 00 07 3a 00 00 b4 82 80 17 03 00 19 07 
+            [34m|     hitbox 2c [0m80 88 0a 01 f4 00 00 03 20 00 00 b4 82 80 17 03 00 19 07 
+            [34m|   bonegfx? 2d [0m00 88 0a 01 f4 00 00 00 00 00 00 b4 82 80 17 03 00 19 07 
+            [34m|   bonegfx? 2d [0m80 38 08 03 20 00 00 00 00 00 00 b4 82 80 17 03 00 19 07 
+            [34m|timer_async 08 [0m00 00 1f 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 32 
+            [34m|    unknown d0 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x67e8
+        [35m7f (0x81d0): [0mPlyPichu5K_Share_ACTION_SwingDash_figatree
+            [32moffset: [0m0x67ec
+            [34m| bodyaura_2 b9 [0mb0 00 1e 08 00 00 06 
+            [34m|   bonegfx? 2d [0m80 38 0c 03 20 00 00 00 00 00 00 b4 99 00 17 04 00 01 07 
+            [34m| subroutine 14 [0m00 00 00 00 00 31 9c 
+                [32moffset: [0m0x319c
+                [34m|     hitbox 2c [0m00 88 10 04 b0 00 00 07 3a 00 00 b4 91 80 17 11 80 01 07 
+                [34m|     hitbox 2c [0m80 88 0e 01 f4 00 00 03 20 00 00 b4 91 80 17 11 80 01 07 
+                [34m|   bonegfx? 2d [0m00 88 0c 01 f4 00 00 00 00 00 00 b4 91 80 17 11 80 01 07 
+                [34m|    graphic 28 [0m00 00 00 03 fd 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                [34m|    graphic 28 [0m44 00 00 03 f3 00 00 00 00 07 08 00 00 04 00 04 00 04 00 
+                [34m|    graphic 28 [0m44 00 00 03 ef 00 00 00 00 07 08 00 00 00 00 00 00 00 00 
+                [34m|gen_article ac [0m01 80 00 
+                [34m| autocancel 4c [0m00 00 e8 
+                [34m| timer_sync 04 [0m00 00 04 
+                [34m|    unknown 30 [0m00 00 0a 
+                [34m|    unknown 30 [0m80 00 08 
+                [34m|    unknown 31 [0m00 00 06 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x322c
+            [34m|timer_async 08 [0m00 00 10 
+            [34m|    graphic 28 [0m00 00 00 03 ff 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|gen_article ac [0m01 80 00 
+            [34m|        sfx 44 [0m00 00 00 00 00 00 0b 00 00 7f 40 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 28 
+            [34m|    unknown d0 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x6844
+        [35m80 (0x81e8): [0mPlyPichu5K_Share_ACTION_Swing1_figatree
+            [32moffset: [0m0x6848
+            [34m|timer_async 08 [0m00 00 03 
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|   bonegfx? 2d [0m80 38 04 03 20 00 00 00 00 00 00 b4 a5 80 17 02 bc 08 87 
+            [34m| subroutine 14 [0m00 00 00 00 00 32 30 
+                [32moffset: [0m0x3230
+                [34m|     hitbox 2c [0m00 88 04 03 20 00 00 04 b0 00 00 b4 a5 80 17 02 bc 08 87 
+                [34m|     hitbox 2c [0m80 88 04 01 f4 00 00 02 bc 00 00 b4 a5 80 17 02 bc 08 87 
+                [34m|   bonegfx? 2d [0m00 88 04 01 f4 00 00 00 00 00 00 b4 a5 80 17 02 bc 08 87 
+                [34m|gen_article ac [0m01 60 00 
+                [34m| autocancel 4c [0m00 01 1e 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x3274
+            [34m| timer_sync 04 [0m00 00 03 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 12 
+            [34m|    unknown d0 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x687c
+        [35m81 (0x8200): [0mPlyPichu5K_Share_ACTION_Swing3_figatree
+            [32moffset: [0m0x6880
+            [34m|timer_async 08 [0m00 00 08 
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|   bonegfx? 2d [0m80 38 09 03 20 00 00 00 00 00 00 b4 a5 80 17 04 3c 11 07 
+            [34m| subroutine 14 [0m00 00 00 00 00 32 78 
+                [32moffset: [0m0x3278
+                [34m|     hitbox 2c [0m00 88 07 03 20 00 00 04 b0 00 00 b4 a5 80 17 04 3c 11 07 
+                [34m|     hitbox 2c [0m80 88 07 01 f4 00 00 02 bc 00 00 b4 a5 80 17 04 3c 11 07 
+                [34m|   bonegfx? 2d [0m00 88 07 01 f4 00 00 00 00 00 00 b4 a5 80 17 04 3c 11 07 
+                [34m|gen_article ac [0m01 80 00 
+                [34m| autocancel 4c [0m00 01 1e 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x32bc
+            [34m|timer_async 08 [0m00 00 09 
+            [34m|shootitem1? 60 [0m00 00 00 
+            [34m|   airstop? 4d [0m00 00 00 
+            [34m| timer_sync 04 [0m00 00 04 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 26 
+            [34m|    unknown d0 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x68c0
+        [35m82 (0x8218): [0mPlyPichu5K_Share_ACTION_Swing4_figatree
+            [32moffset: [0m0x68c4
+            [34m|  smash_sfx 48 [0m00 00 00 
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|timer_async 08 [0m00 00 0f 
+            [34m|  smashchrg e0 [0m3c 01 5e 77 00 00 00 
+            [34m|timer_async 08 [0m00 00 14 
+            [34m|   bonegfx? 2d [0m80 38 0c 03 20 00 00 00 00 00 00 b4 a5 80 17 06 3c 19 07 
+            [34m| subroutine 14 [0m00 00 00 00 00 32 c0 
+                [32moffset: [0m0x32c0
+                [34m|     hitbox 2c [0m00 88 0b 03 20 00 00 04 b0 00 00 b4 a5 80 17 06 3c 19 07 
+                [34m|     hitbox 2c [0m80 88 0b 01 f4 00 00 02 bc 00 00 b4 a5 80 17 06 3c 19 07 
+                [34m|   bonegfx? 2d [0m00 88 0b 01 f4 00 00 00 00 00 00 b4 a5 80 17 06 3c 19 07 
+                [34m|gen_article ac [0m01 a0 00 
+                [34m| autocancel 4c [0m00 01 1e 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x3304
+            [34m|    graphic 28 [0m00 00 00 04 23 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|timer_async 08 [0m00 00 15 
+            [34m|shootitem1? 60 [0m00 00 00 
+            [34m|   airstop? 4d [0m00 00 01 
+            [34m| timer_sync 04 [0m00 00 04 
+            [34m|     hitbox 2c [0m00 88 06 04 b0 00 00 07 3a 00 00 b4 83 c0 17 06 3c 19 07 
+            [34m|     hitbox 2c [0m80 88 06 01 f4 00 00 03 20 00 00 b4 83 c0 17 06 3c 19 07 
+            [34m|   bonegfx? 2d [0m00 88 06 01 f4 00 00 00 00 00 00 b4 83 c0 17 06 3c 19 07 
+            [34m|   bonegfx? 2d [0m80 38 04 03 20 00 00 00 00 00 00 b4 83 c0 17 06 3c 19 07 
+            [34m|timer_async 08 [0m00 00 1f 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 32 
+            [34m|    unknown d0 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x697c
+        [35m83 (0x8230): [0mPlyPichu5K_Share_ACTION_SwingDash_figatree
+            [32moffset: [0m0x6980
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|timer_async 08 [0m00 00 06 
+            [34m|   bonegfx? 2d [0m80 38 06 03 20 00 00 00 00 00 00 b4 99 00 17 04 3c 01 07 
+            [34m| subroutine 14 [0m00 00 00 00 00 33 08 
+                [32moffset: [0m0x3308
+                [34m|     hitbox 2c [0m00 88 06 03 20 00 00 04 b0 00 00 b4 91 80 17 11 bc 01 07 
+                [34m|     hitbox 2c [0m80 88 06 01 f4 00 00 02 bc 00 00 b4 91 80 17 11 bc 01 07 
+                [34m|   bonegfx? 2d [0m00 88 06 01 f4 00 00 00 00 00 00 b4 91 80 17 11 bc 01 07 
+                [34m|gen_article ac [0m01 80 00 
+                [34m| autocancel 4c [0m00 01 1e 
+                [34m| timer_sync 04 [0m00 00 04 
+                [34m|    unknown 30 [0m00 00 0a 
+                [34m|    unknown 30 [0m80 00 08 
+                [34m|    unknown 31 [0m00 00 06 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x335c
+            [34m|timer_async 08 [0m00 00 10 
+            [34m|    graphic 28 [0m00 00 00 03 ff 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|gen_article ac [0m01 80 00 
+            [34m|        sfx 44 [0m00 00 00 00 00 00 0b 00 00 7f 40 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 28 
+            [34m|    unknown d0 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x69d8
+        [35m84 (0x8248): [0mPlyPichu5K_Share_ACTION_ItemHammerWait_figatree
+        [35m85 (0x8260): [0mPlyPichu5K_Share_ACTION_ItemHammerMove_figatree
+        [35m86 (0x8278): [0mPlyPichu5K_Share_ACTION_ItemParasolOpen_figatree
+            [32moffset: [0m0x69e4
+            [34m|timer_async 08 [0m00 00 07 
+            [34m|    unknown a8 [0m00 80 07 14 00 00 00 
+            [34m|        end 00 [0m00 2d f8 
+            [32mendoff: [0m0x69f0
+        [35m87 (0x8290): [0mPlyPichu5K_Share_ACTION_ItemParasolFall_figatree
+        [35m88 (0x82a8): [0mPlyPichu5K_Share_ACTION_ItemParasolFall_figatree
+        [35m89 (0x82c0): [0mPlyPichu5K_Share_ACTION_DamageFall_figatree
+        [35m8a (0x82d8): [0mPlyPichu5K_Share_ACTION_ItemShoot_figatree
+            [32moffset: [0m0x6a04
+            [34m|timer_async 08 [0m00 00 08 
+            [34m| bodyaura_2 b9 [0mc4 00 00 ac 00 60 00 
+            [34m|timer_async 08 [0m00 00 0a 
+            [34m|shootitem1? 60 [0m00 00 00 
+            [34m|    graphic 28 [0m00 00 00 03 f5 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|   texswap? a2 [0m00 08 02 
+            [34m| timer_sync 04 [0m00 00 08 
+            [34m|   texswap? a2 [0m00 08 01 
+            [34m| timer_sync 04 [0m00 00 02 
+            [34m|   texswap? a2 [0m00 08 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x6a40
+        [35m8b (0x82f0): [0mPlyPichu5K_Share_ACTION_ItemShootAir_figatree
+            [32moffset: [0m0x6a44
+            [34m|       goto 1c [0m00 00 00 00 00 6a 04 
+                [32moffset: [0m0x6a04
+                [34m|timer_async 08 [0m00 00 08 
+                [34m| bodyaura_2 b9 [0mc4 00 00 ac 00 60 00 
+                [34m|timer_async 08 [0m00 00 0a 
+                [34m|shootitem1? 60 [0m00 00 00 
+                [34m|    graphic 28 [0m00 00 00 03 f5 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                [34m|   texswap? a2 [0m00 08 02 
+                [34m| timer_sync 04 [0m00 00 08 
+                [34m|   texswap? a2 [0m00 08 01 
+                [34m| timer_sync 04 [0m00 00 02 
+                [34m|   texswap? a2 [0m00 08 00 
+                [34m|        end 00 [0m00 00 00 
+                [32mendoff: [0m0x6a40
+            [32mendoff: [0m0x6a44
+        [35m8c (0x8308): [0mPlyPichu5K_Share_ACTION_ItemShoot_figatree
+            [32moffset: [0m0x6a4c
+            [34m|timer_async 08 [0m00 00 0a 
+            [34m|shootitem1? 60 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x6a54
+        [35m8d (0x8320): [0mPlyPichu5K_Share_ACTION_ItemShootAir_figatree
+            [32moffset: [0m0x6a58
+            [34m|       goto 1c [0m00 00 00 00 00 6a 4c 
+                [32moffset: [0m0x6a4c
+                [34m|timer_async 08 [0m00 00 0a 
+                [34m|shootitem1? 60 [0m00 00 00 
+                [34m|        end 00 [0m00 00 00 
+                [32mendoff: [0m0x6a54
+            [32mendoff: [0m0x6a58
+        [35m8e (0x8338): [0mPlyPichu5K_Share_ACTION_ItemShoot_figatree
+            [32moffset: [0m0x6a64
+            [34m|timer_async 08 [0m00 00 0a 
+            [34m|    reverse 50 [0m00 00 00 
+            [34m|shootitem1? 60 [0m00 00 00 
+            [34m| timer_sync 04 [0m00 00 01 
+            [34m|    reverse 50 [0m00 00 01 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x6a78
+        [35m8f (0x8350): [0mPlyPichu5K_Share_ACTION_ItemShootAir_figatree
+            [32moffset: [0m0x6a7c
+            [34m|       goto 1c [0m00 00 00 00 00 6a 64 
+                [32moffset: [0m0x6a64
+                [34m|timer_async 08 [0m00 00 0a 
+                [34m|    reverse 50 [0m00 00 00 
+                [34m|shootitem1? 60 [0m00 00 00 
+                [34m| timer_sync 04 [0m00 00 01 
+                [34m|    reverse 50 [0m00 00 01 
+                [34m|        end 00 [0m00 00 00 
+                [32mendoff: [0m0x6a78
+            [32mendoff: [0m0x6a7c
+        [35m90 (0x8368): [0mPlyPichu5K_Share_ACTION_ItemScrew_figatree
+            [32moffset: [0m0x6a84
+            [34m|    graphic 28 [0m09 00 00 04 38 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|  screwatk? 8c [0m00 00 00 
+            [34m|        sfx 44 [0m00 00 00 00 00 01 15 00 00 7f 40 
+            [34m| bodyaura_1 b8 [0mc8 00 14 0c 00 00 0a 
+            [34m|     hitbox 2c [0m00 00 01 01 f4 00 00 fe 0c 06 40 32 19 00 13 28 00 0c 0b 
+            [34m|     hitbox 2c [0m80 00 01 01 f4 00 00 fe 0c f4 48 32 19 00 13 28 00 0c 0b 
+            [34m|   bonegfx? 2d [0m00 00 01 01 f4 00 00 11 30 06 40 41 19 00 13 14 00 0c 0b 
+            [34m|   bonegfx? 2d [0m80 00 01 01 f4 00 00 11 30 f4 48 41 19 00 13 14 00 0c 0b 
+            [34m| timer_sync 04 [0m00 00 02 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|   execloop 10 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x6b0c
+        [35m91 (0x8380): [0mPlyPichu5K_Share_ACTION_ItemScrewAir_figatree
+            [32moffset: [0m0x6b10
+            [34m|    graphic 28 [0m09 00 00 04 38 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|  screwatk? 8c [0m00 00 00 
+            [34m|        sfx 44 [0m00 00 00 00 00 01 15 00 00 7f 40 
+            [34m| bodyaura_1 b8 [0mc8 00 14 0c 00 00 0a 
+            [34m|     hitbox 2c [0m00 00 01 01 f4 00 00 fe 0c 06 40 32 19 00 13 28 00 0c 0b 
+            [34m|     hitbox 2c [0m80 00 01 01 f4 00 00 fe 0c f4 48 32 19 00 13 28 00 0c 0b 
+            [34m|   bonegfx? 2d [0m00 00 01 01 f4 00 00 11 30 06 40 41 19 00 13 14 00 0c 0b 
+            [34m|   bonegfx? 2d [0m80 00 01 01 f4 00 00 11 30 f4 48 41 19 00 13 14 00 0c 0b 
+            [34m| timer_sync 04 [0m00 00 02 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|   execloop 10 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x6b98
+        [35m92 (0x8398): [0mPlyPichu5K_Share_ACTION_ItemScrewDamage_figatree
+            [32moffset: [0m0x6b9c
+            [34m|   texswap? a2 [0m00 08 03 
+            [34m| timer_sync 04 [0m00 00 02 
+            [34m| autocancel 4c [0m00 00 01 
+            [34m|       goto 1c [0m00 00 00 00 00 6a 84 
+                [32moffset: [0m0x6a84
+                [34m|    graphic 28 [0m09 00 00 04 38 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                [34m|  screwatk? 8c [0m00 00 00 
+                [34m|        sfx 44 [0m00 00 00 00 00 01 15 00 00 7f 40 
+                [34m| bodyaura_1 b8 [0mc8 00 14 0c 00 00 0a 
+                [34m|     hitbox 2c [0m00 00 01 01 f4 00 00 fe 0c 06 40 32 19 00 13 28 00 0c 0b 
+                [34m|     hitbox 2c [0m80 00 01 01 f4 00 00 fe 0c f4 48 32 19 00 13 28 00 0c 0b 
+                [34m|   bonegfx? 2d [0m00 00 01 01 f4 00 00 11 30 06 40 41 19 00 13 14 00 0c 0b 
+                [34m|   bonegfx? 2d [0m80 00 01 01 f4 00 00 11 30 f4 48 41 19 00 13 14 00 0c 0b 
+                [34m| timer_sync 04 [0m00 00 02 
+                [34m|   endcolls 40 [0m00 00 00 
+                [34m|   execloop 10 [0m00 00 00 
+                [34m|        end 00 [0m00 00 00 
+                [32mendoff: [0m0x6b0c
+            [32mendoff: [0m0x6ba8
+        [35m93 (0x83b0): [0mPlyPichu5K_Share_ACTION_ItemScrewDamage_figatree
+            [32moffset: [0m0x6bb0
+            [34m|   texswap? a2 [0m00 08 03 
+            [34m| timer_sync 04 [0m00 00 02 
+            [34m| autocancel 4c [0m00 00 01 
+            [34m|       goto 1c [0m00 00 00 00 00 6a 84 
+                [32moffset: [0m0x6a84
+                [34m|    graphic 28 [0m09 00 00 04 38 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                [34m|  screwatk? 8c [0m00 00 00 
+                [34m|        sfx 44 [0m00 00 00 00 00 01 15 00 00 7f 40 
+                [34m| bodyaura_1 b8 [0mc8 00 14 0c 00 00 0a 
+                [34m|     hitbox 2c [0m00 00 01 01 f4 00 00 fe 0c 06 40 32 19 00 13 28 00 0c 0b 
+                [34m|     hitbox 2c [0m80 00 01 01 f4 00 00 fe 0c f4 48 32 19 00 13 28 00 0c 0b 
+                [34m|   bonegfx? 2d [0m00 00 01 01 f4 00 00 11 30 06 40 41 19 00 13 14 00 0c 0b 
+                [34m|   bonegfx? 2d [0m80 00 01 01 f4 00 00 11 30 f4 48 41 19 00 13 14 00 0c 0b 
+                [34m| timer_sync 04 [0m00 00 02 
+                [34m|   endcolls 40 [0m00 00 00 
+                [34m|   execloop 10 [0m00 00 00 
+                [34m|        end 00 [0m00 00 00 
+                [32mendoff: [0m0x6b0c
+            [32mendoff: [0m0x6bbc
+        [35m94 (0x83c8): [0mPlyPichu5K_Share_ACTION_ItemBlind_figatree
+        [35m95 (0x83e0): [0mPlyPichu5K_Share_ACTION_ItemScopeStart_figatree
+            [32moffset: [0m0x6bcc
+            [34m|    graphic 28 [0m00 00 00 03 f3 00 00 00 00 05 dc 07 08 03 00 02 00 03 00 
+            [34m|        sfx 44 [0m00 00 00 00 00 00 fd 00 00 7f 40 
+            [34m|timer_async 08 [0m00 00 10 
+            [34m| subroutine 14 [0m00 00 00 00 00 33 78 
+                [32moffset: [0m0x3378
+                [34m|        sfx 44 [0m0c 00 00 00 00 00 fe 00 00 7f 40 
+                [34m| bodyaura_2 b9 [0mb8 00 00 0c 00 00 09 
+                [34m|gen_article ac [0m00 20 00 
+                [34m| timer_sync 04 [0m00 00 08 
+                [34m|    graphic 28 [0m00 00 00 03 ff 00 00 00 00 00 00 fe 0c 06 00 00 00 06 00 
+                [34m|   execloop 10 [0m00 00 00 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x33ac
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x6bf8
+        [35m96 (0x83f8): [0mPlyPichu5K_Share_ACTION_ItemScopeRapid_figatree
+            [32moffset: [0m0x6bfc
+            [34m|timer_async 08 [0m00 00 03 
+            [34m|shootitem1? 60 [0m00 00 00 
+            [34m|    graphic 28 [0m00 00 00 04 00 00 00 00 00 00 00 00 00 03 00 00 00 03 00 
+            [34m|gen_article ac [0m01 60 00 
+            [34m|    unknown 20 [0m00 00 00 
+            [34m|       goto 1c [0m00 00 00 00 00 6b fc 
+            [31m[RECURSION NOT ALLOWED [0m0x6bfc[31m][0m
+            [32mendoff: [0m0x6c20
+        [35m97 (0x8410): [0mPlyPichu5K_Share_ACTION_ItemScopeFire_figatree
+            [32moffset: [0m0x6c28
+            [34m|timer_async 08 [0m00 00 03 
+            [34m|shootitem1? 60 [0m00 00 00 
+            [34m|    graphic 28 [0m00 00 00 03 fd 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|    graphic 28 [0m00 00 00 05 13 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|gen_article ac [0m01 80 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x6c5c
+        [35m98 (0x8428): [0mPlyPichu5K_Share_ACTION_ItemScopeEnd_figatree
+            [32moffset: [0m0x6c60
+            [34m|   texswap? a2 [0m00 08 02 
+            [34m| timer_sync 04 [0m00 00 02 
+            [34m|   texswap? a2 [0m00 08 01 
+            [34m| timer_sync 04 [0m00 00 02 
+            [34m|   texswap? a2 [0m00 08 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x6c74
+        [35m99 (0x8440): [0mPlyPichu5K_Share_ACTION_ItemScopeAirStart_figatree
+            [32moffset: [0m0x6c78
+            [34m|       goto 1c [0m00 00 00 00 00 6b cc 
+                [32moffset: [0m0x6bcc
+                [34m|    graphic 28 [0m00 00 00 03 f3 00 00 00 00 05 dc 07 08 03 00 02 00 03 00 
+                [34m|        sfx 44 [0m00 00 00 00 00 00 fd 00 00 7f 40 
+                [34m|timer_async 08 [0m00 00 10 
+                [34m| subroutine 14 [0m00 00 00 00 00 33 78 
+                    [32moffset: [0m0x3378
+                    [34m|        sfx 44 [0m0c 00 00 00 00 00 fe 00 00 7f 40 
+                    [34m| bodyaura_2 b9 [0mb8 00 00 0c 00 00 09 
+                    [34m|gen_article ac [0m00 20 00 
+                    [34m| timer_sync 04 [0m00 00 08 
+                    [34m|    graphic 28 [0m00 00 00 03 ff 00 00 00 00 00 00 fe 0c 06 00 00 00 06 00 
+                    [34m|   execloop 10 [0m00 00 00 
+                    [34m|     return 18 [0m00 00 00 
+                    [32mendoff: [0m0x33ac
+                [34m|        end 00 [0m00 00 00 
+                [32mendoff: [0m0x6bf8
+            [32mendoff: [0m0x6c78
+        [35m9a (0x8458): [0mPlyPichu5K_Share_ACTION_ItemScopeAirRapid_figatree
+            [32moffset: [0m0x6c80
+            [34m|       goto 1c [0m00 00 00 00 00 6b fc 
+                [32moffset: [0m0x6bfc
+                [34m|timer_async 08 [0m00 00 03 
+                [34m|shootitem1? 60 [0m00 00 00 
+                [34m|    graphic 28 [0m00 00 00 04 00 00 00 00 00 00 00 00 00 03 00 00 00 03 00 
+                [34m|gen_article ac [0m01 60 00 
+                [34m|    unknown 20 [0m00 00 00 
+                [34m|       goto 1c [0m00 00 00 00 00 6b fc 
+                [31m[RECURSION NOT ALLOWED [0m0x6bfc[31m][0m
+                [32mendoff: [0m0x6c20
+            [32mendoff: [0m0x6c80
+        [35m9b (0x8470): [0mPlyPichu5K_Share_ACTION_ItemScopeAirFire_figatree
+            [32moffset: [0m0x6c88
+            [34m|       goto 1c [0m00 00 00 00 00 6c 28 
+                [32moffset: [0m0x6c28
+                [34m|timer_async 08 [0m00 00 03 
+                [34m|shootitem1? 60 [0m00 00 00 
+                [34m|    graphic 28 [0m00 00 00 03 fd 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                [34m|    graphic 28 [0m00 00 00 05 13 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                [34m|gen_article ac [0m01 80 00 
+                [34m|        end 00 [0m00 00 00 
+                [32mendoff: [0m0x6c5c
+            [32mendoff: [0m0x6c88
+        [35m9c (0x8488): [0mPlyPichu5K_Share_ACTION_ItemScopeAirEnd_figatree
+            [32moffset: [0m0x6c90
+            [34m|       goto 1c [0m00 00 00 00 00 6c 60 
+                [32moffset: [0m0x6c60
+                [34m|   texswap? a2 [0m00 08 02 
+                [34m| timer_sync 04 [0m00 00 02 
+                [34m|   texswap? a2 [0m00 08 01 
+                [34m| timer_sync 04 [0m00 00 02 
+                [34m|   texswap? a2 [0m00 08 00 
+                [34m|        end 00 [0m00 00 00 
+                [32mendoff: [0m0x6c74
+            [32mendoff: [0m0x6c90
+        [35m9d (0x84a0): [0mPlyPichu5K_Share_ACTION_ItemScopeStart_figatree
+            [32moffset: [0m0x6c98
+            [34m|        sfx 44 [0m00 00 00 00 00 00 fd 00 00 7f 40 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x6ca4
+        [35m9e (0x84b8): [0mPlyPichu5K_Share_ACTION_ItemScopeRapid_figatree
+            [32moffset: [0m0x6ca8
+            [34m|timer_async 08 [0m00 00 03 
+            [34m|shootitem1? 60 [0m00 00 00 
+            [34m|    unknown 20 [0m00 00 00 
+            [34m|       goto 1c [0m00 00 00 00 00 6c a8 
+            [31m[RECURSION NOT ALLOWED [0m0x6ca8[31m][0m
+            [32mendoff: [0m0x6cb4
+        [35m9f (0x84d0): [0mPlyPichu5K_Share_ACTION_ItemScopeFire_figatree
+            [32moffset: [0m0x6cbc
+            [34m|timer_async 08 [0m00 00 03 
+            [34m|shootitem1? 60 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x6cc4
+        [35ma0 (0x84e8): [0mPlyPichu5K_Share_ACTION_ItemScopeEnd_figatree
+        [35ma1 (0x8500): [0mPlyPichu5K_Share_ACTION_ItemScopeAirStart_figatree
+            [32moffset: [0m0x6ccc
+            [34m|       goto 1c [0m00 00 00 00 00 6c 98 
+                [32moffset: [0m0x6c98
+                [34m|        sfx 44 [0m00 00 00 00 00 00 fd 00 00 7f 40 
+                [34m|        end 00 [0m00 00 00 
+                [32mendoff: [0m0x6ca4
+            [32mendoff: [0m0x6ccc
+        [35ma2 (0x8518): [0mPlyPichu5K_Share_ACTION_ItemScopeAirRapid_figatree
+            [32moffset: [0m0x6cd4
+            [34m|       goto 1c [0m00 00 00 00 00 6c a8 
+                [32moffset: [0m0x6ca8
+                [34m|timer_async 08 [0m00 00 03 
+                [34m|shootitem1? 60 [0m00 00 00 
+                [34m|    unknown 20 [0m00 00 00 
+                [34m|       goto 1c [0m00 00 00 00 00 6c a8 
+                [31m[RECURSION NOT ALLOWED [0m0x6ca8[31m][0m
+                [32mendoff: [0m0x6cb4
+            [32mendoff: [0m0x6cd4
+        [35ma3 (0x8530): [0mPlyPichu5K_Share_ACTION_ItemScopeAirFire_figatree
+            [32moffset: [0m0x6cdc
+            [34m|       goto 1c [0m00 00 00 00 00 6c bc 
+                [32moffset: [0m0x6cbc
+                [34m|timer_async 08 [0m00 00 03 
+                [34m|shootitem1? 60 [0m00 00 00 
+                [34m|        end 00 [0m00 00 00 
+                [32mendoff: [0m0x6cc4
+            [32mendoff: [0m0x6cdc
+        [35ma4 (0x8548): [0mPlyPichu5K_Share_ACTION_ItemScopeAirEnd_figatree
+            [32moffset: [0m0x6ce4
+            [34m|       goto 1c [0m00 00 00 00 00 6c c8 
+            [32mendoff: [0m0x6ce4
+        [35ma5 (0x8560): [0mPlyPichu5K_Share_ACTION_DamageHi1_figatree
+        [35ma6 (0x8578): [0mPlyPichu5K_Share_ACTION_DamageHi2_figatree
+        [35ma7 (0x8590): [0mPlyPichu5K_Share_ACTION_DamageHi3_figatree
+        [35ma8 (0x85a8): [0mPlyPichu5K_Share_ACTION_DamageN1_figatree
+        [35ma9 (0x85c0): [0mPlyPichu5K_Share_ACTION_DamageN2_figatree
+        [35maa (0x85d8): [0mPlyPichu5K_Share_ACTION_DamageN3_figatree
+        [35mab (0x85f0): [0mPlyPichu5K_Share_ACTION_DamageLw1_figatree
+        [35mac (0x8608): [0mPlyPichu5K_Share_ACTION_DamageLw2_figatree
+        [35mad (0x8620): [0mPlyPichu5K_Share_ACTION_DamageLw3_figatree
+        [35mae (0x8638): [0mPlyPichu5K_Share_ACTION_DamageAir1_figatree
+        [35maf (0x8650): [0mPlyPichu5K_Share_ACTION_DamageAir2_figatree
+        [35mb0 (0x8668): [0mPlyPichu5K_Share_ACTION_DamageAir3_figatree
+        [35mb1 (0x8680): [0mPlyPichu5K_Share_ACTION_DamageFlyHi_figatree
+            [32moffset: [0m0x516c
+            [34m| subroutine 14 [0m00 00 00 00 00 33 b0 
+                [32moffset: [0m0x33b0
+                [34m|     hitbox 2c [0m00 24 06 04 b0 00 00 02 aa 00 00 b4 99 00 08 0f 00 00 87 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x33c4
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5174
+        [35mb2 (0x8698): [0mPlyPichu5K_Share_ACTION_DamageFlyN_figatree
+            [32moffset: [0m0x5178
+            [34m| subroutine 14 [0m00 00 00 00 00 33 b0 
+                [32moffset: [0m0x33b0
+                [34m|     hitbox 2c [0m00 24 06 04 b0 00 00 02 aa 00 00 b4 99 00 08 0f 00 00 87 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x33c4
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5180
+        [35mb3 (0x86b0): [0mPlyPichu5K_Share_ACTION_DamageFlyLw_figatree
+            [32moffset: [0m0x5184
+            [34m| subroutine 14 [0m00 00 00 00 00 33 b0 
+                [32moffset: [0m0x33b0
+                [34m|     hitbox 2c [0m00 24 06 04 b0 00 00 02 aa 00 00 b4 99 00 08 0f 00 00 87 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x33c4
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x518c
+        [35mb4 (0x86c8): [0mPlyPichu5K_Share_ACTION_DamageFlyTop_figatree
+            [32moffset: [0m0x5190
+            [34m| subroutine 14 [0m00 00 00 00 00 33 b0 
+                [32moffset: [0m0x33b0
+                [34m|     hitbox 2c [0m00 24 06 04 b0 00 00 02 aa 00 00 b4 99 00 08 0f 00 00 87 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x33c4
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5198
+        [35mb5 (0x86e0): [0mPlyPichu5K_Share_ACTION_DamageFlyRoll_figatree
+            [32moffset: [0m0x519c
+            [34m| subroutine 14 [0m00 00 00 00 00 33 b0 
+                [32moffset: [0m0x33b0
+                [34m|     hitbox 2c [0m00 24 06 04 b0 00 00 02 aa 00 00 b4 99 00 08 0f 00 00 87 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x33c4
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x51a4
+        [35mb6 (0x86f8): [0m<no name>
+        [35mb7 (0x8710): [0mPlyPichu5K_Share_ACTION_DownBoundU_figatree
+            [32moffset: [0m0x51ac
+            [34m|shootitem2? a0 [0m04 00 03 
+            [34m|shootitem2? a0 [0m00 00 03 
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|timer_async 08 [0m00 00 01 
+            [34m|    unknown 64 [0m00 00 01 
+            [34m|timer_async 08 [0m00 00 12 
+            [34m|    unknown 64 [0m00 00 00 
+            [34m|        sfx 44 [0m00 00 00 00 00 00 0d 00 00 7f 40 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x51d4
+        [35mb8 (0x8728): [0mPlyPichu5K_Share_ACTION_DownWaitU_figatree
+            [32moffset: [0m0x51d8
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|shootitem2? a0 [0m04 00 01 
+            [34m|shootitem2? a0 [0m00 00 01 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x51e4
+        [35mb9 (0x8740): [0mPlyPichu5K_Share_ACTION_DownDamageU_figatree
+            [32moffset: [0m0x51e8
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|shootitem2? a0 [0m04 00 03 
+            [34m|shootitem2? a0 [0m00 00 03 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x51f4
+        [35mba (0x8758): [0mPlyPichu5K_Share_ACTION_DownStandU_figatree
+            [32moffset: [0m0x51f8
+            [34m|  bodystate 68 [0m00 00 02 
+            [34m|timer_async 08 [0m00 00 17 
+            [34m|  bodystate 68 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5204
+        [35mbb (0x8770): [0mPlyPichu5K_Share_ACTION_DownAttackU_figatree
+            [32moffset: [0m0x5208
+            [34m|  bodystate 68 [0m00 00 02 
+            [34m|timer_async 08 [0m00 00 08 
+            [34m|    graphic 28 [0m00 00 00 04 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|timer_async 08 [0m00 00 0d 
+            [34m|     hitbox 2c [0m00 00 06 07 08 00 00 04 fe f1 28 b4 8c 80 10 28 00 04 8b 
+            [34m|     hitbox 2c [0m80 00 06 06 40 00 00 04 fe f6 a0 b4 8c 80 10 28 00 04 8b 
+            [34m|   bonegfx? 2d [0m00 00 06 05 78 00 00 04 fe fc 18 b4 8c 80 10 28 00 04 8b 
+            [34m|    graphic 28 [0m00 00 00 04 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|    graphic 28 [0m00 00 00 04 24 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m| timer_sync 04 [0m00 00 02 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 12 
+            [34m|     hitbox 2c [0m00 00 06 07 08 00 00 04 fe 0e d8 b4 8c 80 10 28 00 04 8b 
+            [34m|     hitbox 2c [0m80 00 06 06 40 00 00 04 fe 09 60 b4 8c 80 10 28 00 04 8b 
+            [34m|   bonegfx? 2d [0m00 00 06 05 78 00 00 04 fe 03 e8 b4 8c 80 10 28 00 04 8b 
+            [34m| timer_sync 04 [0m00 00 02 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|  bodystate 68 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x52e0
+        [35mbc (0x8788): [0mPlyPichu5K_Share_ACTION_DownFowardU_figatree
+            [32moffset: [0m0x52e4
+            [34m|  bodystate 68 [0m00 00 02 
+            [34m|timer_async 08 [0m00 00 04 
+            [34m|    graphic 28 [0m00 00 00 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|    graphic 28 [0m00 00 00 04 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|timer_async 08 [0m00 00 0f 
+            [34m|  bodystate 68 [0m00 00 00 
+            [34m|    graphic 28 [0m00 00 00 04 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5330
+        [35mbd (0x87a0): [0mPlyPichu5K_Share_ACTION_DownBackU_figatree
+            [32moffset: [0m0x5334
+            [34m|  bodystate 68 [0m00 00 02 
+            [34m|timer_async 08 [0m00 00 06 
+            [34m|    graphic 28 [0m00 00 00 04 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|timer_async 08 [0m00 00 0c 
+            [34m|    graphic 28 [0m00 00 00 04 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|timer_async 08 [0m00 00 14 
+            [34m|  bodystate 68 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5370
+        [35mbe (0x87b8): [0mPlyPichu5K_Share_ACTION_DownSpotU_figatree
+            [32moffset: [0m0x5374
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|shootitem2? a0 [0m04 00 03 
+            [34m|shootitem2? a0 [0m00 00 03 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5380
+        [35mbf (0x87d0): [0mPlyPichu5K_Share_ACTION_DownBoundD_figatree
+            [32moffset: [0m0x5384
+            [34m|shootitem2? a0 [0m04 00 03 
+            [34m|shootitem2? a0 [0m00 00 03 
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|timer_async 08 [0m00 00 01 
+            [34m|    unknown 64 [0m00 00 01 
+            [34m|timer_async 08 [0m00 00 12 
+            [34m|    unknown 64 [0m00 00 00 
+            [34m|        sfx 44 [0m00 00 00 00 00 00 0d 00 00 7f 40 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x53ac
+        [35mc0 (0x87e8): [0mPlyPichu5K_Share_ACTION_DownWaitD_figatree
+            [32moffset: [0m0x53b0
+            [34m|shootitem2? a0 [0m04 00 01 
+            [34m|shootitem2? a0 [0m00 00 01 
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x53bc
+        [35mc1 (0x8800): [0mPlyPichu5K_Share_ACTION_DownDamageD_figatree
+            [32moffset: [0m0x53c0
+            [34m|shootitem2? a0 [0m04 00 03 
+            [34m|shootitem2? a0 [0m00 00 03 
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x53cc
+        [35mc2 (0x8818): [0mPlyPichu5K_Share_ACTION_DownStandD_figatree
+            [32moffset: [0m0x53d0
+            [34m|  bodystate 68 [0m00 00 02 
+            [34m|timer_async 08 [0m00 00 17 
+            [34m|  bodystate 68 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x53dc
+        [35mc3 (0x8830): [0mPlyPichu5K_Share_ACTION_DownAttackD_figatree
+            [32moffset: [0m0x53e0
+            [34m|  bodystate 68 [0m00 00 02 
+            [34m|timer_async 08 [0m00 00 11 
+            [34m|     hitbox 2c [0m00 00 06 06 40 00 00 04 fe 10 68 b4 8c 80 10 28 00 04 8b 
+            [34m|     hitbox 2c [0m80 00 06 04 b0 00 00 04 fe 0a 28 b4 8c 80 10 28 00 04 8b 
+            [34m|   bonegfx? 2d [0m00 00 06 04 b0 00 00 04 fe 03 e8 b4 8c 80 10 28 00 04 8b 
+            [34m|    graphic 28 [0m00 00 00 03 fd 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m| timer_sync 04 [0m00 00 02 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 17 
+            [34m|     hitbox 2c [0m00 00 06 06 40 00 00 04 fe ef 98 b4 8c 80 10 28 00 04 8b 
+            [34m|     hitbox 2c [0m80 00 06 04 b0 00 00 04 fe f5 d8 b4 8c 80 10 28 00 04 8b 
+            [34m|   bonegfx? 2d [0m00 00 06 04 b0 00 00 04 fe fc 18 b4 8c 80 10 28 00 04 8b 
+            [34m|    graphic 28 [0m00 00 00 04 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m| timer_sync 04 [0m00 00 02 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|  bodystate 68 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x54a0
+        [35mc4 (0x8848): [0mPlyPichu5K_Share_ACTION_DownFowardD_figatree
+            [32moffset: [0m0x54a4
+            [34m|  bodystate 68 [0m00 00 02 
+            [34m| timer_sync 04 [0m00 00 03 
+            [34m|    graphic 28 [0m00 00 00 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m| timer_sync 04 [0m00 00 05 
+            [34m|    graphic 28 [0m00 00 00 04 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|timer_async 08 [0m00 00 14 
+            [34m|  bodystate 68 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x54e0
+        [35mc5 (0x8860): [0mPlyPichu5K_Share_ACTION_DownBackD_figatree
+            [32moffset: [0m0x54e4
+            [34m|  bodystate 68 [0m00 00 02 
+            [34m| timer_sync 04 [0m00 00 04 
+            [34m|    graphic 28 [0m00 00 00 04 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m| timer_sync 04 [0m00 00 07 
+            [34m|    graphic 28 [0m00 00 00 04 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|timer_async 08 [0m00 00 14 
+            [34m|  bodystate 68 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5520
+        [35mc6 (0x8878): [0m<no name>
+            [32moffset: [0m0x5524
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|shootitem2? a0 [0m04 00 03 
+            [34m|shootitem2? a0 [0m00 00 03 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5530
+        [35mc7 (0x8890): [0mPlyPichu5K_Share_ACTION_Passive_figatree
+            [32moffset: [0m0x5534
+            [34m|  bodystate 68 [0m00 00 02 
+            [34m|timer_async 08 [0m00 00 18 
+            [34m|  bodystate 68 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5540
+        [35mc8 (0x88a8): [0mPlyPichu5K_Share_ACTION_PassiveStandF_figatree
+            [32moffset: [0m0x5544
+            [34m|  bodystate 68 [0m00 00 02 
+            [34m|timer_async 08 [0m00 00 14 
+            [34m|  bodystate 68 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5550
+        [35mc9 (0x88c0): [0mPlyPichu5K_Share_ACTION_PassiveStandB_figatree
+            [32moffset: [0m0x5554
+            [34m|       goto 1c [0m00 00 00 00 00 55 44 
+                [32moffset: [0m0x5544
+                [34m|  bodystate 68 [0m00 00 02 
+                [34m|timer_async 08 [0m00 00 14 
+                [34m|  bodystate 68 [0m00 00 00 
+                [34m|        end 00 [0m00 00 00 
+                [32mendoff: [0m0x5550
+            [32mendoff: [0m0x5554
+        [35mca (0x88d8): [0mPlyPichu5K_Share_ACTION_PassiveWall_figatree
+        [35mcb (0x88f0): [0mPlyPichu5K_Share_ACTION_PassiveWallJump_figatree
+        [35mcc (0x8908): [0mPlyPichu5K_Share_ACTION_PassiveCeil_figatree
+            [32moffset: [0m0x5564
+            [34m|  bodystate 68 [0m00 00 02 
+            [34m|timer_async 08 [0m00 00 0d 
+            [34m|  bodystate 68 [0m00 00 00 
+            [34m|    reverse 50 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5574
+        [35mcd (0x8920): [0mPlyPichu5K_Share_ACTION_FuraFura_figatree
+            [32moffset: [0m0x5578
+            [34m|shootitem2? a0 [0m04 00 03 
+            [34m|shootitem2? a0 [0m00 00 03 
+            [34m| bodyaura_1 b8 [0ma0 00 00 08 00 00 00 
+            [34m|    graphic 28 [0m50 00 00 04 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|timer_async 08 [0m00 00 12 
+            [34m|        sfx 44 [0m18 00 00 00 03 82 92 00 00 7f 40 
+            [34m|timer_async 08 [0m00 00 14 
+            [34m|    graphic 28 [0m50 00 00 04 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|timer_async 08 [0m00 00 28 
+            [34m|    graphic 28 [0m50 00 00 04 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|timer_async 08 [0m00 00 3c 
+            [34m|    graphic 28 [0m50 00 00 04 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|timer_async 08 [0m00 00 50 
+            [34m|    graphic 28 [0m50 00 00 04 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|timer_async 08 [0m00 00 64 
+            [34m|    graphic 28 [0m50 00 00 04 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|    unknown 20 [0m00 00 00 
+            [34m|shootitem2? a0 [0m04 00 03 
+            [34m|shootitem2? a0 [0m00 00 03 
+            [34m| bodyaura_1 b8 [0ma0 00 00 0c 00 00 06 
+            [34m|    graphic 28 [0m50 00 00 04 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m| timer_sync 04 [0m00 00 14 
+            [34m|   execloop 10 [0m00 00 00 
+            [34m|    unknown 20 [0m00 00 00 
+            [34m|       goto 1c [0m00 00 00 00 00 55 78 
+            [31m[RECURSION NOT ALLOWED [0m0x5578[31m][0m
+            [32mendoff: [0m0x5658
+        [35mce (0x8938): [0mPlyPichu5K_Share_ACTION_FuraSleepStart_figatree
+            [32moffset: [0m0x5660
+            [34m| bodyaura_1 b8 [0ma4 00 00 ac 01 a0 00 
+            [34m| subroutine 14 [0m00 00 00 00 00 33 c8 
+                [32moffset: [0m0x33c8
+                [34m|   texswap? a2 [0m00 08 01 
+                [34m| timer_sync 04 [0m00 00 02 
+                [34m|   texswap? a2 [0m00 08 02 
+                [34m| timer_sync 04 [0m00 00 04 
+                [34m|   texswap? a2 [0m00 08 01 
+                [34m| timer_sync 04 [0m00 00 01 
+                [34m|   texswap? a2 [0m00 08 00 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x33e4
+            [34m|   texswap? a2 [0m00 08 01 
+            [34m|    setloop 0c [0m00 00 04 
+            [34m|    graphic 28 [0m50 00 00 01 a0 00 00 00 00 01 2c 02 bc 00 00 00 00 00 00 
+            [34m| timer_sync 04 [0m00 00 04 
+            [34m|   execloop 10 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5694
+        [35mcf (0x8950): [0mPlyPichu5K_Share_ACTION_FuraSleepLoop_figatree
+            [32moffset: [0m0x5698
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|   texswap? a2 [0m00 08 02 
+            [34m| bodyaura_1 b8 [0ma4 00 00 ac 03 20 00 
+            [34m|        sfx 44 [0m18 00 00 00 03 82 a1 00 00 7f 40 
+            [34m|timer_async 08 [0m00 00 06 
+            [34m|    setloop 0c [0m00 00 03 
+            [34m|    graphic 28 [0m50 00 00 01 a0 00 00 00 00 00 64 03 e8 00 00 00 00 00 00 
+            [34m| timer_sync 04 [0m00 00 04 
+            [34m|   execloop 10 [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 48 
+            [34m|    unknown 20 [0m00 00 00 
+            [34m|       goto 1c [0m00 00 00 00 00 00 00 
+            [32mendoff: [0m0x56e0
+        [35md0 (0x8968): [0mPlyPichu5K_Share_ACTION_FuraSleepEnd_figatree
+            [32moffset: [0m0x56e8
+            [34m|    graphic 28 [0m00 00 00 04 29 00 00 00 00 04 4c 00 00 00 00 00 00 00 00 
+            [34m|gen_article ac [0m01 a0 00 
+            [34m|   texswap? a2 [0m00 08 01 
+            [34m|timer_async 08 [0m00 00 0f 
+            [34m| subroutine 14 [0m00 00 00 00 00 33 c8 
+                [32moffset: [0m0x33c8
+                [34m|   texswap? a2 [0m00 08 01 
+                [34m| timer_sync 04 [0m00 00 02 
+                [34m|   texswap? a2 [0m00 08 02 
+                [34m| timer_sync 04 [0m00 00 04 
+                [34m|   texswap? a2 [0m00 08 01 
+                [34m| timer_sync 04 [0m00 00 01 
+                [34m|   texswap? a2 [0m00 08 00 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x33e4
+            [34m|timer_async 08 [0m00 00 19 
+            [34m| subroutine 14 [0m00 00 00 00 00 33 c8 
+                [32moffset: [0m0x33c8
+                [34m|   texswap? a2 [0m00 08 01 
+                [34m| timer_sync 04 [0m00 00 02 
+                [34m|   texswap? a2 [0m00 08 02 
+                [34m| timer_sync 04 [0m00 00 04 
+                [34m|   texswap? a2 [0m00 08 01 
+                [34m| timer_sync 04 [0m00 00 01 
+                [34m|   texswap? a2 [0m00 08 00 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x33e4
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x571c
+        [35md1 (0x8980): [0mPlyPichu5K_Share_ACTION_Pass_figatree
+        [35md2 (0x8998): [0mPlyPichu5K_Share_ACTION_Ottotto_figatree
+        [35md3 (0x89b0): [0mPlyPichu5K_Share_ACTION_OttottoWait_figatree
+        [35md4 (0x89c8): [0mPlyPichu5K_Share_ACTION_WallDamage_figatree
+            [32moffset: [0m0x572c
+            [34m|shootitem2? a0 [0m04 00 03 
+            [34m|shootitem2? a0 [0m00 00 03 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5734
+        [35md5 (0x89e0): [0mPlyPichu5K_Share_ACTION_StopWall_figatree
+            [32moffset: [0m0x5738
+            [34m|shootitem2? a0 [0m04 00 03 
+            [34m|shootitem2? a0 [0m00 00 03 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5740
+        [35md6 (0x89f8): [0mPlyPichu5K_Share_ACTION_StopCeil_figatree
+            [32moffset: [0m0x5744
+            [34m|shootitem2? a0 [0m04 00 03 
+            [34m|shootitem2? a0 [0m00 00 03 
+            [34m|timer_async 08 [0m00 00 05 
+            [34m|    reverse 50 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5754
+        [35md7 (0x8a10): [0mPlyPichu5K_Share_ACTION_MissFoot_figatree
+        [35md8 (0x8a28): [0mPlyPichu5K_Share_ACTION_CliffCatch_figatree
+            [32moffset: [0m0x575c
+            [34m|  bodystate 68 [0m00 00 02 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5760
+        [35md9 (0x8a40): [0mPlyPichu5K_Share_ACTION_CliffWait_figatree
+        [35mda (0x8a58): [0m<no name>
+        [35mdb (0x8a70): [0mPlyPichu5K_Share_ACTION_CliffClimbSlow_figatree
+            [32moffset: [0m0x576c
+            [34m|  bodystate 68 [0m00 00 02 
+            [34m|timer_async 08 [0m00 00 38 
+            [34m|  bodystate 68 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5778
+        [35mdc (0x8a88): [0mPlyPichu5K_Share_ACTION_CliffClimbQuick_figatree
+            [32moffset: [0m0x577c
+            [34m|  bodystate 68 [0m00 00 02 
+            [34m|timer_async 08 [0m00 00 19 
+            [34m|    graphic 28 [0m00 00 00 03 fe 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|        sfx 44 [0m00 00 00 00 00 01 d3 00 00 7f 40 
+            [34m|timer_async 08 [0m00 00 1f 
+            [34m|  bodystate 68 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x57ac
+        [35mdd (0x8aa0): [0mPlyPichu5K_Share_ACTION_CliffAttackSlow_figatree
+            [32moffset: [0m0x57b0
+            [34m|  bodystate 68 [0m00 00 02 
+            [34m|timer_async 08 [0m00 00 2d 
+            [34m|    graphic 28 [0mac 00 00 03 f3 00 00 03 31 05 78 fe 56 00 00 00 00 00 00 
+            [34m|timer_async 08 [0m00 00 33 
+            [34m|  bodystate 68 [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 36 
+            [34m|  smash_sfx 48 [0m00 00 00 
+            [34m|     hitbox 2c [0m01 58 06 03 e8 00 00 00 00 00 00 b4 99 0c 92 00 00 00 8b 
+            [34m|     hitbox 2c [0m81 58 06 05 14 03 31 05 78 fe 56 b4 99 0c 92 00 00 00 8b 
+            [34m|    graphic 28 [0m00 00 00 03 fd 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|        sfx 44 [0m04 00 00 00 00 00 a5 00 00 7f 40 
+            [34m| timer_sync 04 [0m00 00 06 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x582c
+        [35mde (0x8ab8): [0mPlyPichu5K_Share_ACTION_CliffAttackQuick_figatree
+            [32moffset: [0m0x5830
+            [34m|  bodystate 68 [0m00 00 02 
+            [34m|timer_async 08 [0m00 00 12 
+            [34m|    graphic 28 [0ma4 00 00 03 f3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|timer_async 08 [0m00 00 13 
+            [34m|  bodystate 68 [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 16 
+            [34m|    graphic 28 [0m00 00 00 03 fd 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|  smash_sfx 48 [0m00 00 00 
+            [34m|     hitbox 2c [0m00 20 08 03 20 00 00 00 00 00 00 b4 99 0c 92 00 00 00 8b 
+            [34m|     hitbox 2c [0m81 50 08 04 b0 00 00 00 00 00 00 b4 99 0c 92 00 00 00 8b 
+            [34m|        sfx 44 [0m04 00 00 00 00 00 a5 00 00 7f 40 
+            [34m| timer_sync 04 [0m00 00 03 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x58ac
+        [35mdf (0x8ad0): [0mPlyPichu5K_Share_ACTION_CliffEscapeSlow_figatree
+            [32moffset: [0m0x58b0
+            [34m|  bodystate 68 [0m00 00 02 
+            [34m|timer_async 08 [0m00 00 29 
+            [34m|    graphic 28 [0m00 00 00 03 ff 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|timer_async 08 [0m00 00 2f 
+            [34m|    graphic 28 [0m00 00 00 04 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|timer_async 08 [0m00 00 41 
+            [34m|    graphic 28 [0m00 00 00 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|timer_async 08 [0m00 00 47 
+            [34m|  bodystate 68 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5904
+        [35me0 (0x8ae8): [0mPlyPichu5K_Share_ACTION_CliffEscapeQuick_figatree
+            [32moffset: [0m0x5908
+            [34m|  bodystate 68 [0m00 00 02 
+            [34m|timer_async 08 [0m00 00 13 
+            [34m|    graphic 28 [0m00 00 00 04 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|timer_async 08 [0m00 00 19 
+            [34m|    graphic 28 [0m00 00 00 04 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|  bodystate 68 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5940
+        [35me1 (0x8b00): [0mPlyPichu5K_Share_ACTION_CliffJumpSlow1_figatree
+            [32moffset: [0m0x5944
+            [34m|  bodystate 68 [0m00 00 02 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5948
+        [35me2 (0x8b18): [0mPlyPichu5K_Share_ACTION_CliffJumpSlow2_figatree
+            [32moffset: [0m0x594c
+            [34m|    graphic 28 [0m00 00 00 03 ff 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5960
+        [35me3 (0x8b30): [0mPlyPichu5K_Share_ACTION_CliffJumpQuick1_figatree
+            [32moffset: [0m0x5964
+            [34m|  bodystate 68 [0m00 00 02 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5968
+        [35me4 (0x8b48): [0mPlyPichu5K_Share_ACTION_CliffJumpQuick2_figatree
+            [32moffset: [0m0x596c
+            [34m|    graphic 28 [0m00 00 00 03 ff 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5980
+        [35me5 (0x8b60): [0m<no name>
+            [32moffset: [0m0x5984
+            [34m|    graphic 28 [0m00 00 00 05 15 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5998
+        [35me6 (0x8b78): [0m<no name>
+        [35me7 (0x8b90): [0m<no name>
+        [35me8 (0x8ba8): [0m<no name>
+        [35me9 (0x8bc0): [0m<no name>
+        [35mea (0x8bd8): [0m<no name>
+        [35meb (0x8bf0): [0m<no name>
+        [35mec (0x8c08): [0m<no name>
+        [35med (0x8c20): [0m<no name>
+        [35mee (0x8c38): [0mPlyPichu5K_Share_ACTION_Entry_figatree
+        [35mef (0x8c50): [0mPlyPichu5K_Share_ACTION_AppealR_figatree
+            [32moffset: [0m0x59c0
+            [34m|        sfx 44 [0m08 00 00 00 03 82 71 00 00 7f 40 
+            [34m|timer_async 08 [0m00 00 03 
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|timer_async 08 [0m00 00 04 
+            [34m|  screwatk? 8c [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 3c 
+            [34m|       iasa 5c [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 50 
+            [34m|    unknown d0 [0m00 00 03 
+            [34m|timer_async 08 [0m00 00 56 
+            [34m|  screwatk? 8c [0m00 00 01 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x59f4
+        [35mf0 (0x8c68): [0mPlyPichu5K_Share_ACTION_AppealL_figatree
+            [32moffset: [0m0x59f8
+            [34m|        sfx 44 [0m08 00 00 00 03 82 71 00 00 7f 40 
+            [34m|timer_async 08 [0m00 00 03 
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|timer_async 08 [0m00 00 04 
+            [34m|  screwatk? 8c [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 3c 
+            [34m|       iasa 5c [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 56 
+            [34m|    unknown d0 [0m00 00 03 
+            [34m|  screwatk? 8c [0m00 00 01 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5a28
+        [35mf1 (0x8c80): [0m<no name>
+        [35mf2 (0x8c98): [0mPlyPichu5K_Share_ACTION_Catch_figatree
+            [32moffset: [0m0x5a30
+            [34m|    graphic 28 [0m00 00 00 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|timer_async 08 [0m00 00 06 
+            [34m|        sfx 44 [0m00 00 00 00 00 02 0f 00 00 5a 40 
+            [34m|     hitbox 2c [0m00 00 00 04 b0 00 00 0a 8c 0b 54 b4 99 00 13 00 20 00 87 
+            [34m|     hitbox 2c [0m80 00 00 03 20 00 00 0a 8c 03 20 b4 99 00 13 00 20 00 87 
+            [34m|      throw 88 [0m80 00 02 00 0c 80 00 23 00 20 00 04 00 00 02 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|    reverse 50 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5a94
+        [35mf3 (0x8cb0): [0mPlyPichu5K_Share_ACTION_CatchDash_figatree
+            [32moffset: [0m0x5a98
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|    graphic 28 [0m00 00 00 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|timer_async 08 [0m00 00 0a 
+            [34m|        sfx 44 [0m00 00 00 00 00 02 0f 00 00 5a 40 
+            [34m|     hitbox 2c [0m00 00 00 04 b0 00 00 0a 8c 0b 54 b4 99 00 13 00 20 00 87 
+            [34m|     hitbox 2c [0m80 00 00 03 20 00 00 0a 8c 03 20 b4 99 00 13 00 20 00 87 
+            [34m|      throw 88 [0m80 00 02 00 0c 80 00 23 00 20 00 04 00 00 02 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|    reverse 50 [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 11 
+            [34m|    unknown d0 [0m00 00 03 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5b08
+        [35mf4 (0x8cc8): [0mPlyPichu5K_Share_ACTION_CatchWait_figatree
+        [35mf5 (0x8ce0): [0mPlyPichu5K_Share_ACTION_CatchAttack_figatree
+            [32moffset: [0m0x5b10
+            [34m|timer_async 08 [0m00 00 02 
+            [34m|     selfhp cc [0m00 00 01 
+            [34m|     hitbox 2c [0m08 08 03 04 b0 00 00 08 34 08 98 28 19 03 d1 00 08 00 9f 
+            [34m| timer_sync 04 [0m00 00 01 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5b34
+        [35mf6 (0x8cf8): [0mPlyPichu5K_Share_ACTION_CatchCut_figatree
+        [35mf7 (0x8d10): [0mPlyPichu5K_Share_ACTION_ThrowF_figatree
+            [32moffset: [0m0x5b3c
+            [34m| timer_sync 04 [0m00 00 04 
+            [34m|      throw 88 [0m00 00 02 16 9b 80 00 16 92 20 00 88 80 00 03 
+            [34m|    unknown b4 [0m99 00 00 14 00 10 00 28 3c 00 00 
+            [34m| timer_sync 04 [0m12 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5b60
+        [35mf8 (0x8d28): [0mPlyPichu5K_Share_ACTION_ThrowB_figatree
+            [32moffset: [0m0x5c04
+            [34m|    graphic 28 [0m00 00 00 04 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m| timer_sync 04 [0m00 00 04 
+            [34m|      throw 88 [0m00 00 09 43 8c 80 00 25 92 20 00 88 80 00 03 
+            [34m|    unknown b4 [0m99 00 00 14 00 10 00 44 08 00 00 
+            [34m|        end 00 [0m03 82 74 
+            [32mendoff: [0m0x5c38
+        [35mf9 (0x8d40): [0mPlyPichu5K_Share_ACTION_ThrowHi_figatree
+            [32moffset: [0m0x5cac
+            [34m|timer_async 08 [0m00 00 02 
+            [34m|    graphic 28 [0mb0 00 00 03 f3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|      throw 88 [0m00 00 05 2d 0b 40 00 2d 12 20 00 88 80 00 03 
+            [34m|    unknown b4 [0m99 00 00 14 00 10 00 08 00 00 0d 
+            [34m|        sfx 44 [0m00 00 00 00 00 00 46 00 00 7f 40 
+            [34m|timer_async 08 [0m00 00 0e 
+            [34m|     hitbox 2c [0m00 80 05 04 b0 00 00 00 00 00 00 b4 80 0b 50 00 00 04 8b 
+            [34m|    graphic 28 [0m00 00 00 05 14 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m| timer_sync 04 [0m00 00 06 
+            [34m|    reverse 50 [0m00 00 00 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 1d 
+            [34m|    graphic 28 [0m00 00 00 04 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|gen_article ac [0m01 60 00 
+            [34m|        sfx 44 [0m00 00 00 00 00 00 46 00 00 7f 40 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5d4c
+        [35mfa (0x8d58): [0mPlyPichu5K_Share_ACTION_ThrowLw_figatree
+            [32moffset: [0m0x5d50
+            [34m|    graphic 28 [0m00 00 00 03 fe 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|        sfx 44 [0m00 00 00 00 00 00 46 00 00 7f 40 
+            [34m|      throw 88 [0m00 00 05 28 09 80 00 1e 12 20 00 88 80 00 03 
+            [34m|    unknown b4 [0m99 00 00 14 00 10 00 08 00 00 0c 
+            [34m|    graphic 28 [0m00 00 00 04 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|     hitbox 2c [0m00 08 05 05 dc 00 00 00 00 00 00 b4 80 0b 50 00 00 04 8b 
+            [34m|    graphic 28 [0m00 00 00 05 14 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|timer_async 08 [0m00 00 14 
+            [34m|    reverse 50 [0m00 00 00 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 28 
+            [34m|    graphic 28 [0m00 00 00 03 fe 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|gen_article ac [0m01 60 00 
+            [34m|        sfx 44 [0m00 00 00 00 00 00 46 00 00 7f 40 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5dfc
+        [35mfb (0x8d70): [0mPlyPichu5K_Share_ACTION_CapturePulledHi_figatree
+            [32moffset: [0m0x5e00
+            [34m|   texswap? a2 [0m00 08 03 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5e04
+        [35mfc (0x8d88): [0mPlyPichu5K_Share_ACTION_CaptureWaitHi_figatree
+            [32moffset: [0m0x5e08
+            [34m|   texswap? a2 [0m00 08 03 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5e0c
+        [35mfd (0x8da0): [0mPlyPichu5K_Share_ACTION_CaptureDamageHi_figatree
+            [32moffset: [0m0x5e10
+            [34m|   texswap? a2 [0m00 08 03 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5e14
+        [35mfe (0x8db8): [0mPlyPichu5K_Share_ACTION_CapturePulledLw_figatree
+            [32moffset: [0m0x5e18
+            [34m|   texswap? a2 [0m00 08 03 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5e1c
+        [35mff (0x8dd0): [0mPlyPichu5K_Share_ACTION_CaptureWaitLw_figatree
+            [32moffset: [0m0x5e20
+            [34m|   texswap? a2 [0m00 08 03 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5e24
+        [35m100 (0x8de8): [0mPlyPichu5K_Share_ACTION_CaptureDamageLw_figatree
+            [32moffset: [0m0x5e28
+            [34m|   texswap? a2 [0m00 08 03 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5e2c
+        [35m101 (0x8e00): [0mPlyPichu5K_Share_ACTION_CaptureCut_figatree
+        [35m102 (0x8e18): [0mPlyPichu5K_Share_ACTION_CaptureJump_figatree
+        [35m103 (0x8e30): [0m<no name>
+        [35m104 (0x8e48): [0m<no name>
+        [35m105 (0x8e60): [0m<no name>
+        [35m106 (0x8e78): [0mPlyTaro_Share_ACTION_TPichuThrowF_figatree
+        [35m107 (0x8e90): [0mPlyTaro_Share_ACTION_TPichuThrowB_figatree
+        [35m108 (0x8ea8): [0mPlyTaro_Share_ACTION_TPichuThrowHi_figatree
+        [35m109 (0x8ec0): [0mPlyTaro_Share_ACTION_TPichuThrowLw_figatree
+        [35m10a (0x8ed8): [0m<no name>
+        [35m10b (0x8ef0): [0m<no name>
+        [35m10c (0x8f08): [0m<no name>
+        [35m10d (0x8f20): [0m<no name>
+        [35m10e (0x8f38): [0m<no name>
+        [35m10f (0x8f50): [0m<no name>
+        [35m110 (0x8f68): [0m<no name>
+        [35m111 (0x8f80): [0m<no name>
+        [35m112 (0x8f98): [0m<no name>
+        [35m113 (0x8fb0): [0m<no name>
+        [35m114 (0x8fc8): [0m<no name>
+        [35m115 (0x8fe0): [0m<no name>
+        [35m116 (0x8ff8): [0m<no name>
+        [35m117 (0x9010): [0m<no name>
+        [35m118 (0x9028): [0m<no name>
+        [35m119 (0x9040): [0m<no name>
+        [35m11a (0x9058): [0m<no name>
+        [35m11b (0x9070): [0m<no name>
+        [35m11c (0x9088): [0m<no name>
+            [32moffset: [0m0x6cec
+            [34m| subroutine 14 [0m00 00 00 00 00 33 60 
+                [32moffset: [0m0x3360
+                [34m|     hitbox 2c [0m00 00 08 05 00 00 00 00 00 00 00 23 11 80 13 23 00 01 0b 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x3374
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x6cf4
+        [35m11d (0x90a0): [0m<no name>
+            [32moffset: [0m0x6cf8
+            [34m| subroutine 14 [0m00 00 00 00 00 33 60 
+                [32moffset: [0m0x3360
+                [34m|     hitbox 2c [0m00 00 08 05 00 00 00 00 00 00 00 23 11 80 13 23 00 01 0b 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x3374
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x6d00
+        [35m11e (0x90b8): [0mPlyPichu5K_Share_ACTION_DamageFlyTop_figatree
+            [32moffset: [0m0x5ea8
+            [34m| bodyaura_1 b8 [0m9c 00 00 28 00 00 00 
+            [34m|    unknown 03 [0mf3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|    unknown 99 [0mfd 00 82 00 03 82 95 00 03 82 98 00 08 3d 60 00 08 3d 60 00 08 3d 60 
+            [34m|        end 00 [0m08 3d 60 
+            [32mendoff: [0m0x5ed8
+        [35m11f (0x90d0): [0mPlyPichu5K_Share_ACTION_DamageFall_figatree
+        [35m120 (0x90e8): [0mPlyPichu5K_Share_ACTION_DownBoundU_figatree
+            [32moffset: [0m0x5f04
+            [34m|    graphic 28 [0m00 00 00 04 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|    graphic 28 [0m00 00 00 05 15 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5f2c
+        [35m121 (0x9100): [0mPlyPichu5K_Share_ACTION_DownBoundD_figatree
+            [32moffset: [0m0x5f30
+            [34m|    graphic 28 [0m00 00 00 04 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|    graphic 28 [0m00 00 00 05 15 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5f58
+        [35m122 (0x9118): [0mPlyPichu5K_Share_ACTION_DownStandU_figatree
+        [35m123 (0x9130): [0mPlyPichu5K_Share_ACTION_DownStandD_figatree
+        [35m124 (0x9148): [0m<no name>
+        [35m125 (0x9160): [0m<no name>
+    [special actions] 
+        [35m0 (0x9190): [0mPlyPichu5K_Share_ACTION_SpecialN_figatree
+            [32moffset: [0m0x36b0
+            [34m|        sfx 44 [0m08 00 00 00 03 82 83 00 00 7f 40 
+            [34m|gen_article ac [0m01 00 11 
+            [34m|timer_async 08 [0m00 00 12 
+            [34m|     selfhp cc [0m00 00 01 
+            [34m| bodyaura_2 b9 [0m10 00 00 28 00 00 00 
+            [34m|    unknown 03 [0mff 00 00 00 00 00 00 00 c8 08 00 00 00 08 00 
+            [34m|    graphic 28 [0m3c 00 00 04 12 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|gen_article ac [0m01 80 00 
+            [34m| autocancel 4c [0m00 00 01 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x36fc
+        [35m1 (0x91a8): [0mPlyPichu5K_Share_ACTION_SpecialAirN_figatree
+            [32moffset: [0m0x3700
+            [34m|        sfx 44 [0m08 00 00 00 03 82 83 00 00 7f 40 
+            [34m|gen_article ac [0m01 00 11 
+            [34m|timer_async 08 [0m00 00 12 
+            [34m|     selfhp cc [0m00 00 01 
+            [34m| bodyaura_2 b9 [0m10 00 00 28 00 00 00 
+            [34m|    unknown 03 [0mff 00 00 00 00 00 00 00 c8 08 00 00 00 08 00 
+            [34m|    graphic 28 [0m3c 00 00 04 12 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|gen_article ac [0m01 80 00 
+            [34m| autocancel 4c [0m00 00 01 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x374c
+        [35m2 (0x91c0): [0mPlyPichu5K_Share_ACTION_SpecialSStart_figatree
+            [32moffset: [0m0x3750
+            [34m| timer_sync 04 [0m00 00 0c 
+            [34m|        sfx 44 [0m18 00 00 00 03 82 a7 00 00 7f 40 
+            [34m|        sfx 44 [0m0c 00 00 00 03 82 bf 00 00 7f 40 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x376c
+        [35m3 (0x91d8): [0mPlyPichu5K_Share_ACTION_SpecialSHold_figatree
+            [32moffset: [0m0x3770
+            [34m|gen_article ac [0m01 00 00 
+            [34m|    graphic 28 [0m00 00 00 03 ff 00 00 00 00 00 00 00 00 08 00 00 00 08 00 
+            [34m| timer_sync 04 [0m00 00 0a 
+            [34m|       goto 1c [0m00 00 00 00 00 37 70 
+            [31m[RECURSION NOT ALLOWED [0m0x3770[31m][0m
+            [32mendoff: [0m0x378c
+        [35m4 (0x91f0): [0mPlyPichu5K_Share_ACTION_SpecialS_figatree
+            [32moffset: [0m0x3794
+            [34m|timer_async 08 [0m00 00 04 
+            [34m|   texswap? a2 [0m00 08 02 
+            [34m|gen_article ac [0m01 80 00 
+            [34m| autocancel 4c [0m00 00 01 
+            [34m|     selfhp cc [0m00 00 01 
+            [34m|     hitbox 2c [0m00 00 04 03 e8 00 00 03 e8 00 00 b4 96 80 13 07 88 10 9f 
+            [34m|        sfx 44 [0m08 00 00 00 03 82 aa 00 00 7f 40 
+            [34m|        sfx 44 [0m04 00 00 00 03 82 c5 00 00 7f 40 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x37d4
+        [35m5 (0x9208): [0mPlyPichu5K_Share_ACTION_SpecialS_figatree
+            [32moffset: [0m0x37d8
+            [34m|   texswap? a2 [0m00 08 02 
+            [34m|timer_async 08 [0m00 00 18 
+            [34m| autocancel 4c [0m00 00 01 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x37e4
+        [35m6 (0x9220): [0mPlyPichu5K_Share_ACTION_SpecialSEnd_figatree
+            [32moffset: [0m0x37e8
+            [34m|    unknown d0 [0m00 00 04 
+            [34m|    graphic 28 [0m00 00 00 03 f7 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|    unknown dc [0m00 04 07 00 00 00 0b 00 00 7f 40 
+            [34m|gen_article ac [0m01 80 00 
+            [34m|timer_async 08 [0m00 00 1b 
+            [34m|    unknown d0 [0m00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x3818
+        [35m7 (0x9238): [0mPlyPichu5K_Share_ACTION_SpecialAirSStart_figatree
+            [32moffset: [0m0x381c
+            [34m|       goto 1c [0m00 00 00 00 00 37 50 
+                [32moffset: [0m0x3750
+                [34m| timer_sync 04 [0m00 00 0c 
+                [34m|        sfx 44 [0m18 00 00 00 03 82 a7 00 00 7f 40 
+                [34m|        sfx 44 [0m0c 00 00 00 03 82 bf 00 00 7f 40 
+                [34m|        end 00 [0m00 00 00 
+                [32mendoff: [0m0x376c
+            [32mendoff: [0m0x381c
+        [35m8 (0x9250): [0mPlyPichu5K_Share_ACTION_SpecialAirSHold_figatree
+            [32moffset: [0m0x3824
+            [34m|       goto 1c [0m00 00 00 00 00 37 70 
+                [32moffset: [0m0x3770
+                [34m|gen_article ac [0m01 00 00 
+                [34m|    graphic 28 [0m00 00 00 03 ff 00 00 00 00 00 00 00 00 08 00 00 00 08 00 
+                [34m| timer_sync 04 [0m00 00 0a 
+                [34m|       goto 1c [0m00 00 00 00 00 37 70 
+                [31m[RECURSION NOT ALLOWED [0m0x3770[31m][0m
+                [32mendoff: [0m0x378c
+            [32mendoff: [0m0x3824
+        [35m9 (0x9268): [0mPlyPichu5K_Share_ACTION_SpecialS_figatree
+            [32moffset: [0m0x382c
+            [34m|       goto 1c [0m00 00 00 00 00 37 94 
+                [32moffset: [0m0x3794
+                [34m|timer_async 08 [0m00 00 04 
+                [34m|   texswap? a2 [0m00 08 02 
+                [34m|gen_article ac [0m01 80 00 
+                [34m| autocancel 4c [0m00 00 01 
+                [34m|     selfhp cc [0m00 00 01 
+                [34m|     hitbox 2c [0m00 00 04 03 e8 00 00 03 e8 00 00 b4 96 80 13 07 88 10 9f 
+                [34m|        sfx 44 [0m08 00 00 00 03 82 aa 00 00 7f 40 
+                [34m|        sfx 44 [0m04 00 00 00 03 82 c5 00 00 7f 40 
+                [34m|        end 00 [0m00 00 00 
+                [32mendoff: [0m0x37d4
+            [32mendoff: [0m0x382c
+        [35ma (0x9280): [0mPlyPichu5K_Share_ACTION_SpecialAirSEnd_figatree
+        [35mb (0x9298): [0mPlyPichu5K_Share_ACTION_SpecialHiStart_figatree
+            [32moffset: [0m0x3838
+            [34m|     selfhp cc [0m00 00 01 
+            [34m|gen_article ac [0m01 00 08 
+            [34m| bodyaura_2 b9 [0m08 00 0d 28 3c 00 00 
+            [34m| timer_sync 04 [0m12 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x384c
+        [35mc (0x92b0): [0mPlyPichu5K_Share_ACTION_SpecialHiStart_figatree
+            [32moffset: [0m0x38a8
+            [34m| bodyaura_2 b9 [0m08 00 0d 08 00 00 0d 
+            [34m|     selfhp cc [0m00 00 03 
+            [34m| bodyaura_2 b9 [0m0c 00 00 28 3c 00 00 
+            [34m| timer_sync 04 [0m12 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x38c0
+        [35md (0x92c8): [0mPlyPichu5K_Share_ACTION_SpecialHiEnd_figatree
+            [32moffset: [0m0x38ec
+            [34m|    graphic 28 [0m3c 00 00 04 12 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|    graphic 28 [0m00 00 00 03 f3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|        sfx 44 [0m04 00 00 00 03 82 cb 00 00 7f 40 
+            [34m|gen_article ac [0m01 80 00 
+            [34m| timer_sync 04 [0m00 00 09 
+            [34m| autocancel 4c [0m00 00 01 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x392c
+        [35me (0x92e0): [0mPlyPichu5K_Share_ACTION_SpecialAirHiStart_figatree
+            [32moffset: [0m0x3930
+            [34m|       goto 1c [0m00 00 00 00 00 38 38 
+                [32moffset: [0m0x3838
+                [34m|     selfhp cc [0m00 00 01 
+                [34m|gen_article ac [0m01 00 08 
+                [34m| bodyaura_2 b9 [0m08 00 0d 28 3c 00 00 
+                [34m| timer_sync 04 [0m12 00 00 
+                [34m|        end 00 [0m00 00 00 
+                [32mendoff: [0m0x384c
+            [32mendoff: [0m0x3930
+        [35mf (0x92f8): [0mPlyPichu5K_Share_ACTION_SpecialAirHiStart_figatree
+            [32moffset: [0m0x3938
+            [34m|       goto 1c [0m00 00 00 00 00 38 a8 
+                [32moffset: [0m0x38a8
+                [34m| bodyaura_2 b9 [0m08 00 0d 08 00 00 0d 
+                [34m|     selfhp cc [0m00 00 03 
+                [34m| bodyaura_2 b9 [0m0c 00 00 28 3c 00 00 
+                [34m| timer_sync 04 [0m12 00 00 
+                [34m|        end 00 [0m00 00 00 
+                [32mendoff: [0m0x38c0
+            [32mendoff: [0m0x3938
+        [35m10 (0x9310): [0mPlyPichu5K_Share_ACTION_SpecialAirHiEnd_figatree
+            [32moffset: [0m0x3940
+            [34m|       goto 1c [0m00 00 00 00 00 38 ec 
+                [32moffset: [0m0x38ec
+                [34m|    graphic 28 [0m3c 00 00 04 12 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                [34m|    graphic 28 [0m00 00 00 03 f3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                [34m|        sfx 44 [0m04 00 00 00 03 82 cb 00 00 7f 40 
+                [34m|gen_article ac [0m01 80 00 
+                [34m| timer_sync 04 [0m00 00 09 
+                [34m| autocancel 4c [0m00 00 01 
+                [34m|        end 00 [0m00 00 00 
+                [32mendoff: [0m0x392c
+            [32mendoff: [0m0x3940
+        [35m11 (0x9328): [0mPlyPichu5K_Share_ACTION_SpecialLwStart_figatree
+            [32moffset: [0m0x3948
+            [34m|    graphic 28 [0m00 00 00 04 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|gen_article ac [0m00 20 00 
+            [34m|    unknown d0 [0m00 00 03 
+            [34m|        sfx 44 [0m08 00 00 00 03 82 9b 00 00 7f 40 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x3970
+        [35m12 (0x9340): [0mPlyPichu5K_Share_ACTION_SpecialLwLoop_figatree
+            [32moffset: [0m0x3974
+            [34m|    unknown d0 [0m00 00 03 
+            [34m|        sfx 44 [0m00 00 00 00 03 82 b9 00 00 7f 40 
+            [34m| timer_sync 04 [0m00 00 02 
+            [34m|shootitem1? 60 [0m00 00 00 
+            [34m|    setloop 0c [0m00 00 06 
+            [34m|    graphic 28 [0m00 00 00 04 23 00 00 00 00 04 b0 00 00 04 00 04 00 04 00 
+            [34m| timer_sync 04 [0m00 00 09 
+            [34m|   execloop 10 [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 3c 
+            [34m| autocancel 4c [0m00 00 01 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x39b4
+        [35m13 (0x9358): [0mPlyPichu5K_Share_ACTION_SpecialLwLoop_figatree
+            [32moffset: [0m0x39b8
+            [34m|     selfhp cc [0m00 00 03 
+            [34m| bodyaura_2 b9 [0m14 00 00 a0 04 00 03 
+            [34m|shootitem2? a0 [0m00 00 03 
+            [34m|    unknown d0 [0m00 00 03 
+            [34m|    graphic 28 [0m3c 00 00 04 12 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|    graphic 28 [0m00 00 00 04 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|    graphic 28 [0m00 00 00 04 06 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|    graphic 28 [0m00 00 00 05 15 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|gen_article ac [0m01 c0 00 
+            [34m|     hitbox 2c [0m00 00 0d 0a f0 00 00 0a 00 00 00 b4 8f 00 12 2d 08 09 1f 
+            [34m| timer_sync 04 [0m00 00 0a 
+            [34m|   endcolls 40 [0m00 00 00 
+            [34m|    setloop 0c [0m00 00 06 
+            [34m|    graphic 28 [0m00 00 00 03 f3 00 00 00 00 04 b0 00 00 04 00 04 00 04 00 
+            [34m| timer_sync 04 [0m00 00 04 
+            [34m|   execloop 10 [0m00 00 00 
+            [34m| autocancel 4c [0m00 00 01 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x3a60
+        [35m14 (0x9370): [0mPlyPichu5K_Share_ACTION_SpecialLwEnd_figatree
+            [32moffset: [0m0x3a64
+            [34m|    unknown d0 [0m00 00 03 
+            [34m| bodyaura_2 b9 [0m18 00 00 00 00 00 00 
+            [34m|       goto 1c [0m00 00 00 00 00 39 48 
+                [32moffset: [0m0x3948
+                [34m|    graphic 28 [0m00 00 00 04 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                [34m|gen_article ac [0m00 20 00 
+                [34m|    unknown d0 [0m00 00 03 
+                [34m|        sfx 44 [0m08 00 00 00 03 82 9b 00 00 7f 40 
+                [34m|        end 00 [0m00 00 00 
+                [32mendoff: [0m0x3970
+            [32mendoff: [0m0x3a70
+        [35m15 (0x9388): [0mPlyPichu5K_Share_ACTION_SpecialAirLwStart_figatree
+            [32moffset: [0m0x3a70
+            [34m|       goto 1c [0m00 00 00 00 00 39 48 
+                [32moffset: [0m0x3948
+                [34m|    graphic 28 [0m00 00 00 04 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                [34m|gen_article ac [0m00 20 00 
+                [34m|    unknown d0 [0m00 00 03 
+                [34m|        sfx 44 [0m08 00 00 00 03 82 9b 00 00 7f 40 
+                [34m|        end 00 [0m00 00 00 
+                [32mendoff: [0m0x3970
+            [32mendoff: [0m0x3a70
+        [35m16 (0x93a0): [0mPlyPichu5K_Share_ACTION_SpecialAirLwLoop_figatree
+            [32moffset: [0m0x3a78
+            [34m|        sfx 44 [0m00 00 00 00 03 82 b9 00 00 7f 40 
+            [34m| timer_sync 04 [0m00 00 02 
+            [34m|shootitem1? 60 [0m00 00 00 
+            [34m|timer_async 08 [0m00 00 3c 
+            [34m| autocancel 4c [0m00 00 01 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x3a94
+        [35m17 (0x93b8): [0mPlyPichu5K_Share_ACTION_SpecialAirLwLoop_figatree
+            [32moffset: [0m0x3aa0
+            [34m|       goto 1c [0m00 00 00 00 00 39 b8 
+                [32moffset: [0m0x39b8
+                [34m|     selfhp cc [0m00 00 03 
+                [34m| bodyaura_2 b9 [0m14 00 00 a0 04 00 03 
+                [34m|shootitem2? a0 [0m00 00 03 
+                [34m|    unknown d0 [0m00 00 03 
+                [34m|    graphic 28 [0m3c 00 00 04 12 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                [34m|    graphic 28 [0m00 00 00 04 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                [34m|    graphic 28 [0m00 00 00 04 06 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                [34m|    graphic 28 [0m00 00 00 05 15 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                [34m|gen_article ac [0m01 c0 00 
+                [34m|     hitbox 2c [0m00 00 0d 0a f0 00 00 0a 00 00 00 b4 8f 00 12 2d 08 09 1f 
+                [34m| timer_sync 04 [0m00 00 0a 
+                [34m|   endcolls 40 [0m00 00 00 
+                [34m|    setloop 0c [0m00 00 06 
+                [34m|    graphic 28 [0m00 00 00 03 f3 00 00 00 00 04 b0 00 00 04 00 04 00 04 00 
+                [34m| timer_sync 04 [0m00 00 04 
+                [34m|   execloop 10 [0m00 00 00 
+                [34m| autocancel 4c [0m00 00 01 
+                [34m|        end 00 [0m00 00 00 
+                [32mendoff: [0m0x3a60
+            [32mendoff: [0m0x3aa0
+        [35m18 (0x93d0): [0mPlyPichu5K_Share_ACTION_SpecialAirLwEnd_figatree
+            [32moffset: [0m0x3aa8
+            [34m|       goto 1c [0m00 00 00 00 00 3a 64 
+                [32moffset: [0m0x3a64
+                [34m|    unknown d0 [0m00 00 03 
+                [34m| bodyaura_2 b9 [0m18 00 00 00 00 00 00 
+                [34m|       goto 1c [0m00 00 00 00 00 39 48 
+                    [32moffset: [0m0x3948
+                    [34m|    graphic 28 [0m00 00 00 04 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                    [34m|gen_article ac [0m00 20 00 
+                    [34m|    unknown d0 [0m00 00 03 
+                    [34m|        sfx 44 [0m08 00 00 00 03 82 9b 00 00 7f 40 
+                    [34m|        end 00 [0m00 00 00 
+                    [32mendoff: [0m0x3970
+                [32mendoff: [0m0x3a70
+            [32mendoff: [0m0x3aa8
+        [35m19 (0x93e8): [0mPlyPichu5K_Share_ACTION_Win1_figatree
+            [32moffset: [0m0x5f64
+            [34m|timer_async 08 [0m00 00 24 
+            [34m| subroutine 14 [0m00 00 00 00 00 33 c8 
+                [32moffset: [0m0x33c8
+                [34m|   texswap? a2 [0m00 08 01 
+                [34m| timer_sync 04 [0m00 00 02 
+                [34m|   texswap? a2 [0m00 08 02 
+                [34m| timer_sync 04 [0m00 00 04 
+                [34m|   texswap? a2 [0m00 08 01 
+                [34m| timer_sync 04 [0m00 00 01 
+                [34m|   texswap? a2 [0m00 08 00 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x33e4
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5f70
+        [35m1a (0x9400): [0mPlyPichu5K_Share_ACTION_Win1Wait_figatree
+        [35m1b (0x9418): [0mPlyPichu5K_Share_ACTION_Win2_figatree
+            [32moffset: [0m0x5f78
+            [34m|timer_async 08 [0m00 00 0a 
+            [34m|    graphic 28 [0m00 00 00 04 05 00 00 07 08 03 e8 00 00 00 00 00 00 00 00 
+            [34m|timer_async 08 [0m00 00 14 
+            [34m| subroutine 14 [0m00 00 00 00 00 33 c8 
+                [32moffset: [0m0x33c8
+                [34m|   texswap? a2 [0m00 08 01 
+                [34m| timer_sync 04 [0m00 00 02 
+                [34m|   texswap? a2 [0m00 08 02 
+                [34m| timer_sync 04 [0m00 00 04 
+                [34m|   texswap? a2 [0m00 08 01 
+                [34m| timer_sync 04 [0m00 00 01 
+                [34m|   texswap? a2 [0m00 08 00 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x33e4
+            [34m|timer_async 08 [0m00 00 23 
+            [34m|    graphic 28 [0m00 00 00 04 05 00 00 f8 f8 03 e8 00 00 00 00 00 00 00 00 
+            [34m|timer_async 08 [0m00 00 60 
+            [34m| subroutine 14 [0m00 00 00 00 00 33 c8 
+                [32moffset: [0m0x33c8
+                [34m|   texswap? a2 [0m00 08 01 
+                [34m| timer_sync 04 [0m00 00 02 
+                [34m|   texswap? a2 [0m00 08 02 
+                [34m| timer_sync 04 [0m00 00 04 
+                [34m|   texswap? a2 [0m00 08 01 
+                [34m| timer_sync 04 [0m00 00 01 
+                [34m|   texswap? a2 [0m00 08 00 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x33e4
+            [34m|timer_async 08 [0m00 00 6f 
+            [34m|    graphic 28 [0m00 00 00 04 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5fd8
+        [35m1c (0x9430): [0mPlyPichu5K_Share_ACTION_Win2Wait_figatree
+        [35m1d (0x9448): [0m<no name>
+        [35m1e (0x9460): [0mPlyPichu5K_Share_ACTION_Win3_figatree
+            [32moffset: [0m0x5fe4
+            [34m|timer_async 08 [0m00 00 14 
+            [34m| subroutine 14 [0m00 00 00 00 00 33 c8 
+                [32moffset: [0m0x33c8
+                [34m|   texswap? a2 [0m00 08 01 
+                [34m| timer_sync 04 [0m00 00 02 
+                [34m|   texswap? a2 [0m00 08 02 
+                [34m| timer_sync 04 [0m00 00 04 
+                [34m|   texswap? a2 [0m00 08 01 
+                [34m| timer_sync 04 [0m00 00 01 
+                [34m|   texswap? a2 [0m00 08 00 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x33e4
+            [34m|timer_async 08 [0m00 00 4a 
+            [34m| subroutine 14 [0m00 00 00 00 00 33 c8 
+                [32moffset: [0m0x33c8
+                [34m|   texswap? a2 [0m00 08 01 
+                [34m| timer_sync 04 [0m00 00 02 
+                [34m|   texswap? a2 [0m00 08 02 
+                [34m| timer_sync 04 [0m00 00 04 
+                [34m|   texswap? a2 [0m00 08 01 
+                [34m| timer_sync 04 [0m00 00 01 
+                [34m|   texswap? a2 [0m00 08 00 
+                [34m|     return 18 [0m00 00 00 
+                [32mendoff: [0m0x33e4
+            [34m|        end 00 [0m00 00 00 
+            [32mendoff: [0m0x5ffc
+        [35m1f (0x9478): [0mPlyPichu5K_Share_ACTION_Win3Wait_figatree
+        [35m20 (0x9490): [0mPlyPichu5K_Share_ACTION_Selected_figatree
+        [35m21 (0x94a8): [0mPlyPichu5K_Share_ACTION_SelectedWait_figatree
+        [35m22 (0x94c0): [0mPlyPichu5K_Share_ACTION_Lose_figatree
+        [35m23 (0x94d8): [0mPlyPichu5K_Share_ACTION_IntroL_figatree
+        [35m24 (0x94f0): [0mPlyPichu5K_Share_ACTION_IntroR_figatree
+        [35m25 (0x9508): [0mPlyPichu5K_Share_ACTION_Ending_figatree
+        [35m26 (0x9520): [0mPlyPichu5K_Share_ACTION_Wait1_figatree

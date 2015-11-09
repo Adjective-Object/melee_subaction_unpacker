@@ -38,7 +38,7 @@ endef
 
 $(call character, Sk, 8fc8, 24)
 $(call character, Fe, 9bb4, 2D)
-$(call character, Ca, 9478, 23)
+$(call character, Ca, 9718, 1c)
 $(call character, Dr, 8e0c, 16)
 $(call character, Fc, 93AC, 2e)
 $(call character, Fx, 92C4, 2e)
@@ -63,10 +63,22 @@ $(call character, Ys, 8EC8, 21)
 $(call character, Zd, 9870, 1e)
 
 objects = $(call keys,offsets)
+dumpdir = dmp
+dprefix = $(dumpdir)/dump_
+dumpfiles = $(addprefix $(dprefix),$(objects))
 
-.PHONY: $(objects)
+.PHONY: $(objects) dumps
+
 $(objects): $(program)
 	./$(program) datfiles/Pl$@.dat \
 		-s $(call get,offsets,$@) -c $(call get,counts,$@)
 
+dumps: $(dumpfiles)
+$(dumpdir):
+	mkdir -p $(dumpdir)
+$(dumpfiles): $(program) $(dumpdir)
+	./$(program) datfiles/Pl$(subst $(dprefix),,$@).dat \
+		-s $(call get,offsets,$(subst $(dprefix),,$@)) \
+		-c $(call get,counts,$(subst $(dprefix),,$@)) > \
+		$@
 
