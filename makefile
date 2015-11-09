@@ -65,7 +65,7 @@ $(call character, Zd, 9870, 1e)
 objects = $(call keys,offsets)
 dumpdir = dmp
 dprefix = $(dumpdir)/dump_
-dumpfiles = $(addprefix $(dprefix),$(objects))
+dumpfiles = $(addsuffix .html,$(addprefix $(dprefix),$(objects)))
 
 .PHONY: $(objects) dumps
 
@@ -79,6 +79,6 @@ $(dumpdir):
 $(dumpfiles): $(program) $(dumpdir)
 	./$(program) datfiles/Pl$(subst $(dprefix),,$@).dat \
 		-s $(call get,offsets,$(subst $(dprefix),,$@)) \
-		-c $(call get,counts,$(subst $(dprefix),,$@)) > \
-		$@
+		-c $(call get,counts,$(subst $(dprefix),,$@)) \
+			| ansi2html > $@
 
