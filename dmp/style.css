@@ -1,0 +1,33 @@
+
+body {
+    background: #001245;
+    color: #e8e0e8;
+    padding: 0;
+    margin: 0;
+    padding : 1em;
+    padding-left: 3em;
+    font-family: sans-serif;
+}
+
+nav {
+    font-size: 1.2em;
+    padding: 0.5em;
+    position: fixed;
+    top:0;
+    left: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    color: #FFFFFF;
+}
+
+.ansi31 {color: #fc5257}
+.ansi32 {color: #5b76b3}
+.ansi34 {color: #a36385}
+.ansi35 {color: #2e9085}
+

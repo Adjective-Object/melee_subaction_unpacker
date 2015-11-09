@@ -63,7 +63,7 @@ $(call character, Ys, 8EC8, 21)
 $(call character, Zd, 9870, 1e)
 
 objects = $(call keys,offsets)
-.PHONY: $(objects) dumps
+.PHONY: $(objects) dump
 
 $(objects): $(program)
 	./$(program) datfiles/Pl$@.dat \
@@ -73,8 +73,9 @@ $(objects): $(program)
 dumpdir = dmp
 dprefix = $(dumpdir)/dump_
 dumpfiles = $(addsuffix .html,$(addprefix $(dprefix),$(objects)))
+htmlindex = $(dumpdir)/index.html
 
-dump: $(dumpfiles)
+dump: $(dumpfiles) $(htmlindex)
 $(dumpdir):
 	mkdir -p $(dumpdir)
 $(dumpfiles): $(program) $(dumpdir)
@@ -82,7 +83,15 @@ $(dumpfiles): $(program) $(dumpdir)
 	./$(program) datfiles/Pl$(core).dat \
 		-s $(call get,offsets,$(core)) \
 		-c $(call get,counts,$(core)) \
-			| ansi2html -s solarized > $@
+			| ansi2html \
+			| python injectStyle.py \
+			> $@
+
+$(htmlindex): $(dumpfiles) $(dumpdir)
+	tree -H . $(dumpdir) -T "Datfile Dumps" \
+		| python injectStyle.py \
+		> $@
+
 
 cleandump:
 	rm -rf $(dumpdir)
