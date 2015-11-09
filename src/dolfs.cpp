@@ -304,7 +304,26 @@ void FtDataSubaction::print(int indent /*=0*/) {
     string ind = string(indent * INDENT_SIZE, ' ');
     ios::fmtflags f( cout.flags() ); 
 
-    cout << ind
+    if (DETAILED_SUBACTION_PRINT) {
+        cout << hex << MAGENTA;
+        cout << ind << "stroff: " << hex << 
+            this->header->stringOffset << endl;
+        cout << ind << "animoff: " <<
+            this->header->animationOffset << endl;
+        cout << ind << "unknown 0x8: " << 
+            this->header->unknown0x08 << endl;
+        cout << ind << "eventsoff: " << 
+            this->header->eventsOffset << endl;
+        cout << ind << "positionalFlags: " << 
+            this->header->positionalFlags << endl;
+        cout << ind << "charID: " << 
+            this->header->characterID << endl;
+        cout << ind << "unknown0x14: " << 
+            this->header->unknown0x14 << endl;
+        cout << RESET;
+    }
+ 
+     cout << ind
          << MAGENTA
          << this->index << " "
          << hex << "(0x"
@@ -314,25 +333,6 @@ void FtDataSubaction::print(int indent /*=0*/) {
          << this->name
          << endl;
 
-    /*
-    cout << hex << MAGENTA;
-    cout << ind << "  stroff: " << hex << 
-        this->header->stringOffset << endl;
-    cout << ind << "  animoff: " <<
-        this->header->animationOffset << endl;
-    cout << ind << "  unknown 0x8: " << 
-        this->header->unknown0x08 << endl;
-    cout << ind << "  eventsoff:" << 
-        this->header->eventsOffset << endl;
-    cout << ind << "  positionalFlags: " << 
-        this->header->positionalFlags << endl;
-    cout << ind << "  charID: " << 
-        this->header->characterID << endl;
-    cout << ind << "  unknown0x14: " << 
-        this->header->unknown0x14 << endl;
-    cout << RESET;
-    */
-   
     print_action(
             indent + 1,
             this->datfile,
