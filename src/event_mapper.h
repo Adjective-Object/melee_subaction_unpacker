@@ -47,7 +47,7 @@ enum EVENT_ID {
 
     UNKNOWN_A2 = 0xA2, // length estimated from consec. commands
                        // in PlFe.dat (len 0x4), assuming no fall
-                       // through from DamageFall -> Wait1
+                      // through from DamageFall -> Wait1
     
 
     UNKNOWN_D8 = 0xD8, // length estimated from consecutive
@@ -124,6 +124,16 @@ enum EVENT_ID {
 
     UNKNOWN_0D = 0x0D, // from PlySeak Swing4
 
+    UNKNOWN_E8 = 0xE8, // at least 0x16 long, based on Gannon's
+                       // second instruction in AttackHi3. This
+                       // is the first place I saw it..
+
+
+    UNKNOWN_05 = 0x05, // has to be length 0x16 based on Kirby's 
+                       // neutral special
+
+    UNKNOWN_90 = 0x90, // appears a _LOT_ in bowser/Koopa's datfile
+
     // Things past this point are more or less shots in the dark
     UNKNOWN_29 = 0x29, // appears in all of PlFE's aereal attacks
 
@@ -147,6 +157,22 @@ enum EVENT_ID {
 
     UNKNOWN_A4 = 0xA4, // Guess based on PlZd
     UNKNOWN_C8 = 0xC8, // Guess based on PlZd (Dash)
+
+    UNKNOWN_4E = 0x4E, // some kind of flag toggle it looks like,
+                       // based on falco's side specials
+    
+    UNKNOWN_4F = 0x4F, // Appears in all of falco's throws
+
+    UNKNOWN_34 = 0x34, // 
+ 
+    UNKNOWN_71 = 0x71, // 
+
+    UNKNOWN_38 = 0x38, // unique to jigg's nspecial?
+
+    UNKNOWN_01 = 0x01, // 8 long in order to make peach's 
+                       // FuraSleepLoop cycle correctly, assuming
+                       // that instruction 29 is len 4 and 
+                       // instruction a2 is len 4
 
 };
 

@@ -82,6 +82,19 @@ map<EVENT_ID, event_descriptor> evts{
     {UNKNOWN_A4, {0x4, "unknown"}},
     {UNKNOWN_C8, {0x4, "unknown"}},
 
+    {UNKNOWN_4E, {0x4, "unknown"}},
+    {UNKNOWN_4F, {0x4, "unknown"}},
+    
+    
+    {UNKNOWN_34, {0x4, "unknown"}},
+    {UNKNOWN_38, {0x4, "unknown"}},
+    {UNKNOWN_E8, {0x10, "unknown"}},
+
+    {UNKNOWN_05, {0x10, "unknown"}},
+    {UNKNOWN_90, {0x4, "unknown"}},
+    {UNKNOWN_01, {0x8, "unknown"}},
+    {UNKNOWN_71, {0x4, "unknown"}},
+
     // conflicts with itaru's definition of airstop (0x8 long)
     // but without it, PlyEmblem's SpecialLw falls into 
     // SpecialLwHit

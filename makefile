@@ -26,6 +26,11 @@ src/$(program).o: src/$(program).cpp
 %.o : %.cpp %.h
 	g++ $(CCFLAGS) -c $< -o $@
 
+
+###################
+# character files #
+###################
+
 define character
 $(call set,offsets,$(strip $1),$(strip $2));
 $(call set,counts,$(strip $1),$(strip $3));
@@ -52,16 +57,16 @@ $(call character, Pc, 9170, 27)
 $(call character, Pe, a2b8, 1f)
 $(call character, Pk, 91fc, 23)
 $(call character, Pp, 8b40, 28)
-$(call character, Pr, 8b50, 29)
+$(call character, Pr, 8b5C, 29)
 $(call character, Ss, 9550, 20)
 $(call character, Ys, 8EC8, 21)
 $(call character, Zd, 9870, 1e)
 
 objects = $(call keys,offsets)
 
-
 .PHONY: $(objects)
 $(objects): $(program)
 	./$(program) datfiles/Pl$@.dat \
 		-s $(call get,offsets,$@) -c $(call get,counts,$@)
+
 
