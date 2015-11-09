@@ -26,6 +26,10 @@ a:hover {
     color: #FFFFFF;
 }
 
+pre, h1 {
+    margin: 0;
+}
+
 .ansi31 {color: #fc5257}
 .ansi32 {color: #5b76b3}
 .ansi34 {color: #a36385}
