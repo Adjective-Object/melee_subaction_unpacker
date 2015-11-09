@@ -63,22 +63,26 @@ $(call character, Ys, 8EC8, 21)
 $(call character, Zd, 9870, 1e)
 
 objects = $(call keys,offsets)
-dumpdir = dmp
-dprefix = $(dumpdir)/dump_
-dumpfiles = $(addsuffix .html,$(addprefix $(dprefix),$(objects)))
-
 .PHONY: $(objects) dumps
 
 $(objects): $(program)
 	./$(program) datfiles/Pl$@.dat \
 		-s $(call get,offsets,$@) -c $(call get,counts,$@)
 
-dumps: $(dumpfiles)
+
+dumpdir = dmp
+dprefix = $(dumpdir)/dump_
+dumpfiles = $(addsuffix .html,$(addprefix $(dprefix),$(objects)))
+
+dump: $(dumpfiles)
 $(dumpdir):
 	mkdir -p $(dumpdir)
 $(dumpfiles): $(program) $(dumpdir)
-	./$(program) datfiles/Pl$(subst $(dprefix),,$@).dat \
-		-s $(call get,offsets,$(subst $(dprefix),,$@)) \
-		-c $(call get,counts,$(subst $(dprefix),,$@)) \
-			| ansi2html > $@
+	$(eval core = $(subst .html,,$(subst $(dprefix),,$@)))
+	./$(program) datfiles/Pl$(core).dat \
+		-s $(call get,offsets,$(core)) \
+		-c $(call get,counts,$(core)) \
+			| ansi2html -s solarized > $@
 
+cleandump:
+	rm -rf $(dumpdir)
