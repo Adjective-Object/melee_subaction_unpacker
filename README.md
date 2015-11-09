@@ -89,9 +89,20 @@ The body of the called command is printed with a 1 higher indentation level.
 Because the command is called with a subroutine and not a goto statement, on
 return we continue following the execution of the caller.
 
+
+## [RECURSION NOT ALLOWED]? What?
+In order to stop the tracer from going infinitely deep, when a subaction calls
+itself, 
+
+            offset: 0x41c8
+            |    unknown d0 00 00 03 
+            |timer_async 08 00 00 1c 
+            |    unknown d8 02 00 00 00 00 01 73 00 00 5a 40 08 00 00 2e 
+            |    unknown d8 00 00 00 00 00 01 73 00 00 5a 40 20 00 00 00 
+            |       goto 1c 00 00 00 00 00 41 c8 
+            [RECURSION NOT ALLOWED 0x41c8]
+
 ## Assumed command functionality
 question marks are put after command names that are just educated guesses of
 functionality. Rationale for most of these assumptions are proided in
 [` src/event_mapper.h`](./src/event_mapper.h).
-
-
