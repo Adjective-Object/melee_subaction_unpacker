@@ -41,38 +41,42 @@ map<EVENT_ID, event_descriptor> evts{
     {SUBACTION_TERMINATOR, {0x4, "end"}},
     
     {UNKNOWN_A2, {0x4, "texswap?"}},
-    {UNKNOWN_D0, {0x4, "unknown"}},
-    {UNKNOWN_D8, {0x10,"unknown"}},
-    {UNKNOWN_DC, {0xC, "unknown"}},
-    {UNKNOWN_20, {0x4, "unknown"}},
-    {UNKNOWN_B4, {0xC, "unknown"}},
-    {UNKNOWN_C6, {0x8, "unknown"}},
-    {UNKNOWN_7C, {0x4, "unknown"}},
-    {UNKNOWN_70, {0x4, "unknown"}},
-    {UNKNOWN_A8, {0x8, "unknown"}},
+    {UNKNOWN_D0, {0x4, "unknown_D0"}},
+    {UNKNOWN_D8, {0x10,"unknown_D8"}},
+    {UNKNOWN_DC, {0xC, "unknown_DC"}},
+    {UNKNOWN_20, {0x4, "unknown_20"}},
+    {UNKNOWN_B4, {0xC, "unknown_B4"}},
+    {UNKNOWN_C6, {0x8, "unknown_C6"}},
+    {UNKNOWN_7C, {0x4, "unknown_7C"}},
+    {UNKNOWN_70, {0x4, "unknown_70"}},
+    {UNKNOWN_A8, {0x8, "unknown_A8"}},
 
     {UNKNOWN_60, {0x4, "shootitem1?"}},
     {UNKNOWN_A0, {0x4, "shootitem2?"}},
-    {UNKNOWN_8C, {0x4, "unknown"}},
+    {UNKNOWN_8C, {0x4, "unknown_8c"}},
 
-    {UNKNOWN_94, {0x4,  "unknown"}},
-    {UNKNOWN_C4, {0x4,  "unknown"}},
-    {UNKNOWN_64, {0x4,  "unknown"}},
-    {UNKNOWN_29, {0x4,  "unknown"}},
-    {UNKNOWN_6C, {0x4,  "unknown"}},
-    {UNKNOWN_74, {0x4,  "unknown"}},
+    {UNKNOWN_94, {0x4,  "unknown_94"}},
+    {UNKNOWN_C4, {0x4,  "unknown_C4"}},
+    {UNKNOWN_64, {0x4,  "unknown_64"}},
+    {UNKNOWN_29, {0x4,  "unknown_29"}},
+    {UNKNOWN_6C, {0x4,  "unknown_6C"}},
+    {UNKNOWN_74, {0x4,  "unknown_74"}},
 
-    {UNKNOWN_78, {0x4,  "unknown"}},
-    {UNKNOWN_0D, {0xC,  "unknown"}},
-    {UNKNOWN_30, {0x4,  "unknown"}},
-    {UNKNOWN_A4, {0x4, "unknown"}},
-    {UNKNOWN_C8, {0x4, "unknown"}},
+    {UNKNOWN_78, {0x4,  "unknown_78"}},
+    {UNKNOWN_0D, {0xC,  "unknown_0D"}},
+    {UNKNOWN_30, {0x4,  "unknown_30"}},
+    {UNKNOWN_A4, {0x4, "unknown_A4"}},
+    {UNKNOWN_C8, {0x4, "unknown_C8"}},
     
-    {UNKNOWN_34, {0x4, "unknown"}},
-    {UNKNOWN_38, {0x4, "roll"}},
-    {UNKNOWN_E8, {0x10, "unknown"}},
+    {UNKNOWN_34, {0x4, "unknown_34"}},
+    {UNKNOWN_38, {0x4, "roll_38?"}},
+    {UNKNOWN_E8, {0x10, "unknown_E8"}},
 
-    {UNKNOWN_90, {0x4, "unknown"}},
+    {UNKNOWN_90, {0x4, "unknown_90"}},
+    {UNKNOWN_98, {0x14, "unknown_98"}},
+    {UNKNOWN_54, {0x4, "unknown_54"}},
+    {UNKNOWN_D4, {0x4, "unknown_D4"}},
+    {UNKNOWN_9C, {0x10, "unknown_9C"}},
 
     // conflicts with itaru's definition of airstop (0x8 long)
     // but without it, PlyEmblem's SpecialLw falls into 
@@ -88,7 +92,6 @@ event_descriptor EVT_UNKNOWN = {0x1, "UNKNOWN"};
 char * evt_to_str(char * buffer, unsigned char * evt) {
     ostringstream convert;
     event_descriptor e;
-
     string color;
 
     EVENT_ID opcode = (EVENT_ID) (*evt & 0xfc);
@@ -136,6 +139,7 @@ unsigned char * print_action(
         // dump the following memory
         if (!evts.count(opcode)) {
             cout << ind << evt_to_str(s, event) << endl; 
+            cout << ind << "     opcode: " << opcode << endl;
             cout_hex(indent + 2, event, 12, 4);
             cout << ind << GREEN << "endoff: " << RESET << "0x"
                  << (intptr_t) (event - (unsigned char *)datfile->dataSection) << endl;

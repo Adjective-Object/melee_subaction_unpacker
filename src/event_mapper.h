@@ -162,8 +162,16 @@ enum EVENT_ID {
     UNKNOWN_B4 = 0xB4,
 
     UNKNOWN_34 = 0x34,
+    UNKNOWN_98 = 0x98,
+    UNKNOWN_D4 = 0xD4,
 
     UNKNOWN_38 = 0x38, // unique to jigg's and yoshi's nspecials?
+
+    UNKNOWN_54 = 0x54, // appears in ganon / captain's downspecials
+                       // as well as kirby's Nspecial
+    
+    UNKNOWN_9C = 0x9C, // appears in kirby's adopted neutral
+                       // specials, followed by an aura usually.
 
 };
 
