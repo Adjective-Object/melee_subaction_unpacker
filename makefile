@@ -62,17 +62,19 @@ $(call character, Ss, 9550, 20)
 $(call character, Ys, 8EC8, 21)
 $(call character, Zd, 9870, 1e)
 
-objects = $(call keys,offsets)
-.PHONY: $(objects) dump
+characters = $(call keys,offsets)
+.PHONY: $(characters) dump
 
-$(objects): $(program)
+$(characters): $(program)
 	./$(program) datfiles/Pl$@.dat \
 		-s $(call get,offsets,$@) -c $(call get,counts,$@)
+
+allobjs: $(characters)
 
 
 dumpdir = dmp
 dprefix = $(dumpdir)/dump_
-dumpfiles = $(addsuffix .html,$(addprefix $(dprefix),$(objects)))
+dumpfiles = $(addsuffix .html,$(addprefix $(dprefix),$(characters)))
 htmlindex = $(dumpdir)/index.html
 
 dump: $(dumpfiles) $(htmlindex)

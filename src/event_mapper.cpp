@@ -40,11 +40,6 @@ map<EVENT_ID, event_descriptor> evts{
     {SOUND_EFFECT_RANDOM_SMASH, {0x4, "smash_sfx"}},
     {SUBACTION_TERMINATOR, {0x4, "end"}},
     
-    // related to actionability? appears in a lot of 
-    // effect-target / hit animation states
-    // could also be related to character rotation
-    // ADDENDUM: appears in wait and win animations
-    // on timers a bunch -- texture swapping?
     {UNKNOWN_A2, {0x4, "texswap?"}},
     {UNKNOWN_D0, {0x4, "unknown"}},
     {UNKNOWN_D8, {0x10,"unknown"}},
@@ -58,47 +53,31 @@ map<EVENT_ID, event_descriptor> evts{
 
     {UNKNOWN_60, {0x4, "shootitem1?"}},
     {UNKNOWN_A0, {0x4, "shootitem2?"}},
-    {UNKNOWN_8C, {0x4, "screwatk?"}},
+    {UNKNOWN_8C, {0x4, "unknown"}},
 
     {UNKNOWN_94, {0x4,  "unknown"}},
-    {UNKNOWN_03, {0x10, "unknown"}},
     {UNKNOWN_C4, {0x4,  "unknown"}},
-    {UNKNOWN_2D, {0x14, "bonegfx?"}},
-    {UNKNOWN_23, {0x8,  "unknown"}},
     {UNKNOWN_64, {0x4,  "unknown"}},
-    {UNKNOWN_C5, {0x4,  "unknown"}},
     {UNKNOWN_29, {0x4,  "unknown"}},
     {UNKNOWN_6C, {0x4,  "unknown"}},
     {UNKNOWN_74, {0x4,  "unknown"}},
-    {UNKNOWN_B5, {0x4,  "unknown"}},
 
     {UNKNOWN_78, {0x4,  "unknown"}},
-    {UNKNOWN_77, {0x4,  "unknown"}},
     {UNKNOWN_0D, {0xC,  "unknown"}},
     {UNKNOWN_30, {0x4,  "unknown"}},
-    {UNKNOWN_31, {0x4,  "unknown"}},
-    {UNKNOWN_99, {0x18, "unknown"}},
-    
     {UNKNOWN_A4, {0x4, "unknown"}},
     {UNKNOWN_C8, {0x4, "unknown"}},
-
-    {UNKNOWN_4E, {0x4, "unknown"}},
-    {UNKNOWN_4F, {0x4, "unknown"}},
-    
     
     {UNKNOWN_34, {0x4, "unknown"}},
-    {UNKNOWN_38, {0x4, "unknown"}},
+    {UNKNOWN_38, {0x4, "roll"}},
     {UNKNOWN_E8, {0x10, "unknown"}},
 
-    {UNKNOWN_05, {0x10, "unknown"}},
     {UNKNOWN_90, {0x4, "unknown"}},
-    {UNKNOWN_01, {0x8, "unknown"}},
-    {UNKNOWN_71, {0x4, "unknown"}},
 
     // conflicts with itaru's definition of airstop (0x8 long)
     // but without it, PlyEmblem's SpecialLw falls into 
     // SpecialLwHit
-    {AIRSTOP, {0x4, "airstop?"}},
+    {AIRSTOP, {0x8, "airstop?"}},
 
 
 };
@@ -112,8 +91,9 @@ char * evt_to_str(char * buffer, unsigned char * evt) {
 
     string color;
 
-    if (evts.count((EVENT_ID) *evt)) {
-        e = evts[(EVENT_ID) *evt];
+    EVENT_ID opcode = (EVENT_ID) (*evt & 0xfc);
+    if (evts.count(opcode)) {
+        e = evts[opcode];
         color = BLUE;
     } else {
         e = EVT_UNKNOWN;
@@ -148,10 +128,13 @@ unsigned char * print_action(
     cout << ind << GREEN << "offset: " << RESET << "0x" << hex << offset << endl;
 
     char s[256];
-    while(*event != SUBACTION_TERMINATOR && *event != RETURN) {
-        // if not a command of known lengthm, 
+    for(EVENT_ID opcode = (EVENT_ID) (0xfc & *event);
+            opcode != SUBACTION_TERMINATOR && opcode != RETURN;
+            opcode = (EVENT_ID) (0xfc & *event)) {
+
+        // if not a command of known length,
         // dump the following memory
-        if (!evts.count((EVENT_ID) *event)) {
+        if (!evts.count(opcode)) {
             cout << ind << evt_to_str(s, event) << endl; 
             cout_hex(indent + 2, event, 12, 4);
             cout << ind << GREEN << "endoff: " << RESET << "0x"
@@ -159,10 +142,10 @@ unsigned char * print_action(
             return event;
         }
  
-        unsigned int length = evts[(EVENT_ID) *event].length;
+        unsigned int length = evts[opcode].length;
         cout << ind << evt_to_str(s, event) << endl; 
         
-        if (*event == SUBROUTINE || *event == GOTO) {
+        if (opcode == SUBROUTINE || opcode == GOTO) {
 
             uint32_t subroutine_offset = 0;
             for (int i=1; i<8; i++) {
@@ -175,7 +158,7 @@ unsigned char * print_action(
                 unsigned char * exitCommand =
                     print_action(indent +1, datfile, 
                         subroutine_offset);
-                if (*event == GOTO || 
+                if (opcode == GOTO || 
                         (exitCommand != NULL && 
                             *exitCommand == SUBACTION_TERMINATOR)) {
                     cout << ind << GREEN << "endoff: " << RESET << "0x"

@@ -65,9 +65,6 @@ enum EVENT_ID {
                        // DC. Possibly some kind of control structure?
     
     UNKNOWN_20 = 0x20, // totally unknown purpose, length assumed from
-    
-    UNKNOWN_B4 = 0xB4, // only ever happens following a 
-                       // throw command?
 
     UNKNOWN_C6 = 0xC6, // unknown, starts all of Seak's RapidJab
                        // commands
@@ -114,13 +111,28 @@ enum EVENT_ID {
                        // at offsets 0x14 and 0x20,
                        // it is likely a 4 long instruction that
                        // takes a single parameter
-    
-    UNKNOWN_03 = 0x03, // somehow related to heavy walk
 
-    UNKNOWN_64 = 0x64, // based on consecutive DownBoundU and DownWaitU
-                       // subactions
-
-    UNKNOWN_C5 = 0xC5, // usually called as C5 FF FF FF
+    UNKNOWN_64 = 0x64, // based on consecutive DownBoundU and
+                       // DownWaitU subactions. 
+                       // Toggle Form Appears in lots of
+                       // missed tech animations (DownBoundU/D)
+                       // 64 00 00 0 -> .. -> 64 00 00 01
+                       // 
+                       // considered actions:
+                       //   - align to terrain
+                       //   - invuln toggle?
+                       //
+                       // 64 00 00 02 
+                       // appears on 
+                       //   frame 6 of marth's upb
+                       //   frame 6 of peach's upb
+                       //   frame 7 of mario's upb
+                       //   frame 9 of luigi's upb
+                       //   frame 0 of kirby's SpecialHi
+                       //   frame 0 and 52 of kiby's ThrowHi
+                       //   frame 0 of kirby's ThrowB
+                       //   frame 0 and 45 of kirby's ThrowB
+                       //   frame 10 of roy's upb
 
     UNKNOWN_0D = 0x0D, // from PlySeak Swing4
 
@@ -139,40 +151,19 @@ enum EVENT_ID {
 
     UNKNOWN_C4 = 0xC4, // appears in all of PlFE's aereal attacks
 
-    UNKNOWN_2D = 0x2D, // appears paired with hitboxes, with many
-                       // of the same arguments
-                       // This probably means that it's a bone-tied
-                       // graphic effect
-
-    UNKNOWN_23 = 0x23, // appears in Attack12 in PlSk. NO IDEA
     UNKNOWN_6C = 0x6C, // called as 6C 00 00 00
-    UNKNOWN_74 = 0x74, // called as 6C 00 00 00
-    UNKNOWN_B5 = 0xB5, // called as 6C 00 00 00
+    UNKNOWN_74 = 0x74,
 
     UNKNOWN_78 = 0x78, // either 0x4 or 0x10
-    UNKNOWN_77 = 0x77,
     UNKNOWN_30 = 0x30,
-    UNKNOWN_31 = 0x31,
-    UNKNOWN_99 = 0x99,
 
     UNKNOWN_A4 = 0xA4, // Guess based on PlZd
     UNKNOWN_C8 = 0xC8, // Guess based on PlZd (Dash)
+    UNKNOWN_B4 = 0xB4,
 
-    UNKNOWN_4E = 0x4E, // some kind of flag toggle it looks like,
-                       // based on falco's side specials
-    
-    UNKNOWN_4F = 0x4F, // Appears in all of falco's throws
+    UNKNOWN_34 = 0x34,
 
-    UNKNOWN_34 = 0x34, // 
- 
-    UNKNOWN_71 = 0x71, // 
-
-    UNKNOWN_38 = 0x38, // unique to jigg's nspecial?
-
-    UNKNOWN_01 = 0x01, // 8 long in order to make peach's 
-                       // FuraSleepLoop cycle correctly, assuming
-                       // that instruction 29 is len 4 and 
-                       // instruction a2 is len 4
+    UNKNOWN_38 = 0x38, // unique to jigg's and yoshi's nspecials?
 
 };
 
