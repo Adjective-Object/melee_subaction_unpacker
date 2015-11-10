@@ -23,7 +23,8 @@ static void printHelp(char * pname) {
 char * parseConf(int argc, char ** argv) {
     char option_char;
     char * progname = argv[0];
-
+    ios::fmtflags f(cout.flags());
+    
     while ((option_char = getopt(argc, argv, "s:c:d")) != EOF) {
         switch (option_char) {  
              case 's': 
@@ -47,6 +48,7 @@ char * parseConf(int argc, char ** argv) {
                 exit(1);
         }
     }
+    cout.flags(f);
 
     return argv[optind];
 }

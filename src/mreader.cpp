@@ -19,6 +19,7 @@ using namespace std;
 char * c_str_copy(string filepath) {
     const char * raw_fpath = filepath.c_str();
     char * rfp = (char *) malloc(strlen(raw_fpath));
+    strcpy(rfp, raw_fpath);
     return rfp;
 }
 
@@ -78,7 +79,7 @@ int main(int argc, char** argv) {
         "host endianness does not match gamecube datfile endianness") << endl;
 
     char * filename = parseConf(argc, argv);
-    
+
     printf("%s\n", filename);
     dat_header * datfile = (dat_header *) makeOperatingFile(filename);
     cout << "mmap origin: " << datfile << endl;

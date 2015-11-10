@@ -5,7 +5,7 @@ srcs = src/mreader.cpp src/dolfs.cpp src/helpers.cpp \
 	   src/event_mapper.cpp src/config.cpp
 objs = $(srcs:.cpp=.o)
 
-LDFLAGS = 
+LDFLAGS = -lsexp
 LIBS =
 CCFLAGS = -g -Wall --std=c++11
 
@@ -67,7 +67,8 @@ characters = $(call keys,offsets)
 
 $(characters): $(program)
 	./$(program) datfiles/Pl$@.dat \
-		-s $(call get,offsets,$@) -c $(call get,counts,$@)
+		-s $(call get,offsets,$@) \
+		-c $(call get,counts,$@)
 
 allobjs: $(characters)
 
