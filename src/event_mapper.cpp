@@ -12,70 +12,70 @@
 using namespace std;
 
 map<unsigned char, event_descriptor> evts {
-    // argument lengths are specified in half-byte multiples (4 bits)
-    {0x00, {"end", {{RAW, 6}} }},
-    {TIMER_SYNC,  {"timer_sync", {{RAW, 6}} }},
-    {TIMER_ASYNC, {"timer_async", {{RAW, 6}} }},
-    {SET_LOOP, {"setloop", {{RAW, 6}} }},
-    {EXEC_LOOP, {"execloop", {{RAW, 6}} }},
-    {GOTO, {"goto", {{RAW, 14}} }},
-    {RETURN, {"return", {{RAW, 6}} }},
-    {SUBROUTINE, {"subroutine", {{RAW, 14}} }},
-    {AUTOCANCEL, {"autocancel", {{RAW, 6}} }},
-    {ALLOW_INTERRUPT, {"iasa", {{RAW, 6}} }},
-    {START_SMASH_CHARGE, {"smashchrg", {{RAW, 14}} }},
+    // argument lengths are specified in bits
+    {0x00, {"end", {{RAW, 26}} }},
+    {TIMER_SYNC,  {"timer_sync", {{RAW, 26}} }},
+    {TIMER_ASYNC, {"timer_async", {{RAW, 26}} }},
+    {SET_LOOP, {"setloop", {{RAW, 26}} }},
+    {EXEC_LOOP, {"execloop", {{RAW, 26}} }},
+    {GOTO, {"goto", {{RAW, 58}} }},
+    {RETURN, {"return", {{RAW, 26}} }},
+    {SUBROUTINE, {"subroutine", {{RAW, 58}} }},
+    {AUTOCANCEL, {"autocancel", {{RAW, 26}} }},
+    {ALLOW_INTERRUPT, {"iasa", {{RAW, 26}} }},
+    {START_SMASH_CHARGE, {"smashchrg", {{RAW, 58}} }},
 
-    {HITBOX, {"hitbox", {{RAW, 38}} }},
-    {TERMINATE_ALL_COLLISSION, {"endcolls", {{RAW, 6}} }},
-    {BODY_STATE, {"bodystate", {{RAW, 6}} }},
-    {THROW, {"throw", {{RAW, 30}} }},
-    {REVERSE_DIRECTION, {"reverse", {{RAW, 6}} }},
-    {UNKNOWN_FALLSPEED_MOD, {"fallmod?", {{RAW, 20}} }},
+    {HITBOX, {"hitbox", {{RAW, 154}} }},
+    {TERMINATE_ALL_COLLISSION, {"endcolls", {{RAW, 26}} }},
+    {BODY_STATE, {"bodystate", {{RAW, 26}} }},
+    {THROW, {"throw", {{RAW, 122}} }},
+    {REVERSE_DIRECTION, {"reverse", {{RAW, 26}} }},
+    {UNKNOWN_FALLSPEED_MOD, {"fallmod?", {{RAW, 82}} }},
 
-    {GENERATE_ARTICLE, {"gen_article", {{RAW, 6}} }},
-    {SELF_DAMAGE, {"selfhp", {{RAW, 6}}}},
+    {GENERATE_ARTICLE, {"gen_article", {{RAW, 26}} }},
+    {SELF_DAMAGE, {"selfhp", {{RAW, 26}}}},
 
-    {GRAPHIC_EFFECT, {"graphic", {{RAW, 38}} }},
-    {BODY_AURA_GROUP_1, {"bodyaura_1", {{RAW, 14}} }},
-    {BODY_AURA_GROUP_2, {"bodyaura_2", {{RAW, 14}} }},
+    {GRAPHIC_EFFECT, {"graphic", {{RAW, 154}} }},
+    {BODY_AURA_GROUP_1, {"bodyaura_1", {{RAW, 58}} }},
+    {BODY_AURA_GROUP_2, {"bodyaura_2", {{RAW, 58}} }},
 
-    {SOUND_EFFECT, {"sfx", {{RAW, 22}} }},
-    {SOUND_EFFECT_RANDOM_SMASH, {"smash_sfx", {{RAW, 6}} }},
+    {SOUND_EFFECT, {"sfx", {{RAW, 90}} }},
+    {SOUND_EFFECT_RANDOM_SMASH, {"smash_sfx", {{RAW, 26}} }},
 
-    {0xD0, {"unknown_D0", {{RAW, 6}}  }},
-    {0xD8, {"unknown_D8", {{RAW, 22}} }},
-    {0xDC, {"unknown_DC", {{RAW, 22}} }},
-    {0x20, {"unknown_20", {{RAW, 6}}  }},
-    {0xB4, {"unknown_B4", {{RAW, 22}}  }},
-    {0xC6, {"unknown_C6", {{RAW, 14}} }},
-    {0x7C, {"unknown_7C", {{RAW, 6}} }},
-    {0x70, {"unknown_70", {{RAW, 6}} }},
-    {0xA8, {"unknown_A8", {{RAW, 14}} }},
+    {0xD0, {"unknown_D0", {{RAW, 26}}  }},
+    {0xD8, {"unknown_D8", {{RAW, 90}} }},
+    {0xDC, {"unknown_DC", {{RAW, 90}} }},
+    {0x20, {"unknown_20", {{RAW, 26}}  }},
+    {0xB4, {"unknown_B4", {{RAW, 90}}  }},
+    {0xC6, {"unknown_C6", {{RAW, 58}} }},
+    {0x7C, {"unknown_7C", {{RAW, 26}} }},
+    {0x70, {"unknown_70", {{RAW, 26}} }},
+    {0xA8, {"unknown_A8", {{RAW, 58}} }},
 
-    {0x60, {"shootitem1?",{{RAW, 6}} }},
-    {0xA0, {"texswap?",   {{RAW, 6}} }},
-    {0x8C, {"unknown_8c", {{RAW, 6}} }},
+    {0x60, {"shootitem1?",{{RAW, 26}} }},
+    {0xA0, {"texswap?",   {{RAW, 26}} }},
+    {0x8C, {"unknown_8c", {{RAW, 26}} }},
 
-    {0x94, {"unknown_94", {{RAW, 6}} }},
-    {0xC4, {"unknown_C4", {{RAW, 6}} }},
-    {0x64, {"unknown_64", {{RAW, 6}} }},
-    {0x29, {"unknown_29", {{RAW, 6}} }},
-    {0x6C, {"unknown_6C", {{RAW, 6}} }},
-    {0x74, {"unknown_74", {{RAW, 6}} }},
+    {0x94, {"unknown_94", {{RAW, 26}} }},
+    {0xC4, {"unknown_C4", {{RAW, 26}} }},
+    {0x64, {"unknown_64", {{RAW, 26}} }},
+    {0x29, {"unknown_29", {{RAW, 26}} }},
+    {0x6C, {"unknown_6C", {{RAW, 26}} }},
+    {0x74, {"unknown_74", {{RAW, 26}} }},
 
-    {0x78, {"unknown_78", {{RAW, 6}} }},
-    {0x0D, {"unknown_0D", {{RAW, 10}} }},
-    {0x30, {"unknown_30", {{RAW, 6}} }},
-    {0xA4, {"unknown_A4", {{RAW, 6}} }},
-    {0xC8, {"unknown_C8", {{RAW, 6}} }},
-    {0x34, {"unknown_34", {{RAW, 6}} }},
-    {0x38, {"roll_38?",   {{RAW, 6}} }},
-    {0xE8, {"unknown_E8", {{RAW, 30}} }},
-    {0x90, {"unknown_90", {{RAW, 6}} }},
-    {0x98, {"unknown_98", {{RAW, 38}} }},
-    {0x54, {"unknown_54", {{RAW, 6}} }},
-    {0xD4, {"unknown_D4", {{RAW, 6}} }},
-    {0x9C, {"unknown_9C", {{RAW, 30}} }},
+    {0x78, {"unknown_78", {{RAW, 26}} }},
+    {0x0D, {"unknown_0D", {{RAW, 42}} }},
+    {0x30, {"unknown_30", {{RAW, 26}} }},
+    {0xA4, {"unknown_A4", {{RAW, 26}} }},
+    {0xC8, {"unknown_C8", {{RAW, 26}} }},
+    {0x34, {"unknown_34", {{RAW, 26}} }},
+    {0x38, {"roll_38?",   {{RAW, 26}} }},
+    {0xE8, {"unknown_E8", {{RAW, 122}} }},
+    {0x90, {"unknown_90", {{RAW, 26}} }},
+    {0x98, {"unknown_98", {{RAW, 154}} }},
+    {0x54, {"unknown_54", {{RAW, 26}} }},
+    {0xD4, {"unknown_D4", {{RAW, 26}} }},
+    {0x9C, {"unknown_9C", {{RAW, 122}} }},
 
     // conflicts with itaru's definition of airstop (0x8 long)
     // but without it, PlyEmblem's SpecialLw falls into 
@@ -107,20 +107,20 @@ char * evt_to_str(char * buffer, unsigned char * evt) {
     convert << color << '|' << setfill(' ') << setw(11) << e.name << " ";
     convert << hex << setfill('0') << setw(2) << +evt[0] << " " << RESET;
 
-    unsigned int current_step = 2; // start just past the opcode
+    unsigned int current_step = 6; // start just past the opcode
     for (unsigned int i=0; i< e.args.size(); i++) {
         
         unsigned long argument = 0;
         unsigned int arg_start = current_step;
         arg_descriptor arg = e.args[i];
 
-        while(current_step - arg_start < arg.length) {
+        for(unsigned int arg_start = current_step;
+                current_step - arg_start < arg.length;
+                current_step++){ 
             unsigned char current = 
-                (current_step % 2 == 0)
-                    ? (evt[current_step / 2] & 0xf0) >> 4
-                    : evt[current_step / 2] & 0x0f;
-            argument = (argument << 4) | current;
-            current_step++;
+                (evt[current_step / 8] >> 
+                    (7 - (current_step % 8))) & 1;
+            argument = (argument << 1) | current;
         }
 
         switch(arg.type) {
@@ -132,12 +132,10 @@ char * evt_to_str(char * buffer, unsigned char * evt) {
                 break; 
             default :
             case RAW:
-                for(int i=(current_step - arg_start) / 2 - 1; i >= 0; i--) {
+                for(int i=(current_step - arg_start) / 8 - 1; i >= 0; i--) {
                     convert << setw(2) << hex
                             << ((argument >> (i * 8)) & 0xff);
-                    if (i != 0) {
-                         convert << " ";
-                    }
+                    if (i != 0) convert << " ";
                 }
                 break;
         }
@@ -150,12 +148,12 @@ char * evt_to_str(char * buffer, unsigned char * evt) {
 }
 
 unsigned int evt_length(unsigned char opcode) {
-    unsigned int len = 2;
+    unsigned int len = 6;
     vector<arg_descriptor> * args = &(evts[opcode].args);
     for (unsigned int i=0; i<args->size(); i++) {
         len += (*args)[i].length;
     }
-    return len/2;
+    return len/8;
 }
 
 unsigned char * print_action(
