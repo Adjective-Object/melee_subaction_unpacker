@@ -1,6 +1,5 @@
 #ifndef MREADER_MACROS
 #define MREADER_MACROS
-#include <endian.h>
 
 // define the byte order swap macro endiswp s.t. 
 // endiswap(bigarg, littlearg) will evaluate the right expression

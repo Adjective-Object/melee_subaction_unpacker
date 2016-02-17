@@ -166,16 +166,7 @@ using namespace std;
 
 #define UNKNOWN_9C  0x9C  // appears in kirby's adopted neutral
                        // specials, followed by an aura usually.
-
-enum ARG_TYPE {
-    RAW, INT, FLOAT
-};
-
-typedef struct arg_descriptor {
-    ARG_TYPE type;
-    size_t length;
-} arg_descriptor;
-
+/*
 typedef struct event_descriptor {
     string name;
     vector<arg_descriptor> args;
@@ -183,6 +174,9 @@ typedef struct event_descriptor {
 
 extern map<unsigned char, event_descriptor> evts;
 extern event_descriptor EVT_UNKNOWN;
+*/
+
+void initializeEventMap(string filepath);
 
 char * evt_to_str(char * buffer, unsigned char * evt);
 uint32_t * str_to_evt(string & string);

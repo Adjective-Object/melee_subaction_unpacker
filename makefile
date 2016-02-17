@@ -5,9 +5,9 @@ srcs = src/mreader.cpp src/dolfs.cpp src/helpers.cpp \
 	   src/event_mapper.cpp src/config.cpp
 objs = $(srcs:.cpp=.o)
 
-LDFLAGS = -lsexp
+LDFLAGS = -L./binscripter -lbinscript -L./libsweetexpressions -lsweetexpressions
 LIBS =
-CCFLAGS = -g -Wall --std=c++11
+CCFLAGS = -fPIC -g -Wall --std=c++11 -I./libsweetexpressions/src -I./binscripter
 
 print-%:
 	@echo '$*=$($*)'
@@ -15,7 +15,7 @@ print-%:
 all: $(program)
 
 $(program): $(objs)
-	g++ $(LDFLAGS) $(objs) $(LIBS) -o $(program)
+	g++ -static -o $(program) $^ $(LDFLAGS) $(LIBS) 
 
 clean:
 	rm -f $(objs) $(program)

@@ -11,6 +11,7 @@
 #include <libgen.h>
 
 #include "macros.h"
+#include "event_mapper.h"
 #include "dolfs.h"
 #include "config.h"
 
@@ -79,6 +80,7 @@ int main(int argc, char** argv) {
         "host endianness does not match gamecube datfile endianness") << endl;
 
     char * filename = parseConf(argc, argv);
+    initializeEventMap("./melee.langdef");
 
     printf("%s\n", filename);
     dat_header * datfile = (dat_header *) makeOperatingFile(filename);
