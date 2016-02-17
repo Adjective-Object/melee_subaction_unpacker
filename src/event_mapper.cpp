@@ -115,12 +115,12 @@ event_descriptor EVT_UNKNOWN = {"UNKNOWN", {{}} };
 language_def melee_lang;
 void initializeEventMap(string filepath) {
     FILE *f = fopen(filepath.c_str(), "r");
-    PARSE_ERROR p = parse_language_from_file(&melee_lang, f);
-    if (p != NO_ERROR) {
-        printf("encountered error %d (%s) while parsing '%s'\n",
-                p, 
-                error_message_name(p),
-                filepath.c_str());
+    detailed_parse_error * p = parse_language_from_file(
+            &melee_lang, f, filepath.c_str());
+
+    if (p != NULL) {
+        cout << "encountered error while parsing" << filepath << endl;
+        print_err(p);
         exit(1);
     }
     
@@ -142,7 +142,10 @@ unsigned char * print_action(
     ios::fmtflags f( cout.flags() ); 
 
     cout << ind << GREEN << "offset: " << RESET << "0x" << hex << offset << endl;
-    binscript_consumer * action_conv = binscript_mem_consumer(&melee_lang, event, BIN2SCRIPT);
+    string * evtname = new string("<event @ offset ... >");
+    binscript_consumer * action_conv = binscript_mem_consumer(
+            &melee_lang, event, evtname->c_str(), BIN2SCRIPT);
+
     char buffer[1024];
     for (function_call * c = binscript_next(action_conv);
             c != NULL; c = binscript_next(action_conv)) {
