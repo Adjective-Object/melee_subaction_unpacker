@@ -2,5 +2,5 @@
 	path = binscripter
 	url = git@github.com:Adjective-Object/binary-script-packer.git
 [submodule "libsweetexpressions"]
-	path = libsweetexpressions
+	path = libsweetparse
 	url = git@github.com:Adjective-Object/libsweetparse.git
