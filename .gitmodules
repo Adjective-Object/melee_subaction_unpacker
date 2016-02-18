@@ -1,0 +1,6 @@
+[submodule "binscripter"]
+	path = binscripter
+	url = git@github.com:Adjective-Object/binary-script-packer.git
+[submodule "libsweetexpressions"]
+	path = libsweetexpressions
+	url = git@github.com:Adjective-Object/libsweetparse.git

@@ -1,6 +1,15 @@
+# build products
 *.o
 mreader
+
+# vim shit
 ._*
-*.dat
 .*.swp
 .*.swo
+
+# melee files
+*.dat
+
+# nix-shell stuff
+default.nix
+

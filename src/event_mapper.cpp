@@ -127,6 +127,36 @@ void initializeEventMap(string filepath) {
     fclose(f);
 }
 
+string indent_function_call(string call, size_t base_indent, size_t columnwidth) {
+    size_t indent = call.find_first_of('(') + 1;
+
+    string out = call.substr(0, indent);
+    call = call.substr(indent);
+
+    size_t currentLineLength = indent;
+    while (call.length() > 0) {
+        //cout << call << endl;
+        //cout << out  << endl;
+
+        size_t nextSpace = call.find_first_of(' ');
+        if (nextSpace == string::npos)
+            nextSpace = call.length();
+        else
+            nextSpace += 1;
+
+        if (nextSpace + currentLineLength > columnwidth) {
+            out += "\n";
+            out += string(base_indent + indent, ' ');
+            currentLineLength = indent;
+        }
+
+        out += call.substr(0, nextSpace);
+        call = call.substr(nextSpace);
+        currentLineLength += nextSpace;
+    }
+    return out;
+}
+
 unsigned char * print_action(
         int indent, 
         const DatFile * datfile,
@@ -134,30 +164,80 @@ unsigned char * print_action(
 
     unsigned char * event = (unsigned char *)
         (datfile->dataSection + offset);
-    
+
     if (*event == SUBACTION_TERMINATOR)
         return NULL;
     
-    string ind = string(INDENT_SIZE, indent); 
+    string ind = string(INDENT_SIZE * indent, ' '); 
     ios::fmtflags f( cout.flags() ); 
 
     cout << ind << GREEN << "offset: " << RESET << "0x" << hex << offset << endl;
     string * evtname = new string("<event @ offset ... >");
     binscript_consumer * action_conv = binscript_mem_consumer(
             &melee_lang, event, evtname->c_str(), BIN2SCRIPT);
+    consumer_set_size(action_conv, MANUAL_CUTOFF, 0);
 
-    char buffer[1024];
+    cout << ind << "first value:" 
+         << setfill('0') << setw(2)
+         << hex << (int)(*event) << endl;
+
+    bool exited_safely = false;
+
+    char buffer[2048];
     for (function_call * c = binscript_next(action_conv);
             c != NULL; c = binscript_next(action_conv)) {
-        event += string_encode_function_call(buffer, c);
-        cout << ind << buffer << endl;
+
+        std::stringstream stream;
+        stream << setfill('0') << setw(2) << std::hex 
+               << (c->defn->function_binary_value << melee_lang.function_name_bitshift);
+        std::string fnname( stream.str() );
+
+        string_encode_function_call(buffer, c);
+
+        string s = fnname + " " + string(buffer);
+        string call = indent_function_call(s, INDENT_SIZE * indent, 50);
+        cout << ind << call << endl;
+
+        // exit current scope on 'exit' or 'goto' calls
+        if (strcmp(c->defn->name, "return") == 0 ||
+                strcmp(c->defn->name, "exit") == 0) {
+            free_call(c);
+            exited_safely = true;
+            break;
+        }
+
+        // intercept gotos
+        bool isgoto = 0 == strcmp(c->defn->name, "goto");
+        bool issubroutine = 0 == strcmp(c->defn->name, "subroutine");
+        if (isgoto || issubroutine) {
+            // binscripter hex type is raw data (does not alter endianness)
+            // we want to get the last argument (the address), so we extract it
+            // and switch the endianness if it differs from the host
+            size_t last_arg_index = c->defn->argc - 1;
+            long int jmp_target = *((long int *) c->args[last_arg_index]);
+            if (BS_ENDIAN_MATCH((&melee_lang))) {
+                swap_endian_on_field(&jmp_target,
+                        bits2bytes(c->defn->arguments[last_arg_index]->bitwidth));
+            }
+           
+            if (jmp_target != offset) {
+                print_action(indent + 1, datfile, jmp_target); 
+            } else {
+                cout << ind << RED << "[RECURSION NOT ALLOWED]" << RESET << endl;
+            }
+
+            if (isgoto) {
+                free_call(c);
+                exited_safely = true;
+                break;
+            }
+        }
+
         free_call(c);
     }
-    // TODO dump memory if exited with exit vs if exited with unknown command
-        
-    // if not a command of known length,
-    // dump the following memory
-    if (*event != 0) {
+
+    // if not exiting on a 'return' or 'exit', shit urself
+    if (!exited_safely) {
         cout_hex(indent + 2, event, 12, 4);
         cout << ind << GREEN << "endoff: " << RESET << "0x"
              << (intptr_t) (event - (unsigned char *)datfile->dataSection) << endl;

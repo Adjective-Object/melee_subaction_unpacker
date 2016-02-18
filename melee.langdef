@@ -2,106 +2,99 @@ meta
     endianness big
     namewidth 6
     nameshift 2
+    bytealigned true
 
-def 0x04 wait_until { int26(frame) }
-def 0x08 wait_for { int26(frames) }
+def 0x04 wait_until { skip2 int24(frames) }
+def 0x08 wait_for { skip2 int24(frames) }
 
-def 0x0C set_loop { raw26 }
-def 0x10 exec_loop { raw26 }
+def 0x0C set_loop { hex26 }
+def 0x10 exec_loop { hex26 }
 
-def 0x1C goto { int58(offset) }
-def 0x18 return { raw26 }
-def 0x14 subroutine { raw58(offset) }
+def 0x1C goto { skip26 hex32(offset) }
+def 0x18 return { hex26 }
+def 0x00 exit { hex26 }
+def 0x14 subroutine { skip26 hex32(offset) }
 
-def 0x4C autocancel { raw26 }
-def 0x5C iasa { raw26 }
-def 0xE0 start_smash_charge { raw58 }
-def 0x40 end_all_collisions { raw26 }
-def 0x68 bodystate { raw26 }
-def 0x88 throw { raw122 }
+def 0x4C autocancel { hex26 }
+def 0x5C iasa { hex26 }
+def 0xE0 start_smash_charge { hex58 }
+def 0x40 end_all_collisions { hex26 }
+def 0x68 bodystate { hex26 }
+def 0x88 throw { hex122 }
 
-def 0x50 reverse_direction { raw26 }
-def 0x4C fallmod? { raw82 }
-def 0x4D airstop? { raw4c }
+def 0x50 reverse_direction { hex26 }
+def 0x4C airstop? { hex82 }
 
-def 0xAC gen_article { raw26 }
-def 0xCC heal { raw26 }
+def 0xAC gen_article { hex26 }
+def 0xCC heal { hex26 }
 
+; hitbox (mostly self explanatory)
 def 0x2C hitbox {
-    int3(id)
+    uint3(id)
     skip5
-    int7(bone)
+    uint7(bone)
     skip2
-    int9(dmg)
-    float16(size)
-    float16(z)
-    float16(y)
-    float16(x)
-    float9(launch_angle)
-    float9(kb_growth)
-    float9(weight_dep_kb)
+    uint9(dmg)
+    uint16(size) int16(z) int16(y) int16(x)
+    uint9(launch_angle) uint9(kb_growth) uint9(weight_dep_kb)
     skip3
-    int2(hitbox_interaction)
-    float9(base_kb)
-    int5(elem)
+    uint2(hitbox_interaction) uint9(base_kb) uint5(elem)
     skip1
-    float7(shielddmg)
-    int8(sfx_id)
-    int2(hurtbox_interaction)
+    uint7(shielddmg) 
+    uint8(sfx_id) uint2(hurtbox_interaction)
 }
 
+; common (non-character-specific) graphic
 def 0x28 graphic_common {
     skip26
-    int16(gfxid)
+    uint16(gfxid)
     skip16
-    float16(zoff)
-    float16(yoff)
-    float16(xoff)
-    float16(zrange)
-    float16(yrange)
-    float16(xrange)
+    int16(zoff)
+    int16(yoff)
+    int16(xoff)
+    int16(zrange)
+    int16(yrange)
+    int16(xrange)
 }
 
-def 0xB8 bodyaura1 { raw58 }
-def 0xB9 bodyaura2 { raw58 }
+; looks like the first bit is some boolean flag
+; that selects bodyaura group 1 vs 2
+def 0xB8 bodyaura { hex58 }
 
-def 0x44 sfx { raw90 }
-def 0x48 sfx_smash { raw26 }
-
-
-## BEYOND HERE IS UNKNOWN, MY OWN ESTIMATES  ##
-
-def 0xD0 unknownD0 { raw26 }
-def 0xD8 unknownD8 { raw90 }
-def 0xdc unknownDC { raw90 }
-def 0x20 unknown20 { raw26 }
-def 0xb4 unknownB4 { raw90 }
-def 0xc6 unknownC6 { raw58 }
-def 0x7c unknown7C { raw26 }
-def 0x70 unknown70 { raw26 }
-def 0xa8 unknownA8 { raw58 }
-
-def 0x60 shootitem1? { raw26 }
-def 0x60 texswap?    { raw26 }
-def 0x60 unknown8c   { raw26 }
+def 0x44 sfx { hex90 }
+def 0x48 sfx_smash { hex26 }
 
 
-def 0x94 unknown_94 { raw26 }
-def 0xC4 unknown_C4 { raw26 }
-def 0x64 unknown_64 { raw26 }
-def 0x29 unknown_29 { raw26 }
-def 0x6C unknown_6C { raw26 }
-def 0x74 unknown_74 { raw26 }
-def 0x78 unknown_78 { raw26 }
-def 0x0D unknown_0D { raw42 }
-def 0x30 unknown_30 { raw26 }
-def 0xA4 unknown_A4 { raw26 }
-def 0xC8 unknown_C8 { raw26 }
-def 0x34 unknown_34 { raw26 }
-def 0x38 roll?      { raw26 }
-def 0xE8 unknown_E8 { raw122 }
-def 0x90 unknown_90 { raw26 }
-def 0x98 unknown_98 { raw154 }
-def 0x54 unknown_54 { raw26 }
-def 0xD4 unknown_D4 { raw26 }
-def 0x9C unknown_9C { raw122 }
+; BEYOND HERE IS UNKNOWN, MY OWN ESTIMATES
+
+def 0xD0 unknown_D0 { hex26 }
+def 0xD8 unknown_D8 { hex90 }
+def 0xdc unknown_DC { hex90 }
+def 0x20 unknown_20 { hex26 }
+def 0xb4 unknown_B4 { hex90 }
+def 0x7c unknown_7C { hex26 }
+def 0x70 unknown_70 { hex26 }
+def 0xa8 unknown_A8 { hex58 }
+
+def 0x60 shootitem1? { hex26 }
+def 0xa0 texswap?    { hex26 }
+def 0x8c unknown_8C   { hex26 }
+
+
+def 0x94 unknown_94 { hex26 }
+def 0xC4 unknown_C4 { hex26 }
+def 0x64 unknown_64 { hex26 }
+def 0x6C unknown_6C { hex26 }
+def 0x74 unknown_74 { hex26 }
+def 0x78 unknown_78 { hex26 }
+def 0x30 unknown_30 { hex26 }
+def 0xA4 unknown_A4 { hex26 }
+def 0xC8 unknown_C8 { hex26 }
+def 0x34 unknown_34 { hex26 }
+def 0x38 roll?      { hex26 }
+def 0xE8 unknown_E8 { hex122 }
+def 0x90 unknown_90 { hex26 }
+def 0x98 unknown_98 { hex154 }
+def 0x54 unknown_54 { hex26 }
+def 0xD4 unknown_D4 { hex26 }
+def 0x9C unknown_9C { hex122 }
