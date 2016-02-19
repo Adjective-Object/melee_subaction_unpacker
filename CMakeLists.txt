@@ -8,6 +8,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
 # add libsweetparse to search path
 include_directories(AFTER 
     ./src ./libsweetparse/src ./binscripter)
+link_directories(AFTER ./libsweetparse ./binscripter)
 
 set(CMAKE_CXX_FLAGS "-fPIC -g -Wall -std=c++11")
 
@@ -33,7 +34,6 @@ add_library(MREADER_LIB OBJECT ${LIB_SRCS})
 add_executable(mreader
     src/mreader.cpp
     $<TARGET_OBJECTS:MREADER_LIB>)
-link_directories(./libsweetparse ./binscripter)
 target_link_libraries(mreader binscript sweetparse)
 
 add_custom_target(run_tests 
