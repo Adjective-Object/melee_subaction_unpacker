@@ -1,7 +1,7 @@
-#include "event_mapper.h"
-#include "config.h"
-#include "helpers.h"
-#include "dolfs.h"
+#include "event_mapper.hpp"
+#include "config.hpp"
+#include "helpers.hpp"
+#include "dolfs.hpp"
 #include <sstream>
 #include <cstring>
 

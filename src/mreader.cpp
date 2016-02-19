@@ -10,10 +10,10 @@
 
 #include <libgen.h>
 
-#include "macros.h"
-#include "event_mapper.h"
-#include "dolfs.h"
-#include "config.h"
+#include "macros.hpp"
+#include "event_mapper.hpp"
+#include "dolfs.hpp"
+#include "config.hpp"
 
 using namespace std;
 

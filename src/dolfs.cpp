@@ -1,13 +1,13 @@
-#include "dolfs.h"
-#include "macros.h"
-#include "event_mapper.h"
+#include "dolfs.hpp"
+#include "macros.hpp"
+#include "event_mapper.hpp"
 #include <iostream>
 #include <iomanip>
 #include <map>
 #include <cstring>
 
-#include "helpers.h"
-#include "config.h"
+#include "helpers.hpp"
+#include "config.hpp"
 
 using namespace std;
 

@@ -1,8 +1,12 @@
-# build products
-*.o
+# build products & intermediates
 mreader
+CMakeFiles
+CMakeCache.txt
+Makefile
+cmake_install.cmake
+compile_commands.json
 
-# vim shit
+# vim stuff
 ._*
 .*.swp
 .*.swo

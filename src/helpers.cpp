@@ -2,8 +2,8 @@
 #include <cstdio>
 #include <cstring>
 
-#include "helpers.h"
-#include "config.h"
+#include "helpers.hpp"
+#include "config.hpp"
 #include <iostream>
 #include <iomanip>
 
