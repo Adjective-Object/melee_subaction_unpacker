@@ -10,7 +10,7 @@
 #include <utility>
 
 extern "C" {
-    #include "binscript.h"
+#include "binscript.h"
 }
 
 using namespace std;
@@ -104,7 +104,7 @@ map<unsigned char, event_descriptor> evts {
     {0x9C, {"unknown_9C", {{"?", RAW, 122}} }},
 
     // conflicts with itaru's definition of airstop (0x8 long)
-    // but without it, PlyEmblem's SpecialLw falls into 
+    // but without it, PlyEmblem's SpecialLw falls into
     // SpecialLwHit
     {AIRSTOP, {"airstop?", {{"?", RAW, 14}} }},
 };
@@ -114,139 +114,135 @@ event_descriptor EVT_UNKNOWN = {"UNKNOWN", {{}} };
 
 language_def melee_lang;
 void initializeEventMap(string filepath) {
-    FILE *f = fopen(filepath.c_str(), "r");
-    detailed_parse_error * p = parse_language_from_file(
-            &melee_lang, f, filepath.c_str());
+  FILE *f = fopen(filepath.c_str(), "r");
+  detailed_parse_error *p =
+      parse_language_from_file(&melee_lang, f, filepath.c_str());
 
-    if (p != NULL) {
-        cout << "encountered error while parsing" << filepath << endl;
-        print_err(p);
-        exit(1);
-    }
-    
-    fclose(f);
+  if (p != NULL) {
+    cout << "encountered error while parsing" << filepath << endl;
+    print_err(p);
+    exit(1);
+  }
+
+  fclose(f);
 }
 
-string indent_function_call(string call, size_t base_indent, size_t columnwidth) {
-    size_t indent = call.find_first_of('(') + 1;
+string indent_function_call(string call, size_t base_indent,
+                            size_t columnwidth) {
+  size_t indent = call.find_first_of('(') + 1;
 
-    string out = call.substr(0, indent);
-    call = call.substr(indent);
+  string out = call.substr(0, indent);
+  call = call.substr(indent);
 
-    size_t currentLineLength = indent;
-    while (call.length() > 0) {
-        //cout << call << endl;
-        //cout << out  << endl;
+  size_t currentLineLength = indent;
+  while (call.length() > 0) {
+    // cout << call << endl;
+    // cout << out  << endl;
 
-        size_t nextSpace = call.find_first_of(' ');
-        if (nextSpace == string::npos)
-            nextSpace = call.length();
-        else
-            nextSpace += 1;
+    size_t nextSpace = call.find_first_of(' ');
+    if (nextSpace == string::npos)
+      nextSpace = call.length();
+    else
+      nextSpace += 1;
 
-        if (nextSpace + currentLineLength > columnwidth) {
-            out += "\n";
-            out += string(base_indent + indent, ' ');
-            currentLineLength = indent;
-        }
-
-        out += call.substr(0, nextSpace);
-        call = call.substr(nextSpace);
-        currentLineLength += nextSpace;
+    if (nextSpace + currentLineLength > columnwidth) {
+      out += "\n";
+      out += string(base_indent + indent, ' ');
+      currentLineLength = indent;
     }
-    return out;
+
+    out += call.substr(0, nextSpace);
+    call = call.substr(nextSpace);
+    currentLineLength += nextSpace;
+  }
+  return out;
 }
 
-unsigned char * print_action(
-        int indent, 
-        const DatFile * datfile,
-        unsigned int offset) {
+unsigned char *print_action(int indent, const DatFile *datfile,
+                            unsigned int offset) {
 
-    unsigned char * event = (unsigned char *)
-        (datfile->dataSection + offset);
+  unsigned char *event = (unsigned char *)(datfile->dataSection + offset);
 
-    if (*event == SUBACTION_TERMINATOR)
-        return NULL;
-    
-    string ind = string(INDENT_SIZE * indent, ' '); 
-    ios::fmtflags f( cout.flags() ); 
+  if (*event == SUBACTION_TERMINATOR)
+    return NULL;
 
-    cout << ind << GREEN << "offset: " << RESET << "0x" << hex << offset << endl;
-    string * evtname = new string("<event @ offset ... >");
-    binscript_consumer * action_conv = binscript_mem_consumer(
-            &melee_lang, event, evtname->c_str(), BIN2SCRIPT);
-    consumer_set_size(action_conv, MANUAL_CUTOFF, 0);
+  string ind = string(INDENT_SIZE * indent, ' ');
+  ios::fmtflags f(cout.flags());
 
-    cout << ind << "first value:" 
-         << setfill('0') << setw(2)
-         << hex << (int)(*event) << endl;
+  cout << ind << GREEN << "offset: " << RESET << "0x" << hex << offset << endl;
+  string *evtname = new string("<event @ offset ... >");
+  binscript_consumer *action_conv =
+      binscript_mem_consumer(&melee_lang, event, evtname->c_str(), BIN2SCRIPT);
+  consumer_set_size(action_conv, MANUAL_CUTOFF, 0);
 
-    bool exited_safely = false;
+  cout << ind << "first value:" << setfill('0') << setw(2) << hex
+       << (int)(*event) << endl;
 
-    char buffer[2048];
-    for (function_call * c = binscript_next(action_conv);
-            c != NULL; c = binscript_next(action_conv)) {
+  bool exited_safely = false;
 
-        std::stringstream stream;
-        stream << setfill('0') << setw(2) << std::hex 
-               << (c->defn->function_binary_value << melee_lang.function_name_bitshift);
-        std::string fnname( stream.str() );
+  char buffer[2048];
+  for (function_call *c = binscript_next(action_conv); c != NULL;
+       c = binscript_next(action_conv)) {
 
-        string_encode_function_call(buffer, c);
+    std::stringstream stream;
+    stream << setfill('0') << setw(2) << std::hex
+           << (c->defn->function_binary_value
+               << melee_lang.function_name_bitshift);
+    std::string fnname(stream.str());
 
-        string s = fnname + " " + string(buffer);
-        string call = indent_function_call(s, INDENT_SIZE * indent, 50);
-        cout << ind << call << endl;
+    string_encode_function_call(buffer, c);
 
-        // exit current scope on 'exit' or 'goto' calls
-        if (strcmp(c->defn->name, "return") == 0 ||
-                strcmp(c->defn->name, "exit") == 0) {
-            free_call(c);
-            exited_safely = true;
-            break;
-        }
+    string s = fnname + " " + string(buffer);
+    string call = indent_function_call(s, INDENT_SIZE * indent, 50);
+    cout << ind << call << endl;
 
-        // intercept gotos
-        bool isgoto = 0 == strcmp(c->defn->name, "goto");
-        bool issubroutine = 0 == strcmp(c->defn->name, "subroutine");
-        if (isgoto || issubroutine) {
-            // binscripter hex type is raw data (does not alter endianness)
-            // we want to get the last argument (the address), so we extract it
-            // and switch the endianness if it differs from the host
-            size_t last_arg_index = c->defn->argc - 1;
-            long int jmp_target = *((long int *) c->args[last_arg_index]);
-            if (BS_ENDIAN_MATCH((&melee_lang))) {
-                swap_endian_on_field(&jmp_target,
-                        bits2bytes(c->defn->arguments[last_arg_index]->bitwidth));
-            }
-           
-            if (jmp_target != offset) {
-                print_action(indent + 1, datfile, jmp_target); 
-            } else {
-                cout << ind << RED << "[RECURSION NOT ALLOWED]" << RESET << endl;
-            }
+    // exit current scope on 'exit' or 'goto' calls
+    if (strcmp(c->defn->name, "return") == 0 ||
+        strcmp(c->defn->name, "exit") == 0) {
+      free_call(c);
+      exited_safely = true;
+      break;
+    }
 
-            if (isgoto) {
-                free_call(c);
-                exited_safely = true;
-                break;
-            }
-        }
+    // intercept gotos
+    bool isgoto = 0 == strcmp(c->defn->name, "goto");
+    bool issubroutine = 0 == strcmp(c->defn->name, "subroutine");
+    if (isgoto || issubroutine) {
+      // binscripter hex type is raw data (does not alter endianness)
+      // we want to get the last argument (the address), so we extract it
+      // and switch the endianness if it differs from the host
+      size_t last_arg_index = c->defn->argc - 1;
+      long int jmp_target = *((long int *)c->args[last_arg_index]);
+      if (BS_ENDIAN_MATCH((&melee_lang))) {
+        swap_endian_on_field(
+            &jmp_target,
+            bits2bytes(c->defn->arguments[last_arg_index]->bitwidth));
+      }
 
+      if (jmp_target != offset) {
+        print_action(indent + 1, datfile, jmp_target);
+      } else {
+        cout << ind << RED << "[RECURSION NOT ALLOWED]" << RESET << endl;
+      }
+
+      if (isgoto) {
         free_call(c);
+        exited_safely = true;
+        break;
+      }
     }
 
-    // if not exiting on a 'return' or 'exit', shit urself
-    if (!exited_safely) {
-        cout_hex(indent + 2, event, 12, 4);
-        cout << ind << GREEN << "endoff: " << RESET << "0x"
-             << (intptr_t) (event - (unsigned char *)datfile->dataSection) << endl;
-        return event;
-    }
+    free_call(c);
+  }
 
-    cout.flags( f );
+  // if not exiting on a 'return' or 'exit', shit urself
+  if (!exited_safely) {
+    cout_hex(indent + 2, event, 12, 4);
+    cout << ind << GREEN << "endoff: " << RESET << "0x"
+         << (intptr_t)(event - (unsigned char *)datfile->dataSection) << endl;
     return event;
+  }
+
+  cout.flags(f);
+  return event;
 }
-
-
-

@@ -14,41 +14,42 @@ bool DETAILED_SUBACTION_PRINT = false;
 
 using namespace std;
 
-static void printHelp(char * pname) {
-    cerr << "usage:\n    " << pname << "[..args]" << "datfile" << endl;
-    cerr << "    " << "-s : Special Subaction Table Offset" << endl;
-    cerr << "    " << "-s : Special Subaction Table Count" << endl;
+static void printHelp(char *pname) {
+  cerr << "usage:\n    " << pname << "[..args]"
+       << "datfile" << endl;
+  cerr << "    "
+       << "-s : Special Subaction Table Offset" << endl;
+  cerr << "    "
+       << "-s : Special Subaction Table Count" << endl;
 }
 
-char * parseConf(int argc, char ** argv) {
-    char option_char;
-    char * progname = argv[0];
-    ios::fmtflags f(cout.flags());
-    
-    while ((option_char = getopt(argc, argv, "s:c:d")) != EOF) {
-        switch (option_char) {  
-             case 's': 
-                sscanf(optarg,
-                   "%x", &SPECIAL_SUBACTION_OFFSET);
-                cout << "special subaction offset:"
-                     << hex << SPECIAL_SUBACTION_OFFSET << endl;
-                break;
-            case 'c':
-                sscanf(optarg,
-                   "%x", &SPECIAL_SUBACTION_COUNT);
-                cout << "special subaction count:"
-                     << hex << SPECIAL_SUBACTION_COUNT << endl;
-                break;
-            case 'd':
-                DETAILED_SUBACTION_PRINT = true;
-                break;
+char *parseConf(int argc, char **argv) {
+  char option_char;
+  char *progname = argv[0];
+  ios::fmtflags f(cout.flags());
 
-            case '?':
-                printHelp(progname);
-                exit(1);
-        }
+  while ((option_char = getopt(argc, argv, "s:c:d")) != EOF) {
+    switch (option_char) {
+    case 's':
+      sscanf(optarg, "%x", &SPECIAL_SUBACTION_OFFSET);
+      cout << "special subaction offset:" << hex << SPECIAL_SUBACTION_OFFSET
+           << endl;
+      break;
+    case 'c':
+      sscanf(optarg, "%x", &SPECIAL_SUBACTION_COUNT);
+      cout << "special subaction count:" << hex << SPECIAL_SUBACTION_COUNT
+           << endl;
+      break;
+    case 'd':
+      DETAILED_SUBACTION_PRINT = true;
+      break;
+
+    case '?':
+      printHelp(progname);
+      exit(1);
     }
-    cout.flags(f);
+  }
+  cout.flags(f);
 
-    return argv[optind];
+  return argv[optind];
 }

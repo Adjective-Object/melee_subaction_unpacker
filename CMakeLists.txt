@@ -32,12 +32,8 @@ ExternalProject_Add(
 )
 
 
-
-
-
-# add libsweetparse to search path
-include_directories(AFTER 
-    ./src ./libsweetparse/src ./binscripter)
+# add dependencies to search path
+include_directories(AFTER ./src ./libsweetparse/src ./binscripter)
 link_directories(AFTER ./libsweetparse ./binscripter)
 
 set(CMAKE_CXX_FLAGS "-fPIC -g -Wall -std=c++11")
@@ -57,6 +53,7 @@ set(LIB_SRCS
         src/macros.hpp)
 add_library(MREADER_LIB OBJECT ${LIB_SRCS})
 
+set(ALL_SRCS ${LIB_SRCS} src/mreader.cpp)
 
 #####################
 # output executable #
@@ -65,12 +62,6 @@ add_executable(mreader
     src/mreader.cpp
     $<TARGET_OBJECTS:MREADER_LIB>)
 target_link_libraries(mreader binscript sweetparse)
-
-add_custom_target(run_tests 
-    COMMAND ./run_tests.sh
-    WORKING_DIRECTORY tests
-    DEPENDS sweet_test)
-
 
 ########################################
 # Code formatting and linting commands #
@@ -81,10 +72,10 @@ add_custom_target(lint
         --enable=warning
         --enable=missingInclude
         --enable=performance
-        -I ./src -I ./libsweetparse/src -I ./tests
-        ${MREADER_SRCS})
+        -I ./src -I ./libsweetparse/src -I ./binscripter
+        src/mreader.cpp ${ALL_SRCS})
 
 add_custom_target(format
-    COMMAND clang-format -i ${LIB_SRCS})
+    COMMAND clang-format -i ${ALL_SRCS})
     
 
