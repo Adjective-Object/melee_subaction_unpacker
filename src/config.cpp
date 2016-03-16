@@ -7,6 +7,7 @@ unsigned int INDENT_SIZE = 4;
 
 uint32_t SPECIAL_SUBACTION_OFFSET = 0;
 uint32_t SPECIAL_SUBACTION_COUNT = 0;
+uint32_t ROOT_OFFSET = 0;
 bool DETAILED_SUBACTION_PRINT = false;
 bool EXPORT;
 
@@ -30,6 +31,8 @@ static void printHelp(char *pname) {
        << "-d   : detailed subaction output" << endl;
   cerr << "    "
        << "-j   : output path for joint bdf" << endl;
+  cerr << "    "
+       << "-r   : root offset in datafile" << endl;
 }
 
 char *parseConf(int argc, char **argv) {
@@ -37,7 +40,7 @@ char *parseConf(int argc, char **argv) {
   char *progname = argv[0];
   ios::fmtflags f(cout.flags());
 
-  while ((option_char = getopt(argc, argv, "s:c:dxj:")) != EOF) {
+  while ((option_char = getopt(argc, argv, "s:c:dxj:r:")) != EOF) {
     switch (option_char) {
     case 's':
       sscanf(optarg, "%x", &SPECIAL_SUBACTION_OFFSET);
@@ -58,8 +61,9 @@ char *parseConf(int argc, char **argv) {
     case 'j':
       JOINT_OUTPUT_PATH=optarg;
       break;
-
-
+    case 'r':
+      sscanf(optarg, "%x", &ROOT_OFFSET);
+      break;
     case '?':
       printHelp(progname);
       exit(1);

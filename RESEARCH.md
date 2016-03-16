@@ -7,6 +7,7 @@
  - [inaccurate subaction table][ssbm-subactions]
  - [dolfs][ftdata]
  - [blurb on models by someone][idek]
+ - [stages mat anim][stages-matanim]
 
 
 [jobj-dobj]: http://smashboards.com/threads/melee-dat-format.292603/#post-11728194
@@ -16,4 +17,5 @@
 
 [idek]: http://www.emutalk.net/threads/33383-Smash-Bros-Melee-Model-Viewer-Status
 
+[stages-matanim]: http://smashboards.com/threads/melee-stage-hacking-documentation-warning-not-user-friendly.328552/
 

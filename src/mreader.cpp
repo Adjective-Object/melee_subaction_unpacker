@@ -14,6 +14,7 @@
 #include "event_mapper.hpp"
 #include "dolfs/dolfs.hpp"
 #include "config.hpp"
+#include "helpers.hpp"
 
 using namespace std;
 
@@ -82,8 +83,12 @@ int main(int argc, char **argv) {
   initializeEventMap("./melee.langdef");
 
   printf("%s\n", filename);
-  dat_header *datfile = (dat_header *)makeOperatingFile(filename);
-  cout << "mmap origin: " << datfile << endl;
+  void * mmap_origin = makeOperatingFile(filename);
+  MMAP_ORIGIN = mmap_origin;
+  cout << "mmap origin: " << mmap_origin << endl;
+  dat_header *datfile = (dat_header *)((char *) mmap_origin + ROOT_OFFSET);
+  cout << "ROOT OFFSET: " << ROOT_OFFSET << endl;
+  cout << "datfile origin: " << datfile << endl;
 
   DatFile *dat = new DatFile(datfile);
   if (EXPORT) {

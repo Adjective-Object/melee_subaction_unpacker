@@ -11,6 +11,7 @@
 #include "dolfs/dolfs.hpp"
 #include "dolfs/ftdata.hpp"
 #include "dolfs/jobj.hpp"
+#include "dolfs/figatree.hpp"
 
 using namespace std;
 
@@ -41,11 +42,13 @@ DatFile::DatFile(dat_header *header) : header(header) {
 
   unsigned int i;
 
+  /*
   cout << "root nodes:" << endl;
   for (i = 0; i < header->rootCountA + header->rootCountB; i++) {
     string name = stringTable + rootList[i].stringTableOffset;
     cout << name << endl;
   }
+  */
 
   for (i = 0; i < header->rootCountA + header->rootCountB; i++) {
     string name = stringTable + rootList[i].stringTableOffset;
@@ -56,9 +59,9 @@ DatFile::DatFile(dat_header *header) : header(header) {
       children[name] = new FtData(this, (ftdata_header *)target);
     }
 
-    // _joint (joint files)
+    // _metanim_joint (joint files)
     else if (hasEnding(name, "_matanim_joint")) {
-      children[name] = new AnonymousData(target);
+      children[name] = new AnonymousData(this, target);
     }
 
     // _joint (joint files)
@@ -66,9 +69,14 @@ DatFile::DatFile(dat_header *header) : header(header) {
         children[name] = new JObj(this, (jointdata_header *)target);
     }
 
+    // figatree (anim files) 
+    else if (hasEnding(name, "_figatree")) {
+        children[name] = new FigaTree(this, (figatree_header *)target);
+    }
+
     // fallback
     else {
-      children[name] = new AnonymousData(target);
+      children[name] = new AnonymousData(this, target);
     }
   }
 }
@@ -111,8 +119,11 @@ void DatFile::serialize() {
     }
 }
 
-AnonymousData::AnonymousData(void *data) : data(data) {}
+AnonymousData::AnonymousData(const DatFile * datfile, void *data) : 
+    datfile(datfile), data(data) {}
 void AnonymousData::print(int indent /*=0*/) {
   string ind(indent * INDENT_SIZE, ' ');
-  cout << ind << "Anonymous data at " << data << endl;
+  cout << ind << "Anonymous data at 0x"
+       << hex << (int) ((char*) data - this->datfile->dataSection) << endl;
 }
+

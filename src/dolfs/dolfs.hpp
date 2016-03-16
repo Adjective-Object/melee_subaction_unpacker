@@ -36,7 +36,7 @@ typedef struct dat_root_node {
  * control structures that wrap the mapped raw structs
  * DataProxy provides a way to print the data,
  * and in the future, should provide a way
- * to encode/decode it from/to a human readable file
+ * to encode/decode it from/to an easier editable file
  **/
 class DataProxy {
 public:
@@ -70,10 +70,11 @@ public:
  * Fallback class for representing unknown data sections
  **/
 class AnonymousData : public DataProxy {
+  const DatFile * datfile;
   void *data;
 
 public:
-  AnonymousData(void *address);
+  AnonymousData(const DatFile * datfile, void *address);
   void print(int indent = 0);
   virtual void serialize(){};
 };

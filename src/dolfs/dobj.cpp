@@ -20,8 +20,10 @@ DObj::DObj(DatFile const * datheader, gameobject_header * gameobj) {
 
     fix_endianness(gameobj, sizeof(gameobj), sizeof(uint32_t));
     this->model = new AnonymousData(
+        datheader,
         datfile->dataSection + gameobj->modelOffset);
     this->material = new AnonymousData(
+        datheader,
         datfile->dataSection + gameobj->materialOffset);
 
     if (gameobj->nextOffset != 0) {

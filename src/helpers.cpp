@@ -6,8 +6,11 @@
 #include "config.hpp"
 #include <iostream>
 #include <iomanip>
+#include <sstream>
 
 using namespace std;
+
+void * MMAP_ORIGIN;
 
 void cout_hex(int indent, unsigned char *c, size_t rowsize, size_t rows) {
   string ind = string(indent * INDENT_SIZE, ' ');
@@ -44,6 +47,7 @@ void fix_endianness(void *location, size_t bytes, size_t step) {
 
 
 #include <iostream>
+#include <iomanip>
 
 bool hasEnding (std::string const &fullString, std::string const &ending) {
     if (fullString.length() >= ending.length()) {
@@ -52,6 +56,13 @@ bool hasEnding (std::string const &fullString, std::string const &ending) {
         return false;
     }
 }
+
+string to_string_hex(int n) {
+   std::stringstream ss;
+   ss << hex << n;
+   return ss.str();
+}
+
 
 
 #endif

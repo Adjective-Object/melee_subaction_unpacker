@@ -3,11 +3,14 @@
 
 #include <string>
 
+extern void * MMAP_ORIGIN;
+
 void print_hex(char *c, size_t ct);
 void cout_hex(int indent, unsigned char *c, size_t rowsize, size_t rows);
 void fix_endianness(void *location, size_t bytes, size_t step);
 
 bool hasEnding (std::string const &fullString, std::string const &ending);
+std::string to_string_hex(int n);
 
 #define RESET "\033[0m"
 #define BLACK "\033[30m"              /* Black */

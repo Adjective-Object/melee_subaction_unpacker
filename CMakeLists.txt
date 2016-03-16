@@ -52,6 +52,8 @@ set(LIB_SRCS
         src/dolfs/jobj.hpp
         src/dolfs/dobj.cpp
         src/dolfs/dobj.hpp
+        src/dolfs/figatree.cpp
+        src/dolfs/figatree.hpp
         src/event_mapper.cpp
         src/event_mapper.cpp
         src/event_mapper.cpp

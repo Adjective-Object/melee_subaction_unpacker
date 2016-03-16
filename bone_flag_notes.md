@@ -54,4 +54,36 @@ animation angles are wrt the default pose, since that would mean that changing
 the base pose would alter all other animations accordingly.
 
 
+# Figatree Formatting
+Pl\*AJ.dat files are made form a bunch of concatenated HAL data files. Each HAL
+file contains a single file, with the same name as the animation that contains
+a figatree object.
+
+Figatrees start with 2 values, unknown use.
+{
+    int     unknownA = 1
+    int     unknownB = 0
+    float   numFramesPlusOne = ?
+}
+
+numFramesPlusOne is the number of frames in the animation, plus one.
+This is followed by a block of data. This is followed by a run of memory up
+until the string table, 0x250 long in bowser's ThrowAirLo from the front of
+the fig to the front of the file.
+
+This can't hold the animation data, it's not long enough, so it's probably
+an array of some number of pointers
+
+It also likely is not organized in frame-major order (i.e. pointers to info
+on each frame), since [(1570 - 1320) / 4 / 6] comes out to 24.6, which is
+less than the number of frames in bowser's down throw (29)
+
+Bowser's skeleton has 75 joints in it too.
+(difference) / 4 / 2 comes out to 74?
+4: size of pointer
+2: number of parameters on a joint (scale, rotation)
+
+could also be offset by the ecb and 
+
+
 
