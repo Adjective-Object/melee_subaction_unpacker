@@ -24,3 +24,25 @@ Some Fox Bones:
 I can't think of any common properties among these bones
 
 
+
+Characters mostly seem to have the last bit 0 on joints you would need to be 
+rotated/flipped along some axis -> usually the result of recycling a
+bone structure. (i.e. left & right arms have the same bones, but flipped)
+
+Were these structures written manually in a hex editor, so applying preset
+transforms like this would be faster to develop than recalculating a proper
+matrix? Or maybe it's a quirk of the in-houyse editor they were using when two
+substructures were set as mirrors of one another?
+
+
+
+Also, character's feet default to a weird 30-ish degree angle, but it
+varies from character to character. It's possible that this is because the
+default poses for their models has this bend (to make the feet look more
+natural from the side).
+I can see this happening when rushing to make fixes later in development, if 
+animation angles are wrt the default pose, since that would mean that changing
+the base pose would alter all other animations accordingly.
+
+
+
