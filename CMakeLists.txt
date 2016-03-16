@@ -44,8 +44,16 @@ set(CMAKE_CXX_FLAGS "-fPIC -g -Wall -std=c++11")
 set(LIB_SRCS
         src/config.cpp
         src/config.hpp
-        src/dolfs.cpp
-        src/dolfs.hpp
+        src/dolfs/dolfs.cpp
+        src/dolfs/dolfs.hpp
+        src/dolfs/ftdata.cpp
+        src/dolfs/ftdata.hpp
+        src/dolfs/jobj.cpp
+        src/dolfs/jobj.hpp
+        src/dolfs/dobj.cpp
+        src/dolfs/dobj.hpp
+        src/event_mapper.cpp
+        src/event_mapper.cpp
         src/event_mapper.cpp
         src/event_mapper.hpp
         src/helpers.cpp

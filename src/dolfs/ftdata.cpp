@@ -1,4 +1,3 @@
-#include "dolfs.hpp"
 #include "macros.hpp"
 #include "event_mapper.hpp"
 #include <iostream>
@@ -9,74 +8,10 @@
 #include "helpers.hpp"
 #include "config.hpp"
 
+#include "dolfs/dolfs.hpp"
+#include "dolfs/ftdata.hpp"
+
 using namespace std;
-
-DatFile::DatFile(dat_header *header) : header(header) {
-  // Fix the endianness on the header itself
-  fix_endianness(header, sizeof(dat_header), sizeof(uint32_t));
-
-  // Use the header to get references to the rest of the sections
-  // of the file
-  this->dataSection = (char *)(header + 1);
-  this->offsetTable = (uint32_t *)(dataSection + header->dataSectionSize);
-  this->rootList =
-      (dat_root_node *)(this->offsetTable + header->offsetTableCount);
-  this->stringTable =
-      (char *)(this->rootList + header->rootCountA + header->rootCountB);
-
-  // Fix endianness of the offset table and node list
-  // You can't fly jets if you're colourblind
-  fix_endianness(offsetTable, sizeof(uint32_t) * header->offsetTableCount, 4);
-  fix_endianness(rootList, sizeof(dat_root_node) *
-                               (header->rootCountA + header->rootCountB),
-                 4);
-
-  // step into data section and try to initialize control structures for
-  // the contents, and add them to the children map;
-  children = map<string, DataProxy *>();
-
-  unsigned int i;
-  for (i = 0; i < header->rootCountA + header->rootCountB; i++) {
-    string name = stringTable + rootList[i].stringTableOffset;
-    void *target = dataSection + rootList[i].dataSectionOffset;
-    if (memcmp("ftData", name.c_str(), 6) == 0) {
-      children[name] = new FtData(this, (ftdata_header *)target);
-    } else {
-      children[name] = new AnonymousData(target);
-    }
-  }
-}
-
-void DatFile::print(int indent) {
-  string ind(indent * INDENT_SIZE, ' ');
-
-  cout << ind << "addr of root list: " << this->rootList << endl;
-
-  cout << ind << "root count A: " << header->rootCountA << endl;
-  cout << ind << "root count B: " << header->rootCountB << endl;
-
-  unsigned int root_ct = header->rootCountA + header->rootCountB;
-  cout << ind << "total root count: " << root_ct << endl;
-
-  ios::fmtflags f(cout.flags());
-
-  cout << ind << "relocation table offset: " << hex
-       << (char *)offsetTable - (char *)header << endl;
-
-  cout << ind << "rootList offset: " << hex << (char *)rootList - (char *)header
-       << endl;
-
-  cout << ind << "string table offset: " << hex
-       << (char *)stringTable - (char *)header << endl;
-
-  cout.flags(f);
-
-  map<string, DataProxy *>::iterator iter;
-  for (iter = children.begin(); iter != children.end(); ++iter) {
-    cout << ind << iter->first << endl;
-    iter->second->print(indent + 1);
-  }
-}
 
 FtData::FtData(const DatFile *datfile, ftdata_header *ftheader) {
   this->datfile = datfile;
@@ -454,19 +389,29 @@ void FtDataSubaction::print(int indent /*=0*/) {
     cout << ind << "charID: " << this->header->characterID << endl;
     cout << ind << "unknown0x14: " << this->header->unknown0x14 << endl;
     cout << RESET;
+
+      cout << ind << MAGENTA << this->index << " " << hex << "(0x"
+        << (char *)this->header - (char *)this->datfile->header << "): "
+        << RESET << this->name << endl;
+
+       print_action(indent + 1, this->datfile, this->header->eventsOffset);
   }
-
-  cout << ind << MAGENTA << this->index << " " << hex << "(0x"
-       << (char *)this->header - (char *)this->datfile->header << "): " << RESET
-       << this->name << endl;
-
-  print_action(indent + 1, this->datfile, this->header->eventsOffset);
 
   cout.flags(f);
 }
 
-AnonymousData::AnonymousData(void *data) : data(data) {}
-void AnonymousData::print(int indent /*=0*/) {
-  string ind(indent * INDENT_SIZE, ' ');
-  cout << ind << "Anonymous data at " << data << endl;
+void FtData::serialize() {
+    // TODO implement serialization
 }
+void FtDataAttributes::serialize() {
+    // TODO implement serialization
+}
+void FtDataSubaction::serialize() {
+    // TODO implement serialization
+}
+
+
+
+
+
+

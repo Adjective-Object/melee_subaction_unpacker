@@ -1,9 +1,13 @@
 #ifndef HELPERS_MREADER
 #define HELPERS_MREADER
 
+#include <string>
+
 void print_hex(char *c, size_t ct);
 void cout_hex(int indent, unsigned char *c, size_t rowsize, size_t rows);
 void fix_endianness(void *location, size_t bytes, size_t step);
+
+bool hasEnding (std::string const &fullString, std::string const &ending);
 
 #define RESET "\033[0m"
 #define BLACK "\033[30m"              /* Black */

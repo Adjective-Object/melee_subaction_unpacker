@@ -12,7 +12,7 @@
 
 #include "macros.hpp"
 #include "event_mapper.hpp"
-#include "dolfs.hpp"
+#include "dolfs/dolfs.hpp"
 #include "config.hpp"
 
 using namespace std;
@@ -86,7 +86,11 @@ int main(int argc, char **argv) {
   cout << "mmap origin: " << datfile << endl;
 
   DatFile *dat = new DatFile(datfile);
-  dat->print();
+  if (EXPORT) {
+    dat->serialize();
+  } else {
+    dat->print();
+  }
 
   return 0;
 }

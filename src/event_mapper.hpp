@@ -4,7 +4,7 @@
 #include <cstdint>
 #include <string>
 #include <map>
-#include "dolfs.hpp"
+#include "dolfs/dolfs.hpp"
 
 using namespace std;
 

@@ -1,52 +1,19 @@
-#ifndef DOLFS_MREADER
-#define DOLFS_MREADER
+#ifndef DOLFS_MREADER_FTDATA
+
 #include <cstdint>
 #include <vector>
 #include <map>
 
 using namespace std;
 
-typedef struct dat_header {
-  uint32_t fileSize; // size of main data block
-  uint32_t dataSectionSize;
-  uint32_t offsetTableCount;
-  uint32_t rootCountA;
-  // 0x10
-  uint32_t rootCountB;
-  uint32_t unknown0x14; // '001B' in main Pl*.dat files
-  uint32_t unknown0x18;
-  uint32_t unknown0x1C;
-  // 0x20
-} __attribute__((packed)) dat_headyyer;
+class FtData;
+class FtDataSubaction;
+class FtDataAttributes;
 
-typedef struct dat_root_node {
-  uint32_t dataSectionOffset;
-  uint32_t stringTableOffset;
-} __attribute__((packed)) dat_root_node;
 
-// control structures that wrap the mapped raw structs
-class DataProxy {
-public:
-  virtual void print(int indent = 0) = 0;
-};
-
-class DatFile : public DataProxy {
-protected:
-  // references to commonly used locations in the .dat file
-public: // fuck it yolo
-  dat_header *header;
-  dat_root_node *rootList;
-  uint32_t *offsetTable;
-  char *dataSection;
-  char *stringTable;
-
-  // list of wrappers for children in this datfile
-  map<string, DataProxy *> children;
-
-public:
-  DatFile(dat_header *head);
-  void print(int indent = 0);
-};
+/**
+ * FTDATA HEADER SECTIONS
+ **/
 
 typedef struct ftdata_header {
   uint32_t attributesStart;
@@ -57,6 +24,29 @@ typedef struct ftdata_header {
   uint32_t subactionsEnd;
   char unknown0x18[18];
 } __attribute__((packed)) ftdata_header;
+
+
+class FtData : public DataProxy {
+  friend FtDataSubaction;
+  const DatFile *datfile;
+  ftdata_header *ftheader;
+  FtDataAttributes *attributes;
+  vector<FtDataSubaction *> subactions;
+  vector<FtDataSubaction *> specialactions;
+
+public:
+  FtData(const DatFile *datheader, ftdata_header *header);
+  void print(int indent = 0);
+  void serialize();
+};
+
+
+
+
+
+/**
+ * FTDATA ATTRIBUTE TABLE
+ **/
 
 #ifndef __STDC_IEC_559__
 #error "Requires IEEE 754 floating point!"
@@ -187,6 +177,26 @@ typedef struct ftdata_attribute_table {
   uint32_t weight_dependent_throw_speed_flags;
 } __attribute__((packed)) attribute_table;
 
+
+class FtDataAttributes : public DataProxy {
+  const DatFile *datfile;
+  const ftdata_attribute_table *attributes;
+
+public:
+  FtDataAttributes(const DatFile *datheader, ftdata_attribute_table *header);
+  void print(int indent = 0);
+  void serialize();
+};
+
+
+
+
+
+/**
+ * FTDATA SUBACTIONS (CHARACTER ACTIONS)
+ **/
+
+#define NUM_SUBACTIONS 0x126
 typedef struct ftdata_subaction_header {
   uint32_t stringOffset; // offset to the null terminated subaction name
   uint32_t animationOffset;
@@ -197,16 +207,6 @@ typedef struct ftdata_subaction_header {
   uint32_t unknown0x14; // likely a null terminator
 } __attribute__((packed)) subaction_header;
 
-class FtDataAttributes : public DataProxy {
-  const DatFile *datfile;
-  const ftdata_attribute_table *attributes;
-
-public:
-  FtDataAttributes(const DatFile *datheader, ftdata_attribute_table *header);
-  void print(int indent = 0);
-};
-
-#define NUM_SUBACTIONS 0x126
 class FtDataSubaction : public DataProxy {
   const DatFile *datfile;
   ftdata_subaction_header *header;
@@ -218,32 +218,10 @@ public:
   FtDataSubaction(const DatFile *datheader, unsigned int index,
                   subaction_header *header);
   void print(int indent);
+  void serialize();
 };
 
-class FtData : public DataProxy {
-  friend FtDataSubaction;
-  const DatFile *datfile;
-  ftdata_header *ftheader;
-  FtDataAttributes *attributes;
-  vector<FtDataSubaction *> subactions;
-  vector<FtDataSubaction *> specialactions;
 
-public:
-  FtData(const DatFile *datheader, ftdata_header *header);
-  void print(int indent = 0);
-};
-
-class AnonymousData : public DataProxy {
-  void *data;
-
-public:
-  AnonymousData(void *address);
-  void print(int indent = 0);
-};
-
-// fix the endianness on a dolfile to match the host endianness
-void dolfile_init(dat_header *datfile);
-void print_dolfile_index(dat_header *datfile, unsigned int indent = 0);
-dat_header *access_node(dat_header *header, dat_root_node *node);
 
 #endif
+
