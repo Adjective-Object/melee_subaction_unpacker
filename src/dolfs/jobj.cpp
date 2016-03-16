@@ -164,7 +164,7 @@ void JObj::serialize() {
     fout << fixed;
     fout << "HIERARCHY" << endl 
          << "ROOT ";
-    this->_serialize_bvh_structure(fout, 0, false, false, false);
+    this->_serialize_bvh_structure(fout, 0);
 
     fout << "MOTION " << endl
          << "Frames: 100" << endl
@@ -175,8 +175,7 @@ void JObj::serialize() {
 }
 
 int JObj::_serialize_bvh_structure(
-        ofstream & fout, int indent,
-        bool flipX, bool flipY, bool flipZ) {
+        ofstream & fout, int indent) {
 
     string ind(indent, '\t');
     fout << "joint_" << hex << this->offset << endl;
@@ -186,10 +185,29 @@ int JObj::_serialize_bvh_structure(
     cout << hex << this->offset << ": " 
          << dec << bitset<32>(this->jobj->flags).to_string() << endl;
 
-    
-    fout << (flipX ? -1 : 1) * this->jobj->translationX << " " 
-         << (flipY ? -1 : 1) * this->jobj->translationY << " " 
-         << (flipZ ? -1 : 1) * this->jobj->translationZ << " " << endl;
+   
+    float   tX = this->jobj->translationX,
+            tY = this->jobj->translationY,
+            tZ = this->jobj->translationZ;
+
+
+    int x = (this->jobj->flags >> 28) & 0b1111;
+    switch(x) {
+        case 0:
+            break;
+        case 1:
+            cout << "performing some transform on "
+                 << hex << this->offset << endl;
+            tX = -tX;
+            break;
+        default:
+            cout << "unknown other flag "
+                 << bitset<4>(x) << endl;
+    }
+
+    fout << tX << " " 
+         << tY << " " 
+         << tZ << " " << endl;
 
     fout << ind << '\t' << "CHANNELS 3 "
          << "Zrotation Yrotation Xrotation "
@@ -201,8 +219,7 @@ int JObj::_serialize_bvh_structure(
         for (JObj *j : this->children) {
             fout << ind << '\t' << "JOINT ";
             sum_child += j->_serialize_bvh_structure(
-                    fout, indent + 1,
-                    flipX, flipY, flipZ);
+                    fout, indent + 1);
         }
     }
     else {
@@ -244,16 +261,32 @@ int JObj::_serialize_bvh_structure(
 
 int JObj::_serialize_bvh_parameters(ofstream & fout, 
         float scaling_factor) {
-    fout << this->jobj->rotationZ * scaling_factor << " "
-         << this->jobj->rotationY * scaling_factor << " "
-         << this->jobj->rotationX * scaling_factor << " "
-         /*
-         << this->jobj->scaleZ << " "
-         << this->jobj->scaleX << " "
-         << this->jobj->scaleY << " "
-         */
-        ;
-    
+    float rotZ = this->jobj->rotationZ * scaling_factor, 
+          rotY = this->jobj->rotationY * scaling_factor,
+          rotX = this->jobj->rotationX * scaling_factor;
+
+    int x = this->jobj->flags & 0b1111;
+    switch(x) { 
+        case 0b0001 :
+            break;
+        case 0b1000 :
+            rotY += 180;
+        case 0b1001 :
+            break;
+        default:
+            cout << "unknown flag ending "
+                 << bitset<4>(x) << endl;
+            break;
+    } 
+
+    // if(this->jobj->flags & 2) { rotY += 90; }
+    // if(this->jobj->flags & 4) { rotZ += 90; }
+
+
+    fout << rotZ << " "
+         << rotX << " "
+         << rotY << " ";
+
     int sum_child = 1;
     for (JObj *j : this->children) {
         sum_child += j->_serialize_bvh_parameters(

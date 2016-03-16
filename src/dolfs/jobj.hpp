@@ -51,8 +51,7 @@ class JObj : public DataProxy {
     vector<DObj *> associatedObjects;
 
     int _serialize_bvh_structure(
-            ofstream & fout, int indent,
-            bool flipX, bool flipY, bool flipZ);
+            ofstream & fout, int indent);
     int _serialize_bvh_parameters(ofstream & fout, float scaling_factor);
 
 public:
