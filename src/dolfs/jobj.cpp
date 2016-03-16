@@ -4,6 +4,8 @@
 #include <fstream>
 #include <iomanip>
 #include <map>
+#include <cmath>
+#include <bitset>
 #include <cstring>
 
 #include "helpers.hpp"
@@ -34,15 +36,24 @@ JObj::JObj(DatFile const * datfile, jointdata_header * jobj) {
     // fix_endianness(&(jobj->inverseTransOff),
     //                 sizeof(uint32_t), 4);
 
-    /**
+    /*
     cout << "----------" << endl;
-    cout << "thisOffset: " << 
-        (char *) jobj - (char *) datfile->dataSection << endl;
-    cout << "childOffset: " << jobj->childOffset << endl;
-    cout << "nextPeerOffset: " << jobj->nextPeerOffset << endl;
-    **/
+    cout << "thisOffset: " << this->offset << endl;
+    cout << "unknown0x0:     " << jobj->unknown0x0 << endl;
+    cout << "childOffset:    " << jobj->childOffset;
+    if (jobj->childOffset != 0) { 
+         cout << " (" << jobj->childOffset - this->offset << ")";
+    }
+    cout << endl;
+    cout << "nextPeerOffset: " << jobj->nextPeerOffset;
+    if (jobj->nextPeerOffset!= 0) { 
+         cout << " (" << jobj->nextPeerOffset - this->offset << ")";
+    }
+    cout << endl;
+    */
 
     if (jobj->childOffset != 0) {
+        // cout << "## entering child of " << this->offset << endl;
         JObj * child = new JObj(datfile, (jointdata_header *) 
                 (datfile->dataSection + jobj->childOffset));
         // add all of child's peers to self
@@ -54,6 +65,7 @@ JObj::JObj(DatFile const * datfile, jointdata_header * jobj) {
     }
 
     if (jobj->nextPeerOffset != 0) {
+        // cout << "## entering peer of " << this->offset << endl;
         JObj * nextPeer = new JObj(datfile, (jointdata_header *)
                 (datfile->dataSection + jobj->nextPeerOffset));
         this->peers.push_back(nextPeer);
@@ -152,60 +164,101 @@ void JObj::serialize() {
     fout << fixed;
     fout << "HIERARCHY" << endl 
          << "ROOT ";
-    this->_serialize_bvh_structure(fout, 0);
+    this->_serialize_bvh_structure(fout, 0, false, false, false);
 
     fout << "MOTION " << endl
-         << "Frames: 2" << endl
+         << "Frames: 100" << endl
          << "Frame Time: 1" << endl;
-    this->_serialize_bvh_parameters(fout);
+
+    this->_serialize_bvh_parameters(fout, 360.0 / 3.14159 / 2);
     fout << endl;
-    this->_serialize_bvh_parameters(fout);
-    fout.close();
 }
 
-void JObj::_serialize_bvh_structure(ofstream & fout, int indent) {
+int JObj::_serialize_bvh_structure(
+        ofstream & fout, int indent,
+        bool flipX, bool flipY, bool flipZ) {
 
     string ind(indent, '\t');
-    fout << "joint_" << this->offset << endl;
+    fout << "joint_" << hex << this->offset << endl;
     fout << ind << "{" << endl;
-    fout << ind << '\t' << "OFFSET " << this->jobj->translationX << " " 
-                        << this->jobj->translationY << " " 
-                        << this->jobj->translationZ << " " << endl;
+    fout << ind << '\t' << "OFFSET ";
+
+    cout << hex << this->offset << ": " 
+         << dec << bitset<32>(this->jobj->flags).to_string() << endl;
+
+    
+    fout << (flipX ? -1 : 1) * this->jobj->translationX << " " 
+         << (flipY ? -1 : 1) * this->jobj->translationY << " " 
+         << (flipZ ? -1 : 1) * this->jobj->translationZ << " " << endl;
+
     fout << ind << '\t' << "CHANNELS 3 "
-         << "Zrotation Xrotation Yrotation "
+         << "Zrotation Yrotation Xrotation "
          // << "Zscale Xscale Yscale"
          << endl;
+
+    int sum_child = 1;
     if (this->children.size() != 0) {
         for (JObj *j : this->children) {
             fout << ind << '\t' << "JOINT ";
-            j->_serialize_bvh_structure(fout, indent + 1);
+            sum_child += j->_serialize_bvh_structure(
+                    fout, indent + 1,
+                    flipX, flipY, flipZ);
         }
     }
     else {
+        // check that end nodes all have a rotation of 0
+        /*
+        if (abs(j->jobj->rotationZ) > 0.00001 ||
+            abs(j->jobj->rotationY) > 0.00001 ||
+            abs(j->jobj->rotationX) > 0.00001) {
+            cout << "expected end node to have rotation 0" << endl;
+            cout << "end node has rotation " 
+                 << " Z=" << j->jobj->rotationZ
+                 << " Y=" << j->jobj->rotationY
+                 << " X=" << j->jobj->rotationX
+                 << endl;
+            exit(1);
+        }
+        */
+
         fout << ind << '\t' << "End Site" << endl;
         fout << ind << '\t' << "{" <<endl;
 
         fout << ind << "\t\t" << "OFFSET " 
-             << "0.0000 0.0000 0.0000" <<endl;
+             << "0 0 0 "
+            /*
+             << j->jobj->translationX << " " 
+             << j->jobj->translationY << " " 
+             << j->jobj->translationZ << " " 
+             */
+             << endl;
 
         fout << ind << '\t' << "}" <<endl;
     }
+
     fout << endl << ind << "}" << endl;
 
+    return sum_child;
 }
 
 
-void JObj::_serialize_bvh_parameters(ofstream & fout) {
-    fout << this->jobj->rotationZ << " "
-         << this->jobj->rotationX << " "
-         << this->jobj->rotationY << " "
+int JObj::_serialize_bvh_parameters(ofstream & fout, 
+        float scaling_factor) {
+    fout << this->jobj->rotationZ * scaling_factor << " "
+         << this->jobj->rotationY * scaling_factor << " "
+         << this->jobj->rotationX * scaling_factor << " "
          /*
          << this->jobj->scaleZ << " "
          << this->jobj->scaleX << " "
          << this->jobj->scaleY << " "
          */
         ;
-     for (JObj *j : this->children) {
-        j->_serialize_bvh_parameters(fout);
+    
+    int sum_child = 1;
+    for (JObj *j : this->children) {
+        sum_child += j->_serialize_bvh_parameters(
+                fout, scaling_factor);
     }
+
+    return sum_child;
 }

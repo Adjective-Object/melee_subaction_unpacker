@@ -7,6 +7,10 @@
 
 #include "dolfs/dobj.hpp"
 
+#define JOBJ_FLAG_MIRROR 0b0001
+#define JOBJ_FLAG_INVERT_Y 0b0010
+#define JOBJ_FLAG_INVERT_Z 0b0100
+
 using namespace std;
 
 class JObj;
@@ -46,8 +50,10 @@ class JObj : public DataProxy {
     vector<JObj *> children;
     vector<DObj *> associatedObjects;
 
-    void _serialize_bvh_structure(ofstream & fout, int indent);
-    void _serialize_bvh_parameters(ofstream & fout);
+    int _serialize_bvh_structure(
+            ofstream & fout, int indent,
+            bool flipX, bool flipY, bool flipZ);
+    int _serialize_bvh_parameters(ofstream & fout, float scaling_factor);
 
 public:
     JObj(DatFile const *datheader, jointdata_header * jobj);

@@ -38,7 +38,15 @@ DatFile::DatFile(dat_header *header) : header(header) {
   // the contents, and add them to the children map;
   children = map<string, DataProxy *>();
 
+
   unsigned int i;
+
+  cout << "root nodes:" << endl;
+  for (i = 0; i < header->rootCountA + header->rootCountB; i++) {
+    string name = stringTable + rootList[i].stringTableOffset;
+    cout << name << endl;
+  }
+
   for (i = 0; i < header->rootCountA + header->rootCountB; i++) {
     string name = stringTable + rootList[i].stringTableOffset;
     void *target = dataSection + rootList[i].dataSectionOffset;
@@ -46,6 +54,11 @@ DatFile::DatFile(dat_header *header) : header(header) {
     // ftData (player files)
     if (memcmp("ftData", name.c_str(), 6) == 0) {
       children[name] = new FtData(this, (ftdata_header *)target);
+    }
+
+    // _joint (joint files)
+    else if (hasEnding(name, "_matanim_joint")) {
+      children[name] = new AnonymousData(target);
     }
 
     // _joint (joint files)
