@@ -6,6 +6,8 @@ Makefile
 cmake_install.cmake
 compile_commands.json
 *-prefix
+bvh
+*.bvh
 
 # vim stuff
 ._*
