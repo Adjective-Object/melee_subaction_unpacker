@@ -61,8 +61,8 @@ a figatree object.
 
 Figatrees start with 2 values, unknown use.
 {
-    int32   unknownA = 1
-    int32   unknownB = 0
+    int32   unknownA = 1, usually
+    int32   unknownB = 0, usually
     float   numFramesPlusOne = ?
     int32   probablyAnOffset
 }
@@ -71,5 +71,18 @@ numFramesPlusOne is the number of frames in the animation, plus one.
 This is followed by a block of data. This is immediately followed by the offset
 table of the HAL file. This means that the last line is probably an offset
 within the current file.
+
+However, in a lot of the files, the offsets reach past the internal hal data
+file for the move. I'm not sure what to do with this.
+
+ - If we rule out the idea of stepping into random memory, it could be an
+   offset from the root of the parent file (the memory map origin).
+ - Otherwise, it could be an offset from any of:
+     - The figatree header
+     - The internal datfile's header
+     - The internal datfile's data section
+
+Worth investigating is the offset table of the datfile?
+what that would be mapped wrt though.
 
 
