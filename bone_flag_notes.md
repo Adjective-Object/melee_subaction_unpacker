@@ -81,6 +81,7 @@ file for the move. I'm not sure what to do with this.
      - The figatree header
      - The internal datfile's header
      - The internal datfile's data section
+     - The PL\*.dat file
 
 Worth investigating is the offset table of the datfile? There's a number of hal
 files, but I think the offsets in their offset tables reach outside the range

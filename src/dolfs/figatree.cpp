@@ -13,7 +13,7 @@ FigaTree::FigaTree(
     this->pointedData = new DatInspector(
             datfile, 
             ((char *) MMAP_ORIGIN) + this->fig->probAnOffset,
-            sizeof(float) * 200);
+            sizeof(float) * 27);
 }
 
 void FigaTree::print(int indent) {
