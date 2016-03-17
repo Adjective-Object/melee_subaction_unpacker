@@ -8,8 +8,7 @@
 
 FigaTree::FigaTree(
         const DatFile * datfile, figatree_header * fig) :
-        fig(fig), datfile(datfile)
-{
+        fig(fig), datfile(datfile) {
     fix_endianness(fig, sizeof(figatree_header), sizeof(uint32_t));
 }
 
@@ -48,7 +47,7 @@ void FigaTree::print(int indent) {
     uint32_t * figg = (uint32_t *) fig;
     float * fligg = (float *) fig;
 
-    for (uint i=0; i<sizeof(fig->a)/sizeof(uint32_t); i++) {
+    for (uint i=0; i<sizeof(figatree_header)/sizeof(uint32_t); i++) {
         cout << ind
              << CYAN << setw(4) << i << RESET << " " 
              << setw(15) << "0x" + to_string_hex(figg[i])

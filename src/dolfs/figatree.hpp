@@ -7,7 +7,7 @@ typedef struct figatree_header {
     uint32_t unknown0x0; // == 1 usually ?
     uint32_t unknown0x4; // == 0 usually ?
     float num_frames; // +1
-    uint32_t a[31]; // 31
+    uint32_t unknown0xC;
 } figatree_header;
 
 class FigaTree : public DataProxy {

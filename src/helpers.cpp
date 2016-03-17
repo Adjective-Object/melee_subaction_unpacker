@@ -35,6 +35,14 @@ void fix_endianness(void *location, size_t bytes, size_t step){},
 #else
 void fix_endianness(void *location, size_t bytes, size_t step) {
   char *l = (char *)location;
+
+  /*
+  cout << "fix_endianness(" << location << ", "
+       << bytes << ", " 
+       << step << ")" 
+       << endl;
+  */
+
   for (size_t b = 0; b < bytes; b += step) {
     // switch the endianness on step
     for (size_t o = 0; o < step / 2; o++) {
