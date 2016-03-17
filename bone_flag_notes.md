@@ -82,7 +82,56 @@ file for the move. I'm not sure what to do with this.
      - The internal datfile's header
      - The internal datfile's data section
 
-Worth investigating is the offset table of the datfile?
-what that would be mapped wrt though.
+Worth investigating is the offset table of the datfile? There's a number of hal
+files, but I think the offsets in their offset tables reach outside the range
+of the internal files. Does that mean that each offset table is wrt the root of
+the mmapped file? Is it replicated for each mmapped file?
+
+
+## Pl\*\*AJ.dat :: Theory on internal hal files
+
+My best guess is that these data
+files were made manually, and were intended to be laid out like this:
+
+
+    ┌──────────────┐
+    │ Hal Header   │
+    ├──────────────┤
+
+     Space Intended
+     for animation
+     data
+
+    ├──────────────┤
+    │ Offset Table │
+    ├──────────────┤
+    │ Root List    │
+    ├──────────────┤
+    │ String Table │
+    └──────────────┘
+
+
+However, since the hal headers are referenced from specific addresses, they
+can't be moved around without changing the offset in the Pl\*\*.dat file.
+This means that if an animation is elongated past the original size allocated
+for it, it has to be moved elsewhere in the file.
+
+maybe during development the animation data of datfiles were shuffled around 
+because it would be easier than repeatedly updating the offsets of every 
+animation in player scripting file, so we end up with the data sections
+containing animation data for different things.
+
+
+# Offsets?
+
+In the case of bowser's ThrowAirw\_figatree animation, the offset is
+4816 (0x12d0), which if wrt the root of the mmapped file, is 842 bytes from the
+next animation offset in bowser's datafile, his Wait2 (0x2680), this is enough
+space for 0x13b0 bytes (5040 bytes / 1260 words)
+
+This memory is in the content of the hal dat for 
+PlyKoopa5k\_Share\_ACTION\_Wait1\_figatree. 
+
+
 
 

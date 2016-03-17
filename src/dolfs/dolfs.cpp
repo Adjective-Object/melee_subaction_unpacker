@@ -127,3 +127,86 @@ void AnonymousData::print(int indent /*=0*/) {
        << hex << (int) ((char*) data - this->datfile->dataSection) << endl;
 }
 
+
+
+
+
+DatInspector::DatInspector(const DatFile * datfile, void * data, size_t size) :
+    datfile(datfile), data(data), size(size) {
+    fix_endianness(data, size, sizeof(uint32_t));
+    // fix_endianness(data, size, sizeof(uint16_t));
+}
+
+void DatInspector::print(int indent) {
+    string ind(indent * INDENT_SIZE, ' ');
+
+    cout 
+        << endl << ind << CYAN << "data:        " << (void *) this->data
+        << endl << ind << CYAN << "dataSection: " << (void *) this->datfile->dataSection
+
+        << endl << ind << BLUE  << "dataSection -> rootlist:   " << hex
+        << setw(15) << (intptr_t) (
+                ((char *) this->datfile->rootList) -
+                ((char *) this->datfile->dataSection))
+
+        << endl << ind << BLUE  << "dataSection -> offsetTable:" << hex
+        << setw(15) << (intptr_t) (
+                ((char *) this->datfile->offsetTable) -
+                ((char *) this->datfile->dataSection))
+
+        << endl << ind << BLUE  << "dataSection -> data:       " << hex
+        << setw(15) << (
+                ((ptrdiff_t) this->data) - 
+                ((ptrdiff_t) this->datfile->dataSection))
+
+
+        << endl << ind << GREEN << "origin      -> dataSection:" << hex
+        << setw(15) << (intptr_t) (
+                ((char *) this->datfile->dataSection) - 
+                ((char *) MMAP_ORIGIN))
+
+        << endl << ind << GREEN << "origin      -> offsetTable:" << hex
+        << setw(15) << (intptr_t) (
+                ((char *) this->datfile->offsetTable) - 
+                ((char *) MMAP_ORIGIN))
+
+        << endl << ind << GREEN << "origin      -> data:       " << hex 
+        << setw(15) << (intptr_t) (
+                ((char *) this->data) - ((char *) MMAP_ORIGIN)
+        ) << RESET << endl;
+
+    cout << endl << ind
+         << CYAN << REVERSE << setw(5) << "~ " << " " 
+         << setw(15) << "hex" 
+         << " "
+         << setw(15) << "dec" 
+         << " "
+         << setw(15) << "float" 
+         << " "
+         << setw(18) << "shorts" 
+         << " "
+         << RESET << RESETREVERSE << endl;
+
+    uint32_t * datint= (uint32_t *) data;
+    float * datfloat = (float *) data;
+    short * datshort = (short *) data;
+
+    for (uint i=0; i<this->size/sizeof(uint32_t); i++) {
+        cout << ind
+             << CYAN << REVERSE << setw(4) << i <<  " " 
+             << RESET << RESETREVERSE << " " 
+             << setw(15) << "0x" + to_string_hex(datint[i])
+             << " "
+             << setw(15) << dec << datint[i]
+             << " "
+             << setw(15) << datfloat[i]
+             << "     "
+             << setw(6) << datshort[i * 2]
+             << "  "
+             << setw(6) << datshort[i * 2 + 1]
+             << endl;
+    }
+}
+
+
+

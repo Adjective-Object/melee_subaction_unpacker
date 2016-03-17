@@ -13,6 +13,8 @@ bool hasEnding (std::string const &fullString, std::string const &ending);
 std::string to_string_hex(int n);
 
 #define RESET "\033[0m"
+#define REVERSE "\033[7m"
+#define RESETREVERSE "\033[27m"
 #define BLACK "\033[30m"              /* Black */
 #define RED "\033[31m"                /* Red */
 #define GREEN "\033[32m"              /* Green */

@@ -10,53 +10,27 @@ FigaTree::FigaTree(
         const DatFile * datfile, figatree_header * fig) :
         fig(fig), datfile(datfile) {
     fix_endianness(fig, sizeof(figatree_header), sizeof(uint32_t));
+    this->pointedData = new DatInspector(
+            datfile, 
+            ((char *) MMAP_ORIGIN) + this->fig->probAnOffset,
+            sizeof(float) * 200);
 }
 
 void FigaTree::print(int indent) {
     string ind(indent * INDENT_SIZE, ' ');
 
-    cout << ind << BLUE << "dataSection -> rootlist:" << hex
-        << setw(15) << (intptr_t) (
-                ((char *) this->datfile->rootList) -
-                ((char *) this->datfile->dataSection))
+    cout << ind << YELLOW << "unknown0x0   " 
+                << RESET << setw(8) << this->fig->unknown0x0 << endl;
+    cout << ind << YELLOW << "unknown0x4   " 
+                << RESET << setw(8) << this->fig->unknown0x4 << endl;
+    cout << ind << YELLOW << "num_frames   " 
+                << RESET << setw(8) << this->fig->num_frames << endl;
+    cout << ind << YELLOW << "probAnOffset " 
+                << RESET << setw(8)
+                << ("0x" + to_string_hex(this->fig->probAnOffset)) << endl;
 
-        << "     dataSection -> fig:" << hex
-        << setw(15) << (intptr_t) (
-                ((char *) this->fig) - 
-                ((char *) this->datfile->dataSection))
+    this->pointedData->print(indent + 1);
 
-        << endl << ind <<  "body     -> dataSection:" << hex
-        << setw(15) << (intptr_t) (
-                ((char *) this->datfile->dataSection) - 
-                ((char *) MMAP_ORIGIN))
-
-        << "     body        -> fig:" << hex 
-        << setw(15) << (intptr_t) (
-                ((char *) this->fig) - ((char *) MMAP_ORIGIN)
-        ) << RESET << endl;
-
-    cout << ind
-         << CYAN << setw(5) << "~" << " " 
-         << setw(15) << "hex"
-         << " "
-         << setw(15) << "dec"
-         << " "
-         << setw(15) << "float"
-         << CYAN << endl;
-
-    uint32_t * figg = (uint32_t *) fig;
-    float * fligg = (float *) fig;
-
-    for (uint i=0; i<sizeof(figatree_header)/sizeof(uint32_t); i++) {
-        cout << ind
-             << CYAN << setw(4) << i << RESET << " " 
-             << setw(15) << "0x" + to_string_hex(figg[i])
-             << " "
-             << setw(15) << dec << figg[i]
-             << " "
-             << setw(15) << fligg[i]
-             << endl;
-    }
 }
 
 void FigaTree::serialize() {

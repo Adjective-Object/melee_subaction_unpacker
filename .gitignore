@@ -8,6 +8,7 @@ compile_commands.json
 *-prefix
 bvh
 *.bvh
+*.less
 
 # vim stuff
 ._*

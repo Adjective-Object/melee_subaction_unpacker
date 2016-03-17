@@ -80,6 +80,22 @@ public:
 };
 
 
+
+/**
+ * Inspector Class for looking at a range of memory
+ **/
+class DatInspector : public DataProxy {
+    const DatFile * datfile;
+    void * data;
+    size_t size;
+public:
+    DatInspector(const DatFile * datfile, void * data, size_t size);
+    void print(int indent = 0);
+    virtual void serialize(){};
+};
+
+
+
 /**
  * fixes the endianness on a dolfile to match the host endianness.
  * Usually performed on an mmapped copy of a datfile
