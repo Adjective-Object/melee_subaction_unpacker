@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+
+if [[ $# -ne 2 ]]; then
+    echo "usage: $0 [path to Pl*.dat] [output path]"
+    exit 1
+fi
+
+if ! [[ $1 =~ Pl..\.dat ]]; then
+    echo "filename $1 not formatted correctly"
+    echo "argument 1 must be a path to a Pl__.dat file (i.e. PlCa.dat)"
+    exit 1
+fi
+
+offsets=$(./mreader $1 | grep animoff | sed -e 's/\s*animoff: //' | sort | uniq)
+base=$(echo $1 | sed 's/.dat//')
+
+echo $base > $2
+for offset in $offsets; do
+    echo "processing ${base}AJ.dat at offset ${offset}"
+    ./mreader "${base}AJ.dat" -r $offset >> $2
+done
+
+

@@ -39,6 +39,11 @@ typedef struct jointdata_header {
     uint32_t unknown0x3C;
 } __attribute__((packed)) jointdata_header;
 
+typedef struct serialize_state {
+    bool x;
+    bool y;
+    bool z;
+} serialize_state;
 
 class JObj : public DataProxy {
     const DatFile * datfile;
@@ -51,7 +56,7 @@ class JObj : public DataProxy {
     vector<DObj *> associatedObjects;
 
     int _serialize_bvh_structure(
-            ofstream & fout, int indent);
+            ofstream & fout, int indent, serialize_state st);
     int _serialize_bvh_parameters(ofstream & fout, float scaling_factor);
 
 public:

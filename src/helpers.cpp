@@ -34,7 +34,10 @@ void print_hex(char *c, size_t ct) {
 }
 
 #if IS_BIG_ENDIAN
-void fix_endianness(void *location, size_t bytes, size_t step){},
+void fix_endianness(void *location, size_t bytes, size_t step){}
+size_t get_available_size(void * location, size_t bytes) {
+    return bytes;
+}
 #else
 static vector<pair<size_t, size_t>> * swapped_ranges = NULL;
 void check_bounds(size_t sloc, size_t bytes) {
@@ -45,19 +48,31 @@ void check_bounds(size_t sloc, size_t bytes) {
        << endl;
 
     if (swapped_ranges == NULL) {
-      swapped_ranges = new vector<pair<size_t, size_t>>();
+        swapped_ranges = new vector<pair<size_t, size_t>>();
     } else {
-      for (pair<size_t, size_t> p : *swapped_ranges){
-          if (sloc + bytes >= p.first && 
-              p.second > sloc) {
-              cout << RED << "intersection of segments (" 
-                   << hex << sloc << ", " << hex << sloc + bytes << ") and ("
-                   << hex << p.first << ", " << hex << p.second << ")"
-                   << RESET << endl;
-          }
-      }
+        for (pair<size_t, size_t> p : *swapped_ranges){
+            if (sloc + bytes >= p.first && 
+                p.second > sloc) {
+                cout << RED << "intersection of segments (" 
+                     << hex << sloc << ", " << hex << sloc + bytes << ") and ("
+                     << hex << p.first << ", " << hex << p.second << ")"
+                     << RESET << endl;
+            }
+        }
     }
     swapped_ranges->push_back(make_pair(sloc, sloc +  bytes));
+}
+
+/**
+ * Gets the available space, up to size <bytes> until the next endian-fixed
+ * region
+ **/
+size_t get_available_size(void * location, size_t bytes) {
+    size_t sloc = ((size_t) location) - ((size_t) MMAP_ORIGIN);
+    for (pair<size_t, size_t> p : *swapped_ranges){
+        bytes = min(bytes, p.first - sloc);
+    }
+    return bytes - 1;
 }
 
 void fix_endianness(void *location, size_t bytes, size_t step) {

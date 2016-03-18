@@ -164,7 +164,12 @@ void JObj::serialize() {
     fout << fixed;
     fout << "HIERARCHY" << endl 
          << "ROOT ";
-    this->_serialize_bvh_structure(fout, 0);
+
+    serialize_state st = {
+        false, false, false
+    };
+
+    this->_serialize_bvh_structure(fout, 0, st);
 
     fout << "MOTION " << endl
          << "Frames: 100" << endl
@@ -175,7 +180,8 @@ void JObj::serialize() {
 }
 
 int JObj::_serialize_bvh_structure(
-        ofstream & fout, int indent) {
+        ofstream & fout, 
+        int indent, serialize_state st) {
 
     string ind(indent, '\t');
     fout << "joint_" << hex << this->offset << endl;
@@ -184,30 +190,25 @@ int JObj::_serialize_bvh_structure(
 
     cout << hex << this->offset << ": " 
          << dec << bitset<32>(this->jobj->flags).to_string() << endl;
-
    
     float   tX = this->jobj->translationX,
             tY = this->jobj->translationY,
             tZ = this->jobj->translationZ;
 
-
-    int x = (this->jobj->flags >> 28) & 0b1111;
-    switch(x) {
-        case 0:
-            break;
-        case 1:
-            cout << "performing some transform on "
-                 << hex << this->offset << endl;
-            tX = -tX;
-            break;
-        default:
-            cout << "unknown other flag "
-                 << bitset<4>(x) << endl;
+    //
+    // TODO process flags
+    //
+    
+    if (((this->jobj->flags >> 3) & 1) == 1 && 
+        ((this->jobj->flags >> 0) & 1) == 0) {
+        cout << "inverting" << endl;
+        st.x = ! st.x;
+        st.y = ! st.y;
     }
 
-    fout << tX << " " 
-         << tY << " " 
-         << tZ << " " << endl;
+    fout << (st.x ? -1 : 1) * tX << " " 
+         << (st.y ? -1 : 1) * tY << " " 
+         << (st.z ? -1 : 1) * tZ << " " << endl;
 
     fout << ind << '\t' << "CHANNELS 3 "
          << "Zrotation Yrotation Xrotation "
@@ -219,7 +220,7 @@ int JObj::_serialize_bvh_structure(
         for (JObj *j : this->children) {
             fout << ind << '\t' << "JOINT ";
             sum_child += j->_serialize_bvh_structure(
-                    fout, indent + 1);
+                    fout, indent + 1, st);
         }
     }
     else {
@@ -265,24 +266,10 @@ int JObj::_serialize_bvh_parameters(ofstream & fout,
           rotY = this->jobj->rotationY * scaling_factor,
           rotX = this->jobj->rotationX * scaling_factor;
 
-    int x = this->jobj->flags & 0b1111;
-    switch(x) { 
-        case 0b0001 :
-            break;
-        case 0b1000 :
-            rotY += 180;
-        case 0b1001 :
-            break;
-        default:
-            cout << "unknown flag ending "
-                 << bitset<4>(x) << endl;
-            break;
-    } 
-
-    // if(this->jobj->flags & 2) { rotY += 90; }
-    // if(this->jobj->flags & 4) { rotZ += 90; }
-
-
+    //
+    // process flags
+    //
+    
     fout << rotZ << " "
          << rotX << " "
          << rotY << " ";

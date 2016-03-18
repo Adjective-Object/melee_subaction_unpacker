@@ -376,11 +376,13 @@ FtDataSubaction::FtDataSubaction(const DatFile *datfile, unsigned int index,
 }
 
 void FtDataSubaction::print(int indent /*=0*/) {
-  string ind = string(indent * INDENT_SIZE, ' ');
-  ios::fmtflags f(cout.flags());
+    string ind = string(indent * INDENT_SIZE, ' ');
+    ios::fmtflags f(cout.flags());
 
-  if (DETAILED_SUBACTION_PRINT) {
-    cout << hex << MAGENTA;
+
+    cout << RED;
+    cout << ind << "name: " << this->name << endl;
+    cout << MAGENTA;
     cout << ind << "stroff: " << hex << this->header->stringOffset << endl;
     cout << ind << "animoff: " << this->header->animationOffset << endl;
     cout << ind << "unknown 0x8: " << this->header->unknown0x08 << endl;
@@ -390,12 +392,13 @@ void FtDataSubaction::print(int indent /*=0*/) {
     cout << ind << "unknown0x14: " << this->header->unknown0x14 << endl;
     cout << RESET;
 
-      cout << ind << MAGENTA << this->index << " " << hex << "(0x"
-        << (char *)this->header - (char *)this->datfile->header << "): "
-        << RESET << this->name << endl;
+      if (DETAILED_SUBACTION_PRINT) {
+          cout << ind << MAGENTA << this->index << " " << hex << "(0x"
+            << (char *)this->header - (char *)this->datfile->header << "): "
+            << RESET << endl;
 
-       print_action(indent + 1, this->datfile, this->header->eventsOffset);
-  }
+           print_action(indent + 1, this->datfile, this->header->eventsOffset);
+      }
 
   cout.flags(f);
 }

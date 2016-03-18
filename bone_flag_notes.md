@@ -24,6 +24,30 @@ Some Fox Bones:
 
 
 
+## Flag Theories
+
+Will be referencing flag #s like this:
+
+
+
+    00000000000000000000000010000000
+                                   ^ this is flag 0
+
+    00000000000000000000000010000000
+                            ^ this is flag 7
+
+    00000000000000000000000010000000
+    ^ this is flag 31
+
+
+ - flag 8 is set high for roy's sword, sword hilt, scabbard, and both
+    shoulderpads. Maybe this indicates that it is attached to a separate
+    model?
+ - 
+
+
+
+
 # Skeleton?
 I can't think of any common properties among these bones. It will likely be
 worth creating a dummy obj exporter that creates a skeleton where each bone's 
@@ -126,12 +150,8 @@ containing animation data for different things.
 # Offsets?
 
 In the case of bowser's ThrowAirw\_figatree animation, the offset is
-4816 (0x12d0), which if wrt the root of the mmapped file, is 842 bytes from the
-next animation offset in bowser's datafile, his Wait2 (0x2680), this is enough
-space for 0x13b0 bytes (5040 bytes / 1260 words)
-
-This memory is in the content of the hal dat for 
-PlyKoopa5k\_Share\_ACTION\_Wait1\_figatree. 
+4816 (0x12d0), which if wrt the root of the mmapped file, is 27 words until
+the next previously visited structure.
 
 
 

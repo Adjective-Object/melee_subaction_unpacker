@@ -185,11 +185,14 @@ void DatInspector::print(int indent) {
          << " "
          << setw(18) << "shorts" 
          << " "
+         << setw(18) << "chars" 
+         << " "
          << RESET << RESETREVERSE << endl;
 
     uint32_t * datint= (uint32_t *) data;
     float * datfloat = (float *) data;
     short * datshort = (short *) data;
+    char * datchar = (char *) data;
 
     for (uint i=0; i<this->size/sizeof(uint32_t); i++) {
         cout << ind
@@ -200,10 +203,21 @@ void DatInspector::print(int indent) {
              << setw(15) << dec << datint[i]
              << " "
              << setw(15) << datfloat[i]
+
              << "     "
              << setw(6) << datshort[i * 2]
              << "  "
              << setw(6) << datshort[i * 2 + 1]
+
+             << "     "
+             << setw(3) << +(datchar[i * 4])
+             << " "
+             << setw(3) << +(datchar[i * 4 + 1])
+             << " "
+             << setw(3) << +(datchar[i * 4 + 2])
+             << " "
+             << setw(3) << +(datchar[i * 4 + 3])
+
              << endl;
     }
 }

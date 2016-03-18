@@ -8,6 +8,7 @@ extern void * MMAP_ORIGIN;
 void print_hex(char *c, size_t ct);
 void cout_hex(int indent, unsigned char *c, size_t rowsize, size_t rows);
 void fix_endianness(void *location, size_t bytes, size_t step);
+size_t get_available_size(void *location, size_t cap);
 
 bool hasEnding (std::string const &fullString, std::string const &ending);
 std::string to_string_hex(int n);

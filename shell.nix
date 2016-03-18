@@ -17,12 +17,13 @@ in with pkgs; let
         # etc
         hexcurse
         ctags
+        (import "/home/adjective/Projects/ansifilter-1.15/default.nix" {
+          stdenv = stdenv;
+          pkgs = pkgs;
+        })
     ];
     
     dependencies = [
-       # bioviewer deps
-       SDL
-       SDL_image
     ];
 
 in {
