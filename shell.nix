@@ -17,6 +17,8 @@ in with pkgs; let
         # etc
         hexcurse
         ctags
+        
+        # ansifilter
         (import "/home/adjective/Projects/ansifilter-1.15/default.nix" {
           stdenv = stdenv;
           pkgs = pkgs;
