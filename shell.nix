@@ -1,4 +1,4 @@
-let pkgs = import <nixpkgs> {};
+let pkgs = import /home/adjective/Projects/nixpkgs {};
 in with pkgs; let
     
     devDependencies = [
@@ -18,11 +18,7 @@ in with pkgs; let
         hexcurse
         ctags
         
-        # ansifilter
-        (import "/home/adjective/Projects/ansifilter-1.15/default.nix" {
-          stdenv = stdenv;
-          pkgs = pkgs;
-        })
+        ansifilter
     ];
     
     dependencies = [

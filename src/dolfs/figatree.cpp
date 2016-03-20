@@ -12,15 +12,32 @@ FigaTree::FigaTree(
 
     fix_endianness(fig, sizeof(figatree_header), sizeof(uint32_t));
 
-    size_t available_space = get_available_size(
-            datfile->dataSection + this->fig->probAnOffset,
-            sizeof(float) * 300);
+    this->boneIndexTable = new BoneIndexTable(
+            datfile,
+            (unsigned char *) (datfile->dataSection + fig->boneTableOffset));
 
-    this->pointedData = new DatInspector(
+    this->animDatas = new AnimDataHeader * [boneIndexTable->length];
+    for (size_t i=0; i<boneIndexTable->length; i++) {
+        this->animDatas[i] = new AnimDataHeader(
             datfile, 
-            // ((char *) MMAP_ORIGIN) + this->fig->probAnOffset,
-            datfile->dataSection + this->fig->probAnOffset,
-            available_space);
+            (animdata_header*) (
+                datfile->dataSection + 
+                    fig->animDataOffset +
+                    sizeof(animdata_header) * i
+            )
+        );
+
+        if (i != 0) {
+            this->animDatas[i - 1]->informNextOffset(
+                this->animDatas[i]->animhead->animdataOffset -
+                this->animDatas[i - 1]->animhead->animdataOffset);
+        }
+    }
+    this->animDatas[boneIndexTable->length - 1]->
+        informNextOffset(sizeof(uint32_t));
+
+
+
 }
 
 void FigaTree::print(int indent) {
@@ -36,19 +53,115 @@ void FigaTree::print(int indent) {
 
     cout << ind << YELLOW << "num_frames   " 
                 << RESET << setw(8) << this->fig->num_frames << endl;
-    cout << ind << YELLOW << "num_frames   " 
-                << RESET << setw(8) << *(uint32_t *)(&this->fig->num_frames) << endl;
 
-    cout << ind << YELLOW << "probAnOffset " 
+    cout << ind << YELLOW << "boneTableOffset " 
                 << RESET << setw(8)
-                << ("0x" + to_string_hex(this->fig->probAnOffset)) << endl;
+                << ("0x" + to_string_hex(this->fig->boneTableOffset)) << endl;
 
-    this->pointedData->print(indent + 1);
+    cout << ind << YELLOW << "content of bone table" << endl;
+    
+    boneIndexTable->print(indent + 1);
 
+
+    cout << ind << YELLOW << "animDataOffset " 
+                << RESET << setw(8)
+                << ("0x" + to_string_hex(this->fig->animDataOffset)) << endl;
+
+    cout << ind << YELLOW << "content of animData" << endl;
+
+    for (size_t i=0; i<this->boneIndexTable->length; i++) {
+        cout << ind << YELLOW << "bone " << dec << i << RESET << endl;
+        animDatas[i]->print(indent + 1);
+    }
 }
 
 void FigaTree::serialize() {
     // TODO
 }
+
+
+
+
+
+BoneIndexTable::BoneIndexTable(const DatFile * datfile, unsigned char * head) :
+    datfile(datfile), head(head) {
+
+    unsigned char * c = head;
+    while (*c != 0xFF) { c++; }
+    this->length = c - head;
+}
+
+void BoneIndexTable::print(int indent) {
+    string ind(indent * INDENT_SIZE, ' ');
+    cout << ind << BLUE << "length: " << length << RESET << endl;
+    cout << ind << BLUE;
+    for (size_t i=0; i<length; i++) {
+        cout << (int) head[i] << " ";
+        if (i % 8 == 0 && i != 0) {
+            cout << RESET << endl << ind << BLUE;
+        }
+    }
+    cout << endl;
+}
+
+void BoneIndexTable::serialize() {
+    // TODO
+}
+
+
+
+
+
+
+
+AnimDataHeader::AnimDataHeader(
+        const DatFile * datfile, animdata_header * animhead) :
+        datfile(datfile), animhead(animhead) {
+    fix_endianness(& (animhead->length),            sizeof(uint16_t), sizeof(uint16_t));
+    fix_endianness(& (animhead->unknown_padding),   sizeof(uint16_t), sizeof(uint16_t));
+    fix_endianness(& (animhead->unknown_flags),     sizeof(uint32_t), sizeof(uint32_t));
+    fix_endianness(& (animhead->animdataOffset),    sizeof(uint32_t), sizeof(uint32_t));
+
+
+    /*    
+
+    // assumptions about flags
+    size_t length = sizeof(uint32_t) * 2;
+    if (((animhead->unknown_flags >> 20) & 0xF) == 0x8 ||
+        ((animhead->unknown_flags >> 20) & 0xF) == 0x6) {
+        length = sizeof(uint32_t) * 1;
+    }
+    else {
+        length = sizeof(uint32_t) * 2;
+    }
+
+    */
+}
+
+void AnimDataHeader::informNextOffset(size_t nextOffset) {
+    void * content = (datfile->dataSection + animhead->animdataOffset);
+    size_t length = nextOffset;
+
+    // fix_endianness(content, length, sizeof(uint16_t));
+    this->targetInspector = new DatInspector(
+            datfile, content, length);
+
+}
+
+void AnimDataHeader::print(int indent) {
+    string ind(indent * INDENT_SIZE, ' ');
+    cout << ind << GREEN << "length: " << animhead->length << RESET << endl;
+    cout << ind << GREEN << "unknown_padding: " 
+         << animhead->unknown_padding << RESET << endl;
+    cout << ind << GREEN << "unknown_flags: " 
+         << hex << "0x" << setw(8) 
+                << animhead->unknown_flags << RESET << endl;
+    cout << ind << GREEN << "animdataOffset: " 
+         << hex << "0x" << animhead->animdataOffset << RESET << endl;
+
+    this->targetInspector->print(indent + 1);
+}
+
+void AnimDataHeader::serialize() {}
 
 

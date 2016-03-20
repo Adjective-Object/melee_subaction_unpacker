@@ -51,7 +51,7 @@ void check_bounds(size_t sloc, size_t bytes) {
         swapped_ranges = new vector<pair<size_t, size_t>>();
     } else {
         for (pair<size_t, size_t> p : *swapped_ranges){
-            if (sloc + bytes >= p.first && 
+            if (sloc + bytes > p.first && 
                 p.second > sloc) {
                 cout << RED << "intersection of segments (" 
                      << hex << sloc << ", " << hex << sloc + bytes << ") and ("

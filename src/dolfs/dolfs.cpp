@@ -133,7 +133,7 @@ void AnonymousData::print(int indent /*=0*/) {
 
 DatInspector::DatInspector(const DatFile * datfile, void * data, size_t size) :
     datfile(datfile), data(data), size(size) {
-    fix_endianness(data, size, sizeof(uint32_t));
+    // fix_endianness(data, size, sizeof(uint32_t));
     // fix_endianness(data, size, sizeof(uint16_t));
 }
 
@@ -192,7 +192,7 @@ void DatInspector::print(int indent) {
     uint32_t * datint= (uint32_t *) data;
     float * datfloat = (float *) data;
     short * datshort = (short *) data;
-    char * datchar = (char *) data;
+    unsigned char * datchar = (unsigned char *) data;
 
     for (uint i=0; i<this->size/sizeof(uint32_t); i++) {
         cout << ind
@@ -210,13 +210,13 @@ void DatInspector::print(int indent) {
              << setw(6) << datshort[i * 2 + 1]
 
              << "     "
-             << setw(3) << +(datchar[i * 4])
+             << setw(3) << hex << +(datchar[i * 4])
              << " "
-             << setw(3) << +(datchar[i * 4 + 1])
+             << setw(3) << hex << +(datchar[i * 4 + 1])
              << " "
-             << setw(3) << +(datchar[i * 4 + 2])
+             << setw(3) << hex << +(datchar[i * 4 + 2])
              << " "
-             << setw(3) << +(datchar[i * 4 + 3])
+             << setw(3) << hex << +(datchar[i * 4 + 3])
 
              << endl;
     }
