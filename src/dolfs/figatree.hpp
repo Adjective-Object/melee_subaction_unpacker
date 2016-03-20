@@ -35,8 +35,8 @@ public:
 
 class BoneIndexTable : public DataProxy {
     const DatFile * datfile;
-    unsigned char * head;
 public:
+    unsigned char * head;
     size_t length;
     BoneIndexTable(const DatFile * datfile, unsigned char* head);
     void print(int indent = 0);
@@ -59,28 +59,14 @@ class AnimDataHeader : public DataProxy {
     DatInspector * targetInspector;
 public:
     animdata_header * animhead;
+    unsigned char boneflag;
 
 
-    AnimDataHeader(const DatFile * datfile, animdata_header * animhead);
+    AnimDataHeader(const DatFile * datfile, animdata_header * animhead, unsigned char boneflag);
     void informNextOffset(size_t nextOffset);
     void print(int indent = 0);
     void serialize();
 };
-
-
-
-// TOTAL SPECULATION
-typedef struct animdata_body {
-    float rotationZ;
-    float rotationY;
-    float rotationX;
-    float scaleZ;
-    float scaleY;
-    float scaleX;
-    float translationZ;
-    float translationY;
-    float translationX;
-} animdata_body;
 
 #endif
 

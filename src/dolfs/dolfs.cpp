@@ -246,4 +246,22 @@ void DatInspector::print(int indent) {
 }
 
 
+void DatInspector::printRaw(int indent, size_t columnWidth) {
+    string ind(indent * INDENT_SIZE, ' ');
+
+    unsigned char * cdata = (unsigned char*) data;
+
+    cout << ind;
+    for (size_t i=0; i<size; i++) {
+        cout << setw(2) << +(cdata[i]) << " ";
+        if (i % columnWidth == columnWidth - 1) {
+            cout << endl << ind ;
+        }
+    }
+    cout << endl;
+}
+
+
+
+
 

@@ -24,7 +24,8 @@ FigaTree::FigaTree(
                 datfile->dataSection + 
                     fig->animDataOffset +
                     sizeof(animdata_header) * i
-            )
+            ),
+            boneIndexTable->head[i]
         );
 
         if (i != 0) {
@@ -70,7 +71,9 @@ void FigaTree::print(int indent) {
     cout << ind << YELLOW << "content of animData" << endl;
 
     for (size_t i=0; i<this->boneIndexTable->length; i++) {
-        cout << ind << YELLOW << "bone " << dec << i << RESET << endl;
+        cout << ind << YELLOW << "bone " << dec << i
+                    << " (boneflag = " << dec << +(this->boneIndexTable->head[i]) << ")"
+                    << RESET << endl;
         animDatas[i]->print(indent + 1);
     }
 }
@@ -115,8 +118,8 @@ void BoneIndexTable::serialize() {
 
 
 AnimDataHeader::AnimDataHeader(
-        const DatFile * datfile, animdata_header * animhead) :
-        datfile(datfile), animhead(animhead) {
+        const DatFile * datfile, animdata_header * animhead, unsigned char boneflag) :
+        datfile(datfile), animhead(animhead), boneflag(boneflag) {
     fix_endianness(& (animhead->length),            sizeof(uint16_t), sizeof(uint16_t));
     fix_endianness(& (animhead->unknown_padding),   sizeof(uint16_t), sizeof(uint16_t));
     fix_endianness(& (animhead->unknown_flags),     sizeof(uint32_t), sizeof(uint32_t));
@@ -159,7 +162,18 @@ void AnimDataHeader::print(int indent) {
     cout << ind << GREEN << "animdataOffset: " 
          << hex << "0x" << animhead->animdataOffset << RESET << endl;
 
-    this->targetInspector->print(indent + 1);
+    switch (boneflag) {
+        case 3:
+            this->targetInspector->printRaw(indent + 1, 9);
+            break;
+        case 2:
+            this->targetInspector->printRaw(indent + 1, 21);
+            break;
+
+        default:
+            this->targetInspector->printRaw(indent + 1, 6);
+    }
+
 }
 
 void AnimDataHeader::serialize() {}
