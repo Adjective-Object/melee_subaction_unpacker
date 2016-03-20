@@ -43,9 +43,11 @@ static vector<pair<size_t, size_t>> * swapped_ranges = NULL;
 void check_bounds(size_t sloc, size_t bytes) {
     sloc = sloc - (size_t) MMAP_ORIGIN;
 
+    /*
     cout << "check_bounds(0x" << hex << sloc << ", "
        << "0x" << hex << bytes << ")"
        << endl;
+    */
 
     if (swapped_ranges == NULL) {
         swapped_ranges = new vector<pair<size_t, size_t>>();
