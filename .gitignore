@@ -9,6 +9,7 @@ compile_commands.json
 bvh
 *.bvh
 *.less
+website
 
 # vim stuff
 ._*

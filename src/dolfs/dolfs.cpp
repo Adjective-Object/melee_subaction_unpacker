@@ -72,6 +72,7 @@ DatFile::DatFile(dat_header *header) : header(header) {
     // figatree (anim files) 
     else if (hasEnding(name, "_figatree")) {
         children[name] = new FigaTree(this, (figatree_header *)target);
+        
     }
 
     // fallback
@@ -118,6 +119,21 @@ void DatFile::serialize() {
         iter->second->serialize();
     }
 }
+
+bool DatFile::ptrIsRelocation(void * p) const {
+    uint32_t queryOffset = (uint32_t) ((char *) p - dataSection);
+    for (uint32_t * curOffset = offsetTable; 
+            curOffset < (uint32_t *) stringTable; curOffset++) {
+        if (*curOffset == queryOffset) {
+            return true;
+        }
+    }
+    return false;
+}
+
+
+
+
 
 AnonymousData::AnonymousData(const DatFile * datfile, void *data) : 
     datfile(datfile), data(data) {}
@@ -195,9 +211,16 @@ void DatInspector::print(int indent) {
     unsigned char * datchar = (unsigned char *) data;
 
     for (uint i=0; i<this->size/sizeof(uint32_t); i++) {
-        cout << ind
-             << CYAN << REVERSE << setw(4) << i <<  " " 
-             << RESET << RESETREVERSE << " " 
+        cout << ind;
+
+        // check if this is a ptr
+        if (datfile->ptrIsRelocation(datint + i)) {
+            cout << MAGENTA << REVERSE << setw(4) << i <<  " " ;
+        } else {
+            cout << CYAN << REVERSE << setw(4) << i <<  " " ;
+        }
+
+        cout << RESET << RESETREVERSE << " " 
              << setw(15) << "0x" + to_string_hex(datint[i])
              << " "
              << setw(15) << dec << datint[i]

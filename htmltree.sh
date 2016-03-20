@@ -6,7 +6,7 @@ cat << EOM
 EOM
 }
 ###
-for MY_FILE in Pl*.html
+for MY_FILE in $(ls $1)
 do
     create_html
 done

@@ -17,8 +17,9 @@ base=$(echo $1 | sed 's/.dat//')
 
 echo $base > $2
 for offset in $offsets; do
-    echo "processing ${base}AJ.dat at offset ${offset}"
-    ./mreader "${base}AJ.dat" -r $offset &>> $2
+    offset=$(printf "%08x" 0x$offset)
+    echo "processing ${base}AJ.dat -> ${2}_${offset}.txt"
+    ./mreader "${base}AJ.dat" -r $offset &>> ${2}_${offset}.txt
 done
 
 

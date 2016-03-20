@@ -62,6 +62,7 @@ public:
   DatFile(dat_header *head);
   void print(int indent = 0);
   virtual void serialize();
+  bool ptrIsRelocation(void * p) const;
 };
 
 
