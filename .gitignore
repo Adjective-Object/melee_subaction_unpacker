@@ -19,6 +19,8 @@ website
 # melee files
 *.dat
 datfiles/*
+Melee.zip
+melee
 
 # nix-shell stuff
 default.nix

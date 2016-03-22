@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+#include <bitset>
 
 #include "helpers.hpp"
 #include "config.hpp"
@@ -30,12 +31,22 @@ FigaTree::FigaTree(
 
         if (i != 0) {
             this->animDatas[i - 1]->informNextOffset(
-                this->animDatas[i]->animhead->animdataOffset -
-                this->animDatas[i - 1]->animhead->animdataOffset);
+                min(
+                    (uint32_t) this->animDatas[i - 1]->animhead->length - 1,
+
+                    this->animDatas[i]->animhead->animdataOffset -
+                    this->animDatas[i - 1]->animhead->animdataOffset
+                )
+            );
         }
     }
-    this->animDatas[boneIndexTable->length - 1]->
-        informNextOffset(sizeof(uint32_t));
+
+    AnimDataHeader * last = this->animDatas[boneIndexTable->length - 1];
+    last->
+        informNextOffset(
+        get_available_size(
+            datfile->dataSection + last->animhead->animdataOffset, 
+            last->animhead->length));
 
 
 
@@ -118,12 +129,13 @@ void BoneIndexTable::serialize() {
 
 
 AnimDataHeader::AnimDataHeader(
-        const DatFile * datfile, animdata_header * animhead, unsigned char boneflag) :
+        const DatFile * datfile, animdata_header * animhead, 
+        unsigned char boneflag) :
         datfile(datfile), animhead(animhead), boneflag(boneflag) {
-    fix_endianness(& (animhead->length),            sizeof(uint16_t), sizeof(uint16_t));
-    fix_endianness(& (animhead->unknown_padding),   sizeof(uint16_t), sizeof(uint16_t));
-    fix_endianness(& (animhead->unknown_flags),     sizeof(uint32_t), sizeof(uint32_t));
-    fix_endianness(& (animhead->animdataOffset),    sizeof(uint32_t), sizeof(uint32_t));
+    fix_endianness(& (animhead->length),            sizeof(uint16_t));
+    fix_endianness(& (animhead->unknown_padding),   sizeof(uint16_t));
+    fix_endianness(& (animhead->unknown_flags),     sizeof(uint32_t));
+    fix_endianness(& (animhead->animdataOffset),    sizeof(uint32_t));
 
 
     /*    
@@ -157,21 +169,29 @@ void AnimDataHeader::print(int indent) {
     cout << ind << GREEN << "unknown_padding: " 
          << animhead->unknown_padding << RESET << endl;
     cout << ind << GREEN << "unknown_flags: " 
-         << hex << "0x" << setw(8) 
+         << hex << "0x" << setfill('0') << setw(8) 
                 << animhead->unknown_flags << RESET << endl;
+    cout << ind << GREEN << "unknown_flags: " << RESET
+         << bitset<32>(animhead->unknown_flags) << endl;
     cout << ind << GREEN << "animdataOffset: " 
          << hex << "0x" << animhead->animdataOffset << RESET << endl;
 
-    switch (boneflag) {
-        case 3:
-            this->targetInspector->printRaw(indent + 1, 9);
-            break;
-        case 2:
-            this->targetInspector->printRaw(indent + 1, 21);
+    switch (this->animhead->unknown_flags) {
+        case 0x022d0000:
+            this->targetInspector->printRaw(indent + 1, 21, 3);
             break;
 
+        case 0x022e8800:
+            this->targetInspector->printRaw(indent + 1, 9, 3);
+            break;
+
+        case 0x02000000:
+            this->targetInspector->printRaw(indent + 1, 4);
+            break;
+
+
         default:
-            this->targetInspector->printRaw(indent + 1, 6);
+            this->targetInspector->printRaw(indent + 1, 9);
     }
 
 }

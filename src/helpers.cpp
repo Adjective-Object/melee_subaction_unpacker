@@ -80,6 +80,10 @@ size_t get_available_size(void * location, size_t bytes) {
 void fix_endianness(void *location, size_t bytes, size_t step) {
   char *l = (char *)location;
 
+  if (step == 0) {
+      step = bytes;
+  }
+
   check_bounds((size_t) location, bytes);
   
   for (size_t b = 0; b < bytes; b += step) {
