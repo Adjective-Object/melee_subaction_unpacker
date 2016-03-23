@@ -12,14 +12,17 @@ if ! [[ $1 =~ Pl..\.dat ]]; then
     exit 1
 fi
 
-offsets=$(./mreader $1 | grep animoff | sed -e 's/\s*animoff: //' | sort | uniq)
+offsets=$(./mreader -d $1 | grep animoff | sed -e 's/\s*animoff: //' | sort | uniq)
 base=$(echo $1 | sed 's/.dat//')
 
 echo $base > $2
 for offset in $offsets; do
     offset=$(printf "%08x" 0x$offset)
-    echo "processing ${base}AJ.dat -> ${2}_${offset}.txt"
-    ./mreader "${base}AJ.dat" -r $offset &>> ${2}_${offset}.txt
+    content=$(./mreader "${base}AJ.dat" -r $offset)
+    anim_name=$(echo "$content" | grep "_figatree$" | sed -e "s/.*ACTION_//" )
+    out_file_name="${2}_${offset}_${anim_name}.txt"
+    echo "processing ${base}AJ.dat -> $out_file_name"
+    echo "$content" > $out_file_name
 done
 
 

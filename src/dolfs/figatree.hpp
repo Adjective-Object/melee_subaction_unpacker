@@ -57,12 +57,13 @@ class AnimDataHeader : public DataProxy {
     const DatFile * datfile;
     
     DatInspector * targetInspector;
+
 public:
     animdata_header * animhead;
     unsigned char boneflag;
 
-
-    AnimDataHeader(const DatFile * datfile, animdata_header * animhead, unsigned char boneflag);
+    AnimDataHeader(const DatFile * datfile, 
+            animdata_header * animhead, unsigned char boneflag);
     void informNextOffset(size_t nextOffset);
     void print(int indent = 0);
     void serialize();

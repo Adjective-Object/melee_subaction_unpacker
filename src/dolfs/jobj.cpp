@@ -198,10 +198,16 @@ int JObj::_serialize_bvh_structure(
     //
     // TODO process flags
     //
-    
+   
+    if (this->jobj->flags & 0x20000) {
+        cout << RED << "JOBJ_USE_QUATERNION" << RESET << endl;
+    } else {
+        // joint uses Euler angles, not Quaternions
+    }
+
     if (((this->jobj->flags >> 3) & 1) == 1 && 
         ((this->jobj->flags >> 0) & 1) == 0) {
-        cout << "inverting" << endl;
+        cout << BLUE << "inverting" << RESET << endl;
         st.x = ! st.x;
         st.y = ! st.y;
     }

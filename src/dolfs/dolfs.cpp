@@ -155,6 +155,7 @@ DatInspector::DatInspector(const DatFile * datfile, void * data, size_t size) :
 
 void DatInspector::print(int indent) {
     string ind(indent * INDENT_SIZE, ' ');
+    cout << dec << setfill(' ');
 
     cout 
         << endl << ind << CYAN << "data:        " << (void *) this->data
@@ -246,13 +247,18 @@ void DatInspector::print(int indent) {
 }
 
 
-void DatInspector::printRaw(int indent, size_t columnWidth, size_t spacing) {
+void DatInspector::printRaw(
+        int indent, size_t columnWidth, size_t spacing) {
 
     string ind(indent * INDENT_SIZE, ' ');
 
     unsigned char * cdata = (unsigned char*) data;
 
-    cout << ind;
+    int line_no = 0;
+    cout << ind << REVERSE << setfill(' ') 
+         << setw(4) << dec << line_no << hex 
+         << " " << RESETREVERSE << "  ";
+
     for (size_t i=0; i<size; i++) {
         cout << setw(2) << +(cdata[i]) << " ";
         if ((i % columnWidth) % spacing  == spacing - 1) {
@@ -260,8 +266,12 @@ void DatInspector::printRaw(int indent, size_t columnWidth, size_t spacing) {
         }
 
         if (i % columnWidth == columnWidth - 1) {
-            cout << endl << ind ;
+            line_no ++;
+            cout << endl << ind << REVERSE 
+                 << setw(4) << dec << line_no << hex
+                 << " " << RESETREVERSE << "  ";
         }
+
     }
     cout << endl;
 }

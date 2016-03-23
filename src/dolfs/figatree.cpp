@@ -32,7 +32,7 @@ FigaTree::FigaTree(
         if (i != 0) {
             this->animDatas[i - 1]->informNextOffset(
                 min(
-                    (uint32_t) this->animDatas[i - 1]->animhead->length - 1,
+                    (uint32_t) this->animDatas[i - 1]->animhead->length,
 
                     this->animDatas[i]->animhead->animdataOffset -
                     this->animDatas[i - 1]->animhead->animdataOffset
@@ -176,22 +176,30 @@ void AnimDataHeader::print(int indent) {
     cout << ind << GREEN << "animdataOffset: " 
          << hex << "0x" << animhead->animdataOffset << RESET << endl;
 
-    switch (this->animhead->unknown_flags) {
-        case 0x022d0000:
+    switch (this->animhead->unknown_flags & 0xffff) {
+        case 0x0000:
+            cout << ind << CYAN << "ends in 0000: probably raw anim data" 
+                 << RESET << endl;
             this->targetInspector->printRaw(indent + 1, 21, 3);
             break;
 
-        case 0x022e8800:
+        case 0x8800:
+            cout << ind << CYAN 
+                 << "ends in 8800: probably constant through anim" 
+                 << RESET << endl;
             this->targetInspector->printRaw(indent + 1, 9, 3);
             break;
 
-        case 0x02000000:
-            this->targetInspector->printRaw(indent + 1, 4);
+        case 0x6600:
+            cout << ind << RED << "6600: possibly parial parameters" 
+                 << RESET << endl;
+            this->targetInspector->printRaw(indent + 1, 9, 3);
             break;
 
-
         default:
+            cout << ind << RED << "unknown?" << RESET << endl;
             this->targetInspector->printRaw(indent + 1, 9);
+            this->targetInspector->print(indent + 1);
     }
 
 }
