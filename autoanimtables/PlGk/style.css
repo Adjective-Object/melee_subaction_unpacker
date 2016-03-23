@@ -1,0 +1,20 @@
+
+span[style*="background-color:#000000"] {
+    background-color: inherit !important;
+}
+
+/* hack to fix ansifilter failing
+ * to process the RESET color after
+ * a RESETREVERSE 
+ */
+span[style="color:#000000;background-color:#5e8d87;"] + 
+span[style="color:#5e8d87;background-color:#000000;"] {
+    color: inherit !important;
+}
+
+body {
+    background-color: #282a2e;
+    color: #c5c8c6;
+}
+
+
