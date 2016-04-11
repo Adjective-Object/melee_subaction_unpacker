@@ -24,4 +24,5 @@ melee
 
 # nix-shell stuff
 default.nix
+*.pyc
 

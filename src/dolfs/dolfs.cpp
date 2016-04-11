@@ -255,9 +255,9 @@ void DatInspector::printRaw(
     unsigned char * cdata = (unsigned char*) data;
 
     int line_no = 0;
-    cout << ind << REVERSE << setfill(' ') 
+    cout << ind << setfill(' ') 
          << setw(4) << dec << line_no << hex 
-         << " " << RESETREVERSE << "  ";
+         << " " << "  ";
 
     for (size_t i=0; i<size; i++) {
         cout << setw(2) << +(cdata[i]) << " ";
@@ -267,9 +267,9 @@ void DatInspector::printRaw(
 
         if (i % columnWidth == columnWidth - 1) {
             line_no ++;
-            cout << endl << ind << REVERSE 
+            cout << endl << ind 
                  << setw(4) << dec << line_no << hex
-                 << " " << RESETREVERSE << "  ";
+                 << " " << "  ";
         }
 
     }

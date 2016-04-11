@@ -1,4 +1,4 @@
-let pkgs = import /home/adjective/Projects/nixpkgs {};
+let pkgs = import <nixpkgs> {};
 in with pkgs; let
     
     devDependencies = [
