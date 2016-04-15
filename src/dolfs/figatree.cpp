@@ -41,7 +41,7 @@ FigaTree::FigaTree(
         }
     }
 
-    TrackHeader * last = this->animDatas[trackCtTable->length - 1];
+    TrackHeader * last = this->animDatas[trackCtTable->numTracks - 1];
     last->
         informNextOffset(
         get_available_size(
@@ -82,9 +82,10 @@ void FigaTree::print(int indent) {
     cout << ind << YELLOW << "content of animData" << endl;
 
     int tracks_count = 0;
-    for (size_t i=0; i<this->trackCtTable->length; i++) {
+    // ignore bone 0, since bone 0 shouldn't be animated?
+    for (size_t i=1; i<this->trackCtTable->length; i++) {
         int numTracks = this->trackCtTable->head[i];
-        for (int t=0; t<max(1, numTracks); t++) {
+        for (int t=0; t<numTracks; t++) {
             cout << ind << YELLOW << "bone " << dec << i
                     << " track " << dec << t
                     << " (track " << dec << tracks_count << " overall)"

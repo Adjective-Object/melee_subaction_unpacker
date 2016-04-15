@@ -201,19 +201,23 @@ char * print_gx(char * data, GXCompType type, int scale) {
     switch(type) {
         case GX_U8:
             val = *((uint8_t *) data);
-            cout << setw(12) << (val / pow(2.0, scale)) << " (" << val << "/ 2^" << scale << ")";
+            cout << setw(12) << (val / pow(2.0, scale)) 
+                 << " (" << val << "/ 2^" << scale << ")";
             return data + sizeof(uint8_t);
         case GX_S8:
             val = *((int8_t *) data);
-            cout << setw(12) << (val / pow(2.0, scale)) << " (" << val << "/ 2^" << scale << ")";
+            cout << setw(12) << (val / pow(2.0, scale)) 
+                 << " (" << val << "/ 2^" << scale << ")";
             return data + sizeof(int8_t);
         case GX_U16:
             val = *((uint16_t *) data);
-            cout << setw(12) << (val / pow(2.0, scale)) << " (" << val << "/ 2^" << scale << ")";
+            cout << setw(12) << (val / pow(2.0, scale)) 
+                 << " (" << val << "/ 2^" << scale << ")";
             return data + sizeof(uint16_t);
         case GX_S16:
             val = *((int16_t *) data);
-            cout << setw(12) << (val / pow(2.0, scale)) << " (" << val << "/ 2^" << scale << ")";
+            cout << setw(12) << (val / pow(2.0, scale)) 
+                 << " (" << val << "/ 2^" << scale << ")";
             return data + sizeof(int16_t);
         case GX_F32:
             val = *((float *) data);
