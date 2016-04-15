@@ -256,7 +256,8 @@ void DatInspector::printRaw(
 
     int line_no = 0;
     cout << ind << setfill(' ') 
-         << setw(4) << dec << line_no << hex 
+         << BLUE << setw(4) << dec << line_no 
+         << RESET << hex 
          << " " << "  ";
 
     for (size_t i=0; i<size; i++) {
@@ -268,7 +269,8 @@ void DatInspector::printRaw(
         if (i % columnWidth == columnWidth - 1) {
             line_no ++;
             cout << endl << ind 
-                 << setw(4) << dec << line_no << hex
+                 << BLUE  << setw(4) << dec << line_no
+                 << RESET <<  hex
                  << " " << "  ";
         }
 

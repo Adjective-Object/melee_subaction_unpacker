@@ -6,6 +6,8 @@
 #include "config.hpp"
 #include "dolfs/dolfs.hpp"
 #include "dolfs/figatree.hpp"
+#include "dolfs/animation_track.hpp"
+#include "gxtypes.hpp"
 
 FigaTree::FigaTree(
         const DatFile * datfile, figatree_header * fig) :
@@ -13,21 +15,19 @@ FigaTree::FigaTree(
 
     fix_endianness(fig, sizeof(figatree_header), sizeof(uint32_t));
 
-    this->boneIndexTable = new BoneIndexTable(
+    this->trackCtTable = new TrackCtTable(
             datfile,
             (unsigned char *) (datfile->dataSection + fig->boneTableOffset));
 
-    this->animDatas = new AnimDataHeader * [boneIndexTable->length];
-    for (size_t i=0; i<boneIndexTable->length; i++) {
-        this->animDatas[i] = new AnimDataHeader(
+    this->animDatas = new TrackHeader * [trackCtTable->numTracks];
+    for (size_t i=0; i<trackCtTable->numTracks; i++) {
+        this->animDatas[i] = new TrackHeader(
             datfile, 
-            (animdata_header*) (
+            (track_header*) (
                 datfile->dataSection + 
                     fig->animDataOffset +
-                    sizeof(animdata_header) * i
-            ),
-            boneIndexTable->head[i]
-        );
+                    sizeof(track_header) * i
+            ));
 
         if (i != 0) {
             this->animDatas[i - 1]->informNextOffset(
@@ -41,7 +41,7 @@ FigaTree::FigaTree(
         }
     }
 
-    AnimDataHeader * last = this->animDatas[boneIndexTable->length - 1];
+    TrackHeader * last = this->animDatas[trackCtTable->length - 1];
     last->
         informNextOffset(
         get_available_size(
@@ -66,13 +66,13 @@ void FigaTree::print(int indent) {
     cout << ind << YELLOW << "num_frames   " 
                 << RESET << setw(8) << this->fig->num_frames << endl;
 
-    cout << ind << YELLOW << "boneTableOffset " 
+    cout << ind << YELLOW << "keyframCountsOffset " 
                 << RESET << setw(8)
                 << ("0x" + to_string_hex(this->fig->boneTableOffset)) << endl;
 
-    cout << ind << YELLOW << "content of bone table" << endl;
+    cout << ind << YELLOW << "keyframe Counts" << endl;
     
-    boneIndexTable->print(indent + 1);
+    trackCtTable->print(indent + 1);
 
 
     cout << ind << YELLOW << "animDataOffset " 
@@ -81,11 +81,17 @@ void FigaTree::print(int indent) {
 
     cout << ind << YELLOW << "content of animData" << endl;
 
-    for (size_t i=0; i<this->boneIndexTable->length; i++) {
-        cout << ind << YELLOW << "bone " << dec << i
-                    << " (boneflag = " << dec << +(this->boneIndexTable->head[i]) << ")"
+    int tracks_count = 0;
+    for (size_t i=0; i<this->trackCtTable->length; i++) {
+        int numTracks = this->trackCtTable->head[i];
+        for (int t=0; t<max(1, numTracks); t++) {
+            cout << ind << YELLOW << "bone " << dec << i
+                    << " track " << dec << t
+                    << " (track " << dec << tracks_count << " overall)"
                     << RESET << endl;
-        animDatas[i]->print(indent + 1);
+            animDatas[tracks_count]->print(indent + 1);
+            tracks_count++;
+        }
     }
 }
 
@@ -97,15 +103,18 @@ void FigaTree::serialize() {
 
 
 
-BoneIndexTable::BoneIndexTable(const DatFile * datfile, unsigned char * head) :
+TrackCtTable::TrackCtTable(const DatFile * datfile, unsigned char * head) :
     datfile(datfile), head(head) {
 
     unsigned char * c = head;
-    while (*c != 0xFF) { c++; }
+    numTracks = 0;
+    while (*c != 0xFF) {numTracks += *c; c++;}
     this->length = c - head;
+    cout << RED << numTracks << RESET << endl;
+    
 }
 
-void BoneIndexTable::print(int indent) {
+void TrackCtTable::print(int indent) {
     string ind(indent * INDENT_SIZE, ' ');
     cout << ind << BLUE << "length: " << length << RESET << endl;
     cout << ind << BLUE;
@@ -118,7 +127,7 @@ void BoneIndexTable::print(int indent) {
     cout << endl;
 }
 
-void BoneIndexTable::serialize() {
+void TrackCtTable::serialize() {
     // TODO
 }
 
@@ -126,84 +135,5 @@ void BoneIndexTable::serialize() {
 
 
 
-
-
-AnimDataHeader::AnimDataHeader(
-        const DatFile * datfile, animdata_header * animhead, 
-        unsigned char boneflag) :
-        datfile(datfile), animhead(animhead), boneflag(boneflag) {
-    fix_endianness(& (animhead->length),            sizeof(uint16_t));
-    fix_endianness(& (animhead->unknown_padding),   sizeof(uint16_t));
-    fix_endianness(& (animhead->unknown_flags),     sizeof(uint32_t));
-    fix_endianness(& (animhead->animdataOffset),    sizeof(uint32_t));
-
-
-    /*    
-
-    // assumptions about flags
-    size_t length = sizeof(uint32_t) * 2;
-    if (((animhead->unknown_flags >> 20) & 0xF) == 0x8 ||
-        ((animhead->unknown_flags >> 20) & 0xF) == 0x6) {
-        length = sizeof(uint32_t) * 1;
-    }
-    else {
-        length = sizeof(uint32_t) * 2;
-    }
-
-    */
-}
-
-void AnimDataHeader::informNextOffset(size_t nextOffset) {
-    void * content = (datfile->dataSection + animhead->animdataOffset);
-    size_t length = nextOffset;
-
-    // fix_endianness(content, length, sizeof(uint16_t));
-    this->targetInspector = new DatInspector(
-            datfile, content, length);
-
-}
-
-void AnimDataHeader::print(int indent) {
-    string ind(indent * INDENT_SIZE, ' ');
-    cout << ind << GREEN << "length: " << animhead->length << RESET << endl;
-    cout << ind << GREEN << "unknown_padding: " 
-         << animhead->unknown_padding << RESET << endl;
-    cout << ind << GREEN << "unknown_flags: " 
-         << hex << "0x" << setfill('0') << setw(8) 
-                << animhead->unknown_flags << RESET << endl;
-    cout << ind << GREEN << "unknown_flags: " << RESET
-         << bitset<32>(animhead->unknown_flags) << endl;
-    cout << ind << GREEN << "animdataOffset: " 
-         << hex << "0x" << animhead->animdataOffset << RESET << endl;
-
-    switch (this->animhead->unknown_flags & 0xffff) {
-        case 0x0000:
-            cout << ind << CYAN << "ends in 0000: probably raw anim data" 
-                 << RESET << endl;
-            this->targetInspector->printRaw(indent + 1, 21, 3);
-            break;
-
-        case 0x8800:
-            cout << ind << CYAN 
-                 << "ends in 8800: probably constant through anim" 
-                 << RESET << endl;
-            this->targetInspector->printRaw(indent + 1, 9, 3);
-            break;
-
-        case 0x6600:
-            cout << ind << RED << "6600: possibly parial parameters" 
-                 << RESET << endl;
-            this->targetInspector->printRaw(indent + 1, 9, 3);
-            break;
-
-        default:
-            cout << ind << RED << "unknown?" << RESET << endl;
-            this->targetInspector->printRaw(indent + 1, 9);
-            this->targetInspector->print(indent + 1);
-    }
-
-}
-
-void AnimDataHeader::serialize() {}
 
 

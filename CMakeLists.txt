@@ -42,6 +42,10 @@ set(CMAKE_CXX_FLAGS "-fPIC -g -Wall -std=c++11")
 # project source objects #
 ##########################
 set(LIB_SRCS
+        src/dolfs/animation_track.cpp
+        src/dolfs/animation_track.hpp
+        src/gxtypes.cpp
+        src/gxtypes.hpp
         src/config.cpp
         src/config.hpp
         src/dolfs/dolfs.cpp
