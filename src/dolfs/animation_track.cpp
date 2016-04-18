@@ -164,15 +164,30 @@ void * print_gx_frames(int indent, void* data,
     char * head = (char*) data;
     for (size_t i=0; i<numFrames; i++) {
         // value
-        cout << ind << "value: " << setw(5);
-        head = print_gx(head, data_type, data_scale);
+        switch(interpolation_type) {
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+                cout << ind << "value: " << setw(5);
+                head = print_gx(head, data_type, data_scale);
+                break;
+
+            case 6: // hermite tangent only, don't read value
+            default: 
+                break;
+        }
 
         // tangent
         switch(interpolation_type) {
-            case 0:
-            case 1:
+            case 1: // step
+            case 2: // linear
+            case 3: // hermite value
                 break;
 
+            case 5: // hermite tangent / value pair
+            case 6: // hermite tangent
             default:
                 cout << "     tan: " << setw(5);
                 head = print_gx(head, tan_type, tan_scale);
@@ -193,7 +208,7 @@ char * read_varlen_int(char * head, int * out) {
         head++;
         *out = *out | ((*head) << 7);
     }
-    return head;
+    return head + 1;
 }
 
 char * print_gx(char * data, GXCompType type, int scale) {
