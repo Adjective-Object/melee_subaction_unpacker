@@ -4,3 +4,6 @@
 [submodule "libsweetexpressions"]
 	path = libsweetparse
 	url = git@github.com:Adjective-Object/libsweetparse.git
+[submodule "eigen"]
+	path = eigen
+	url = https://github.com/RLovelett/eigen.git
