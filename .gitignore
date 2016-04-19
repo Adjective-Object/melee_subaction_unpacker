@@ -15,6 +15,7 @@ website
 ._*
 .*.swp
 .*.swo
+.ycm_extra_conf.py
 
 # melee files
 *.dat
@@ -25,4 +26,3 @@ melee
 # nix-shell stuff
 default.nix
 *.pyc
-

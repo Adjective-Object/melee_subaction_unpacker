@@ -5,7 +5,7 @@
 #include <vector>
 #include <map>
 
-#include <assimp>
+#include <assimp/scene.h>
 
 #include "dolfs/dobj.hpp"
 #include "dolfs/dolfs.hpp"
@@ -72,7 +72,7 @@ public:
      * Serializes the joint object to a BDF
      **/
     virtual void serialize();
-    public aiScene generateAiScene();
+    aiScene generateAiScene();
 };
 
 
