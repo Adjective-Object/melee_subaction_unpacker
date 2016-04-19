@@ -21,17 +21,6 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
 #)
 
 ExternalProject_Add(
-    assimp
-    # no download since it's in a git submodule
-    DOWNLOAD_COMMAND ""
-    SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/assimp
-    CONFIGURE_COMMAND cmake CmakeLists.txt
-    BUILD_COMMAND make
-    BUILD_IN_SOURCE 1
-    INSTALL_COMMAND ""
-)
-
-ExternalProject_Add(
     libsweetparse
     # no download since it's in a git submodule
     DOWNLOAD_COMMAND ""
@@ -59,9 +48,8 @@ include_directories(AFTER ./src
     ./libsweetparse/src 
     ./binscripter
     ./eigen/Eigen/src
-    ./assimp/include
 )
-link_directories(AFTER ./libsweetparse ./binscripter ./assimp/lib)
+link_directories(AFTER ./libsweetparse ./binscripter)
 
 set(CMAKE_CXX_FLAGS "-fPIC -g -Wall -std=c++11")
 
@@ -115,7 +103,6 @@ add_custom_target(lint
         --enable=performance
         -I ./src -I ./libsweetparse/src -I ./binscripter
         src/mreader.cpp ${ALL_SRCS})
- ./assimp/li ./assimp/libb
 add_custom_target(format
     COMMAND clang-format -i ${ALL_SRCS})
     
