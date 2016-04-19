@@ -32,26 +32,6 @@ JObj::JObj(DatFile const * datfile, jointdata_header * jobj) {
     // size of float and uint32_t are 4, so this is safe
     fix_endianness(jobj, sizeof(jointdata_header), 4);
 
-    // fix_endianness(&(jobj->flags), sizeof(uint32_t) * 4, 4);
-    // fix_endianness(&(jobj->inverseTransOff),
-    //                 sizeof(uint32_t), 4);
-
-    /*
-    cout << "----------" << endl;
-    cout << "thisOffset: " << this->offset << endl;
-    cout << "unknown0x0:     " << jobj->unknown0x0 << endl;
-    cout << "childOffset:    " << jobj->childOffset;
-    if (jobj->childOffset != 0) { 
-         cout << " (" << jobj->childOffset - this->offset << ")";
-    }
-    cout << endl;
-    cout << "nextPeerOffset: " << jobj->nextPeerOffset;
-    if (jobj->nextPeerOffset!= 0) { 
-         cout << " (" << jobj->nextPeerOffset - this->offset << ")";
-    }
-    cout << endl;
-    */
-
     if (jobj->childOffset != 0) {
         // cout << "## entering child of " << this->offset << endl;
         JObj * child = new JObj(datfile, (jointdata_header *) 

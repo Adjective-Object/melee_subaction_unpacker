@@ -5,7 +5,10 @@
 #include <vector>
 #include <map>
 
+#include <assimp>
+
 #include "dolfs/dobj.hpp"
+#include "dolfs/dolfs.hpp"
 
 #define JOBJ_FLAG_MIRROR 0b0001
 #define JOBJ_FLAG_INVERT_Y 0b0010
@@ -69,6 +72,7 @@ public:
      * Serializes the joint object to a BDF
      **/
     virtual void serialize();
+    public aiScene generateAiScene();
 };
 
 

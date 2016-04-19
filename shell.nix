@@ -22,6 +22,7 @@ in with pkgs; let
     ];
     
     dependencies = [
+        assimp
     ];
 
 in {
