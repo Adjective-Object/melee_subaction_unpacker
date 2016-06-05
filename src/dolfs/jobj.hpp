@@ -6,6 +6,7 @@
 #include <map>
 
 #include <assimp/scene.h>
+#include <assimp/mesh.h>
 
 #include "dolfs/dobj.hpp"
 #include "dolfs/dolfs.hpp"
@@ -61,6 +62,9 @@ class JObj : public DataProxy {
     int _serialize_bvh_structure(
             ofstream & fout, int indent, serialize_state st);
     int _serialize_bvh_parameters(ofstream & fout, float scaling_factor);
+    void _serialize_bones_to_mesh(aiMesh & mesh, aiNode & parentNode);
+
+    size_t totalNumBones();
 
 public:
     JObj(DatFile const *datheader, jointdata_header * jobj);

@@ -20,7 +20,7 @@ using namespace std;
 
 char *c_str_copy(string filepath) {
   const char *raw_fpath = filepath.c_str();
-  char *rfp = (char *)malloc(strlen(raw_fpath));
+  char *rfp = (char *)malloc(strlen(raw_fpath) + 1);
   strcpy(rfp, raw_fpath);
   return rfp;
 }

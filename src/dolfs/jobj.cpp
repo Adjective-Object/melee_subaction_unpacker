@@ -3,10 +3,15 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
+#include <sstream>
 #include <map>
 #include <cmath>
 #include <bitset>
 #include <cstring>
+
+#include <assimp/scene.h>
+#include <assimp/mesh.h>
+#include <assimp/Exporter.hpp>
 
 #include "helpers.hpp"
 #include "config.hpp"
@@ -138,26 +143,104 @@ void JObj::print(int indent) {
 
 
 void JObj::serialize() {
-    ofstream fout;
-    fout.open(JOINT_OUTPUT_PATH);
-    fout.precision(6);
-    fout << fixed;
-    fout << "HIERARCHY" << endl 
-         << "ROOT ";
+//    ofstream fout;
+//    fout.open(JOINT_OUTPUT_PATH);
+//    fout.precision(6);
+//    fout << fixed;
+//    fout << "HIERARCHY" << endl 
+//         << "ROOT ";
+//
+//    serialize_state st = {
+//        false, false, false
+//    };
+//
+//    this->_serialize_bvh_structure(fout, 0, st);
+//
+//    fout << "MOTION " << endl
+//         << "Frames: 100" << endl
+//         << "Frame Time: 1" << endl;
+//
+//    this->_serialize_bvh_parameters(fout, 360.0 / 3.14159 / 2);
+//    fout << endl;
 
-    serialize_state st = {
-        false, false, false
-    };
+    // generate the scene
+    aiScene * scene = new aiScene();
+    scene->mRootNode = new aiNode();
+    scene->mRootNode->mChildren = new aiNode*[1];
+    scene->mRootNode->mNumChildren = 0;
 
-    this->_serialize_bvh_structure(fout, 0, st);
+    // make a mesh
+    aiMesh * mesh = new aiMesh();
+    mesh->mBones = new aiBone*[this->totalNumBones()];
+    mesh->mNumBones = 0;
 
-    fout << "MOTION " << endl
-         << "Frames: 100" << endl
-         << "Frame Time: 1" << endl;
+    // add the mesh to the scene
+    scene->mMeshes = new aiMesh*[ 1 ];
+    scene->mMeshes[ 0 ] = mesh;
+    scene->mNumMeshes = 1;
 
-    this->_serialize_bvh_parameters(fout, 360.0 / 3.14159 / 2);
-    fout << endl;
+    // tell the root node it holds the global mesh '0'
+    scene->mRootNode->mMeshes = new unsigned int[ 1 ];
+    scene->mRootNode->mMeshes[ 0 ] = 0;
+    scene->mRootNode->mNumMeshes = 1;
+
+    // populate bones list of the mesh
+    this->_serialize_bones_to_mesh(*mesh, *(scene->mRootNode));
+
+    // dump to file
+    cout << "writing file " << JOINT_OUTPUT_PATH << endl;
+    Assimp::Exporter exporter = Assimp::Exporter();
+    const aiExportFormatDesc * exportFormatDesc = exporter.GetExportFormatDescription(EXPORT_FORMAT);
+    cout << "format: " << exportFormatDesc->id << endl;
+    if (0 > exporter.Export(scene, exportFormatDesc->id, JOINT_OUTPUT_PATH)) {
+        cout << "assimp error exporting scene" <<endl;
+    }
 }
+
+size_t JObj::totalNumBones() {
+    size_t boneCt = 1;
+
+    for (JObj * j: this->children) {
+        boneCt += j->totalNumBones();
+    }
+
+    return boneCt;
+}
+
+void JObj::_serialize_bones_to_mesh(aiMesh & mesh, aiNode & parentNode) {
+
+    // create the bone and put it on the mesh bone table
+    aiBone * bone = new aiBone();
+    // mesh.mBones[mesh.mNumBones] = bone;
+    // mesh.mNumBones++;
+
+    // attach a new node for the bone in the hierarchy
+    aiNode * node = new aiNode();
+    if (this->children.size() > 0) {
+        node->mChildren = new aiNode*[this->children.size()];
+    }
+    node->mNumChildren = 0;
+    parentNode.mChildren[parentNode.mNumChildren] = node;
+    parentNode.mNumChildren++;
+
+    // generate a unique name using the pointer to the bone
+    // and attach it to the child nodes in the scene
+    std::stringstream ss;
+    ss << &bone;
+    std::string name = ss.str(); 
+
+    // assign the same names to the node and the bone
+    node->mName = aiString(name);
+    bone->mName = aiString(name);
+
+    // attach each child
+    if (this->children.size() != 0) {
+        for (JObj *j : this->children) {
+            j->_serialize_bones_to_mesh(mesh, *node);
+        }
+    }
+}
+
 
 int JObj::_serialize_bvh_structure(
         ofstream & fout, 

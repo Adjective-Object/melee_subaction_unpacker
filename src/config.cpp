@@ -3,6 +3,8 @@
 #include <iostream>
 #include <unistd.h>
 
+#include <assimp/Exporter.hpp>
+
 unsigned int INDENT_SIZE = 4;
 
 uint32_t SPECIAL_SUBACTION_OFFSET = 0;
@@ -10,6 +12,7 @@ uint32_t SPECIAL_SUBACTION_COUNT = 0;
 uint32_t ROOT_OFFSET = 0;
 bool DETAILED_SUBACTION_PRINT = false;
 bool EXPORT;
+size_t EXPORT_FORMAT;
 
 char const * JOINT_OUTPUT_PATH = "output.bvh";
 
@@ -18,21 +21,53 @@ char const * JOINT_OUTPUT_PATH = "output.bvh";
 
 using namespace std;
 
+static void listOutputFormats() {
+    Assimp::Exporter exporter = Assimp::Exporter();
+    size_t num_formats = exporter.GetExportFormatCount();
+
+    for (size_t i=0; i<num_formats; i++) {
+        const aiExportFormatDesc * exportFormatDesc = 
+            exporter.GetExportFormatDescription(i);
+        cout << "           " << exportFormatDesc->id << endl;
+    }
+}
+
+static void assignOutputFormat(const char* s) {
+    Assimp::Exporter exporter = Assimp::Exporter();
+    size_t num_formats = exporter.GetExportFormatCount();
+
+    for (size_t i=0; i<num_formats; i++) {
+        const aiExportFormatDesc * desc = 
+            exporter.GetExportFormatDescription(i);
+        if (strcmp(desc->id, s) == 0) {
+            EXPORT_FORMAT = i;
+            return;
+        }
+    }
+    cout << "unrecognized format " << s;
+    cout << "output format must be one of" << endl;
+    listOutputFormats();
+    exit(1);
+}
+
 static void printHelp(char *pname) {
-  cerr << "usage:\n    " << pname << "[..args]"
+  cout << "usage:\n    " << pname << "[..args]"
        << "datfile" << endl;
-  cerr << "    "
+  cout << "    "
        << "-x   : export instead of printing" << endl;
-  cerr << "    "
+  cout << "    "
        << "-s n : Special Subaction Table Offset" << endl;
-  cerr << "    "
+  cout << "    "
        << "-c n : Special Subaction Table Count" << endl;
-  cerr << "    "
+  cout << "    "
        << "-d   : detailed subaction output" << endl;
-  cerr << "    "
+  cout << "    "
        << "-j   : output path for joint bdf" << endl;
-  cerr << "    "
+  cout << "    "
        << "-r   : root offset in datafile" << endl;
+  cout << "    "
+       << "-f   : output format when exporting, one of " << endl;
+  listOutputFormats();
 }
 
 char *parseConf(int argc, char **argv) {
@@ -40,7 +75,7 @@ char *parseConf(int argc, char **argv) {
   char *progname = argv[0];
   ios::fmtflags f(cout.flags());
 
-  while ((option_char = getopt(argc, argv, "s:c:dxj:r:")) != EOF) {
+  while ((option_char = getopt(argc, argv, "s:c:dxj:r:f:")) != EOF) {
     switch (option_char) {
     case 's':
       sscanf(optarg, "%x", &SPECIAL_SUBACTION_OFFSET);
@@ -63,6 +98,9 @@ char *parseConf(int argc, char **argv) {
       break;
     case 'r':
       sscanf(optarg, "%x", &ROOT_OFFSET);
+      break;
+    case 'f':
+      assignOutputFormat(optarg);
       break;
     case '?':
       printHelp(progname);
