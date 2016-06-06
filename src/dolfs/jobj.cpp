@@ -12,6 +12,8 @@
 #include <assimp/scene.h>
 #include <assimp/mesh.h>
 #include <assimp/Exporter.hpp>
+#include <assimp/matrix4x4.h>
+#include <assimp/vector3.h>
 
 #include "helpers.hpp"
 #include "config.hpp"
@@ -219,10 +221,17 @@ void JObj::_serialize_bones_to_mesh(aiMesh & mesh, aiNode & parentNode) {
     if (this->children.size() > 0) {
         node->mChildren = new aiNode*[this->children.size()];
     }
+
     node->mNumChildren = 0;
     parentNode.mChildren[parentNode.mNumChildren] = node;
     parentNode.mNumChildren++;
 
+    // create transform for the node
+    aiVector3t<float> translate = aiVector3t<float>(
+            this->jobj->translationX,
+            this->jobj->translationY,
+            this->jobj->translationZ);
+    aiMatrix4x4t<float>::Translation(translate, node->mTransformation);
 
     // generate a unique name using the pointer to the bone
     // and attach it to the child nodes in the scene
@@ -233,6 +242,7 @@ void JObj::_serialize_bones_to_mesh(aiMesh & mesh, aiNode & parentNode) {
     // assign the same names to the node and the bone
     node->mName = aiString(name);
     bone->mName = aiString(name);
+
 
     // attach each child
     if (this->children.size() != 0) {
