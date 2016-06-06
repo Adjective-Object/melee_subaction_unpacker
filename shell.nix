@@ -22,7 +22,7 @@ in with pkgs; let
     ];
     
     dependencies = [
-        assimp
+        unzip cmake boost zlib 
     ];
 
 in {

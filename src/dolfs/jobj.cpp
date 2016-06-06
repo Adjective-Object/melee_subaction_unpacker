@@ -211,8 +211,8 @@ void JObj::_serialize_bones_to_mesh(aiMesh & mesh, aiNode & parentNode) {
 
     // create the bone and put it on the mesh bone table
     aiBone * bone = new aiBone();
-    // mesh.mBones[mesh.mNumBones] = bone;
-    // mesh.mNumBones++;
+    mesh.mBones[mesh.mNumBones] = bone;
+    mesh.mNumBones++;
 
     // attach a new node for the bone in the hierarchy
     aiNode * node = new aiNode();
@@ -223,10 +223,11 @@ void JObj::_serialize_bones_to_mesh(aiMesh & mesh, aiNode & parentNode) {
     parentNode.mChildren[parentNode.mNumChildren] = node;
     parentNode.mNumChildren++;
 
+
     // generate a unique name using the pointer to the bone
     // and attach it to the child nodes in the scene
     std::stringstream ss;
-    ss << &bone;
+    ss << "joint_" << this->offset;
     std::string name = ss.str(); 
 
     // assign the same names to the node and the bone
@@ -244,7 +245,7 @@ void JObj::_serialize_bones_to_mesh(aiMesh & mesh, aiNode & parentNode) {
 
 int JObj::_serialize_bvh_structure(
         ofstream & fout, 
-        int indent, serialize_state st) {
+        int indent, serialize_state st)  {
 
     string ind(indent, '\t');
     fout << "joint_" << hex << this->offset << endl;

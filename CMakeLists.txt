@@ -9,16 +9,23 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
 ################
 # DEPENDENCIES #
 ################
-#ExternalProject_Add(
-#    eigen
-#    # no download since it's in a git submodule
-#    DOWNLOAD_COMMAND ""
-#    SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/eigen
-#    CONFIGURE_COMMAND cmake CmakeLists.txt
-#    BUILD_COMMAND make
-#    BUILD_IN_SOURCE 1
-#    INSTALL_COMMAND ""
-#)
+
+ExternalProject_Add(
+    project_assimp
+    # no download since it's in a git submodule
+    DOWNLOAD_COMMAND ""
+    SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/assimp
+    CONFIGURE_COMMAND cmake CmakeLists.txt
+    BUILD_COMMAND make
+    BUILD_IN_SOURCE 1
+    INSTALL_COMMAND ""
+)
+add_library(assimp SHARED IMPORTED)
+set_property(
+    TARGET assimp
+    PROPERTY IMPORTED_LOCATION 
+    ${CMAKE_CURRENT_SOURCE_DIR}/assimp/lib/libassimp.so)
+add_dependencies(assimp project_assimp)
 
 ExternalProject_Add(
     libsweetparse
@@ -42,12 +49,11 @@ ExternalProject_Add(
     INSTALL_COMMAND ""
 )
 
-
 # add dependencies to search path
 include_directories(AFTER ./src 
     ./libsweetparse/src 
     ./binscripter
-    ./eigen/Eigen/src
+    ./assimp/include
 )
 link_directories(AFTER ./libsweetparse ./binscripter)
 
@@ -89,7 +95,8 @@ set(ALL_SRCS ${LIB_SRCS} src/mreader.cpp)
 #####################
 add_executable(mreader
     src/mreader.cpp
-    $<TARGET_OBJECTS:MREADER_LIB>)
+    $<TARGET_OBJECTS:MREADER_LIB>
+    )
 target_link_libraries(mreader binscript sweetparse assimp)
 
 ########################################
