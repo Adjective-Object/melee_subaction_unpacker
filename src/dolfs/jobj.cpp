@@ -192,7 +192,8 @@ void JObj::serialize() {
     // dump to file
     cout << "writing file " << JOINT_OUTPUT_PATH << endl;
     Assimp::Exporter exporter = Assimp::Exporter();
-    const aiExportFormatDesc * exportFormatDesc = exporter.GetExportFormatDescription(EXPORT_FORMAT);
+    const aiExportFormatDesc * exportFormatDesc = 
+        exporter.GetExportFormatDescription(EXPORT_FORMAT);
     cout << "format: " << exportFormatDesc->id << endl;
     if (0 > exporter.Export(scene, exportFormatDesc->id, JOINT_OUTPUT_PATH)) {
         cout << "assimp error exporting scene" <<endl;
@@ -231,7 +232,38 @@ void JObj::_serialize_bones_to_mesh(aiMesh & mesh, aiNode & parentNode) {
             this->jobj->translationX,
             this->jobj->translationY,
             this->jobj->translationZ);
-    aiMatrix4x4t<float>::Translation(translate, node->mTransformation);
+    aiMatrix4x4::Translation(translate, node->mTransformation);
+    aiMatrix4x4 tmp;
+
+    // process flags to do additional transformations
+    // cout << std::bitset<32>(this->jobj->unknown0x0) << endl;
+    // cout << std::bitset<32>(this->jobj->unknown0x3C) << endl;
+    cout << this->offset << " "
+         << std::bitset<32>(this->jobj->flags) << endl;
+    if (((this->jobj->flags >> 3) & 1) == 1 && 
+        ((this->jobj->flags >> 0) & 1) == 0) {
+        cout << BLUE << "inverting" << RESET << endl;
+        
+        aiMatrix4x4::RotationX(90.0f / 360.0f * 3.14159 * 180, tmp);
+        // node->mTransformation *= tmp;
+
+        translate = aiVector3t<float>(1, -1, 1);
+        aiMatrix4x4::Scaling(translate, tmp);
+        node->mTransformation *= tmp;
+    }
+
+    if ((this->jobj->flags >> 2) & 1 == 1) {
+        translate = aiVector3t<float>(-1, -1, 1);
+        aiMatrix4x4::Scaling(translate, tmp);
+        node->mTransformation *= tmp;
+    }
+
+    aiMatrix4x4::RotationY((float) this->jobj->rotationY, tmp);
+    node->mTransformation *= tmp;
+    aiMatrix4x4::RotationX((float) this->jobj->rotationX, tmp);
+    node->mTransformation *= tmp;
+    aiMatrix4x4::RotationZ((float) this->jobj->rotationZ, tmp);
+    node->mTransformation *= tmp;
 
     // generate a unique name using the pointer to the bone
     // and attach it to the child nodes in the scene
@@ -252,113 +284,3 @@ void JObj::_serialize_bones_to_mesh(aiMesh & mesh, aiNode & parentNode) {
     }
 }
 
-
-int JObj::_serialize_bvh_structure(
-        ofstream & fout, 
-        int indent, serialize_state st)  {
-
-    string ind(indent, '\t');
-    fout << "joint_" << hex << this->offset << endl;
-    fout << ind << "{" << endl;
-    fout << ind << '\t' << "OFFSET ";
-
-    cout << hex << this->offset << ": " 
-         << dec << bitset<32>(this->jobj->flags).to_string() << endl;
-   
-    float   tX = this->jobj->translationX,
-            tY = this->jobj->translationY,
-            tZ = this->jobj->translationZ;
-
-    //
-    // TODO process flags
-    //
-   
-    if (this->jobj->flags & 0x20000) {
-        cout << RED << "JOBJ_USE_QUATERNION" << RESET << endl;
-    } else {
-        // joint uses Euler angles, not Quaternions
-    }
-
-    if (((this->jobj->flags >> 3) & 1) == 1 && 
-        ((this->jobj->flags >> 0) & 1) == 0) {
-        cout << BLUE << "inverting" << RESET << endl;
-        st.x = ! st.x;
-        st.y = ! st.y;
-    }
-
-    fout << (st.x ? -1 : 1) * tX << " " 
-         << (st.y ? -1 : 1) * tY << " " 
-         << (st.z ? -1 : 1) * tZ << " " << endl;
-
-    fout << ind << '\t' << "CHANNELS 3 "
-         << "Zrotation Yrotation Xrotation "
-         // << "Zscale Xscale Yscale"
-         << endl;
-
-    int sum_child = 1;
-    if (this->children.size() != 0) {
-        for (JObj *j : this->children) {
-            fout << ind << '\t' << "JOINT ";
-            sum_child += j->_serialize_bvh_structure(
-                    fout, indent + 1, st);
-        }
-    }
-    else {
-        // check that end nodes all have a rotation of 0
-        /*
-        if (abs(j->jobj->rotationZ) > 0.00001 ||
-            abs(j->jobj->rotationY) > 0.00001 ||
-            abs(j->jobj->rotationX) > 0.00001) {
-            cout << "expected end node to have rotation 0" << endl;
-            cout << "end node has rotation " 
-                 << " Z=" << j->jobj->rotationZ
-                 << " Y=" << j->jobj->rotationY
-                 << " X=" << j->jobj->rotationX
-                 << endl;
-            exit(1);
-        }
-        */
-
-        fout << ind << '\t' << "End Site" << endl;
-        fout << ind << '\t' << "{" <<endl;
-
-        fout << ind << "\t\t" << "OFFSET " 
-             << "0 0 0 "
-            /*
-             << j->jobj->translationX << " " 
-             << j->jobj->translationY << " " 
-             << j->jobj->translationZ << " " 
-             */
-             << endl;
-
-        fout << ind << '\t' << "}" <<endl;
-    }
-
-    fout << endl << ind << "}" << endl;
-
-    return sum_child;
-}
-
-
-int JObj::_serialize_bvh_parameters(ofstream & fout, 
-        float scaling_factor) {
-    float rotZ = this->jobj->rotationZ * scaling_factor, 
-          rotY = this->jobj->rotationY * scaling_factor,
-          rotX = this->jobj->rotationX * scaling_factor;
-
-    //
-    // process flags
-    //
-    
-    fout << rotZ << " "
-         << rotX << " "
-         << rotY << " ";
-
-    int sum_child = 1;
-    for (JObj *j : this->children) {
-        sum_child += j->_serialize_bvh_parameters(
-                fout, scaling_factor);
-    }
-
-    return sum_child;
-}
