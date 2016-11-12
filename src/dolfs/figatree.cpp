@@ -9,6 +9,13 @@
 #include "dolfs/animation_track.hpp"
 #include "gxtypes.hpp"
 
+#include <assimp/scene.h>
+#include <assimp/anim.h>
+#include <assimp/mesh.h>
+#include <assimp/Exporter.hpp>
+#include <assimp/matrix4x4.h>
+#include <assimp/vector3.h>
+
 FigaTree::FigaTree(
         const DatFile * datfile, figatree_header * fig) :
         fig(fig), datfile(datfile) {
@@ -109,7 +116,12 @@ TrackCtTable::TrackCtTable(const DatFile * datfile, unsigned char * head) :
 
     unsigned char * c = head;
     numTracks = 0;
-    while (*c != 0xFF) {numTracks += *c; c++;}
+    numBones = 0;
+    while (*c != 0xFF) {
+        numBones++;
+        numTracks += *c;
+        c++;
+    }
     this->length = c - head;
     cout << RED << numTracks << RESET << endl;
     
@@ -131,6 +143,50 @@ void TrackCtTable::print(int indent) {
 void TrackCtTable::serialize() {
     // TODO
 }
+
+aiNodeAnim * FigaTree::writeBoneTracks(
+        char * mNodeName,
+        TrackHeader * headers,
+        size_t len) {
+    unsigned int numFrames = this->fig->num_frames;
+
+    // init the anim
+    aiNodeAnim * newAnim = new aiNodeAnim();
+    newAnim->mNodeName = aiString(mNodeName);
+    newAnim->mNumPositionKeys = (int) numFrames;
+    newAnim->mPositionKeys = new aiVectorKey[(int) numFrames];
+    newAnim->mNumRotationKeys= (int) numFrames;
+    newAnim->mRotationKeys = new aiQuatKey[(int) numFrames];
+    newAnim->mNumScalingKeys = (int) numFrames;
+    newAnim->mScalingKeys = new aiVectorKey[(int) numFrames];
+
+    // initialize
+    for(unsigned int i=0; i<numFrames; i++) {
+        aiVectorKey* currentKey = &(newAnim->mPositionKeys[i]);
+        currentKey->mTime = 1.0F/60;
+        currentKey->mValue = aiVector3D(0, 0, 0);
+    }
+
+    // write
+    for(unsigned int i=0; i<len; i++) {
+        headers[i].writeTrack(newAnim, numFrames);
+    }
+
+    return newAnim;
+}
+
+void FigaTree::writeAllBoneTracks() {
+    unsigned int currentTrack = 0;
+    unsigned int numTracks = trackCtTable->numTracks;
+    aiNodeAnim * anims = new aiNodeAnim[trackCtTable->numBones];
+
+    while(currentTrack < numTracks) {
+        unsigned int thisStep = trackCtTable->head[currentTrack];
+        writeBoneTracks("SomeBone", this->animDatas[currentTrack], thisStep);
+
+        currentTrack += thisStep;
+    }
+};
 
 
 

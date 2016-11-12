@@ -25,13 +25,17 @@ class FigaTree : public DataProxy {
 
     TrackCtTable * trackCtTable;
     TrackHeader ** animDatas;
+
+    aiNodeAnim * writeBoneTracks(
+        char * mNodeName,
+        TrackHeader * headers,
+        size_t len);
 public:
     FigaTree(const DatFile * datfile, figatree_header * fig);
     void print(int indent = 0);
     void serialize();
+    void writeAllBoneTracks();
 };
-
-
 
 
 
@@ -40,10 +44,11 @@ class TrackCtTable : public DataProxy {
 public:
     unsigned char * head;
     size_t length;
-    size_t numTracks;
+    size_t numTracks, numBones;
     TrackCtTable(const DatFile * datfile, unsigned char* head);
     void print(int indent = 0);
     void serialize();
+
 };
 
 

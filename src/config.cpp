@@ -13,6 +13,7 @@ uint32_t ROOT_OFFSET = 0;
 bool DETAILED_SUBACTION_PRINT = false;
 bool EXPORT;
 size_t EXPORT_FORMAT;
+size_t NUM_FILES;
 
 char const * JOINT_OUTPUT_PATH = "output.bvh";
 
@@ -70,7 +71,7 @@ static void printHelp(char *pname) {
   listOutputFormats();
 }
 
-char *parseConf(int argc, char **argv) {
+char **parseConf(int argc, char **argv) {
   char option_char;
   char *progname = argv[0];
   ios::fmtflags f(cout.flags());
@@ -108,6 +109,7 @@ char *parseConf(int argc, char **argv) {
     }
   }
   cout.flags(f);
+  NUM_FILES = argc = optind;
 
-  return argv[optind];
+  return argv + optind;
 }

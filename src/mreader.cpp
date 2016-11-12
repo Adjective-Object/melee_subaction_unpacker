@@ -79,22 +79,25 @@ int main(int argc, char **argv) {
                   "host endianness does not match gamecube datfile endianness")
        << endl;
 
-  char *filename = parseConf(argc, argv);
+  char **filenames = parseConf(argc, argv);
   initializeEventMap("./melee.langdef");
 
-  printf("%s\n", filename);
-  void * mmap_origin = makeOperatingFile(filename);
-  MMAP_ORIGIN = mmap_origin;
-  cout << "mmap origin: " << mmap_origin << endl;
-  dat_header *datfile = (dat_header *)((char *) mmap_origin + ROOT_OFFSET);
-  cout << "ROOT OFFSET: " << ROOT_OFFSET << endl;
-  cout << "datfile origin: " << datfile << endl;
+  for (unsigned int i=0; i<NUM_FILES; i++) {
+    char * filename = filenames[i];
+    printf("%s\n", filename);
+    void * mmap_origin = makeOperatingFile(filename);
+    MMAP_ORIGIN = mmap_origin;
+    cout << "mmap origin: " << mmap_origin << endl;
+    dat_header *datfile = (dat_header *)((char *) mmap_origin + ROOT_OFFSET);
+    cout << "ROOT OFFSET: " << ROOT_OFFSET << endl;
+    cout << "datfile origin: " << datfile << endl;
 
-  DatFile *dat = new DatFile(datfile);
-  if (EXPORT) {
-    dat->serialize();
-  } else {
-    dat->print();
+    DatFile *dat = new DatFile(datfile);
+    if (EXPORT) {
+      dat->serialize();
+    } else {
+      dat->print();
+    }  
   }
 
   return 0;

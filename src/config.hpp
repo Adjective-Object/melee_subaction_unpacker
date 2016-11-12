@@ -12,9 +12,10 @@ extern uint32_t ROOT_OFFSET;
 extern bool DETAILED_SUBACTION_PRINT;
 extern bool EXPORT;
 extern size_t EXPORT_FORMAT;
+extern size_t NUM_FILES;
 
 extern char const * JOINT_OUTPUT_PATH;
 
-char *parseConf(int argc, char **args);
+char **parseConf(int argc, char **args);
 
 #endif

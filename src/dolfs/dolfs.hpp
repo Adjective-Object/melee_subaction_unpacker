@@ -92,6 +92,7 @@ class DatInspector : public DataProxy {
 public:
     DatInspector(const DatFile * datfile, void * data, size_t size);
     void print(int indent = 0);
+    void move(void * data, size_t size);
     void printRaw(int indent = 0, size_t columnWidth = 8, size_t = -1);
     virtual void serialize(){};
 };

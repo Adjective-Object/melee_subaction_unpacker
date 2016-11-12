@@ -153,6 +153,11 @@ DatInspector::DatInspector(const DatFile * datfile, void * data, size_t size) :
     // fix_endianness(data, size, sizeof(uint16_t));
 }
 
+void DatInspector::move(void * data, size_t size) {
+    this->data = data;
+    this->size = size;
+}
+
 void DatInspector::print(int indent) {
     string ind(indent * INDENT_SIZE, ' ');
     cout << dec << setfill(' ');
