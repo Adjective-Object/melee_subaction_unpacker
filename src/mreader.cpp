@@ -9,6 +9,7 @@
 #include <sys/mman.h>
 
 #include <libgen.h>
+#include <assimp/scene.h>
 
 #include "macros.hpp"
 #include "event_mapper.hpp"
@@ -75,30 +76,39 @@ void *makeOperatingFile(string filepath) {
 }
 
 int main(int argc, char **argv) {
-  cout << endiswp("host endianness matches gamecube datfile endianness",
+    cout << endiswp("host endianness matches gamecube datfile endianness",
                   "host endianness does not match gamecube datfile endianness")
        << endl;
 
-  char **filenames = parseConf(argc, argv);
-  initializeEventMap("./melee.langdef");
+    char **filenames = parseConf(argc, argv);
+    initializeEventMap("./melee.langdef");
 
-  for (unsigned int i=0; i<NUM_FILES; i++) {
-    char * filename = filenames[i];
-    printf("%s\n", filename);
-    void * mmap_origin = makeOperatingFile(filename);
-    MMAP_ORIGIN = mmap_origin;
-    cout << "mmap origin: " << mmap_origin << endl;
-    dat_header *datfile = (dat_header *)((char *) mmap_origin + ROOT_OFFSET);
-    cout << "ROOT OFFSET: " << ROOT_OFFSET << endl;
-    cout << "datfile origin: " << datfile << endl;
-
-    DatFile *dat = new DatFile(datfile);
+    aiScene * scene;
     if (EXPORT) {
-      dat->serialize();
-    } else {
-      dat->print();
-    }  
-  }
+        // generate the scene
+        scene = new aiScene();
+        scene->mRootNode = new aiNode();
+        scene->mRootNode->mChildren = new aiNode*[1];
+        scene->mRootNode->mNumChildren = 0;
+    }
 
-  return 0;
+    for (unsigned int i=0; i<NUM_FILES; i++) {
+        char * filename = filenames[i];
+        printf("%s\n", filename);
+        void * mmap_origin = makeOperatingFile(filename);
+        MMAP_ORIGIN = mmap_origin;
+        cout << "mmap origin: " << mmap_origin << endl;
+        dat_header *datfile = (dat_header *)((char *) mmap_origin + ROOT_OFFSET);
+        cout << "ROOT OFFSET: " << ROOT_OFFSET << endl;
+        cout << "datfile origin: " << datfile << endl;
+
+        DatFile *dat = new DatFile(datfile);
+        if (EXPORT) {
+            dat->serialize(scene);
+        } else {
+            dat->print();
+        }
+    }
+
+    return 0;
 }

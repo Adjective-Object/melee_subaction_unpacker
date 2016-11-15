@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <vector>
 #include <map>
+#include <assimp/scene.h>
 
 using namespace std;
 
@@ -37,7 +38,7 @@ class FtData : public DataProxy {
 public:
   FtData(const DatFile *datheader, ftdata_header *header);
   void print(int indent = 0);
-  void serialize();
+  void serialize(aiScene *scene);
 };
 
 
@@ -185,7 +186,7 @@ class FtDataAttributes : public DataProxy {
 public:
   FtDataAttributes(const DatFile *datheader, ftdata_attribute_table *header);
   void print(int indent = 0);
-  void serialize();
+  void serialize(aiScene *scene);
 };
 
 
@@ -218,7 +219,7 @@ public:
   FtDataSubaction(const DatFile *datheader, unsigned int index,
                   subaction_header *header);
   void print(int indent);
-  void serialize();
+  void serialize(aiScene *scene);
 };
 
 

@@ -144,7 +144,7 @@ void JObj::print(int indent) {
 }
 
 
-void JObj::serialize() {
+void JObj::serialize(aiScene *scene) {
 //    ofstream fout;
 //    fout.open(JOINT_OUTPUT_PATH);
 //    fout.precision(6);
@@ -164,12 +164,6 @@ void JObj::serialize() {
 //
 //    this->_serialize_bvh_parameters(fout, 360.0 / 3.14159 / 2);
 //    fout << endl;
-
-    // generate the scene
-    aiScene * scene = new aiScene();
-    scene->mRootNode = new aiNode();
-    scene->mRootNode->mChildren = new aiNode*[1];
-    scene->mRootNode->mNumChildren = 0;
 
     // make a mesh
     aiMesh * mesh = new aiMesh();
@@ -252,7 +246,7 @@ void JObj::_serialize_bones_to_mesh(aiMesh & mesh, aiNode & parentNode) {
         node->mTransformation *= tmp;
     }
 
-    if ((this->jobj->flags >> 2) & 1 == 1) {
+    if (((this->jobj->flags >> 2) & 1) == 1) {
         translate = aiVector3t<float>(-1, -1, 1);
         aiMatrix4x4::Scaling(translate, tmp);
         node->mTransformation *= tmp;

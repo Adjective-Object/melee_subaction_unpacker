@@ -5,6 +5,7 @@
 #include "dolfs/dolfs.hpp"
 #include "gxtypes.hpp"
 #include <assimp/anim.h>
+#include <assimp/scene.h>
 
 typedef enum animation_track_type {
     X_ROTATION = 1,
@@ -63,7 +64,7 @@ public:
     TrackHeader(const DatFile * datfile, track_header * animhead);
     void informNextOffset(size_t nextOffset);
     void print(int indent = 0);
-    void serialize();
+    void serialize(aiScene *scene);
     void writeTrack(aiNodeAnim * newAnim, size_t maxFrames);
 
     uint8_t* print_anim_data(int indent, uint8_t * data, uint8_t val, uint8_t tan);

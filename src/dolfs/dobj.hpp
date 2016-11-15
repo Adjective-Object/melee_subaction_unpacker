@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <vector>
 #include <map>
+#include <assimp/scene.h>
 
 class DObj;
 
@@ -27,7 +28,7 @@ public:
 
     DObj(DatFile const * datheader, gameobject_header * gameobj);
     void print(int indent = 0);
-    virtual void serialize();
+    virtual void serialize(aiScene *scene);
 };
 
 

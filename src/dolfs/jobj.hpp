@@ -75,7 +75,7 @@ public:
     /**
      * Serializes the joint object to a BDF
      **/
-    virtual void serialize();
+    virtual void serialize(aiScene *scene);
     aiScene generateAiScene();
 };
 

@@ -448,9 +448,9 @@ void TrackHeader::writeTrack(
                     &tangent_next);
         }
 
-        double interpolatedValue = 
-            value + (value_next - value) * 
-            (1 - (remainingFrames / (float) track.numFrames));
+        double interpolatedValue;
+        interpolatedValue = value + (value_next - value) *
+                                    (1 - (remainingFrames / (float) track.numFrames));
 
         aiVectorKey* currentPKey = &(newAnim->mPositionKeys[i]);
         aiVectorKey* currentSKey = &(newAnim->mScalingKeys[i]);
@@ -491,6 +491,6 @@ void TrackHeader::writeTrack(
     }
 }
 
-void TrackHeader::serialize() {
+void TrackHeader::serialize(aiScene *scene) {
 }
 

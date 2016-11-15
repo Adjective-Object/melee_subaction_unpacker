@@ -1,14 +1,12 @@
-#include "macros.hpp"
+
 #include "event_mapper.hpp"
 #include <iostream>
 #include <iomanip>
-#include <map>
 #include <cstring>
 
 #include "helpers.hpp"
 #include "config.hpp"
 
-#include "dolfs/dolfs.hpp"
 #include "dolfs/ftdata.hpp"
 #include "dolfs/jobj.hpp"
 #include "dolfs/figatree.hpp"
@@ -113,10 +111,10 @@ void DatFile::print(int indent) {
   }
 }
 
-void DatFile::serialize() {
+void DatFile::serialize(aiScene *scene) {
     map<string, DataProxy *>::iterator iter;
     for (iter = children.begin(); iter != children.end(); ++iter) {
-        iter->second->serialize();
+        iter->second->serialize(nullptr);
     }
 }
 

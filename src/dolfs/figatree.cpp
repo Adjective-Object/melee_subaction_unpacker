@@ -103,8 +103,9 @@ void FigaTree::print(int indent) {
     }
 }
 
-void FigaTree::serialize() {
-    // TODO
+void FigaTree::serialize(aiScene *scene) {
+    aiNodeAnim * animations = this->writeAllBoneTracks(scene->mMeshes[0]);
+    scene->mAnimations[0] = animation;
 }
 
 
@@ -140,7 +141,7 @@ void TrackCtTable::print(int indent) {
     cout << endl;
 }
 
-void TrackCtTable::serialize() {
+void TrackCtTable::serialize(aiScene *scene) {
     // TODO
 }
 
@@ -175,17 +176,26 @@ aiNodeAnim * FigaTree::writeBoneTracks(
     return newAnim;
 }
 
-void FigaTree::writeAllBoneTracks() {
+aiNodeAnim * FigaTree::writeAllBoneTracks(aiMesh * mesh) {
     unsigned int currentTrack = 0;
-    unsigned int numTracks = trackCtTable->numTracks;
+    unsigned int currentBone = 0;
+    unsigned int numBones = trackCtTable->numBones;
     aiNodeAnim * anims = new aiNodeAnim[trackCtTable->numBones];
 
-    while(currentTrack < numTracks) {
+    while(currentTrack < numBones) {
+        // write some number of tracks corresponding to the thing
         unsigned int thisStep = trackCtTable->head[currentTrack];
-        writeBoneTracks("SomeBone", this->animDatas[currentTrack], thisStep);
+
+        aiBone * bone = mesh->mBones[currentBone];
+        aiString * name = &(bone->mName);
+
+        writeBoneTracks(name->data, this->animDatas[currentTrack], thisStep);
 
         currentTrack += thisStep;
+        currentBone++;
     }
+
+    return anims;
 };
 
 

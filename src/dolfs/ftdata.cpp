@@ -4,6 +4,7 @@
 #include <iomanip>
 #include <map>
 #include <cstring>
+#include <assimp/scene.h>
 
 #include "helpers.hpp"
 #include "config.hpp"
@@ -403,13 +404,13 @@ void FtDataSubaction::print(int indent /*=0*/) {
   cout.flags(f);
 }
 
-void FtData::serialize() {
+void FtData::serialize(aiScene *scene) {
     // TODO implement serialization
 }
-void FtDataAttributes::serialize() {
+void FtDataAttributes::serialize(aiScene *scene) {
     // TODO implement serialization
 }
-void FtDataSubaction::serialize() {
+void FtDataSubaction::serialize(aiScene *scene) {
     // TODO implement serialization
 }
 

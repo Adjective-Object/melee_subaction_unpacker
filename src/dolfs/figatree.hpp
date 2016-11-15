@@ -1,6 +1,7 @@
 #ifndef MREADER_FIGATREE_HEADER
 #define MREADER_FIGATREE_HEADER
 
+#include <assimp/scene.h>
 #include "dolfs/dolfs.hpp"
 #include "dolfs/animation_track.hpp"
 #include "gxtypes.hpp"
@@ -33,8 +34,8 @@ class FigaTree : public DataProxy {
 public:
     FigaTree(const DatFile * datfile, figatree_header * fig);
     void print(int indent = 0);
-    void serialize();
-    void writeAllBoneTracks();
+    void serialize(aiScene *scene);
+    aiNodeAnim *writeAllBoneTracks(aiMesh *pMesh);
 };
 
 
@@ -47,7 +48,7 @@ public:
     size_t numTracks, numBones;
     TrackCtTable(const DatFile * datfile, unsigned char* head);
     void print(int indent = 0);
-    void serialize();
+    void serialize(aiScene *scene);
 
 };
 

@@ -4,6 +4,7 @@
 #include <iomanip>
 #include <map>
 #include <cstring>
+#include <assimp/scene.h>
 
 #include "helpers.hpp"
 #include "config.hpp"
@@ -53,7 +54,7 @@ void DObj::print(int indent) {
     cout.flags(f);
 }
 
-void DObj::serialize() {
+void DObj::serialize(aiScene *scene) {
 }
 
 

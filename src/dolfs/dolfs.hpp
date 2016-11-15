@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <vector>
 #include <map>
+#include <assimp/scene.h>
 
 using namespace std;
 
@@ -41,7 +42,7 @@ typedef struct dat_root_node {
 class DataProxy {
 public:
   virtual void print(int indent = 0) = 0;
-  virtual void serialize() = 0;
+  virtual void serialize(aiScene *scene) = 0;
 };
 
 
@@ -61,7 +62,7 @@ public:
 public:
   DatFile(dat_header *head);
   void print(int indent = 0);
-  virtual void serialize();
+  virtual void serialize(aiScene *scene);
   bool ptrIsRelocation(void * p) const;
 };
 
@@ -77,7 +78,7 @@ class AnonymousData : public DataProxy {
 public:
   AnonymousData(const DatFile * datfile, void *address);
   void print(int indent = 0);
-  virtual void serialize(){};
+  virtual void serialize(aiScene *scene) {};
 };
 
 
@@ -94,7 +95,7 @@ public:
     void print(int indent = 0);
     void move(void * data, size_t size);
     void printRaw(int indent = 0, size_t columnWidth = 8, size_t = -1);
-    virtual void serialize(){};
+    virtual void serialize(aiScene *scene) {};
 };
 
 
