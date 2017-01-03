@@ -109,7 +109,7 @@ char **parseConf(int argc, char **argv) {
     }
   }
   cout.flags(f);
-  NUM_FILES = argc = optind;
+  NUM_FILES = argc - optind;
 
   return argv + optind;
 }

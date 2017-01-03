@@ -1,6 +1,7 @@
 #ifndef MREADER_ANIM_TRACK
 #define MREADER_ANIM_TRACK
 
+#include <set>
 #include <stdint.h>
 #include "dolfs/dolfs.hpp"
 #include "gxtypes.hpp"
@@ -66,6 +67,9 @@ public:
     void print(int indent = 0);
     void serialize(aiScene *scene);
     void writeTrack(aiNodeAnim * newAnim, size_t maxFrames);
+    void readKeyframeTimes(
+        set<int> & positionTimes,
+        set<int> & rotationTimes);
 
     uint8_t* print_anim_data(int indent, uint8_t * data, uint8_t val, uint8_t tan);
 };

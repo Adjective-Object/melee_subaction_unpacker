@@ -28,14 +28,14 @@ class FigaTree : public DataProxy {
     TrackHeader ** animDatas;
 
     aiNodeAnim * writeBoneTracks(
-        char * mNodeName,
-        TrackHeader * headers,
+        aiString * string,
+        TrackHeader ** tracks,
         size_t len);
 public:
     FigaTree(const DatFile * datfile, figatree_header * fig);
     void print(int indent = 0);
     void serialize(aiScene *scene);
-    aiNodeAnim *writeAllBoneTracks(aiMesh *pMesh);
+    vector<aiNodeAnim *> *writeAllBoneTracks(aiMesh *pMesh);
 };
 
 

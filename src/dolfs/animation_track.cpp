@@ -407,6 +407,50 @@ uint8_t * read_gx_pair(
     return buffer;
 }
 
+void TrackHeader::readKeyframeTimes(
+        set<int> & positionTimes,
+        set<int> & rotationTimes) {
+    GXConfig g;
+    readConfig(&g, this->animhead);
+    
+    uint8_t * buffer = (uint8_t *) (datfile->dataSection + animhead->animdataOffset);
+    keyframe_head track;
+ 
+    float value, tangent;
+    buffer = readKeyframeHead(buffer, &track);
+
+    int time = 0;
+    for(int i=0; i<track.numFrames; i++) {
+        // pass over value
+        buffer = read_gx_pair(buffer,
+                track.interpolation_type,
+                &g,
+                &value,
+                &tangent);
+
+        // duration
+        unsigned int duration;
+        duration = *buffer & 0x7F;
+        buffer = read_varlen_int(buffer, &duration);
+
+        switch(this->animhead->track_type) {
+            case X_ROTATION:
+            case Y_ROTATION:
+            case Z_ROTATION:
+                rotationTimes.insert(time);
+                break;
+            case X_TRANSLATION:
+            case Y_TRANSLATION:
+            case Z_TRANSLATION:
+                positionTimes.insert(time);
+                break;
+            default:
+                break;
+        }
+        time += duration;
+    }
+}
+
 void TrackHeader::writeTrack(
         aiNodeAnim * newAnim,
         size_t maxFrames
@@ -415,42 +459,34 @@ void TrackHeader::writeTrack(
     readConfig(&g, this->animhead);
     
     uint8_t * buffer = (uint8_t *) (datfile->dataSection + animhead->animdataOffset);
-
+ 
     keyframe_head track;
     buffer = readKeyframeHead(buffer, &track);
 
-    size_t remainingKeyFrames = track.numFrames;
-    size_t remainingFrames = 0;
-
-    float tangent = 0, value = 0, tangent_next = 0, value_next = 0;
-
-    buffer = read_gx_pair(
+    int frameTime = 0;
+    size_t numFrames = track.numFrames;
+    cout << "num Frames:" << numFrames;
+    if (numFrames > maxFrames) numFrames = maxFrames;
+    float tangent = 0, value = 0;
+    for(int i=0; i<numFrames; i++) {
+        buffer = read_gx_pair(
             buffer,
             track.interpolation_type,
             &g,
-            &value_next,
-            &tangent_next);
-    
-    for(unsigned int i=0; i<maxFrames; i++) {
-        if (remainingKeyFrames <= 0) {
-            buffer = readKeyframeHead(buffer, &track);
-            remainingKeyFrames = track.numFrames;
+            &value,
+            &tangent);
+
+        unsigned int duration;
+        duration = *buffer & 0x7F;
+        buffer = read_varlen_int(buffer, &duration);
+        frameTime += duration;
+
+        if (duration == 0) {
+            i--;
+            continue;
         }
 
-        if (remainingFrames <= 0) {
-            value = value_next;
-            tangent = tangent_next;
-            buffer = read_gx_pair(
-                    buffer,
-                    track.interpolation_type,
-                    &g,
-                    &value_next,
-                    &tangent_next);
-        }
-
-        double interpolatedValue;
-        interpolatedValue = value + (value_next - value) *
-                                    (1 - (remainingFrames / (float) track.numFrames));
+        std::cout << "value: " << value << " " << "duration " << duration << " ";
 
         aiVectorKey* currentPKey = &(newAnim->mPositionKeys[i]);
         aiVectorKey* currentSKey = &(newAnim->mScalingKeys[i]);
@@ -458,31 +494,40 @@ void TrackHeader::writeTrack(
         // TODO fill me out
         switch(this->animhead->track_type) {
             case X_ROTATION: 
-                currentRKey->mValue.x = interpolatedValue;
+                std::cout << "ROT X" << std::endl;
+                currentRKey->mValue.x = value;
                 break;
             case Y_ROTATION: 
-                currentRKey->mValue.y = interpolatedValue;
+                std::cout << "ROT Y" << std::endl;
+                currentRKey->mValue.y = value;
                 break;
             case Z_ROTATION: 
-                currentRKey->mValue.z = interpolatedValue;
+                std::cout << "ROT Z" << std::endl;
+                currentRKey->mValue.z = value;
                 break;
             case X_TRANSLATION: 
-                currentPKey->mValue.x = interpolatedValue;
+                std::cout << "TRA X" << std::endl;
+                currentPKey->mValue.x = value;
                 break;
             case Y_TRANSLATION: 
-                currentPKey->mValue.y = interpolatedValue;
+                std::cout << "TRA X" << std::endl;
+                currentPKey->mValue.y = value;
                 break;
             case Z_TRANSLATION: 
-                currentPKey->mValue.z = interpolatedValue;
+                std::cout << "TRA X" << std::endl;
+                currentPKey->mValue.z = value;
                 break;
             case X_SCALE: 
-                currentSKey->mValue.x = interpolatedValue;
+                std::cout << "SCL X" << std::endl;
+                currentSKey->mValue.x = value;
                 break;
             case Y_SCALE: 
-                currentSKey->mValue.y = interpolatedValue;
+                std::cout << "SCL X" << std::endl;
+                currentSKey->mValue.y = value;
                 break;
             case Z_SCALE: 
-                currentSKey->mValue.z = interpolatedValue;
+                std::cout << "SCL X" << std::endl;
+                currentSKey->mValue.z = value;
                 break;
             default: 
                 break;

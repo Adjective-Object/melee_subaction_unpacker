@@ -1,7 +1,5 @@
 #include <iostream>
 #include <fstream>
-#include <cstdint>
-#include <string>
 #include <cstring>
 
 #include <fcntl.h>
@@ -10,10 +8,10 @@
 
 #include <libgen.h>
 #include <assimp/scene.h>
+#include <assimp/Exporter.hpp>
 
 #include "macros.hpp"
 #include "event_mapper.hpp"
-#include "dolfs/dolfs.hpp"
 #include "config.hpp"
 #include "helpers.hpp"
 
@@ -92,11 +90,15 @@ int main(int argc, char **argv) {
         scene->mRootNode->mNumChildren = 0;
     }
 
+
+
     for (unsigned int i=0; i<NUM_FILES; i++) {
         char * filename = filenames[i];
-        printf("%s\n", filename);
+        printf("%d: %s\n", i, filename);
+
         void * mmap_origin = makeOperatingFile(filename);
         MMAP_ORIGIN = mmap_origin;
+
         cout << "mmap origin: " << mmap_origin << endl;
         dat_header *datfile = (dat_header *)((char *) mmap_origin + ROOT_OFFSET);
         cout << "ROOT OFFSET: " << ROOT_OFFSET << endl;
@@ -107,6 +109,31 @@ int main(int argc, char **argv) {
             dat->serialize(scene);
         } else {
             dat->print();
+        }
+    }
+
+    if (EXPORT) {
+        // dump to file
+        cout << "writing file " << JOINT_OUTPUT_PATH << endl;
+        Assimp::Exporter exporter = Assimp::Exporter();
+        const aiExportFormatDesc * exportFormatDesc =
+                exporter.GetExportFormatDescription(EXPORT_FORMAT);
+        cout << "format: " << exportFormatDesc->id << endl;
+        int error_code = exporter.Export(scene, exportFormatDesc->id, JOINT_OUTPUT_PATH);
+        if (0 > error_code) {
+            cout << "assimp error (";
+            switch(error_code) {
+                case aiReturn_FAILURE:
+                    cout << "FAILURE";
+                    break;
+                case aiReturn_OUTOFMEMORY:
+                    cout << "OUT OF MEMORY";
+                    break;
+                default:
+                    cout << "??";
+                    break;
+            }
+            cout << ") exporting scene" <<endl;
         }
     }
 

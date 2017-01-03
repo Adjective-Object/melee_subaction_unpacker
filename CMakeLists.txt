@@ -6,6 +6,8 @@ set (mreader_VERSION_MAJOR 0)
 set (mreader_VERSION_MINOR 0)
 set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
 
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O0")
+
 ################
 # DEPENDENCIES #
 ################

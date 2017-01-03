@@ -1,6 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include <bitset>
+#include <set>
 
 #include "helpers.hpp"
 #include "config.hpp"
@@ -104,11 +105,20 @@ void FigaTree::print(int indent) {
 }
 
 void FigaTree::serialize(aiScene *scene) {
-    aiNodeAnim * animations = this->writeAllBoneTracks(scene->mMeshes[0]);
+    aiAnimation * animation = new aiAnimation();
+    cout << "this many tracks: " << dec << trackCtTable->numTracks << endl;
+    vector<aiNodeAnim *> *anims = this->writeAllBoneTracks(scene->mMeshes[0]);
+    animation->mNumChannels = anims->size();
+    animation->mChannels = new aiNodeAnim *[anims->size()];
+    std::copy(anims->begin(), anims->end(), animation->mChannels);
+
+    // add the animation to the scene
+    scene->mAnimations = new aiAnimation*[1];
     scene->mAnimations[0] = animation;
+    scene->mNumAnimations = 1;
+
+    // TODO tell the root node it holds some animation?
 }
-
-
 
 
 
@@ -146,53 +156,188 @@ void TrackCtTable::serialize(aiScene *scene) {
 }
 
 aiNodeAnim * FigaTree::writeBoneTracks(
-        char * mNodeName,
-        TrackHeader * headers,
+        aiString * mNodeName,
+        TrackHeader ** headers,
         size_t len) {
-    unsigned int numFrames = this->fig->num_frames;
+
+    // scan through the channels and get the times for each of rotation, scaling
+    // keys
+
+    set<int> positionKeyframeTimes;
+    set<int> rotationKeyframeTimes;
+    for(unsigned int i=0; i<len; i++) {
+        headers[i]->readKeyframeTimes(positionKeyframeTimes, rotationKeyframeTimes);
+    }
 
     // init the anim
     aiNodeAnim * newAnim = new aiNodeAnim();
-    newAnim->mNodeName = aiString(mNodeName);
-    newAnim->mNumPositionKeys = (int) numFrames;
-    newAnim->mPositionKeys = new aiVectorKey[(int) numFrames];
-    newAnim->mNumRotationKeys= (int) numFrames;
-    newAnim->mRotationKeys = new aiQuatKey[(int) numFrames];
-    newAnim->mNumScalingKeys = (int) numFrames;
-    newAnim->mScalingKeys = new aiVectorKey[(int) numFrames];
-
-    // initialize
-    for(unsigned int i=0; i<numFrames; i++) {
-        aiVectorKey* currentKey = &(newAnim->mPositionKeys[i]);
-        currentKey->mTime = 1.0F/60;
-        currentKey->mValue = aiVector3D(0, 0, 0);
+    newAnim->mNodeName = *mNodeName;
+    newAnim->mNumPositionKeys = (int) positionKeyframeTimes.size();
+    if (positionKeyframeTimes.size()) {
+        newAnim->mPositionKeys = new aiVectorKey[(int) positionKeyframeTimes.size()];
     }
+
+    newAnim->mNumRotationKeys= (int) rotationKeyframeTimes.size();
+    if (rotationKeyframeTimes.size()) {
+        newAnim->mRotationKeys = new aiQuatKey[(int) rotationKeyframeTimes.size()];
+    }
+
+    newAnim->mNumScalingKeys = (int) 0;
+    if (false) {
+        newAnim->mScalingKeys = new aiVectorKey[(int) 0];
+    }
+
+    int i=0;
+    cout << "position times ";
+    for (int posTime: positionKeyframeTimes) {
+        cout << posTime << " ";
+        aiVectorKey* currentKey = &(newAnim->mPositionKeys[i]);
+        currentKey->mTime = posTime;
+        currentKey->mValue = aiVector3D(0, 0, 0);
+        i++;
+    }
+    cout << endl;
+
+    i=0;
+    cout << "rotation times ";
+    for (int rotTime: rotationKeyframeTimes) {
+        cout << rotTime << " ";
+        aiQuatKey * currentRotKey = &(newAnim->mRotationKeys[i]);
+        currentRotKey->mTime = i ; // * 1.0F/60;
+        currentRotKey->mValue = aiQuaternion(0, 0, 0, 0);
+        i++;
+    }
+    cout << endl;
 
     // write
     for(unsigned int i=0; i<len; i++) {
-        headers[i].writeTrack(newAnim, numFrames);
+        headers[i]->writeTrack(newAnim, 20);
     }
 
     return newAnim;
 }
 
-aiNodeAnim * FigaTree::writeAllBoneTracks(aiMesh * mesh) {
-    unsigned int currentTrack = 0;
-    unsigned int currentBone = 0;
-    unsigned int numBones = trackCtTable->numBones;
-    aiNodeAnim * anims = new aiNodeAnim[trackCtTable->numBones];
+// Calculates rotation matrix to euler angles
+// The result is the same as MATLAB except the order
+// of the euler angles ( x and z are swapped ).
+inline aiVector3D rotationMatrixToEulerAngles(aiMatrix4x4 &R) {
+    float sy = sqrt(R.a1 * R.a1 + R.b1 * R.b1);
+ 
+    bool singular = sy < 1e-6; // If
+ 
+    float x, y, z;
+    if (!singular)
+    {
+        x = atan2(R.c2, R.c3);
+        y = atan2(-R.c1, sy);
+        z = atan2(R.b1, R.a1);
+    }
+    else
+    {
+        x = atan2(-R.b3, R.b2);
+        y = atan2(-R.c1, sy);
+        z = 0;
+    }
+    return aiVector3D(x, y, z);
+}
 
-    while(currentTrack < numBones) {
+void makeRelative(aiNodeAnim * anim, aiBone * bone) {
+    aiMatrix4x4 mat;
+    memcpy(&mat, &bone->mOffsetMatrix, sizeof(aiMatrix4x4));
+    // assume the matrix is an affine transformation
+    // so normalize the matrix wrt the bottom left value (d4)
+    mat.a1 /= mat.d4;
+    mat.a2 /= mat.d4;
+    mat.a3 /= mat.d4;
+    mat.a4 /= mat.d4;
+    mat.b1 /= mat.d4;
+    mat.b2 /= mat.d4;
+    mat.b3 /= mat.d4;
+    mat.b4 /= mat.d4;
+    mat.c1 /= mat.d4;
+    mat.c2 /= mat.d4;
+    mat.c3 /= mat.d4;
+    mat.c4 /= mat.d4;
+    mat.d1 /= mat.d4;
+    mat.d2 /= mat.d4;
+    mat.d3 /= mat.d4;
+    mat.d4 = 1;
+    
+    // zero last column (a4 b4 c4 d4) and extract as translate
+    float tx = mat.a4, ty = mat.b4, tz = mat.c4;
+    mat.a4 = 0;
+    mat.b4 = 0;
+    mat.c4 = 0;
+
+    // get scale from the length of the first 3 columns
+    float sx = aiVector3D(mat.a1, mat.b1, mat.c1).Length();
+    float sy = aiVector3D(mat.a2, mat.b2, mat.c2).Length();
+    float sz = aiVector3D(mat.a3, mat.b3, mat.c3).Length();
+
+    // normalize by scale
+    mat.a1 /= sx;
+    mat.b1 /= sx;
+    mat.c1 /= sx;
+    mat.a2 /= sy;
+    mat.b2 /= sy;
+    mat.c2 /= sy;
+    mat.a3 /= sz;
+    mat.b3 /= sz;
+    mat.c3 /= sz;
+
+    aiVector3D rotation = rotationMatrixToEulerAngles(mat);
+    aiQuaternion x = aiQuaternion(aiVector3D(1, 0, 0), rotation.x);
+    aiQuaternion y = aiQuaternion(aiVector3D(0, 1, 0), rotation.y);
+    aiQuaternion z = aiQuaternion(aiVector3D(0, 0, 1), rotation.z);
+
+    for (size_t i = 0; i < anim->mNumPositionKeys; i++) {
+        aiVectorKey *pos = &(anim->mPositionKeys[i]);
+        pos->mValue += aiVector3D(tx, ty, tz);
+    }
+    for (size_t i = 0; i < anim->mNumRotationKeys; i++) {
+        aiQuatKey *rot = &(anim->mRotationKeys[i]);
+        rot->mValue = z * y * x;// * rot->mValue;
+    }
+    for (size_t i = 0; i < anim->mNumScalingKeys; i++) {
+        aiVectorKey *scale = &(anim->mScalingKeys[i]);
+        scale->mValue += aiVector3D(tx, ty, tz);
+    }
+}
+
+vector<aiNodeAnim *> *FigaTree::writeAllBoneTracks(aiMesh * mesh) {
+    unsigned int currentTrack = 0;
+    cout << "this many bones : " << dec << trackCtTable->numBones << endl;
+    unsigned int numBones = (unsigned int) trackCtTable->numBones;
+    vector<aiNodeAnim *> *anims = new vector<aiNodeAnim *>();
+
+    for(unsigned int currentBone = 0; currentBone < numBones; currentBone++) {
         // write some number of tracks corresponding to the thing
-        unsigned int thisStep = trackCtTable->head[currentTrack];
+        unsigned int thisStep = trackCtTable->head[currentBone];
+
+        if (thisStep == 0) {
+            continue;
+        }
+
+        cout << "writing tracks " << currentTrack << " .. "
+             << (currentTrack + thisStep)
+             << " to bone " << currentBone
+             << endl;
 
         aiBone * bone = mesh->mBones[currentBone];
         aiString * name = &(bone->mName);
 
-        writeBoneTracks(name->data, this->animDatas[currentTrack], thisStep);
+//        printf("%*s\n", name->length, name->data);
+
+        aiNodeAnim * anim = writeBoneTracks(
+            name,
+            &this->animDatas[currentTrack],
+            thisStep);
+
+        makeRelative(anim, bone);
+    
+        anims->push_back(anim);
 
         currentTrack += thisStep;
-        currentBone++;
     }
 
     return anims;

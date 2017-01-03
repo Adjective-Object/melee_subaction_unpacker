@@ -114,7 +114,7 @@ void DatFile::print(int indent) {
 void DatFile::serialize(aiScene *scene) {
     map<string, DataProxy *>::iterator iter;
     for (iter = children.begin(); iter != children.end(); ++iter) {
-        iter->second->serialize(nullptr);
+        iter->second->serialize(scene);
     }
 }
 

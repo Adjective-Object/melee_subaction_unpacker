@@ -172,7 +172,7 @@ void JObj::serialize(aiScene *scene) {
 
     // add the mesh to the scene
     scene->mMeshes = new aiMesh*[ 1 ];
-    scene->mMeshes[ 0 ] = mesh;
+    scene->mMeshes[0] = mesh;
     scene->mNumMeshes = 1;
 
     // tell the root node it holds the global mesh '0'
@@ -183,15 +183,6 @@ void JObj::serialize(aiScene *scene) {
     // populate bones list of the mesh
     this->_serialize_bones_to_mesh(*mesh, *(scene->mRootNode));
 
-    // dump to file
-    cout << "writing file " << JOINT_OUTPUT_PATH << endl;
-    Assimp::Exporter exporter = Assimp::Exporter();
-    const aiExportFormatDesc * exportFormatDesc = 
-        exporter.GetExportFormatDescription(EXPORT_FORMAT);
-    cout << "format: " << exportFormatDesc->id << endl;
-    if (0 > exporter.Export(scene, exportFormatDesc->id, JOINT_OUTPUT_PATH)) {
-        cout << "assimp error exporting scene" <<endl;
-    }
 }
 
 size_t JObj::totalNumBones() {
